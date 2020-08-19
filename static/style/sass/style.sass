@@ -278,6 +278,63 @@ body
 
 
 
+
+#slider-3
+    min-width: 0
+    flex: 1 0 6%
+    .slick 
+        &-track
+            
+            border: 1px solid #EEEEEE;
+            
+        &-list
+            overflow: hidden
+        &-slide
+            
+            margin: 9px 5px
+            &.slick-active
+                border: 1px solid #4C9162;        
+
+
+
+
+
+#slider-4  
+    min-width: 0 
+    .slick
+        &-track
+            display: flex
+        &-list
+            overflow: hidden 
+        &-arrow
+            position: relative
+            z-index: 10
+            font-size: 0
+            width: 65px
+            height: 65px
+            &:hover
+                cursor: pointer
+
+        &-next
+            background: url("../../images/next-arrow-2.svg")
+            background-position: 0 0 
+            background-size: auto
+            background-repeat: no-repeat
+            border: none
+            left: 100%
+            top: -50%
+        &-prev     
+            background: url("../../images/prev-arrow-2.svg") 
+            background-position: 0 0 
+            background-size: auto
+            background-repeat: no-repeat
+            border: none 
+            right: 22%    
+            top: 37%     
+
+
+
+
 .calculate
     margin: 80px 150px 17px 150px
     &__header
@@ -463,6 +520,83 @@ body
                 margin-left: 20px
                 color: #323232
                 +museo_normal
+
+
+
+.menu
+    margin: 0px 150px
+    h2,
+    p
+        margin: 0
+        text-align: center
+    &__header
+        +museo_bold
+        
+
+    &__description
+        +museo_normal
+        margin-bottom: 20px
+    &__slider
+        display: flex
+        &__big
+            
+            &__block
+                display: flex
+                &__item
+                    flex: 1 0 50%
+                    &__calories
+                        display: flex
+                        &__items
+                            padding: 10px
+                            margin: 18px 5px 
+                            background: #4C9162
+                            border-radius: 3px
+                            color: #ffffff
+                            font-size: 14px
+                            +museo_normal
+                    &__header
+                        +museo_normal
+                        font-size: 25px
+                        h3
+                            margin: 0
+                    &__description
+                        
+                        b
+                            font-size: 16px
+                            color: #161716
+                            +museo_normal
+                            margin-bottom: 7px
+                            text-align: start
+                        p
+                            display: inline-block
+                            width: 447px
+                            font-size: 16px
+                            line-height: 150%
+                            color: #323232
+                            +museo_normal
+                            text-align: start
+                            
+    &__buttons
+        display: flex
+        align-items: center
+        transform: translate(635px, -115px)
+        &__item
+            padding: 20px 30px
+            border-radius: 53px
+            margin: 0 5px
+            +museo_normal
+            font-size: 16px
+            
+            &:nth-child(1)
+                background: #FFC702
+                border: none
+            &:nth-child(2)
+                border: 2px solid #FFC702
+                background: #ffffff
+            &:hover
+                cursor: pointer
+
+                
                 
             
                 
