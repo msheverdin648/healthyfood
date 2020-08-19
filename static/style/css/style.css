@@ -516,4 +516,89 @@ body {
   left: 14%;
   top: 1%;
 }
+
+.programms {
+  margin: 0px 180px;
+}
+
+.programms__big {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.programms__big__block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 195px 15px 40px 15px;
+  padding: 20px 0px 0px 23px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 25%;
+          flex: 1 1 25%;
+  height: 119px;
+  border: 1px solid #4C9162;
+  border-radius: 5px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.programms__big__block:hover {
+  cursor: pointer;
+}
+
+.programms__big__block__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.programms__big__block__item__purpose {
+  font-size: 16px;
+  color: #000000;
+  font-family: 'Museo Sans Cyrl 500';
+}
+
+.programms__big__block__item__discription {
+  font-size: 14px;
+  color: #000000;
+  text-transform: uppercase;
+  font-family: 'Museo Sans Cyrl 700';
+  font-weight: bold;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 30%;
+          flex: 1 0 30%;
+}
+
+.programms__big__block__item__choose {
+  display: inline-block;
+  width: 117px;
+  color: #4C9162;
+  font-family: 'Museo Sans Cyrl 500';
+  font-size: 16px;
+  text-align: center;
+  -webkit-transform: translateY(-20px);
+          transform: translateY(-20px);
+}
+
+.programms__big__block__item__choose:before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: url("../../images/tick-green.svg") no-repeat;
+  position: relative;
+  left: -15px;
+  top: 5px;
+}
+
+.programms__big__block__item.image {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
 /*# sourceMappingURL=style.css.map */

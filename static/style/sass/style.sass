@@ -359,7 +359,60 @@ body
                 background: url('../../images/white-arrow.svg')  
                 background-repeat: no-repeat
                 left: 14%
-                top: 1%      
+                top: 1% 
+
+
+.programms
+    margin: 0px 180px
+    &__big
+        display: flex
+        &__block
+            display: flex
+            margin: 195px 15px 40px 15px  
+            padding: 20px 0px 0px 23px
+            flex: 1 1 25%
+            height: 119px
+            border: 1px solid #4C9162;
+            border-radius: 5px;
+            justify-content: space-between
+            &:hover
+                cursor: pointer
+            &__item
+                display: flex
+                flex-direction: column
+                &__purpose
+                    font-size: 16px
+                    color: #000000
+                    +museo_normal
+                &__discription
+                    font-size: 14px;
+                    color: #000000
+                    text-transform: uppercase
+                    +museo_bold
+                    font-weight: bold
+                    flex: 1 0 30%
+                &__choose
+                    display: inline-block
+                    width: 117px
+                    color: #4C9162
+                    +museo_normal
+                    font-size: 16px
+                    text-align: center
+                    transform: translateY(-20px)
+                    &:before
+                        content: ""
+                        display: inline-block
+                        width: 24px
+                        height: 24px
+                        background: url("../../images/tick-green.svg") no-repeat
+                        position: relative
+                        left: -15px
+                        top: 5px
+                    
+                &.image
+                    align-self: flex-end  
+                &__img
+                    
             
                 
 
