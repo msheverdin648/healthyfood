@@ -131,6 +131,8 @@ body {
   font-size: 0;
   width: 60px;
   height: 60px;
+  -webkit-transform: translateY(-140px);
+          transform: translateY(-140px);
 }
 
 #slider-1 .slick-arrow:hover {
@@ -189,7 +191,7 @@ body {
 }
 
 .slider h2 {
-  margin: 0 0 50px 215px;
+  margin: 0 0 50px 150px;
   display: block;
   width: 558px;
   font-size: 35px;
@@ -387,7 +389,7 @@ body {
 }
 
 .calculate {
-  margin: 80px 180px 17px 180px;
+  margin: 80px 150px 17px 150px;
 }
 
 .calculate__header {
@@ -518,7 +520,8 @@ body {
 }
 
 .programms {
-  margin: 0px 180px;
+  margin: 0px 150px;
+  margin-bottom: 40px;
 }
 
 .programms__big {
@@ -546,6 +549,36 @@ body {
 
 .programms__big__block:hover {
   cursor: pointer;
+}
+
+.programms__big__block.active {
+  background-color: #4C9162;
+}
+
+.programms__big__block.active label,
+.programms__big__block.active p {
+  color: #ffffff;
+}
+
+.programms__big__block.active .programms__big__block__item__choose:before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: url("../../images/tick-white.svg") no-repeat;
+}
+
+.programms__big__block.active a {
+  color: #ffffff;
+}
+
+.programms__big__block.active:after {
+  content: "";
+  position: absolute;
+  border: 20px solid transparent;
+  border-top: 25px solid #4C9162;
+  -webkit-transform: translate(90px, 118px);
+          transform: translate(90px, 118px);
 }
 
 .programms__big__block__item {
@@ -600,5 +633,48 @@ body {
 .programms__big__block__item.image {
   -ms-flex-item-align: end;
       align-self: flex-end;
+}
+
+.programms__small {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.programms__small__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 14%;
+          flex: 1 1 14%;
+  background: #F8F8F8;
+  border-radius: 5px;
+  padding: 28px 0px 28px 26px;
+  margin: 20px 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.programms__small__items:hover {
+  cursor: pointer;
+}
+
+.programms__small__items.active {
+  background-color: #4C9162;
+}
+
+.programms__small__items.active p {
+  color: #ffffff;
+}
+
+.programms__small__items__discription {
+  font-size: 16px;
+  margin-left: 20px;
+  color: #323232;
+  font-family: 'Museo Sans Cyrl 500';
 }
 /*# sourceMappingURL=style.css.map */

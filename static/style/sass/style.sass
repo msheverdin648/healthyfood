@@ -92,8 +92,10 @@ body
             font-size: 0
             width: 60px
             height: 60px
+            transform: translateY(-140px)
             &:hover
                 cursor: pointer
+
         &-next
             background: url("../../images/next-arrow.svg")
             background-position: 0 0 
@@ -114,9 +116,9 @@ body
                 list-style: none
                 &.slick-active
                     button
-                        background: #FFC702;
-                        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.16);
-                        border-radius: 3px;
+                        background: #FFC702
+                        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.16)
+                        border-radius: 3px
                         height: 5px
             button
                 font-size: 0
@@ -132,7 +134,7 @@ body
     position: relative
     z-index: 5
     h2
-        margin: 0 0 50px 215px
+        margin: 0 0 50px 150px
         display: block
         width: 558px
         font-size: 35px
@@ -155,7 +157,7 @@ body
                     background-size: cover
             &:nth-child(6)
                 .image__box
-                    background: #D5C3DD;
+                    background: #D5C3DD
                     background-size: cover
             &:nth-child(7)
                 .image__box
@@ -163,7 +165,7 @@ body
                     background-size: cover
             &:nth-child(8)
                 .image__box
-                    background: #B9DEE0;
+                    background: #B9DEE0
                     background-size: cover
             &:nth-child(9)
                 .image__box
@@ -179,7 +181,7 @@ body
                     background-size: cover
             &:nth-child(12)
                 .image__box
-                    background: #D5C3DD;
+                    background: #D5C3DD
                     background-size: cover
             &:nth-child(13)
                 .image__box
@@ -187,22 +189,22 @@ body
                     background-size: cover
             &:nth-child(14)
                 .image__box
-                    background: #B9DEE0;
+                    background: #B9DEE0
                     background-size: cover
             .image__box
                 display: flex
-                width: 270px;
-                height: 250px;
-                border-radius: 5px;
+                width: 270px
+                height: 250px
+                border-radius: 5px
                 align-items: center
                 justify-content: center
             .discription
-                font-size: 20px;
+                font-size: 20px
                 +museo_bold
                 color: black
                 line-height: 23px
             .detailed
-                color: #4C9162;
+                color: #4C9162
                 text-decoration: none
                 +museo_normal
                 &:after
@@ -260,13 +262,13 @@ body
                 list-style: none
                 &.slick-active
                     button
-                        background: #FFC702;
-                        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.16);
-                        border-radius: 3px;
+                        background: #FFC702
+                        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.16)
+                        border-radius: 3px
                         height: 5px
             button
                 font-size: 0
-                background: #E7E7E7;
+                background: #E7E7E7
                 border-radius: 2px
                 width: 30px
                 height: 3px
@@ -277,16 +279,16 @@ body
 
 
 .calculate
-    margin: 80px 180px 17px 180px
+    margin: 80px 150px 17px 150px
     &__header
-        font-size: 35px;
+        font-size: 35px
         +museo_bold
         
     &__box
         display: flex
-        background: #FFFFFF;
-        box-shadow: 0px 13px 37px rgba(0, 0, 0, 0.05);
-        border-radius: 5px;
+        background: #FFFFFF
+        box-shadow: 0px 13px 37px rgba(0, 0, 0, 0.05)
+        border-radius: 5px
         padding: 30px
         &__item
             display: flex
@@ -301,27 +303,27 @@ body
             flex: 1 1 27%
             justify-content: center
             &__button 
-                height: 160px;
+                height: 160px
                 width: 225px
-                font-size: 18px;
+                font-size: 18px
                 text-align: center
                 +museo_bold
-                background: #FFC702;
-                border-radius: 5px;
+                background: #FFC702
+                border-radius: 5px
                 border: none
                 
             &__7
                 height: 100%
             .input
-                height: 56px;
-                padding: 0px 30px;
-                font-size: 16px;
-                background: #FBFBFB;
-                border: 1px solid #F7F7F7;
-                border-radius: 28px;
+                height: 56px
+                padding: 0px 30px
+                font-size: 16px
+                background: #FBFBFB
+                border: 1px solid #F7F7F7
+                border-radius: 28px
             .discription
-                font-size: 16px;
-                color: #161716;
+                font-size: 16px
+                color: #161716
                 +museo_bold
                 margin-bottom: 10px
     &__consultation
@@ -331,12 +333,12 @@ body
         background: url("../../images/consultation.png")
         background-repeat: no-repeat
         background-size: cover
-        height: 120px;
+        height: 120px
         margin-top: 20px
         p
             margin-right: 80px
             margin-left: 237px
-            font-size: 23px;
+            font-size: 23px
             color: #ffffff
             display: block
             width: 497px
@@ -345,10 +347,10 @@ body
             b
                color: #FFC702
         a
-            color: #ffffff;
+            color: #ffffff
             text-decoration: none
             +museo_normal
-            font-size: 20px;
+            font-size: 20px
             line-height: 23px
             &:after
                 content: ""
@@ -363,7 +365,8 @@ body
 
 
 .programms
-    margin: 0px 180px
+    margin: 0px 150px
+    margin-bottom: 40px
     &__big
         display: flex
         &__block
@@ -372,11 +375,35 @@ body
             padding: 20px 0px 0px 23px
             flex: 1 1 25%
             height: 119px
-            border: 1px solid #4C9162;
-            border-radius: 5px;
+            border: 1px solid #4C9162
+            border-radius: 5px
             justify-content: space-between
             &:hover
                 cursor: pointer
+            &.active
+                background-color: #4C9162
+                label,
+                p
+                    color: #ffffff
+                .programms__big__block__item__choose
+                    &:before
+                        content: ""
+                        display: inline-block
+                        width: 24px
+                        height: 24px
+                        background: url("../../images/tick-white.svg") no-repeat
+                a
+                    color: #ffffff
+                
+                &:after
+                    content: ""
+                    position: absolute
+                    border: 20px solid transparent
+                    border-top: 25px solid #4C9162
+                    transform: translate(90px,118px)
+
+
+                    
             &__item
                 display: flex
                 flex-direction: column
@@ -385,7 +412,7 @@ body
                     color: #000000
                     +museo_normal
                 &__discription
-                    font-size: 14px;
+                    font-size: 14px
                     color: #000000
                     text-transform: uppercase
                     +museo_bold
@@ -412,7 +439,31 @@ body
                 &.image
                     align-self: flex-end  
                 &__img
-                    
+                
+
+    &__small
+        display: flex
+        flex-wrap: wrap
+        &__items
+            display: flex
+            flex: 1 1 14%
+            background: #F8F8F8
+            border-radius: 5px
+            padding: 28px 0px 28px 26px
+            margin: 20px 20px
+            align-items: center
+            &:hover
+                cursor: pointer
+            &.active
+                background-color: #4C9162
+                p
+                    color: #ffffff
+            &__discription
+                font-size: 16px
+                margin-left: 20px
+                color: #323232
+                +museo_normal
+                
             
                 
 
