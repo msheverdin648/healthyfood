@@ -4,18 +4,21 @@
 body 
     margin: 0
     
+    
 .container
-    padding: 0px 90px
+    padding: 0px 50px
     
     
     
     
 .header
+    position: relative
+    z-index: 10
     background: url("../../images/header_bg.jpg")
     background-position: 0 0
     background-repeat: no-repeat
     background-size: cover
-    padding-bottom: 160px
+    padding-bottom: 300px
     &__navigate
         +museo_normal
         display: flex
@@ -76,50 +79,288 @@ body
             
 
 
-
-.slick
-    &-list
-        overflow: hidden
-    &-track
-        display: flex
-    &-arrow
-        position: absolute
-        top: 50%
-        z-index: 10
-        font-size: 0
-        width: 60px
-        height: 60px
-        &:hover
-            cursor: pointer
-    &-next
-        background: url("../../images/next-arrow.svg")
-        background-position: 0 0 
-        background-size: auto
-        background-repeat: no-repeat
-        border: none
-        right: 5%
-    &-prev     
-        background: url("../../images/prev-arrow.svg") 
-        background-position: 0 0 
-        background-size: auto
-        background-repeat: no-repeat
-        border: none 
-        left: 5%
-    &-dots
-        display: flex
-        li
-            list-style: none
-            &.slick-active
-                button
-                    background: #FFC702;
-                    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.16);
-                    border-radius: 3px;
-                    height: 5px
-        button
+#slider-1
+    .slick
+        &-list
+            overflow: hidden
+        &-track
+            display: flex
+        &-arrow
+            position: absolute
+            top: 50%
+            z-index: 10
             font-size: 0
-            background: rgba(255, 255, 255, 0.33)
-            border-radius: 2px
-            width: 30px
-            height: 3px
-            margin: 0px 2.5px
+            width: 60px
+            height: 60px
+            &:hover
+                cursor: pointer
+        &-next
+            background: url("../../images/next-arrow.svg")
+            background-position: 0 0 
+            background-size: auto
+            background-repeat: no-repeat
             border: none
+            right: 5%
+        &-prev     
+            background: url("../../images/prev-arrow.svg") 
+            background-position: 0 0 
+            background-size: auto
+            background-repeat: no-repeat
+            border: none 
+            left: 5%
+        &-dots
+            display: flex
+            li
+                list-style: none
+                &.slick-active
+                    button
+                        background: #FFC702;
+                        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.16);
+                        border-radius: 3px;
+                        height: 5px
+            button
+                font-size: 0
+                background: rgba(255, 255, 255, 0.33)
+                border-radius: 2px
+                width: 30px
+                height: 3px
+                margin: 0px 2.5px
+                border: none
+
+
+.slider
+    position: relative
+    z-index: 5
+    h2
+        margin: 0 0 50px 215px
+        display: block
+        width: 558px
+        font-size: 35px
+        +museo_bold
+        
+        b
+            color: #4C9162
+            
+        
+    
+    &__slick
+        &.slick__dots
+            position: absolute
+            background: #000
+        &__item
+            margin: 0px 15px
+            &:nth-child(15)
+                .image__box
+                    background: #C6E6D0
+                    background-size: cover
+            &:nth-child(6)
+                .image__box
+                    background: #D5C3DD;
+                    background-size: cover
+            &:nth-child(7)
+                .image__box
+                    background: #C6E6D0
+                    background-size: cover
+            &:nth-child(8)
+                .image__box
+                    background: #B9DEE0;
+                    background-size: cover
+            &:nth-child(9)
+                .image__box
+                    background: #F7F8DF
+                    background-size: cover
+            &:nth-child(10)
+                .image__box
+                    background: #EBF4D7
+                    background-size: cover
+            &:nth-child(11)
+                .image__box
+                    background: #D1E2E8
+                    background-size: cover
+            &:nth-child(12)
+                .image__box
+                    background: #D5C3DD;
+                    background-size: cover
+            &:nth-child(13)
+                .image__box
+                    background: #C6E6D0
+                    background-size: cover
+            &:nth-child(14)
+                .image__box
+                    background: #B9DEE0;
+                    background-size: cover
+            .image__box
+                display: flex
+                width: 270px;
+                height: 250px;
+                border-radius: 5px;
+                align-items: center
+                justify-content: center
+            .discription
+                font-size: 20px;
+                +museo_bold
+                color: black
+                line-height: 23px
+            .detailed
+                color: #4C9162;
+                text-decoration: none
+                +museo_normal
+                &:after
+                    content: ""
+                    display: inline-block
+                    position: relative
+                    width: 8.5px
+                    height: 12px
+                    background: url('../../images/green-arrow.svg')  
+                    left: 14%
+                    top: 1%
+                    
+                    
+
+                    
+
+#slider-2
+    display: flex
+    flex-direction: column
+    .slick
+        &-list
+            overflow: hidden
+            flex-grow: 0
+        &-track
+            display: flex
+        &-arrow
+            position: relative
+            z-index: 10
+            font-size: 0
+            width: 70px
+            height: 70px
+            top: -23px
+            &:hover
+                cursor: pointer
+        &-next
+            background: url("../../images/next-arrow-2.svg")
+            background-position: 0 0 
+            background-size: auto
+            background-repeat: no-repeat
+            border: none
+            left: 90%
+            top: -447px
+        &-prev     
+            background: url("../../images/prev-arrow-2.svg") 
+            background-position: 0 0 
+            background-size: auto
+            background-repeat: no-repeat
+            border: none 
+            left: 86.5%
+        &-dots
+            display: flex
+            justify-content: center
+            transform: translateY(-30px)
+            li
+                list-style: none
+                &.slick-active
+                    button
+                        background: #FFC702;
+                        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.16);
+                        border-radius: 3px;
+                        height: 5px
+            button
+                font-size: 0
+                background: #E7E7E7;
+                border-radius: 2px
+                width: 30px
+                height: 3px
+                margin: 0px 2.5px
+                border: none
+
+
+
+
+.calculate
+    margin: 80px 180px 17px 180px
+    &__header
+        font-size: 35px;
+        +museo_bold
+        
+    &__box
+        display: flex
+        background: #FFFFFF;
+        box-shadow: 0px 13px 37px rgba(0, 0, 0, 0.05);
+        border-radius: 5px;
+        padding: 30px
+        &__item
+            display: flex
+            
+            &.first
+                flex-wrap: wrap
+            &.second
+        &__block
+            display: flex
+            flex-direction: column
+            margin: 15px 13px
+            flex: 1 1 27%
+            justify-content: center
+            &__button 
+                height: 160px;
+                width: 225px
+                font-size: 18px;
+                text-align: center
+                +museo_bold
+                background: #FFC702;
+                border-radius: 5px;
+                border: none
+                
+            &__7
+                height: 100%
+            .input
+                height: 56px;
+                padding: 0px 30px;
+                font-size: 16px;
+                background: #FBFBFB;
+                border: 1px solid #F7F7F7;
+                border-radius: 28px;
+            .discription
+                font-size: 16px;
+                color: #161716;
+                +museo_bold
+                margin-bottom: 10px
+    &__consultation
+        display: flex
+        align-items: center
+        justify-content: center
+        background: url("../../images/consultation.png")
+        background-repeat: no-repeat
+        background-size: cover
+        height: 120px;
+        margin-top: 20px
+        p
+            margin-right: 80px
+            margin-left: 237px
+            font-size: 23px;
+            color: #ffffff
+            display: block
+            width: 497px
+            +museo_normal
+            text-align: start
+            b
+               color: #FFC702
+        a
+            color: #ffffff;
+            text-decoration: none
+            +museo_normal
+            font-size: 20px;
+            line-height: 23px
+            &:after
+                content: ""
+                display: inline-block
+                position: relative
+                width: 8.5px
+                height: 14px
+                background: url('../../images/white-arrow.svg')  
+                background-repeat: no-repeat
+                left: 14%
+                top: 1%      
+            
+                
+
+                        
