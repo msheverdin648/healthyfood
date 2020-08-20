@@ -42,3 +42,15 @@ $('.header__slider').each(function(){
 
     });
  });
+
+
+ $(document).ready(function(){
+    $('.reviews__slider').slick({
+
+        dots: false, 
+        arrows: true,
+        centerMode: true,
+        slidesToShow: 1,
+
+    });
+ });

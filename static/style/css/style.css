@@ -1153,4 +1153,77 @@ body {
   line-height: 129.7%;
   font-family: 'Museo Sans Cyrl 500';
 }
+
+.reviews {
+  padding-top: 100px;
+}
+
+.reviews__header {
+  margin-left: 215px;
+}
+
+.reviews__slider {
+  width: 1250px;
+  margin: 0 auto;
+}
+
+.reviews__slider__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: #ffffff;
+  -webkit-box-shadow: 0px 10px 33px rgba(0, 0, 0, 0.06);
+          box-shadow: 0px 10px 33px rgba(0, 0, 0, 0.06);
+  border-radius: 5px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0px 15px;
+  padding: 14px 0px;
+}
+
+.reviews__slider__item::before {
+  content: "";
+  display: block;
+  background: url(../../images/before.svg);
+  border-radius: 5px;
+  width: 99px;
+  height: 46px;
+  position: absolute;
+  z-index: 20;
+  bottom: 0;
+  -webkit-transform: translate(-498px, -20px);
+          transform: translate(-498px, -20px);
+}
+
+.reviews__slider__item::after {
+  content: "";
+  display: block;
+  background: url(../../images/after.svg);
+  border-radius: 5px;
+  width: 99px;
+  height: 46px;
+  position: absolute;
+  z-index: 20;
+  bottom: 0;
+  -webkit-transform: translate(-213px, -20px);
+          transform: translate(-213px, -20px);
+}
+
+.reviews__slider__item__info {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 40%;
+          flex: 0 1 40%;
+  padding: 0px 60px 0px 55px;
+}
+
+.reviews__slider__item__images {
+  margin-left: 20px;
+}
+
+#slider-5 .slick-track {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
 /*# sourceMappingURL=style.css.map */

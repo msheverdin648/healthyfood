@@ -797,6 +797,64 @@ body
                 line-height: 129.7%
                 +museo_normal
             
+
+.reviews
+    padding-top: 100px
+    &__header
+        margin-left: 215px       
+    &__slider
+        width: 1250px
+        margin: 0 auto
+        &__item
+            display: flex
+            background: #ffffff
+            box-shadow: 0px 10px 33px rgba(0, 0, 0, 0.06)
+            border-radius: 5px
+            justify-content: center
+            margin: 0px 15px
+            padding: 14px 0px
+            &::before
+                    content: "" 
+                    display: block
+                    background: url(../../images/before.svg)
+                    border-radius: 5px
+                    width: 99px
+                    height: 46px
+                    position: absolute
+                    z-index: 20  
+                    bottom: 0
+                    transform: translate(-498px, -20px)
+
+            &::after
+                    content: "" 
+                    display: block
+                    background: url(../../images/after.svg)
+                    border-radius: 5px
+                    width: 99px
+                    height: 46px
+                    position: absolute
+                    z-index: 20  
+                    bottom: 0
+                    transform: translate(-213px, -20px)
+            &__before
+                
+            &__info
+                flex: 0 1 40%
+                padding: 0px 60px 0px 55px
+            &__images
+                margin-left: 20px
+                
+                
+        
+
+
+#slider-5
+    .slick
+        &-track
+            display: flex
+        &-list
+
+        &-slide
                 
 
                         
