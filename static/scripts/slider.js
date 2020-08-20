@@ -22,11 +22,13 @@ $('.header__slider').each(function(){
     $('.menu__slider__small').slick({
 
         dots: false, 
-        slidesToShow: 5,
+        slidesToShow: 3,
         arrows: true,
         vertical: true,
         slidesToScroll: 1,
-
+        centerMode: true,
+        focusOnSelect: true,
+        asNavFor: '.menu__slider__big'
     });
  });
 
@@ -36,6 +38,7 @@ $('.header__slider').each(function(){
 
         dots: false, 
         arrows: true,
+        asNavFor: '.menu__slider__small'
 
     });
  });

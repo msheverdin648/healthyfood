@@ -14,6 +14,10 @@
   font-style: normal;
 }
 
+.main {
+  overflow: hidden;
+}
+
 body {
   margin: 0;
 }
@@ -112,6 +116,10 @@ body {
 
 .header__slider__item__button:hover {
   cursor: pointer;
+}
+
+.header__slider__item__button:focus {
+  outline: none;
 }
 
 #slider-1 .slick-list {
@@ -390,9 +398,6 @@ body {
 
 #slider-3 {
   min-width: 0;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 6%;
-          flex: 1 0 6%;
 }
 
 #slider-3 .slick-track {
@@ -401,18 +406,56 @@ body {
 
 #slider-3 .slick-list {
   overflow: hidden;
+  padding: 0;
 }
 
 #slider-3 .slick-slide {
   margin: 9px 5px;
 }
 
-#slider-3 .slick-slide.slick-active {
+#slider-3 .slick-slide:hover {
+  border: 1px solid #EEEEEE;
+}
+
+#slider-3 .slick-slide.slick-center {
   border: 1px solid #4C9162;
+}
+
+#slider-3 .slick-arrow {
+  position: relative;
+  font-size: 0;
+  width: 101px;
+  height: 36px;
+  border: none;
+}
+
+#slider-3 .slick-arrow:focus {
+  outline: none;
+}
+
+#slider-3 .slick-arrow:hover {
+  cursor: pointer;
+}
+
+#slider-3 .slick-next {
+  border-radius: 0px 0px 5px 5px;
+  background: url(../../images/arrow-down.svg) #4C9162;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+#slider-3 .slick-prev {
+  border-radius: 5px 5px 0px 0px;
+  background: url(../../images/arrow-up.svg) #4C9162;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
 }
 
 #slider-4 {
   min-width: 0;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 91.7%;
+          flex: 0 0 91.7%;
 }
 
 #slider-4 .slick-track {
@@ -444,7 +487,7 @@ body {
   background-repeat: no-repeat;
   border: none;
   left: 100%;
-  top: -50%;
+  top: -275px;
 }
 
 #slider-4 .slick-prev {
@@ -453,8 +496,8 @@ body {
   background-size: auto;
   background-repeat: no-repeat;
   border: none;
-  right: 22%;
-  top: 37%;
+  right: 15%;
+  top: 165px;
 }
 
 .calculate {
@@ -514,6 +557,14 @@ body {
   background: #FFC702;
   border-radius: 5px;
   border: none;
+}
+
+.calculate__box__block__button:focus {
+  outline: none;
+}
+
+.calculate__box__block__button:hover {
+  cursor: pointer;
 }
 
 .calculate__box__block__7 {
@@ -749,6 +800,7 @@ body {
 
 .menu {
   margin: 0px 150px;
+  margin-bottom: 30px;
 }
 
 .menu h2,
@@ -827,6 +879,10 @@ body {
   text-align: start;
 }
 
+.menu__slider__small__item {
+  padding: 10px;
+}
+
 .menu__buttons {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -844,6 +900,7 @@ body {
   margin: 0 5px;
   font-family: 'Museo Sans Cyrl 500';
   font-size: 16px;
+  outline: none;
 }
 
 .menu__buttons__item:nth-child(1) {
@@ -858,5 +915,242 @@ body {
 
 .menu__buttons__item:hover {
   cursor: pointer;
+}
+
+.buy-now {
+  background: url("../../images/buy-now.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.buy-now__header {
+  font-size: 35px;
+  line-height: 115%;
+  color: #161716;
+  font-family: 'Museo Sans Cyrl 700';
+  margin: 77px 0 42px 0;
+  font-weight: bold;
+}
+
+.buy-now__block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.buy-now__block__days__item {
+  padding: 45px 27px;
+  text-align: center;
+  background: #fff;
+  position: relative;
+  -webkit-box-shadow: 13px 1px 22px rgba(0, 0, 0, 0.23);
+          box-shadow: 13px 1px 22px rgba(0, 0, 0, 0.23);
+}
+
+.buy-now__block__days__item h2 {
+  font-size: 30px;
+  font-family: 'Museo Sans Cyrl 700';
+  margin-bottom: 10px;
+}
+
+.buy-now__block__days__item p {
+  font-size: 18px;
+  font-family: 'Museo Sans Cyrl 500';
+  display: inline-block;
+  width: 191px;
+  margin: 0;
+}
+
+.buy-now__block__days__item.active {
+  background-color: #4C9162;
+  -webkit-transform: scale(1.06);
+          transform: scale(1.06);
+  z-index: 20;
+}
+
+.buy-now__block__days__item.active h2,
+.buy-now__block__days__item.active p {
+  color: #ffffff;
+}
+
+.buy-now__block__days__item.active::before {
+  content: " ";
+  position: absolute;
+  border: 10px solid transparent;
+  border-right: 7px solid #4C9162;
+  -webkit-transform: translate(-132px, 149px);
+          transform: translate(-132px, 149px);
+}
+
+.buy-now__block__days__item.active::after {
+  content: " ";
+  position: absolute;
+  border: 103px  solid transparent;
+  border-left: 24px solid #4C9162;
+  -webkit-transform: translate(26px, -118px);
+          transform: translate(26px, -118px);
+}
+
+.buy-now__block__days__first {
+  border-radius: 5px 0px 0px 0px;
+}
+
+.buy-now__block__days__second {
+  border-radius: 0px 0px 0px 5px;
+}
+
+.buy-now__block__days__second.active::before {
+  content: "";
+  border: 10px solid transparent;
+  border-right: 7px solid #4C9162;
+  top: 0;
+  left: 0;
+  -webkit-transform: translate(-10px, -10px);
+          transform: translate(-10px, -10px);
+}
+
+.buy-now__block__discription {
+  padding: 32px 34px 18px 60px;
+  background: #fff;
+  -webkit-box-shadow: 0px 66px 82px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 66px 82px rgba(0, 0, 0, 0.15);
+  border-radius: 0 5px 5px 0;
+}
+
+.buy-now__block__discription p,
+.buy-now__block__discription h2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 408px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.buy-now__block__discription__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 20px;
+}
+
+.buy-now__block__discription__buttons__item {
+  border-radius: 53px;
+  border: none;
+  background: #fff;
+  margin: 5px;
+}
+
+.buy-now__block__discription__buttons__item:nth-child(1) {
+  padding: 22px 41px;
+  background: #FFC702;
+}
+
+.buy-now__block__discription__buttons__item:nth-child(2) {
+  padding: 22px 29px;
+  border: 2px solid #FFC702;
+}
+
+.buy-now__block__discription b {
+  margin: 6px 10px 20px;
+}
+
+.buy-now__block__discription b.new-price {
+  color: #4C9162;
+  font-size: 31px;
+  font-family: 'Museo Sans Cyrl 700';
+}
+
+.buy-now__block__discription b.old-price {
+  color: #AEAEAE;
+  text-decoration: line-through;
+  font-family: 'Museo Sans Cyrl 500';
+  font-weight: 300 !important;
+  font-size: 27px;
+}
+
+.buy-now__block__discription__price {
+  color: #7C7C7C;
+  font-size: 14px;
+  font-family: 'Museo Sans Cyrl 500';
+  margin: 0;
+}
+
+.buy-now__block__discription__header {
+  font-family: 'Museo Sans Cyrl 500';
+  font-size: 25px;
+  line-height: 114.7%;
+  color: #161716;
+}
+
+.buy-now__block__discription__text {
+  font-family: 'Museo Sans Cyrl 500';
+  color: #323232;
+  font-size: 16px;
+  line-height: 130%;
+}
+
+.buy-now__block__discription__small-text {
+  font-family: 'Museo Sans Cyrl 500';
+  font-size: 15px;
+  line-height: 18px;
+  color: #5B5B5B;
+}
+
+.buy-now__bonus {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transform: translateX(-117px);
+          transform: translateX(-117px);
+  margin-bottom: 89px;
+}
+
+.buy-now__bonus__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 30px 29px 8px 29px;
+  text-align: center;
+  width: 189px;
+  background-color: #fff;
+  margin: 15px;
+  -webkit-box-shadow: 0px 9px 34px rgba(0, 0, 0, 0.17);
+          box-shadow: 0px 9px 34px rgba(0, 0, 0, 0.17);
+  border-radius: 5px;
+}
+
+.buy-now__bonus__item__header {
+  font-size: 16px;
+  line-height: 114.7%;
+  color: #161716;
+  font-family: 'Museo Sans Cyrl 500';
+}
+
+.buy-now__bonus__item__discription {
+  font-size: 14px;
+  color: #323232;
+  line-height: 129.7%;
+  font-family: 'Museo Sans Cyrl 500';
 }
 /*# sourceMappingURL=style.css.map */
