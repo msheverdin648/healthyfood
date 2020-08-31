@@ -1420,15 +1420,15 @@ body {
   cursor: pointer;
 }
 
-.questions__answers__item.active {
+.questions__answers__item .active {
   display: block;
 }
 
-.questions__answers__item.active::after {
+.questions__answers__item .active::after {
   content: "";
 }
 
-.questions__answers__item.active::before {
+.questions__answers__item .active::before {
   content: "";
   display: block;
   position: absolute;
@@ -1455,7 +1455,6 @@ body {
 }
 
 .questions__answers__item .answer {
-  display: none;
   padding: 25px 29px 34px 25px;
   background: #4C9162;
   border-radius: 5px;

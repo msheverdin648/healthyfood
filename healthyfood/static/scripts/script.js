@@ -22,13 +22,11 @@ $(document).ready(function(){
 
     $(".questions__answers__item").on('click', function(){
         if ($(this).hasClass('active')){
-            $(this).removeClass('active')
-            $(this).children('.answer').slideUp()
+            $(this).removeClass("active");
+            $(this).children('.answer').removeClass("active");
         }else{
             $(this).addClass('active');  
-            $(this).children('.answer').slideDown()
-            $(this).siblings().removeClass('active')
-            $(this).siblings().children('.answer').slideUp()
+            $(this).children('.answer').addClass('active'); 
 
         }
     });
