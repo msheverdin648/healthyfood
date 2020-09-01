@@ -30,8 +30,6 @@ class PageSlider(models.Model):
         verbose_name = 'Слайд анонса'
         verbose_name_plural = 'Слайды анонса'
 
-
-    
     anons_slider_text = models.CharField(("Текст слайда"), max_length=50)
     anons_slider_image = models.ImageField(("Картинка слайда"), upload_to=None, height_field=None, width_field=None, max_length=100)
     anons_slider_bgcolor = ColorField (("Цвет фона слайда"), default= '#F0F0F0' )

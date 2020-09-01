@@ -45,7 +45,15 @@
     <div class="page">
         <div class="slider">
             <div class="slider__header">
-                <h2><b>Healthy Food</b> - это вкусно, безопасно и результативно</h2>
+                {% if headers %}
+                    <h2>
+                        <b>{{headers.anons_header_bold}}</b> - {{headers.anons_header}}  
+                    </h2>
+
+                    {% else %}
+                    Заголовков не найдено
+                {% endif %}
+                
             </div>
             <div class="slider__slick" id="slider-2">
                 <div class="slider__slick__item">

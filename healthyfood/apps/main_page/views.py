@@ -7,4 +7,12 @@ def index(request):
 
     header_slides = HeaderSlider.objects.all()
     page_slides = PageSlider.objects.all()
-    return render(request, 'main_page/page.html', {'header_slides': header_slides })
+    page_headers = PageHeaders.objects.get(id=1)
+    return render(request, 'main_page/page.html', {'header_slides': header_slides,
+    'headers': page_headers,
+    'page_slides': page_slides,
+
+     
+
+    
+    })
