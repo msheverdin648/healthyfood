@@ -57,3 +57,33 @@ class PageHeaders(models.Model):
     buy_header = models.CharField(("Заголовок 'Закажи сейчас' "), max_length=100)
     reviews_header = models.CharField(("Заголовок отзывов"), max_length=100)
     questions_header = models.CharField(("Заголовок вопросов"), max_length=100)
+
+
+class ProgrammsBig(models.Model):
+
+    class Meta:
+        db_table = ''
+        managed = True
+        verbose_name = 'Большой блок '
+        verbose_name_plural = 'Большие блоки'
+
+    big_text = models.CharField(("Название блока"), max_length=50)
+    big_img = models.FileField(("Картинка блока"), upload_to='img')
+
+    def __str__(self):
+        return self.big_text
+
+class ProgrammsSmall(models.Model):
+
+    class Meta:
+        db_table = ''
+        managed = True
+        verbose_name = 'Маленький блок '
+        verbose_name_plural = 'Маленькие блоки'
+
+    small_text = models.CharField(("Название блока"), max_length=50)
+    small_img = models.FileField(("Картинка блока"), upload_to='img')
+    
+
+    def __str__(self):
+        return self.small_text

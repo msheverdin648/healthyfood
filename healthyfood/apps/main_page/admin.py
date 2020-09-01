@@ -1,6 +1,8 @@
 from django.contrib import admin
-from .models import HeaderSlider, PageSlider, PageHeaders
+from .models import HeaderSlider, PageSlider, PageHeaders, ProgrammsBig, ProgrammsSmall
 
-admin.site.register(HeaderSlider)
-admin.site.register(PageSlider)
+admin.site.register(ProgrammsSmall)
+admin.site.register(ProgrammsBig)
 admin.site.register(PageHeaders)
+admin.site.register(PageSlider)
+admin.site.register(HeaderSlider)
