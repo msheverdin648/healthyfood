@@ -20,19 +20,25 @@
             <div class="header__navigate__box header__navigate__call">Перезвонить мне</div>
         </nav>
         <div class="header__slider" id="slider-1">
-            <div class="header__slider__item">
-                <h3>Здоровое питание ресторанного качества с доставкой на дом</h3>
-                <p><b>Healthy Food</b> - ваш помощник на пути к идеальной фигуре</p>
-                <button class="header__slider__item__button">Бесплатная консультация</button>
+            {% if header_slides%}
+             {% for a in header_slides%}
+
+             <div class="header__slider__item">
+                <h3>{{a.main_text}}</h3>
+                {% if a.small_text %}
+                    <p>{{a.small_text}}</p>
+                {% endif %}
+                {% if a.button %}
+                    <button class="header__slider__item__button"> {{a.button}} </button>
+                {% endif %}
+                
             </div>
-            <div class="header__slider__item">
-                <h3>Здоровое питание ресторанного качества с доставкой на дом</h3>
-                <p><b>Healthy Food</b> - ваш помощник на пути к идеальной фигуре</p>
-            </div>
-            <div class="header__slider__item">
-                <h3>Здоровое питание ресторанного качества с доставкой на дом</h3>
-                <p><b>Healthy Food</b> - ваш помощник на пути к идеальной фигуре</p>
-            </div>
+
+             {%endfor%}
+            {%else%}
+                Слайдов нет
+            {% endif %}
+            
         </div>
        </div>
     </header>
