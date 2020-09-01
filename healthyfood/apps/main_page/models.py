@@ -33,9 +33,9 @@ class PageSlider(models.Model):
 
     anons_slider_name = models.CharField(("Имя слайда"), max_length=50)
     anons_slider_text = models.CharField(("Текст слайда"), max_length=50)
-    anons_slider_image = models.ImageField(("Картинка слайда"), upload_to=None, height_field=None, width_field=None, max_length=100)
+    anons_slider_image = models.ImageField(("Картинка слайда"), upload_to='img', height_field=None, width_field=None, max_length=100)
     anons_slider_bgcolor = ColorField (("Цвет фона слайда"), default= '#F0F0F0' )
-    anons_slider_link = models.CharField(("Сыылка слайда"), max_length=200)
+    anons_slider_link = models.CharField(("Сылка слайда"), max_length=200)
 
     def __str__(self):
         return self.anons_slider_name   

@@ -56,97 +56,24 @@
                 
             </div>
             <div class="slider__slick" id="slider-2">
-                <div class="slider__slick__item">
-                <div class="image__box">
-                    <img src="../static/images/phone.png" alt="" class="image">
-                </div>
-                    <p class="discription">
-                        Наше новое приложени для IOS 13
-                    </p>
-                    <a href="#" class="detailed">Подробнее</a>
-                </div>
+
+                {% if page_slides %}
+
+                {% for a in page_slides %}
                 <div class="slider__slick__item">
                     <div class="image__box">
-                        <img src="../static/images/diet 1.png" alt="" class="image">
+                        <img src="{{ a.anons_slider_image.url }}" alt="" class="image">
                     </div>
-                    <p class="discription">
-                        Сочные завтраки уже в пути
-                    </p>
-                    <a href="#" class="detailed">Подробнее</a>
-                </div>
-                <div class="slider__slick__item">
-                <div class="image__box">
-                    <img src="../static/images/woman.png" alt="" class="image">
-                </div>
-                    <p class="discription">
-                        Наконец на ПП? Так мы ведь поможем!
-                    </p>
-                    <a href="#" class="detailed">Подробнее</a>
-                </div>
-                <div class="slider__slick__item">
-                <div class="image__box">
-                    <img src="../static/images/apple.png" alt="" class="image">
-                </div>
-                    <p class="discription">
-                        Советы от PRO - хочу меньше объема
-                    </p>
-                    <a href="#" class="detailed">Подробнее</a>
-                </div>
-                <div class="slider__slick__item">
-                <div class="image__box">
-                    <img src="../static/images/avocado.png" alt="" class="image">
-                </div>
-                    <p class="discription">
-                        В чем секрет такого популярного авокадо?
-                    </p>
-                    <a href="#" class="detailed">Подробнее</a>
-                </div>
-                <div class="slider__slick__item">
-                <div class="image__box">
-                    <img src="../static/images/man.png" alt="" class="image">
-                </div>
-                    <p class="discription">
-                        Советы от Александра Зайбеля
-                    </p>
-                    <a href="#" class="detailed">Подробнее</a>
-                </div>
-                <div class="slider__slick__item">
-                <div class="image__box">
-                    <img src="../static/images/phone.png" alt="" class="image">
-                </div>
-                    <p class="discription">
-                        Наше новое приложени для IOS 13
-                    </p>
-                    <a href="#" class="detailed">Подробнее</a>
-                </div>
-                <div class="slider__slick__item">
-                    <div class="image__box">
-                        <img src="../static/images/diet 1.png" alt="" class="image">
+                        <p class="discription">
+                            {{a.anons_slider_text}}
+                        </p>
+                        <a href="{{a.anons_slider_link}}" class="detailed">Подробнее</a>
                     </div>
-                    <p class="discription">
-                        Сочные завтраки уже в пути
-                    </p>
-                    <a href="#" class="detailed">Подробнее</a>
-                </div>
-                <div class="slider__slick__item">
-                <div class="image__box">
-                    <img src="../static/images/woman.png" alt="" class="image">
-                </div>
-                    <p class="discription">
-                        Наконец на ПП? Так мы ведь поможем!
-                    </p>
-                    <a href="#" class="detailed">Подробнее</a>
-                </div>
-                <div class="slider__slick__item">
-                <div class="image__box">
-                    <img src="../static/images/apple.png" alt="" class="image">
-                </div>
-                    <p class="discription">
-                        Советы от PRO - хочу меньше объема
-                    </p>
-                    <a href="#" class="detailed">Подробнее</a>
-                </div>
-            </div>
+                {% endfor %}
+
+                  {% else %}
+                  Сладов не найдено
+                {% endif %}
         </div>
         <div class="calculate">
             <h3 class="calculate__header">Калькулятор расчета питания</h3>
