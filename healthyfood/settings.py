@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main_page.apps.MainPageConfig',
+    'colorfield',
 ]
 
 MIDDLEWARE = [
@@ -126,6 +127,7 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
+STATIC_ROOT =  os.path.join(PROJECT_ROOT, 'static')
 STATICFIELS_DIRS = (
     os.path.join(BASE_DIR, 'static'),
      )
