@@ -61,7 +61,7 @@
 
                 {% for a in page_slides %}
                 <div class="slider__slick__item">
-                    <div class="image__box">
+                    <div class="image__box" style="background: {{a.anons_slider_bgcolor}};">
                         <img src="{{ a.anons_slider_image.url }}" alt="" class="image">
                     </div>
                         <p class="discription">
@@ -161,12 +161,17 @@
             </div>
         </div>
         <div class="menu">
-            <h2 class="menu__header">
-                Меню для срочного снижения веса
-            </h2>
-            <p class="menu__description">
-                Сбалансированное питание, в короткие сроки помогает избавится  от лишнего веса
-            </p>
+            {% if headers %}
+                <h2 class="menu__header">
+                    {{headers.menu_header}}
+                </h2>
+                <p class="menu__description">
+                    {{ headers.menu_smalltext }}
+                </p>
+            {% else %}
+                Заголовков не найдено
+            {% endif %}
+            
             <div class="menu__slider">
                 <div class="menu__slider__small" id="slider-3">
                     <div class="menu__slider__small__item">

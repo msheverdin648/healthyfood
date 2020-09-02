@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import HeaderSlider, PageSlider, PageHeaders, ProgrammsBig, ProgrammsSmall
+from .models import HeaderSlider, PageSlider, PageHeaders, ProgrammsBig, ProgrammsSmall, MenuSlider
 
 
 def index(request):
@@ -10,12 +10,13 @@ def index(request):
     page_headers = PageHeaders.objects.get(id=1)
     big_block = ProgrammsBig.objects.all()
     small_block = ProgrammsSmall.objects.all()
+    menu_slide = MenuSlider.objects.all()
     return render(request, 'main_page/page.html', {'header_slides': header_slides,
     'headers': page_headers,
     'page_slides': page_slides,
     'big_block': big_block,
     'small_block': small_block,
-
+    'menu': menu_slide,
      
 
     
