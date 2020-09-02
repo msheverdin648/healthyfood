@@ -198,15 +198,15 @@ body {
   z-index: 5;
 }
 
-.slider h2 {
+.slider__header h2 {
   margin: 0 0 50px 150px;
   display: block;
-  width: 558px;
+  width: 583px;
   font-size: 35px;
   font-family: 'Museo Sans Cyrl 700';
 }
 
-.slider h2 b {
+.slider__header h2 b {
   color: #4C9162;
 }
 
@@ -217,56 +217,6 @@ body {
 
 .slider__slick__item {
   margin: 0px 15px;
-}
-
-.slider__slick__item:nth-child(15) .image__box {
-  background: #C6E6D0;
-  background-size: cover;
-}
-
-.slider__slick__item:nth-child(6) .image__box {
-  background: #D5C3DD;
-  background-size: cover;
-}
-
-.slider__slick__item:nth-child(7) .image__box {
-  background: #C6E6D0;
-  background-size: cover;
-}
-
-.slider__slick__item:nth-child(8) .image__box {
-  background: #B9DEE0;
-  background-size: cover;
-}
-
-.slider__slick__item:nth-child(9) .image__box {
-  background: #F7F8DF;
-  background-size: cover;
-}
-
-.slider__slick__item:nth-child(10) .image__box {
-  background: #EBF4D7;
-  background-size: cover;
-}
-
-.slider__slick__item:nth-child(11) .image__box {
-  background: #D1E2E8;
-  background-size: cover;
-}
-
-.slider__slick__item:nth-child(12) .image__box {
-  background: #D5C3DD;
-  background-size: cover;
-}
-
-.slider__slick__item:nth-child(13) .image__box {
-  background: #C6E6D0;
-  background-size: cover;
-}
-
-.slider__slick__item:nth-child(14) .image__box {
-  background: #B9DEE0;
-  background-size: cover;
 }
 
 .slider__slick__item .image__box {
@@ -815,6 +765,8 @@ body {
 
 .menu__header {
   font-family: 'Museo Sans Cyrl 700';
+  margin: 0 auto;
+  font-size: 32px;
 }
 
 .menu__description {

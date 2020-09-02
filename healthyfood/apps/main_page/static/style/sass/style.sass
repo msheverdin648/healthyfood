@@ -136,15 +136,17 @@ body
 .slider
     position: relative
     z-index: 5
-    h2
-        margin: 0 0 50px 150px
-        display: block
-        width: 558px
-        font-size: 35px
-        +museo_bold
+    &__header
         
-        b
-            color: #4C9162
+        h2
+            margin: 0 0 50px 150px
+            display: block
+            width: 583px
+            font-size: 35px
+            +museo_bold
+            
+            b
+                color: #4C9162
             
         
     
@@ -154,46 +156,6 @@ body
             background: #000
         &__item
             margin: 0px 15px
-            &:nth-child(15)
-                .image__box
-                    background: #C6E6D0
-                    background-size: cover
-            &:nth-child(6)
-                .image__box
-                    background: #D5C3DD
-                    background-size: cover
-            &:nth-child(7)
-                .image__box
-                    background: #C6E6D0
-                    background-size: cover
-            &:nth-child(8)
-                .image__box
-                    background: #B9DEE0
-                    background-size: cover
-            &:nth-child(9)
-                .image__box
-                    background: #F7F8DF
-                    background-size: cover
-            &:nth-child(10)
-                .image__box
-                    background: #EBF4D7
-                    background-size: cover
-            &:nth-child(11)
-                .image__box
-                    background: #D1E2E8
-                    background-size: cover
-            &:nth-child(12)
-                .image__box
-                    background: #D5C3DD
-                    background-size: cover
-            &:nth-child(13)
-                .image__box
-                    background: #C6E6D0
-                    background-size: cover
-            &:nth-child(14)
-                .image__box
-                    background: #B9DEE0
-                    background-size: cover
             .image__box
                 display: flex
                 width: 270px
@@ -564,6 +526,7 @@ body
     &__header
         +museo_bold
         margin: 0 auto
+        font-size: 32px
 
     &__description
         +museo_normal
