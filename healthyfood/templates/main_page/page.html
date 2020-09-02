@@ -216,7 +216,12 @@
             </div>
         </div>
         <div class="buy-now">
-            <h1 class="buy-now__header">Закажи сейчас</h1>
+            {% if headers %}
+                <h1 class="buy-now__header">{{headers.buy_header}}</h1>
+                {% else %}
+                Заголовков не найдено
+            {% endif %}
+            
             <div class="buy-now__block">
                 <div class="buy-now__block__days">
                     <div class="buy-now__block__days__item buy-now__block__days__first active ">
@@ -257,57 +262,29 @@
         <div class="reviews">
             <h1 class="reviews__header">Они похудели вместе с нами</h1>
             <div class="reviews__slider" id="slider-5">
-                <div class="reviews__slider__item">
-                    <img src="../static/images/review-before.png" alt="" class="reviews__slider__item__images reviews__slider__item__before">
-                    <img src="../static/images/review-after.png" alt="" class="reviews__slider__item__images reviews__slider__item__after">
-                    <div class="reviews__slider__item__info">
-                        <h2 class="reviews__slider__item__info__name">Инна Ставицкая, 27 лет</h2>
-                        <button class="reviews__slider__item__info__button-menu">Меню для срочного снижения веса</button>
-                        <div class="reviews__slider__item__info__text">“Значимость этих проблем настолько очевидна, что консультация с широким активом позволяет выполнять важные задания по разработке системы обучения кадров, соответствует насущным потребностям. Задача организации, в особенности же реализация намеченных плановых заданий”</div>
-                        <button class="reviews__slider__item__info__button">Я тоже хочу похудеть</button>
-                        <div class="reviews__slider__item__info__slides">
-                            <p class="this-slide">01</p>
-                            <p class="other-slides">/</p>
-                            <p class="other-slides">08</p>
+                {% if review %}
+                    {% for a in review %}
+                    <div class="reviews__slider__item">
+                        <img src="{{a.before_img.url}}" alt="" class="reviews__slider__item__images reviews__slider__item__before">
+                        <img src="{{a.after_img.url}}" alt="" class="reviews__slider__item__images reviews__slider__item__after">
+                        <div class="reviews__slider__item__info">
+                            <h2 class="reviews__slider__item__info__name">{{a.name}}, {{a.age}} лет</h2>
+                            <button class="reviews__slider__item__info__button-menu">Меню для срочного снижения веса</button>
+                            <div class="reviews__slider__item__info__text">“{{a.text}}”</div>
+                            <button class="reviews__slider__item__info__button">Я тоже хочу похудеть</button>
+                            <div class="reviews__slider__item__info__slides">
+                                <p class="this-slide">{{a.id}}</p>
+                                <p class="other-slides">/</p>
+                                <p class="other-slides">{{reviws_count}}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="reviews__slider__item">
-                    <img src="../static/images/review-before.png" alt="" class="reviews__slider__item__images reviews__slider__item__before">
-                    <img src="../static/images/review-after.png" alt="" class="reviews__slider__item__images reviews__slider__item__after">
-                    <div class="reviews__slider__item__info">
-                        <h2 class="reviews__slider__item__info__name">Инна Ставицкая, 27 лет</h2>
-                        <button class="reviews__slider__item__info__button-menu">Меню для срочного снижения веса</button>
-                        <div class="reviews__slider__item__info__text">“Значимость этих проблем настолько очевидна, что консультация с широким активом позволяет выполнять важные задания по разработке системы обучения кадров, соответствует насущным потребностям. Задача организации, в особенности же реализация намеченных плановых заданий”</div>
-                        <button class="reviews__slider__item__info__button">Я тоже хочу похудеть</button>
-                        <div class="reviews__slider__item__info__slides">
-                            <p class="this-slide">01</p>
-                            <p class="other-slides">/</p>
-                            <p class="other-slides">08</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="reviews__slider__item">
-                    <div class="reviews__slider__item__images">
-                        <img src="../static/images/review-before.png" alt="" class=" reviews__slider__item__before">
-                    </div>
-                    <div class="reviews__slider__item__images">
-                        <img src="../static/images/review-after.png" alt="" class=" reviews__slider__item__after">
-                    </div>
-                    
-                    
-                    <div class="reviews__slider__item__info">
-                        <h2 class="reviews__slider__item__info__name">Инна Ставицкая, 27 лет</h2>
-                        <button class="reviews__slider__item__info__button-menu">Меню для срочного снижения веса</button>
-                        <div class="reviews__slider__item__info__text">“Значимость этих проблем настолько очевидна, что консультация с широким активом позволяет выполнять важные задания по разработке системы обучения кадров, соответствует насущным потребностям. Задача организации, в особенности же реализация намеченных плановых заданий”</div>
-                        <button class="reviews__slider__item__info__button">Я тоже хочу похудеть</button>
-                        <div class="reviews__slider__item__info__slides">
-                            <p class="this-slide">01</p>
-                            <p class="other-slides">/</p>
-                            <p class="other-slides">08</p>
-                        </div>
-                    </div>
-                </div>
+                    {% endfor %}
+                    {% else %}
+                    Отзывов не найдено
+                {% endif %}
+                
+               
             </div>
         </div>
         <div class="questions">

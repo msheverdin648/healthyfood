@@ -1012,15 +1012,15 @@ body {
   margin-top: 20px;
 }
 
-.buy-now__block__discription__buttons:hover {
-  cursor: pointer;
-}
-
 .buy-now__block__discription__buttons__item {
   border-radius: 53px;
   border: none;
   background: #fff;
   margin: 5px;
+}
+
+.buy-now__block__discription__buttons__item:hover {
+  cursor: pointer;
 }
 
 .buy-now__block__discription__buttons__item:nth-child(1) {
@@ -1237,6 +1237,10 @@ body {
           justify-content: flex-end;
   font-size: 31px;
   font-family: 'Museo Sans Cyrl 500';
+  position: absolute;
+  bottom: 0;
+  -webkit-transform: translateX(415px);
+          transform: translateX(415px);
 }
 
 .reviews__slider__item__info__slides .this-slide {

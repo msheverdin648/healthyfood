@@ -688,19 +688,21 @@ body
             &__buttons
                 display: flex
                 margin-top: 20px
-                &:hover
-                    cursor: pointer
+                
                 &__item
                     border-radius: 53px
                     border: none
                     background: #fff
                     margin: 5px
+                    &:hover
+                        cursor: pointer 
                     &:nth-child(1) 
                         padding: 22px 41px
                         background: #FFC702
                     &:nth-child(2) 
                         padding: 22px 29px
                         border: 2px solid #FFC702
+                    
             b
                 margin: 6px 10px 20px
                 &.new-price
@@ -850,6 +852,9 @@ body
                     justify-content: flex-end
                     font-size: 31px
                     +museo_normal
+                    position: absolute
+                    bottom: 0
+                    transform: translateX(415px)
                     
                     .this-slide
                         color: #4C9162

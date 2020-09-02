@@ -2,8 +2,6 @@ from django.db import models
 from colorfield.fields import ColorField
 
 
-
-
 class HeaderSlider(models.Model):
 
     slider_header= models.CharField(("Обозначение о чем этот слайд"), max_length=50, null = True, blank = True)
@@ -113,6 +111,27 @@ class MenuSlider(models.Model):
     price = models.CharField(("Цена блюда"), max_length=10)
     discount = models.CharField(("Цена со скидкой, если есть"), max_length=10, null=True, blank = True)
 
+
+class Reviews(models.Model):
+
+    
+
+    class Meta:
+        verbose_name = ("Отзыв")
+        verbose_name_plural = ("Отзывы")
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse("Отзывы_detail", kwargs={"pk": self.pk})
+
+
+    name = models.CharField(("Имя автора"), max_length=50)
+    age = models.CharField(("Возраст"), max_length=10)
+    text = models.CharField(("Текст отзыва"), max_length=500)
+    before_img = models.ImageField(('Фото "до"'), upload_to='img', height_field=None, width_field=None, max_length=None)
+    after_img = models.ImageField(('Фото "после"'), upload_to='img', height_field=None, width_field=None, max_length=None)
 
 
 
