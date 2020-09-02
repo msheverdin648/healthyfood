@@ -94,14 +94,14 @@ class MenuSlider(models.Model):
     
 
     class Meta:
-        verbose_name = ("Слайд-меню")
-        verbose_name_plural = ("Слайды-меню")
+        verbose_name = ("Позиции меню ")
+        verbose_name_plural = ("Меню")
 
     def __str__(self):
         return self.name
 
     def get_absolute_url(self):
-        return reverse("Сладер-меню_detail", kwargs={"pk": self.pk})    
+        return reverse("Меню_detail", kwargs={"pk": self.pk})    
 
 
     name = models.CharField(("Название блюда"), max_length=100)
@@ -110,7 +110,8 @@ class MenuSlider(models.Model):
     small_img = models.ImageField(("Картинка маленького слайда"), upload_to='img', height_field=None, width_field=None, max_length=None)
     kkal = models.CharField(("Колличество калорий"), max_length=20)
     gramm = models.CharField(("Колличество грамм"), max_length=20)
-
+    price = models.CharField(("Цена блюда"), max_length=10)
+    discount = models.CharField(("Цена со скидкой, если есть"), max_length=10, null=True, blank = True)
 
 
 
