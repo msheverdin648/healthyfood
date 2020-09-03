@@ -877,19 +877,6 @@ body {
   background: url("../../images/buy-now.png");
   background-repeat: no-repeat;
   background-size: cover;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 
 .buy-now__header {
@@ -897,8 +884,9 @@ body {
   line-height: 115%;
   color: #161716;
   font-family: 'Museo Sans Cyrl 700';
-  margin: 77px 0 42px 0;
+  text-align: center;
   font-weight: bold;
+  min-width: 0;
 }
 
 .buy-now__block {
@@ -906,6 +894,8 @@ body {
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 25px;
+  min-width: 0;
+  margin: 0 354px;
 }
 
 .buy-now__block__days__item {
@@ -1086,6 +1076,7 @@ body {
   -webkit-transform: translateX(-117px);
           transform: translateX(-117px);
   margin-bottom: 89px;
+  min-width: 0;
 }
 
 .buy-now__bonus__item {
@@ -1118,6 +1109,21 @@ body {
   color: #323232;
   line-height: 129.7%;
   font-family: 'Museo Sans Cyrl 500';
+}
+
+#slider-6 {
+  min-width: 0;
+}
+
+#slider-6 .slick-track {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#slider-6 .slick-list {
+  overflow: hidden;
+  padding: 0 !important;
 }
 
 .reviews {

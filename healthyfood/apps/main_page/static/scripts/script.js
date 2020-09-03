@@ -36,6 +36,7 @@ $(document).ready(function(){
         }
     });
 
+    
 
 
     let filter = $("[data-filter]");
