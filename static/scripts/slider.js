@@ -28,7 +28,7 @@ $('.header__slider').each(function(){
         slidesToScroll: 1,
         centerMode: true,
         focusOnSelect: true,
-        asNavFor: '.menu__slider__big'
+        asNavFor: '.menu__slider__big, #slider-6',
     });
  });
 
@@ -38,10 +38,12 @@ $('.header__slider').each(function(){
 
         dots: false, 
         arrows: true,
-        asNavFor: '.menu__slider__small'
+        asNavFor: '#slider-6, .menu__slider__small',
 
     });
  });
+
+
 
 
  $(document).ready(function(){
@@ -51,6 +53,21 @@ $('.header__slider').each(function(){
         arrows: true,
         centerMode: true,
         slidesToShow: 1,
-
     });
  });
+
+ $(document).ready(function(){
+    $('#slider-6').slick({
+
+        dots: false, 
+        arrows: false,
+        centerMode: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        asNavFor: '.menu__slider__big, .menu__slider__small',
+        draggble: false,
+        swipe: false,
+    });
+
+ });
+
