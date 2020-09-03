@@ -1,5 +1,4 @@
 from django.db import models
-from colorfield.fields import ColorField
 
 
 class HeaderSlider(models.Model):
@@ -32,7 +31,7 @@ class PageSlider(models.Model):
     anons_slider_name = models.CharField(("Имя слайда"), max_length=50)
     anons_slider_text = models.CharField(("Текст слайда"), max_length=50)
     anons_slider_image = models.ImageField(("Картинка слайда"), upload_to='img', height_field=None, width_field=None, max_length=100)
-    anons_slider_bgcolor = ColorField (("Цвет фона слайда"), default= '#F0F0F0' )
+    anons_slider_bgcolor = models.CharField (("Цвет фона слайда"), default= '#F0F0F0',  max_length=7)
     anons_slider_link = models.CharField(("Сылка слайда"), max_length=200)
 
     def __str__(self):
