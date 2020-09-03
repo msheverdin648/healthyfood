@@ -27,7 +27,7 @@ sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps'))
 SECRET_KEY = '$%6j(+%n^_c7oc0&&uuygzj^py0l)el(m3e!hni^ovfu1n=5i%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['.pythonanywhere.com', '127.0.0.1']
 
@@ -41,8 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'main_page.apps.MainPageConfig',
+    'main_page',
     'colorfield',
+    
 ]
 
 MIDDLEWARE = [
