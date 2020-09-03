@@ -74,284 +74,288 @@
                   {% else %}
                   Сладов не найдено
                 {% endif %}
-        </div>
-        <div class="calculate">
-            <h3 class="calculate__header">Калькулятор расчета питания</h3>
-            <div class="calculate__box">
-                <div class="calculate__box__item first">
-                    <div class="calculate__box__block calculate__box__block__1">
-                        <label for="" class="discription">Ваш пол:</label>
-                        <select name="gender" id="gender" required class="input">
-                            <option value="mail">Мужской</option>
-                            <option value="femail">Женский</option>
-                        </select>
-                    </div>
-                    <div class="calculate__box__block calculate__box__block__2">
-                        <label for="" class="discription">Ваша активность:</label>
-                        <select name="activity" id="activity" required class="input">
-                            <option value="1.2">Не занимаюсь спортом</option>
-                            <option value="1.4">Часто хожу в зал</option>
-                        </select>
-                    </div>
-                    <div class="calculate__box__block calculate__box__block__3">
-                        <label for="" class="discription">Укажите Ваш рост:</label>
-                        <input type="text" placeholder="175 см" pattern="[0-9]{3} см" required class="input">
-                    </div>
-                    <div class="calculate__box__block calculate__box__block__4">
-                        <label for="" class="discription">Укажите Ваш возраст:</label>
-                        <input type="text" placeholder="30 лет" pattern="[0-9]{1,3} лет" required class="input">
-                    </div>
-                    <div class="calculate__box__block calculate__box__block__5">
-                        <label for="" class="discription">Ваш текущий вес:</label>
-                        <input type="text" placeholder="65 кг" pattern="[0-9]{1,4} кг" required class="input"> 
-                    </div>
-                    <div class="calculate__box__block calculate__box__block__6">
-                        <label for="" class="discription">Желаемый вес:</label>
-                        <input type="text" placeholder="55 кг" pattern="[0-9]{1,4} кг" required class="input"> 
-                    </div>
-                </div>
-                <div class="calculate__box__item second">
-                    <div class="calculate__box__block calculate__box__block__7">
-                        <button class="calculate__box__block__button">
-                            Рассчитать индивидуальный рацион питания
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="calculate__consultation">
-                <p class="calculate__consultation__description">
-                    Для тех, кому необходим особенный<br> рацион питания - <b>закажите конусльтацию!</b>
-                </p>
-                <a href="" class="calculate__consultation__buy">Заказать консультацию</a>
             </div>
         </div>
-        <div class="programms">
-            <div class="programms__big">
-                {% if big_block %}
-                  {% for a in big_block %}
-
-                  <div class="programms__big__block">
-                    <div class="programms__big__block__item">
-                        <label for="" class="programms__big__block__item__purpose">Моя цель</label>
-                        <p class="programms__big__block__item__discription">{{a.big_text}} </p>
-                        <p class="programms__big__block__item__choose">Выбрать</p>
-                    </div>
-                    <div class="programms__big__block__item image">
-                        <img src="{{a.big_img.url}}" alt="" class="programms__big__block__item__img">
-                    </div>
+    </div> 
+    <div class="calculate">
+        <h3 class="calculate__header">Калькулятор расчета питания</h3>
+        <div class="calculate__box">
+            <div class="calculate__box__item first">
+                <div class="calculate__box__block calculate__box__block__1">
+                    <label for="" class="discription">Ваш пол:</label>
+                    <select name="gender" id="gender" required class="input">
+                        <option value="mail">Мужской</option>
+                        <option value="femail">Женский</option>
+                    </select>
                 </div>
-
-                  {% endfor %}
-                  {% else %}
-                  Блоков не найдено
-                {% endif %}
-                
+                <div class="calculate__box__block calculate__box__block__2">
+                    <label for="" class="discription">Ваша активность:</label>
+                    <select name="activity" id="activity" required class="input">
+                        <option value="1.2">Не занимаюсь спортом</option>
+                        <option value="1.4">Часто хожу в зал</option>
+                    </select>
+                </div>
+                <div class="calculate__box__block calculate__box__block__3">
+                    <label for="" class="discription">Укажите Ваш рост:</label>
+                    <input type="text" placeholder="175 см" pattern="[0-9]{3} см" required class="input">
+                </div>
+                <div class="calculate__box__block calculate__box__block__4">
+                    <label for="" class="discription">Укажите Ваш возраст:</label>
+                    <input type="text" placeholder="30 лет" pattern="[0-9]{1,3} лет" required class="input">
+                </div>
+                <div class="calculate__box__block calculate__box__block__5">
+                    <label for="" class="discription">Ваш текущий вес:</label>
+                    <input type="text" placeholder="65 кг" pattern="[0-9]{1,4} кг" required class="input"> 
+                </div>
+                <div class="calculate__box__block calculate__box__block__6">
+                    <label for="" class="discription">Желаемый вес:</label>
+                    <input type="text" placeholder="55 кг" pattern="[0-9]{1,4} кг" required class="input"> 
+                </div>
             </div>
-            <p class="programms__choise">Выберите программу</p>
-            <div class="programms__small">
+            <div class="calculate__box__item second">
+                <div class="calculate__box__block calculate__box__block__7">
+                    <button class="calculate__box__block__button">
+                        Рассчитать индивидуальный рацион питания
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="calculate__consultation">
+            <p class="calculate__consultation__description">
+                Для тех, кому необходим особенный<br> рацион питания - <b>закажите конусльтацию!</b>
+            </p>
+            <a href="" class="calculate__consultation__buy">Заказать консультацию</a>
+        </div>
+    </div>
+    <div class="programms">
+        <div class="programms__big">
+            {% if big_block %}
+                {% for a in big_block %}
 
-                {% if small_block %}
-                    {% for a in small_block  %}
-                    <div class="programms__small__items ">
-                        <img src="{{a.small_img.url}}" alt="" class="programms__small__items__ico">
-                        <p class="programms__small__items__discription"> {{a.small_text}} </p>
+                <div class="programms__big__block">
+                <div class="programms__big__block__item">
+                    <label for="" class="programms__big__block__item__purpose">Моя цель</label>
+                    <p class="programms__big__block__item__discription">{{a.big_text}} </p>
+                    <p class="programms__big__block__item__choose">Выбрать</p>
+                </div>
+                <div class="programms__big__block__item image">
+                    <img src="{{a.big_img.url}}" alt="" class="programms__big__block__item__img">
+                </div>
+            </div>
+
+                {% endfor %}
+                {% else %}
+                Блоков не найдено
+            {% endif %}
+            
+        </div>
+        <p class="programms__choise">Выберите программу</p>
+        <div class="programms__small">
+
+            {% if small_block %}
+                {% for a in small_block  %}
+                <div class="programms__small__items ">
+                    <img src="{{a.small_img.url}}" alt="" class="programms__small__items__ico">
+                    <p class="programms__small__items__discription"> {{a.small_text}} </p>
+                </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    <div class="menu">
+        {% if headers %}
+            <h2 class="menu__header">
+                {{headers.menu_header}}
+            </h2>
+            <p class="menu__description">
+                {{ headers.menu_smalltext }}
+            </p>
+        {% else %}
+            Заголовков не найдено
+        {% endif %}
+        
+        <div class="menu__slider">
+            <div class="menu__slider__small" id="slider-3">
+                {% if menu %}
+                    {% for a in menu %}
+                    <div class="menu__slider__small__item">
+                        <img src="{{a.small_img.url}}" alt="">
                     </div>
                     {% endfor %}
                 {% endif %}
+
             </div>
-        </div>
-        <div class="menu">
-            {% if headers %}
-                <h2 class="menu__header">
-                    {{headers.menu_header}}
-                </h2>
-                <p class="menu__description">
-                    {{ headers.menu_smalltext }}
-                </p>
-            {% else %}
-                Заголовков не найдено
-            {% endif %}
-            
-            <div class="menu__slider">
-                <div class="menu__slider__small" id="slider-3">
-                    {% if menu %}
+            <div class="menu__slider__big" id="slider-4">
+                {% if menu %}
                         {% for a in menu %}
-                        <div class="menu__slider__small__item">
-                            <img src="{{a.small_img.url}}" alt="">
+                        <div class="menu__slider__big__block">
+                        <div class="menu__slider__big__block__item">
+                            <img src="{{a.big_img.url}}" alt="" class="menu__slider__big__block__item__image">
                         </div>
+                        <div class="menu__slider__big__block__item">
+                            <div class="menu__slider__big__block__item__header">
+                                <h3>{{a.name}}</h3>
+                            </div>
+                            <div class="menu__slider__big__block__item__calories">
+                                <div class="menu__slider__big__block__item__calories__items">{{a.kkal}} Ккал</div>
+                                <div class="menu__slider__big__block__item__calories__items">{{a.gramm}} грамм</div>
+                            </div>
+                            <div class="menu__slider__big__block__item__description">
+                                <b>Описание блюда:</b>
+                                <p>
+                                    {{a.menu_discription}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                         {% endfor %}
                     {% endif %}
-
-                </div>
-                <div class="menu__slider__big" id="slider-4">
-                    {% if menu %}
-                          {% for a in menu %}
-                          <div class="menu__slider__big__block">
-                            <div class="menu__slider__big__block__item">
-                                <img src="{{a.big_img.url}}" alt="" class="menu__slider__big__block__item__image">
-                            </div>
-                            <div class="menu__slider__big__block__item">
-                                <div class="menu__slider__big__block__item__header">
-                                    <h3>{{a.name}}</h3>
-                                </div>
-                                <div class="menu__slider__big__block__item__calories">
-                                    <div class="menu__slider__big__block__item__calories__items">{{a.kkal}} Ккал</div>
-                                    <div class="menu__slider__big__block__item__calories__items">{{a.gramm}} грамм</div>
-                                </div>
-                                <div class="menu__slider__big__block__item__description">
-                                    <b>Описание блюда:</b>
-                                    <p>
-                                        {{a.menu_discription}}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                          {% endfor %}
-                        {% endif %}
-                </div>
-            </div>
-            <div class="menu__buttons">
-                <button class="menu__buttons__item">Заказать прямо сейчас</button>
-                <button class="menu__buttons__item">Бесплатная консультация</button>
             </div>
         </div>
-        <div class="buy-now">
-            {% if headers %}
-                <h1 class="buy-now__header">{{headers.buy_header}}</h1>
+        <div class="menu__buttons">
+            <button class="menu__buttons__item">Заказать прямо сейчас</button>
+            <button class="menu__buttons__item">Бесплатная консультация</button>
+        </div>
+    </div>
+    <div class="buy-now">
+        {% if headers %}
+            <h1 class="buy-now__header">{{headers.buy_header}}</h1>
+            {% else %}
+            Заголовков не найдено
+        {% endif %}
+        
+        <div class="buy-now__block">
+            <div class="buy-now__block__days">
+                <div class="buy-now__block__days__item buy-now__block__days__first active ">
+                    <h2>На 10 дней</h2>
+                    <p>Получите счёт 25 000 Healthy Bonus</p>
+                </div>
+                <div class="buy-now__block__days__item buy-now__block__days__second  ">
+                    <h2>На 15 дней</h2>
+                    <p>Получите счёт 25 000 Healthy Bonus</p>
+                </div>
+            </div>
+            <div class="buy-now__block__discription">
+                <p class="buy-now__block__discription__small-text">Ваш заказ</p>
+                <h2 class="buy-now__block__discription__header">Куриная грудка с овощами на пару с грибами</h2>
+                <p class="buy-now__block__discription__text">Сбалансированное питание, в короткие сроки помогает избавится  от лишнего веса</p>
+                <p class="buy-now__block__discription__price">Новая цена:</p>
+                <b class="new-price">4 000р.</b>
+                <b class="old-price">5 000р.</b>
+                <div class="buy-now__block__discription__buttons">
+                    <button class="buy-now__block__discription__buttons__item">Заказать сейчас</button>
+                    <button class="buy-now__block__discription__buttons__item">Бесплатная консультация</button>
+                </div>
+            </div>
+        </div>
+        <div class="buy-now__bonus">
+            <div class="buy-now__bonus__item">
+                <img src="../static/images/present.svg" alt="" class="buy-now__bonus__item__image">
+                <h3 class="buy-now__bonus__item__header">Приветственный бонус</h3>
+                <p class="buy-now__bonus__item__discription"> Закажи у нас любой пакет и получи на свой счёт 25 000 Healthy Bonus</p>
+            </div>
+            <div class="buy-now__bonus__item">
+                <img src="../static/images/present-2.svg" alt="" class="buy-now__bonus__item__image">
+                <h3 class="buy-now__bonus__item__header">Семейный бонус</h3>
+                <p class="buy-now__bonus__item__discription">Оформи доставку более 2 пакетов на один адрес и получи 10 000 на свой счёт Healthy Bonus</p>
+            </div>
+        </div>
+    </div>
+    <div class="reviews">
+        <h1 class="reviews__header">Они похудели вместе с нами</h1>
+        <div class="reviews__slider" id="slider-5">
+            {% if review %}
+                {% for a in review %}
+                <div class="reviews__slider__item">
+                    <img src="{{a.before_img.url}}" alt="" class="reviews__slider__item__images reviews__slider__item__before">
+                    <img src="{{a.after_img.url}}" alt="" class="reviews__slider__item__images reviews__slider__item__after">
+                    <div class="reviews__slider__item__info">
+                        <h2 class="reviews__slider__item__info__name">{{a.name}}, {{a.age}} лет</h2>
+                        <button class="reviews__slider__item__info__button-menu">Меню для срочного снижения веса</button>
+                        <div class="reviews__slider__item__info__text">“{{a.text}}”</div>
+                        <button class="reviews__slider__item__info__button">Я тоже хочу похудеть</button>
+                        <div class="reviews__slider__item__info__slides">
+                            <p class="this-slide">{{a.id}}</p>
+                            <p class="other-slides">/</p>
+                            <p class="other-slides">{{reviws_count}}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
                 {% else %}
-                Заголовков не найдено
+                Отзывов не найдено
             {% endif %}
             
-            <div class="buy-now__block">
-                <div class="buy-now__block__days">
-                    <div class="buy-now__block__days__item buy-now__block__days__first active ">
-                        <h2>На 10 дней</h2>
-                        <p>Получите счёт 25 000 Healthy Bonus</p>
-                    </div>
-                    <div class="buy-now__block__days__item buy-now__block__days__second  ">
-                        <h2>На 15 дней</h2>
-                        <p>Получите счёт 25 000 Healthy Bonus</p>
-                    </div>
+            
+        </div>
+    </div>
+    <div class="questions">
+        <h1 class="questions__header">Часто-задаваемые вопросы</h1>
+        <div class="questions__section">
+            <div class="questions__section__item " data-filter="weight">
+                <div class="questions__section__item__block">
+                    <p class="questions__section__item__block__about">Вопросы о</p>
+                    <h3 class="questions__section__item__block__name">Похудении</h3>
                 </div>
-                <div class="buy-now__block__discription">
-                    <p class="buy-now__block__discription__small-text">Ваш заказ</p>
-                    <h2 class="buy-now__block__discription__header">Куриная грудка с овощами на пару с грибами</h2>
-                    <p class="buy-now__block__discription__text">Сбалансированное питание, в короткие сроки помогает избавится  от лишнего веса</p>
-                    <p class="buy-now__block__discription__price">Новая цена:</p>
-                    <b class="new-price">4 000р.</b>
-                    <b class="old-price">5 000р.</b>
-                    <div class="buy-now__block__discription__buttons">
-                        <button class="buy-now__block__discription__buttons__item">Заказать сейчас</button>
-                        <button class="buy-now__block__discription__buttons__item">Бесплатная консультация</button>
-                    </div>
+                
+                <div class="questions__section__item__block">
+                    <img src="../static/images/section-girl.png" alt="">
                 </div>
             </div>
-            <div class="buy-now__bonus">
-                <div class="buy-now__bonus__item">
-                    <img src="../static/images/present.svg" alt="" class="buy-now__bonus__item__image">
-                    <h3 class="buy-now__bonus__item__header">Приветственный бонус</h3>
-                    <p class="buy-now__bonus__item__discription"> Закажи у нас любой пакет и получи на свой счёт 25 000 Healthy Bonus</p>
+            <div class="questions__section__item active" data-filter="products">
+                <div class="questions__section__item__block" >
+                    <p class="questions__section__item__block__about">Вопросы о</p>
+                    <h3 class="questions__section__item__block__name">Продуктах</h3>
                 </div>
-                <div class="buy-now__bonus__item">
-                    <img src="../static/images/present-2.svg" alt="" class="buy-now__bonus__item__image">
-                    <h3 class="buy-now__bonus__item__header">Семейный бонус</h3>
-                    <p class="buy-now__bonus__item__discription">Оформи доставку более 2 пакетов на один адрес и получи 10 000 на свой счёт Healthy Bonus</p>
+                
+                <div class="questions__answers__item__block">
+                    <img src="../static/images/ovoshhi.png" alt="">
+                </div>
+            </div>
+            <div class="questions__section__item " data-filter="tarifs">
+                <div class="questions__section__item__block">
+                    <p class="questions__section__item__block__about">Вопросы о</p>
+                    <h3 class="questions__section__item__block__name">Тарифах</h3>
+                </div>
+                <div class="questions__answers__item__block">
+                    <img src="../static/images/Calculator.png" alt="">
                 </div>
             </div>
         </div>
-        <div class="reviews">
-            <h1 class="reviews__header">Они похудели вместе с нами</h1>
-            <div class="reviews__slider" id="slider-5">
-                {% if review %}
-                    {% for a in review %}
-                    <div class="reviews__slider__item">
-                        <img src="{{a.before_img.url}}" alt="" class="reviews__slider__item__images reviews__slider__item__before">
-                        <img src="{{a.after_img.url}}" alt="" class="reviews__slider__item__images reviews__slider__item__after">
-                        <div class="reviews__slider__item__info">
-                            <h2 class="reviews__slider__item__info__name">{{a.name}}, {{a.age}} лет</h2>
-                            <button class="reviews__slider__item__info__button-menu">Меню для срочного снижения веса</button>
-                            <div class="reviews__slider__item__info__text">“{{a.text}}”</div>
-                            <button class="reviews__slider__item__info__button">Я тоже хочу похудеть</button>
-                            <div class="reviews__slider__item__info__slides">
-                                <p class="this-slide">{{a.id}}</p>
-                                <p class="other-slides">/</p>
-                                <p class="other-slides">{{reviws_count}}</p>
-                            </div>
+        {% if questions %}
+            {% for a in  questions %}
+                {% if a.group == 'weight' %}
+                <div class="questions__answers hide" data-cat="weight">
+                    <div class="questions__answers__item">
+                        <div class="question">{{a.question}}</div>
+                        <div class="answer">{{a.answer}}</div>
+                    </div>
+                </div>
+                {% elif a.group == 'products' %}
+                <div class="questions__answers" data-cat="products">
+                    <div class="questions__answers__item">
+                        <div class="question">{{a.question}}</div>
+                        <div class="answer">{{a.answer}}</div>
+                    </div>
+                </div>
+                {% elif a.group == 'tarifs'  %}
+                    <div class="questions__answers hide" data-cat="tarifs">
+                        <div class="questions__answers__item">
+                            <div class="question">{{a.question}}</div>
+                            <div class="answer">{{a.answer}}</div>
                         </div>
                     </div>
-                    {% endfor %}
-                    {% else %}
-                    Отзывов не найдено
                 {% endif %}
+            {% endfor %}
+        {% endif %}
+
                 
-               
-            </div>
-        </div>
-        <div class="questions">
-            <h1 class="questions__header">Часто-задаваемые вопросы</h1>
-            <div class="questions__section">
-                <div class="questions__section__item ">
-                    <div class="questions__section__item__block">
-                        <p class="questions__section__item__block__about">Вопросы о</p>
-                        <h3 class="questions__section__item__block__name">Похудении</h3>
-                    </div>
-                    
-                    <div class="questions__section__item__block">
-                        <img src="../static/images/section-girl.png" alt="">
-                    </div>
-                </div>
-                <div class="questions__section__item active">
-                    <div class="questions__section__item__block">
-                        <p class="questions__section__item__block__about">Вопросы о</p>
-                        <h3 class="questions__section__item__block__name">Продуктах</h3>
-                    </div>
-                    
-                    <div class="questions__answers__item__block">
-                        <img src="../static/images/ovoshhi.png" alt="">
-                    </div>
-                </div>
-                <div class="questions__section__item ">
-                    <div class="questions__section__item__block">
-                        <p class="questions__section__item__block__about">Вопросы о</p>
-                        <h3 class="questions__section__item__block__name">Тарифах</h3>
-                    </div>
-                    <div class="questions__answers__item__block">
-                        <img src="../static/images/Calculator.png" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="questions__answers">
-                <div class="questions__answers__item">
-                    <div class="question">Откуда Вы берете продукты для приготовления?</div>
-                    <div class="answer"></div>
-                </div>
-                <div class="questions__answers__item">
-                    <div class="question">Являются ли Ваши продукты ГМО?</div>
-                    <div class="answer"></div>
-                </div>
-                <div class="questions__answers__item">
-                    <div class="question ">Есть ли у Вас сертификаты или лицензия на приготовление?</div>
-                    <div class="answer" >Задача организации, в особенности же постоянный количественный рост и сфера нашей активности способствует подготовки и реализации дальнейших направлений развития. Не следует, однако забывать, что начало повседневной работы по формированию позиции представляет собой интересный эксперимент проверки системы обучения кадров, соответствует насущным потребностям. Идейные соображения высшего порядка, а также новая модель организационной деятельности в значительной степени обуславливает создание новых предложений. Таким образом укрепление и развитие структуры представляет собой интересный эксперимент проверки соответствующий условий активизации. Задача организации, в особенности же консультация с широким активом обеспечивает широкому кругу (специалистов) участие в формировании дальнейших направлений развития.</div>
-                </div>
-                <div class="questions__answers__item">
-                    <div class="question">А как обстоят дела с санитарной книжкой?</div>
-                    <div class="answer"></div>
-                </div>
-                <div class="questions__answers__item">
-                    <div class="question">Можно ли заказывать определенные продукты лично для меня?</div>
-                    <div class="answer"></div>
-                </div>
-                <div class="questions__answers__item">
-                    <div class="question">А как обстоят дела с санитарной книжкой?</div>
-                    <div class="answer"></div>
-                </div>
-            </div>
-        </div>
-        <div class="about">
-            <h1 class="about__header">Хотите быстро и вкусно похудеть? Мы решим эту проблему за Вас!</h1>
-            <p class="about__description">Задача организации, в особенности же постоянный количественный рост и сфера нашей активности способствует подготовки и реализации дальнейших направлений развития.</p>
-            <button class="about__button">Заказать рацион питания</button>
-        </div>
+    </div>
+    <div class="about">
+        <h1 class="about__header">Хотите быстро и вкусно похудеть? Мы решим эту проблему за Вас!</h1>
+        <p class="about__description">Задача организации, в особенности же постоянный количественный рост и сфера нашей активности способствует подготовки и реализации дальнейших направлений развития.</p>
+        <button class="about__button">Заказать рацион питания</button>
+    </div>
     </div>
     <footer class="footer">
         <div class="footer__block">

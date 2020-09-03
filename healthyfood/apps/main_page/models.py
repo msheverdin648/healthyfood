@@ -136,3 +136,38 @@ class Reviews(models.Model):
 
 
 
+
+class QuestionsAnswers(models.Model):
+
+
+    WEIGTH = 'weight'
+    PRODUCTS = 'products'
+    TARIFS = 'tarifs'
+
+    CHOICE_GROUP = {
+      ( WEIGTH, 'weight'),
+        (PRODUCTS, 'products'),
+        (TARIFS, 'tarifs') ,
+    }
+
+
+
+
+    question = models.CharField(("Вопрос"), max_length=200)
+    answer = models.CharField(("Ответ"), max_length=500)
+    group = models.CharField(("Группа вопросов"), max_length=20, choices = CHOICE_GROUP, default = PRODUCTS)
+
+    class Meta:
+        verbose_name = ("Вопрос и ответ")
+        verbose_name_plural = ("Вопросы и ответы")
+
+    def __str__(self):
+        return self.question
+
+    def get_absolute_url(self):
+        return reverse("QuestionsAnswers_detail", kwargs={"pk": self.pk})
+
+
+    
+
+

@@ -927,25 +927,39 @@ body
             justify-content: space-between
             &:hover
                 cursor: pointer
-            &.active
-                &::before
-                    content: ""
-                    position: absolute
-                    border: 10px solid transparent
-                    border-top: 20px solid #C6E5D0
-                    transform: translate(96px, 73px)
             &:nth-child(1)
                 background: #B9DEE0
-
+                &.active
+                    &::before
+                        content: ""
+                        position: absolute
+                        border: 10px solid transparent
+                        border-top: 20px solid #B9DEE0
+                        transform: translate(96px, 73px)
             &:nth-child(2)
                 background: #C6E5D0
+                &.active
+                    &::before
+                        content: ""
+                        position: absolute
+                        border: 10px solid transparent
+                        border-top: 20px solid #C6E5D0
+                        transform: translate(96px, 73px)
             &:nth-child(3)
                 background: #D1E2E8
+                &.active
+                    &::before
+                        content: ""
+                        position: absolute
+                        border: 10px solid transparent
+                        border-top: 20px solid #D1E2E8
+                        transform: translate(96px, 73px)
                 
             &__block
                 flex: 0 1 50%
             
     &__answers
+
         
         &__item
             padding: 24px 8px
@@ -992,11 +1006,7 @@ body
                 color: #FFFFFF
                 +museo_normal
 
-
-                    
-                
-                
-                
+ 
             .question
                 font-size: 18px
                 line-height: 114.7%
@@ -1046,7 +1056,11 @@ body
     
     &__block
         display: flex
-        height: 232px
+        
+        &:nth-child(1)
+            height: 232px
+        &:nth-child(2)
+            height: 110px 
         &__item
             .menu,
             .nav,
@@ -1130,4 +1144,8 @@ body
                         color: #FFC702
                         
        
-        
+
+
+
+.hide
+    display: none

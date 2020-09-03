@@ -1,4 +1,7 @@
 $(document).ready(function(){
+
+
+
     $(".programms__big__block").on('click', function(){
         $(this).siblings().removeClass("active");
         $(this).addClass('active');
@@ -32,4 +35,32 @@ $(document).ready(function(){
 
         }
     });
+
+
+
+    let filter = $("[data-filter]");
+
+    filter.on("click", function(){
+       
+        let cat =   $(this).data('filter');
+        
+
+        $("[data-cat]").each(function(){
+
+            let workcat = $(this).data("cat");
+
+            if (workcat != cat){
+
+                $(this).addClass('hide')
+
+            }else{
+                $(this).removeClass('hide')
+            }
+
+        })
+
+    });
+
+
+
     });
