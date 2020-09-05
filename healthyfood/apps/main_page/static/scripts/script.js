@@ -33,12 +33,12 @@ $(document).ready(function(){
             $(this).siblings().removeClass('active')
             $(this).siblings().children('.answer').slideUp()
 
-        }
+        };
     });
 
     
 
-
+    //Сортировка блока с вопросами и ответами по категориям
     let filter = $("[data-filter]");
 
     filter.on("click", function(){
@@ -62,6 +62,36 @@ $(document).ready(function(){
 
     });
 
+    //Калькулятор
 
+
+    
+    let aceept_button = $('.calculate__box__block__button');
+    
+    aceept_button.on('click', function(){
+        let gender = document.getElementById("gender").options.selectedIndex;
+        let activity = document.getElementById("activity").options.selectedIndex;
+        let height = parseInt(document.getElementById("height").value)
+        let age = parseInt(document.getElementById("age").value)
+        let weight = parseInt(document.getElementById("weight").value)
+        let need_weight = parseInt(document.getElementById("need_weight").value)
+
+
+
+        console.log(height, age, weight, need_weight)
+        if (activity == 0){
+            activity_num = +1.2;
+        }
+        else{
+            activity_num = +1.4;
+        }
+        if(gender == 0){
+           oow  = (9.99 * weight)+(6.25 * height) - (4.92 * age) + 5; 
+        }else{
+            oow  = (9.99 * weight)+(6.25 * height) - (4.92 * age) - 161; 
+        };
+        kkal = oow * activity_num * 0.8;
+        console.log(kkal)
+    });
 
     });
