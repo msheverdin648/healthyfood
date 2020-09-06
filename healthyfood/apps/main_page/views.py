@@ -1,6 +1,18 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import HeaderSlider, PageSlider, PageHeaders, ProgrammsBig, ProgrammsSmall, MenuSlider, Reviews, QuestionsAnswers
+from django_filters.rest_framework import DjangoFilterBackend
+from django.views.generic.base import View
+from django.views.generic import ListView 
+
+
+from .models import HeaderSlider, PageSlider, PageHeaders, ProgrammsBig, ProgrammsSmall, MenuSlider, Reviews, QuestionsAnswers, MenuGroup, Days
+
+
+class MenuView(View):
+    def get(self, request):
+        menu = MenuSlider.objects.all()
+        return render(request, 'main_page/page.html', {'menu_list': menu})
+
 
 
 def index(request):
@@ -14,6 +26,7 @@ def index(request):
     review = Reviews.objects.all()
     reviws_count = review.count()
     questions = QuestionsAnswers.objects.all()
+    lose_weight = MenuSlider.objects.filter(group = 'lose_weight')
     return render(request, 'main_page/page.html', {'header_slides': header_slides,
     'headers': page_headers,
     'page_slides': page_slides,
@@ -24,3 +37,9 @@ def index(request):
     'reviws_count': reviws_count,
     'questions' : questions,
     })
+
+
+class MenuGroupFilter(MenuGroup, ListView):
+    def get_groups(self):
+        queryset = MenuSlider.objects.filter(menu_group__in = self.request.GET.get("menu_group"))
+        return queryset

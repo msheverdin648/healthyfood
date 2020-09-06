@@ -132,16 +132,16 @@
             {% if big_block %}
                 {% for a in big_block %}
 
-                <div class="programms__big__block">
-                <div class="programms__big__block__item">
-                    <label for="" class="programms__big__block__item__purpose">Моя цель</label>
-                    <p class="programms__big__block__item__discription">{{a.big_text}} </p>
-                    <p class="programms__big__block__item__choose">Выбрать</p>
+                <div class="programms__big__block" id = 'big__block-{{a.id}}'>
+                    <div class="programms__big__block__item">
+                        <label for="" class="programms__big__block__item__purpose">Моя цель</label>
+                        <p class="programms__big__block__item__discription">{{a.big_text}} </p>
+                        <p class="programms__big__block__item__choose">Выбрать</p>
+                    </div>
+                    <div class="programms__big__block__item image">
+                        <img src="{{a.big_img.url}}" alt="" class="programms__big__block__item__img">
+                    </div>
                 </div>
-                <div class="programms__big__block__item image">
-                    <img src="{{a.big_img.url}}" alt="" class="programms__big__block__item__img">
-                </div>
-            </div>
 
                 {% endfor %}
                 {% else %}
@@ -154,7 +154,7 @@
 
             {% if small_block %}
                 {% for a in small_block  %}
-                <div class="programms__small__items ">
+                <div class="programms__small__items " id = 'small__block-{{a.id}}'>
                     <img src="{{a.small_img.url}}" alt="" class="programms__small__items__ico">
                     <p class="programms__small__items__discription"> {{a.small_text}} </p>
                 </div>
@@ -176,38 +176,40 @@
         
         <div class="menu__slider">
             <div class="menu__slider__small" id="slider-3">
-                {% if menu %}
-                    {% for a in menu %}
-                    <div class="menu__slider__small__item">
-                        <img src="{{a.small_img.url}}" alt="">
-                    </div>
-                    {% endfor %}
-                {% endif %}
-
+                
             </div>
             <div class="menu__slider__big" id="slider-4">
                 {% if menu %}
                         {% for a in menu %}
-                        <div class="menu__slider__big__block">
-                        <div class="menu__slider__big__block__item">
-                            <img src="{{a.big_img.url}}" alt="" class="menu__slider__big__block__item__image">
-                        </div>
-                        <div class="menu__slider__big__block__item">
-                            <div class="menu__slider__big__block__item__header">
-                                <h3>{{a.name}}</h3>
-                            </div>
-                            <div class="menu__slider__big__block__item__calories">
-                                <div class="menu__slider__big__block__item__calories__items">{{a.kkal}} Ккал</div>
-                                <div class="menu__slider__big__block__item__calories__items">{{a.gramm}} грамм</div>
-                            </div>
-                            <div class="menu__slider__big__block__item__description">
-                                <b>Описание блюда:</b>
-                                <p>
-                                    {{a.menu_discription}}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                            {% if a.group == 'lose_weight' %}
+                                {% if a.days_group == 'Monday' %}
+                                <div class="menu__slider__small__item">
+                                    <h2>Понедельник</h2>
+                                </div>
+                                {% for b in menu %}
+                                <div class="menu__slider__big__block">
+                                    <div class="menu__slider__big__block__item">
+                                        <img src="{{b.big_img.url}}" alt="" class="menu__slider__big__block__item__image">
+                                    </div>
+                                    <div class="menu__slider__big__block__item">
+                                        <div class="menu__slider__big__block__item__header">
+                                            <h3>{{b.name}}</h3>
+                                        </div>
+                                        <div class="menu__slider__big__block__item__calories">
+                                            <div class="menu__slider__big__block__item__calories__items">{{b.kkal}} Ккал</div>
+                                            <div class="menu__slider__big__block__item__calories__items">{{b.gramm}} грамм</div>
+                                        </div>
+                                        <div class="menu__slider__big__block__item__description">
+                                            <b>Описание блюда:</b>
+                                            <p>
+                                                {{b.menu_discription}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                {% endif %}
+                            {% endif %}
                         {% endfor %}
                     {% endif %}
             </div>

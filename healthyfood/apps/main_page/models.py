@@ -86,9 +86,32 @@ class ProgrammsSmall(models.Model):
         return self.small_text
 
 
+
+class MenuGroup(models.Model):
+    name = models.CharField(('Категория меню'), max_length = 100 )
+    def __str__(self):
+        return self.name   
+
+    class Meta:
+        db_table = ''
+        managed = True
+        verbose_name = 'Группа меню'
+        verbose_name_plural = 'Группы меню'
+
+class Days(models.Model):
+    name = models.CharField(('День недели'), max_length = 20 )
+    def __str__(self):
+        return self.name 
+
+    class Meta:
+        db_table = ''
+        managed = True
+        verbose_name = 'День недели'
+        verbose_name_plural = 'Дни недели'  
+
+
 class MenuSlider(models.Model):
 
-    
 
     class Meta:
         verbose_name = ("Позиции меню ")
@@ -109,6 +132,12 @@ class MenuSlider(models.Model):
     gramm = models.CharField(("Колличество грамм"), max_length=20)
     price = models.CharField(("Цена блюда"), max_length=10)
     discount = models.CharField(("Цена со скидкой, если есть"), max_length=10, null=True, blank = True)
+    menu_group = models.ManyToManyField(MenuGroup, verbose_name = "Категории меню", related_name='menu_group')
+    days_group = models.ManyToManyField(Days, verbose_name = "Дни недели", related_name='days')
+
+
+
+  
 
 
 class Reviews(models.Model):
@@ -144,9 +173,9 @@ class QuestionsAnswers(models.Model):
     TARIFS = 'tarifs'
 
     CHOICE_GROUP = {
-      ( WEIGTH, 'weight'),
-        (PRODUCTS, 'products'),
-        (TARIFS, 'tarifs') ,
+      ( WEIGTH, 'Вес'),
+        (PRODUCTS, 'Продукты'),
+        (TARIFS, 'Тарифы') ,
     }
 
 

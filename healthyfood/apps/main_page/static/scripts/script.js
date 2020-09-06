@@ -1,15 +1,35 @@
 $(document).ready(function(){
 
 
-
-    $(".programms__big__block").on('click', function(){
-        $(this).siblings().removeClass("active");
-        $(this).addClass('active');
-    });
+    
 
     $(".programms__small__items").on('click', function(){
         $(this).siblings().removeClass("active");
         $(this).addClass('active');
+        if ($(small_block1).hasClass('active')){
+
+            $(big_block2).removeClass('active');
+            $(big_block3).removeClass('active');
+            $(big_block4).removeClass('active');
+            $(big_block1).addClass('active');
+            
+        }else if ($(small_block2).hasClass('active')){
+            $(big_block1).removeClass('active');
+            $(big_block3).removeClass('active');
+            $(big_block4).removeClass('active');
+            $(big_block2).addClass('active');
+
+        }else if ($(small_block3).hasClass('active') || $(small_block7).hasClass('active')) {
+            $(big_block1).removeClass('active');
+            $(big_block2).removeClass('active');
+            $(big_block4).removeClass('active');
+            $(big_block3).addClass('active');
+        }else if ($(small_block6).hasClass('active') || $(small_block5).hasClass('active')){
+            $(big_block1).removeClass('active');
+            $(big_block2).removeClass('active');
+            $(big_block3).removeClass('active');
+            $(big_block4).addClass('active');
+        }
     });
 
 
@@ -93,5 +113,30 @@ $(document).ready(function(){
         kkal = oow * activity_num * 0.8;
         console.log(kkal)
     });
+
+
+
+
+        let small_block1 = document.getElementById("small__block-1");
+        let small_block2 = document.getElementById("small__block-2");
+        let small_block3 = document.getElementById("small__block-3");
+        let small_block4 = document.getElementById("small__block-4");
+        let small_block5 = document.getElementById("small__block-5");
+        let small_block6 = document.getElementById("small__block-6");
+        let small_block7 = document.getElementById("small__block-7");
+        let small_block8 = document.getElementById("small__block-8");
+        let small_block9 = document.getElementById("small__block-9");
+        let small_block10 = document.getElementById("small__block-10");
+
+
+        let big_block1 = document.getElementById("big__block-1")
+        let big_block2 = document.getElementById("big__block-2");
+        let big_block3 = document.getElementById("big__block-3");
+        let big_block4 = document.getElementById("big__block-4");
+
+        
+
+    
+
 
     });
