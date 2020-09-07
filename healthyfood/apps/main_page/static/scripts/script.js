@@ -7,7 +7,6 @@ $(document).ready(function(){
         $(this).siblings().removeClass("active");
         $(this).addClass('active');
         if ($(small_block1).hasClass('active')){
-
             $(big_block2).removeClass('active');
             $(big_block3).removeClass('active');
             $(big_block4).removeClass('active');

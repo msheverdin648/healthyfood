@@ -78,30 +78,36 @@ class ProgrammsSmall(models.Model):
         verbose_name = 'Маленький блок '
         verbose_name_plural = 'Маленькие блоки'
 
-    small_text = models.CharField(("Название блока"), max_length=50)
+    name = models.CharField(("Название блока"), max_length=50)
     small_img = models.FileField(("Картинка блока"), upload_to='img')
-    
+    cat = models.CharField(("Обозначение блока"), max_length=50)
 
     def __str__(self):
-        return self.small_text
+        return self.name
 
 
 
 class MenuGroup(models.Model):
-    name = models.CharField(('Категория меню'), max_length = 100 )
+
+    catigory = models.CharField(('Категория меню'), max_length = 100 )
+
     def __str__(self):
-        return self.name   
+        return self.catigory   
 
     class Meta:
         db_table = ''
         managed = True
-        verbose_name = 'Группа меню'
-        verbose_name_plural = 'Группы меню'
+        verbose_name = 'Категория меню'
+        verbose_name_plural = 'Категории меню'
+
+    
+
 
 class Days(models.Model):
-    name = models.CharField(('День недели'), max_length = 20 )
+
+    days_name = models.CharField(('День недели'), max_length = 20 )
     def __str__(self):
-        return self.name 
+        return self.days_name 
 
     class Meta:
         db_table = ''
@@ -120,9 +126,6 @@ class MenuSlider(models.Model):
     def __str__(self):
         return self.name
 
-    def get_absolute_url(self):
-        return reverse("Меню_detail", kwargs={"pk": self.pk})    
-
 
     name = models.CharField(("Название блюда"), max_length=100)
     menu_discription = models.CharField(("Описание блюда"), max_length=500)
@@ -132,8 +135,8 @@ class MenuSlider(models.Model):
     gramm = models.CharField(("Колличество грамм"), max_length=20)
     price = models.CharField(("Цена блюда"), max_length=10)
     discount = models.CharField(("Цена со скидкой, если есть"), max_length=10, null=True, blank = True)
-    menu_group = models.ManyToManyField(MenuGroup, verbose_name = "Категории меню", related_name='menu_group')
-    days_group = models.ManyToManyField(Days, verbose_name = "Дни недели", related_name='days')
+    menu_list = models.ManyToManyField(MenuGroup, verbose_name = "Категории меню", related_name='menu_group')
+    days_list = models.ManyToManyField(Days, verbose_name = "Дни недели", related_name='days')
 
 
 
@@ -191,9 +194,6 @@ class QuestionsAnswers(models.Model):
 
     def __str__(self):
         return self.question
-
-    def get_absolute_url(self):
-        return reverse("QuestionsAnswers_detail", kwargs={"pk": self.pk})
 
 
     

@@ -5,9 +5,12 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.index, name = 'index'),
-    path('menu/', views.MenuView.as_view()),
-    path('filter/', views.MenuGroupFilter.as_view(), name='filter')
+    path('', views.Base.as_view(), name = 'headers'),
+    path('menu/', views.MenuView.as_view(), name = 'menu'),
+    
+    
+    
+    
 ]
 
 if settings.DEBUG:
