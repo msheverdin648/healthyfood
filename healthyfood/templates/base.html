@@ -157,32 +157,27 @@
         
     </div>
     <p class="programms__choise">Выберите программу</p>
-    <div class="programms__small">
-
-        {% if programms_small %}
-            {% for a in programms_small  %}
-            <div class="programms__small__items " id = 'small__block-{{a.cat}}'>
-                <img src="{{a.small_img.url}}" alt="" class="programms__small__items__ico">
-                <p class="programms__small__items__discription"> {{a.name}} </p>
-            </div>
-            {% endfor %}
-        {% endif %}
-    </div>
+    <form action="{% url 'menu' %}">
+        <div class="programms__small">
+            {% if programms_small %}
+                {% for a in programms_small  %}
+                <div class="programms__small__items " id = 'small__block-{{a.cat}}'>
+                    <img src="{{a.small_img.url}}" alt="" class="programms__small__items__ico">
+                    <p class="programms__small__items__discription"> {{a.name}} </p>
+                </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </form>
 </div>
 <div class="menu">
-    {% if headers %}
-        <h2 class="menu__header">
-            {{headers.menu_header}}
-        </h2>
-        <p class="menu__description">
-            {{ headers.menu_smalltext }}
-        </p>
-    {% else %}
-        Заголовков не найдено
-    {% endif %}
-    {% include "main_page/menu.html" %}
-</div>       
+    {% block menu %}
+      
+    {% endblock menu %}
     
+</div>       
+{% block buy-now %}
+{% endblock buy-now %} 
   
         
        

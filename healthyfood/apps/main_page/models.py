@@ -135,7 +135,7 @@ class MenuSlider(models.Model):
     gramm = models.CharField(("Колличество грамм"), max_length=20)
     price = models.CharField(("Цена блюда"), max_length=10)
     discount = models.CharField(("Цена со скидкой, если есть"), max_length=10, null=True, blank = True)
-    menu_list = models.ManyToManyField(MenuGroup, verbose_name = "Категории меню", related_name='menu_group')
+    menu_list = models.ManyToManyField(MenuGroup, verbose_name = "Категории меню", related_name='menu_list')
     days_list = models.ManyToManyField(Days, verbose_name = "Дни недели", related_name='days')
 
 

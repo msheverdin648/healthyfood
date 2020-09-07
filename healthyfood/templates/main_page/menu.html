@@ -1,108 +1,125 @@
+{% extends "base.html" %}
+    {% block menu %}
+      
 
+        {% for a in headers %}
+            <h2 class="menu__header">
+                {{a.menu_header}}
+            </h2>
+            <p class="menu__description">
+                {{ a.menu_smalltext }}
+            </p>
+        {% endfor %}
   
-        {% if menu %}
-        <div class="menu__slider">
-            <div class="menu__slider__small" id="slider-3">
+            <div class="menu__slider">
+                
+                <div class="menu__slider__small" id="slider-3">
+                    {% for day in  days %}
+                    <div class="menu__slider__small__item">
+                        <h3>{{day.name}}</h3>
+                    </div>
+                    {% for a in menu %}
+                        {% if a.days_list == day.name %}
+                            <div class="menu__slider__small__item">
+                                <img src="{{a.small_img.url}}" alt="">
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+                </div>
+                
+                
+                <div class="menu__slider__big" id="slider-4">
+                    {% for day in  days %}
+                            {% for a in menu %}
+                                            <div class="menu__slider__big__block">
+                                                <div class="menu__slider__big__block__item">
+                                                    <img src="{{b.big_img.url}}" alt="" class="menu__slider__big__block__item__image">
+                                                </div>
+                                                <div class="menu__slider__big__block__item">
+                                                    <div class="menu__slider__big__block__item__header">
+                                                        <h3>{{b.name}}</h3>
+                                                    </div>
+                                                    <div class="menu__slider__big__block__item__calories">
+                                                        <div class="menu__slider__big__block__item__calories__items">{{b.kkal}} Ккал</div>
+                                                        <div class="menu__slider__big__block__item__calories__items">{{b.gramm}} грамм</div>
+                                                    </div>
+                                                    <div class="menu__slider__big__block__item__description">
+                                                        <b>Описание блюда:</b>
+                                                        <p>
+                                                            {{b.menu_discription}}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                            {% endfor %}
+                        {% endfor %}               
+                </div>
                 
             </div>
-            <div class="menu__slider__big" id="slider-4">
-                        {% for a in menu %}
-                            {% if a.menu_list  %}
-                                {% if a.days_list  %}
-                                <div class="menu__slider__small__item">
-                                    <h2>Понедельник</h2>
-                                </div>
-                                {% for b in menu %}
-                                <div class="menu__slider__big__block">
-                                    <div class="menu__slider__big__block__item">
-                                        <img src="{{b.big_img.url}}" alt="" class="menu__slider__big__block__item__image">
-                                    </div>
-                                    <div class="menu__slider__big__block__item">
-                                        <div class="menu__slider__big__block__item__header">
-                                            <h3>{{b.name}}</h3>
-                                        </div>
-                                        <div class="menu__slider__big__block__item__calories">
-                                            <div class="menu__slider__big__block__item__calories__items">{{b.kkal}} Ккал</div>
-                                            <div class="menu__slider__big__block__item__calories__items">{{b.gramm}} грамм</div>
-                                        </div>
-                                        <div class="menu__slider__big__block__item__description">
-                                            <b>Описание блюда:</b>
-                                            <p>
-                                                {{b.menu_discription}}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                {% endfor %}
-                                {% endif %}
-                            {% endif %}
-                        {% endfor %}
+            <div class="menu__buttons">
+                <button class="menu__buttons__item">Заказать прямо сейчас</button>
+                <button class="menu__buttons__item">Бесплатная консультация</button>
             </div>
-        </div>
-        <div class="menu__buttons">
-            <button class="menu__buttons__item">Заказать прямо сейчас</button>
-            <button class="menu__buttons__item">Бесплатная консультация</button>
-        </div>
-
-        <div class="buy-now">
-            {% if headers %}
-                <h1 class="buy-now__header">{{headers.buy_header}}</h1>
-                {% else %}
-                Заголовков не найдено
-            {% endif %}
+            {% endblock menu %}
+            {% block buy-now %}
+              
             
-      
-            
-            <div class="buy-now__block">
-                <div class="buy-now__block__days">
-                    <div class="buy-now__block__days__item buy-now__block__days__first active ">
-                        <h2>На 10 дней</h2>
-                        <p>Получите счёт 25 000 Healthy Bonus</p>
+            <div class="buy-now">
+                    <h1 class="buy-now__header">{{headers.buy_header}}</h1>
+                
+        
+                
+                <div class="buy-now__block">
+                    <div class="buy-now__block__days">
+                        <div class="buy-now__block__days__item buy-now__block__days__first active ">
+                            <h2>На 10 дней</h2>
+                            <p>Получите счёт 25 000 Healthy Bonus</p>
+                        </div>
+                        <div class="buy-now__block__days__item buy-now__block__days__second  ">
+                            <h2>На 15 дней</h2>
+                            <p>Получите счёт 25 000 Healthy Bonus</p>
+                        </div>
                     </div>
-                    <div class="buy-now__block__days__item buy-now__block__days__second  ">
-                        <h2>На 15 дней</h2>
-                        <p>Получите счёт 25 000 Healthy Bonus</p>
-                    </div>
-                </div>
-                {% if menu %}
-                    <div class="buy-now__block__discription" id = 'slider-6'>
-                        {% for a in menu  %}
-                            <div class="buy-now__slider__item">
-                                <p class="buy-now__block__discription__small-text">Ваш заказ</p>
-                                <h2 class="buy-now__block__discription__header">{{a.name}}</h2>
-                                <p class="buy-now__block__discription__text">Сбалансированное питание, в короткие сроки помогает избавится  от лишнего веса</p>
-                                {% if a.discount %}
-                                    <p class="buy-now__block__discription__price">Новая цена:</p>
-                                    <b class="new-price">{{a.discount}}р.</b>
-                                    <b class="old-price">{{a.price}}р.</b>
-                                {% else %}
-                                    <p class="buy-now__block__discription__price">Цена:</p>
-                                    <b class="new-price">{{a.price}}р.</b>
-                                {% endif %}
-                                <div class="buy-now__block__discription__buttons">
-                                    <button class="buy-now__block__discription__buttons__item">Заказать сейчас</button>
-                                    <button class="buy-now__block__discription__buttons__item">Бесплатная консультация</button>
+                    {% if menu %}
+                        <div class="buy-now__block__discription" id = 'slider-6'>
+                            {% for a in menu  %}
+                                <div class="buy-now__slider__item">
+                                    <p class="buy-now__block__discription__small-text">Ваш заказ</p>
+                                    <h2 class="buy-now__block__discription__header">{{a.name}}</h2>
+                                    <p class="buy-now__block__discription__text">Сбалансированное питание, в короткие сроки помогает избавится  от лишнего веса</p>
+                                    {% if a.discount %}
+                                        <p class="buy-now__block__discription__price">Новая цена:</p>
+                                        <b class="new-price">{{a.discount}}р.</b>
+                                        <b class="old-price">{{a.price}}р.</b>
+                                    {% else %}
+                                        <p class="buy-now__block__discription__price">Цена:</p>
+                                        <b class="new-price">{{a.price}}р.</b>
+                                    {% endif %}
+                                    <div class="buy-now__block__discription__buttons">
+                                        <button class="buy-now__block__discription__buttons__item">Заказать сейчас</button>
+                                        <button class="buy-now__block__discription__buttons__item">Бесплатная консультация</button>
+                                    </div>
                                 </div>
-                            </div>
-                        {% endfor %}
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        заказов не найдено
+                    {% endif %}
+                </div>
+                <div class="buy-now__bonus">
+                    <div class="buy-now__bonus__item">
+                        <img src="../static/images/present.svg" alt="" class="buy-now__bonus__item__image">
+                        <h3 class="buy-now__bonus__item__header">Приветственный бонус</h3>
+                        <p class="buy-now__bonus__item__discription"> Закажи у нас любой пакет и получи на свой счёт 25 000 Healthy Bonus</p>
                     </div>
-                    {% else %}
-                    заказов не найдено
-                {% endif %}
-            </div>
-            <div class="buy-now__bonus">
-                <div class="buy-now__bonus__item">
-                    <img src="../static/images/present.svg" alt="" class="buy-now__bonus__item__image">
-                    <h3 class="buy-now__bonus__item__header">Приветственный бонус</h3>
-                    <p class="buy-now__bonus__item__discription"> Закажи у нас любой пакет и получи на свой счёт 25 000 Healthy Bonus</p>
+                    <div class="buy-now__bonus__item">
+                        <img src="../static/images/present-2.svg" alt="" class="buy-now__bonus__item__image">
+                        <h3 class="buy-now__bonus__item__header">Семейный бонус</h3>
+                        <p class="buy-now__bonus__item__discription">Оформи доставку более 2 пакетов на один адрес и получи 10 000 на свой счёт Healthy Bonus</p>
+                    </div>
                 </div>
-                <div class="buy-now__bonus__item">
-                    <img src="../static/images/present-2.svg" alt="" class="buy-now__bonus__item__image">
-                    <h3 class="buy-now__bonus__item__header">Семейный бонус</h3>
-                    <p class="buy-now__bonus__item__discription">Оформи доставку более 2 пакетов на один адрес и получи 10 000 на свой счёт Healthy Bonus</p>
-                </div>
+        
             </div>
-    
-        </div>
-        {% endif %}
-    
+        {% endblock buy-now %}
+            
