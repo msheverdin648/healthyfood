@@ -32,8 +32,6 @@ class Base(View):
 class MenuView(View):
     def get(self, request):
         menu = MenuSlider.objects.all()
-
-
         headers = PageHeaders.objects.all()
         header_slider = HeaderSlider.objects.all()
         page_slider = PageSlider.objects.all()

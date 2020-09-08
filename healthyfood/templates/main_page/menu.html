@@ -16,14 +16,20 @@
                 <div class="menu__slider__small" id="slider-3">
                     {% for day in  days %}
                     <div class="menu__slider__small__item">
-                        <h3>{{day.name}}</h3>
+                        <h3>{{day.days_name}}</h3>
                     </div>
                     {% for a in menu %}
-                        {% if a.days_list == day.name %}
-                            <div class="menu__slider__small__item">
-                                <img src="{{a.small_img.url}}" alt="">
-                            </div>
-                        {% endif %}
+                        
+                        {% for menu_day in a.days_list.all %}
+                            {% if '{{menu_day}}' == day.days_name %}
+                                <div class="menu__slider__small__item">
+                                    <h5>{{menu_day}}</h5>
+                                </div>
+                                <div class="menu__slider__small__item">
+                                    <img src="{{a.small_img.url}}" alt="">
+                                </div>
+                            {% endif %}
+                        {% endfor %}
                     {% endfor %}
                 {% endfor %}
                 </div>

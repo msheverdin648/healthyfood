@@ -90,10 +90,10 @@ $(document).ready(function(){
     aceept_button.on('click', function(){
         let gender = document.getElementById("gender").options.selectedIndex;
         let activity = document.getElementById("activity").options.selectedIndex;
-        let height = parseInt(document.getElementById("height").value)
-        let age = parseInt(document.getElementById("age").value)
-        let weight = parseInt(document.getElementById("weight").value)
-        let need_weight = parseInt(document.getElementById("need_weight").value)
+        let height = parseInt(document.getElementById("height").value);
+        let age = parseInt(document.getElementById("age").value);
+        let weight = parseInt(document.getElementById("weight").value);
+        let need_weight = document.getElementById("need_weight").options.selectedIndex
 
 
 
