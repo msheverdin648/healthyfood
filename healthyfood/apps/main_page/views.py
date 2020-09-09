@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django_filters.rest_framework import DjangoFilterBackend
 from django.views.generic.base import View
 from django.views.generic import ListView, DetailView
 

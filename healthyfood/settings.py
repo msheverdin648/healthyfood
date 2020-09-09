@@ -27,7 +27,7 @@ sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps'))
 SECRET_KEY = '$%6j(+%n^_c7oc0&&uuygzj^py0l)el(m3e!hni^ovfu1n=5i%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['.pythonanywhere.com', '127.0.0.1']
 
@@ -140,6 +140,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 
-REST_FRAMEWORK = {
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
-}
