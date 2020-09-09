@@ -117,15 +117,12 @@ class Days(models.Model):
 
 
 class MenuSlider(models.Model):
-
-
     class Meta:
-        verbose_name = ("Позиции меню ")
-        verbose_name_plural = ("Меню")
+        verbose_name = ("Блюдо ")
+        verbose_name_plural = ("Блюда")
 
     def __str__(self):
         return self.name
-
 
     name = models.CharField(("Название блюда"), max_length=100)
     menu_discription = models.CharField(("Описание блюда"), max_length=500)
@@ -135,12 +132,52 @@ class MenuSlider(models.Model):
     gramm = models.CharField(("Колличество грамм"), max_length=20)
     price = models.CharField(("Цена блюда"), max_length=10)
     discount = models.CharField(("Цена со скидкой, если есть"), max_length=10, null=True, blank = True)
-    menu_list = models.ManyToManyField(MenuGroup, verbose_name = "Категории меню", related_name='menu_list')
     days_list = models.ManyToManyField(Days, verbose_name = "Дни недели", related_name='days')
 
 
+class MenuList(models.Model):
+    class Meta:
+        verbose_name = ("Меню")
+        verbose_name_plural = ("Меню")
 
-  
+
+    HEALTHY800 = "HEALTHY800"
+    HEALTHY1000 = "HEALTHY1000"
+    HEALTHY1200 = "HEALTHY1200"
+    HEALTHY1400 = "HEALTHY1400"
+    BALANCEDWOMAN = "BALANCEDWOMAN"
+    BALANCEDMAN = "BALANCEDMAN"
+    PERFECTFITULTRASLIM = "PERFECTFITULTRASLIM"
+    PERFECTFITSUPERSLIM = "PERFECTFITSUPERSLIM"
+    PERFECTFITLIGHT = "PERFECTFITLIGHT"
+    PERFECTFITMEDIUM = "PERFECTFITMEDIUM"
+    PERFECTFITSTRONGMEN = "PERFECTFITSTRONGMEN"
+    VGETERIAN = "VGETERIAN"
+    ILLFOOD = "ILLFOOD"
+    BREASTEAT = "BREASTEAT"
+    OFFICEPACK = "OFFICEPACK"
+
+    CHOICE_GROUP = {
+        (HEALTHY800, 'Здоровое питание 800-1000 ккал'),
+        (HEALTHY1000, 'Здоровое питание 1000-1200 ккал'),
+        (HEALTHY1200, 'Здоровое питание 1200-1400 ккал'),
+        (HEALTHY1400, 'Здоровое питание 1400-1600 ккал'),
+        (BALANCEDWOMAN, 'Сбалансированное питание женщины'),
+        (BALANCEDMAN, 'Сбалансированное питание мужчины'),
+        (PERFECTFITULTRASLIM, 'PERFECT FIT ULTRA SLIM'),
+        (PERFECTFITSUPERSLIM, 'PERFECT FIT SUPER SLIM'),
+        (PERFECTFITLIGHT, 'PERFECT FIT LIGHT '),
+        (PERFECTFITMEDIUM, 'PERFECT FIT MEDIUM'),
+        (PERFECTFITSTRONGMEN, 'PERFECT FIT STRONG MEN'),
+        (VGETERIAN, 'Вегетерианское меню'),
+        (ILLFOOD, 'Питание при заболеваниях'),
+        (BREASTEAT, 'Грудное вскармиливание'),
+        (OFFICEPACK, 'Офис пакет 650 ккал'),                                       
+    }
+
+    name = models.CharField(("Название меню"), max_length=200, choices=CHOICE_GROUP, default = HEALTHY800)
+    menu_item = models.ManyToManyField(MenuSlider, verbose_name = "Позиции меню", related_name='menu_item')
+
 
 
 class Reviews(models.Model):

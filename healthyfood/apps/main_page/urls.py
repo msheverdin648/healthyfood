@@ -6,7 +6,6 @@ from . import views
 
 urlpatterns = [
     path('', views.Base.as_view(), name = 'headers'),
-    path('menu/', views.MenuView.as_view(), name = 'menu'),
     
     
     

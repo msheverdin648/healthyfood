@@ -1,36 +1,9 @@
 $(document).ready(function(){
 
 
-    
-
-    $(".programms__small__items").on('click', function(){
-        $(this).siblings().removeClass("active");
-        $(this).addClass('active');
-        if ($(small_block1).hasClass('active')){
-            $(big_block2).removeClass('active');
-            $(big_block3).removeClass('active');
-            $(big_block4).removeClass('active');
-            $(big_block1).addClass('active');
-            
-        }else if ($(small_block2).hasClass('active')){
-            $(big_block1).removeClass('active');
-            $(big_block3).removeClass('active');
-            $(big_block4).removeClass('active');
-            $(big_block2).addClass('active');
-
-        }else if ($(small_block3).hasClass('active') || $(small_block7).hasClass('active')) {
-            $(big_block1).removeClass('active');
-            $(big_block2).removeClass('active');
-            $(big_block4).removeClass('active');
-            $(big_block3).addClass('active');
-        }else if ($(small_block6).hasClass('active') || $(small_block5).hasClass('active')){
-            $(big_block1).removeClass('active');
-            $(big_block2).removeClass('active');
-            $(big_block3).removeClass('active');
-            $(big_block4).addClass('active');
-        }
-    });
-
+    function add_active(target){
+        $(target).addClass('active')
+    }
 
     $(".buy-now__block__days__item").on('click', function(){
         $(this).siblings().removeClass("active");
@@ -85,34 +58,9 @@ $(document).ready(function(){
 
 
     
-    let aceept_button = $('.calculate__box__block__button');
+        let aceept_button = $('.calculate__box__block__button');
     
-    aceept_button.on('click', function(){
-        let gender = document.getElementById("gender").options.selectedIndex;
-        let activity = document.getElementById("activity").options.selectedIndex;
-        let height = parseInt(document.getElementById("height").value);
-        let age = parseInt(document.getElementById("age").value);
-        let weight = parseInt(document.getElementById("weight").value);
-        let need_weight = document.getElementById("need_weight").options.selectedIndex
-
-
-
-        console.log(height, age, weight, need_weight)
-        if (activity == 0){
-            activity_num = +1.2;
-        }
-        else{
-            activity_num = +1.4;
-        }
-        if(gender == 0){
-           oow  = (9.99 * weight)+(6.25 * height) - (4.92 * age) + 5; 
-        }else{
-            oow  = (9.99 * weight)+(6.25 * height) - (4.92 * age) - 161; 
-        };
-        kkal = oow * activity_num * 0.8;
-        console.log(kkal)
-    });
-
+   
 
 
 
@@ -135,7 +83,112 @@ $(document).ready(function(){
 
         
 
-    
+        
 
+
+    $(".programms__small__items").on('click', function(){
+        $(this).addClass('active');
+        make_small_block_active();
+    });
+
+    
+    function make_small_block_active(){
+        if ($(small_block1).hasClass('active')){
+            $(big_block2).removeClass('active');
+            $(big_block3).removeClass('active');
+            $(big_block4).removeClass('active');
+            $(big_block1).addClass('active');
+            
+        }else if ($(small_block2).hasClass('active')){
+            $(big_block1).removeClass('active');
+            $(big_block3).removeClass('active');
+            $(big_block4).removeClass('active');
+            $(big_block2).addClass('active');
+
+        }else if ($(small_block3).hasClass('active') || $(small_block7).hasClass('active')) {
+            $(big_block1).removeClass('active');
+            $(big_block2).removeClass('active');
+            $(big_block4).removeClass('active');
+            $(big_block3).addClass('active');
+        }else if ($(small_block6).hasClass('active') || $(small_block5).hasClass('active')){
+            $(big_block1).removeClass('active');
+            $(big_block2).removeClass('active');
+            $(big_block3).removeClass('active');
+            $(big_block4).addClass('active');
+        }
+    };
+
+
+
+
+
+    $(".programms__small__items").on('click', function(){
+        $(this).addClass('active');
+        $(this).siblings().removeClass('active');
+        make_small_block_active();
+    });
+
+    aceept_button.on('click', function(){
+        let gender = document.getElementById("gender").options.selectedIndex;
+        let activity = document.getElementById("activity").options.selectedIndex;
+        let height = parseInt(document.getElementById("height").value);
+        let age = parseInt(document.getElementById("age").value);
+        let weight = parseInt(document.getElementById("weight").value);
+        let need_weight = document.getElementById("need_weight").options.selectedIndex
+
+
+        if (activity == 0){
+            activity_num = +1.2;
+        }
+        else{
+            activity_num = +1.4;
+        }
+        if(gender == 0){
+           oow  = (9.99 * weight)+(6.25 * height) - (4.92 * age) + 5; 
+        }else{
+            oow  = (9.99 * weight)+(6.25 * height) - (4.92 * age) - 161; 
+        };
+        kkal = oow * activity_num * 0.8;
+
+
+
+        if (need_weight == 0){
+            $('#small__block-1').addClass('active');
+            $('#small__block-1').siblings().removeClass('active')
+            make_small_block_active();
+        }else if (need_weight == 1){
+            $('#small__block-2').addClass('active');
+            $('#small__block-2').siblings().removeClass('active')
+            make_small_block_active();
+        }else if (need_weight == 2){
+            $('#small__block-3').addClass('active');
+            $('#small__block-3').siblings().removeClass('active')
+            $(big_block2).addClass('active')
+            $(big_block2).siblings().removeClass('active')
+        }
 
     });
+
+
+
+    if (need_weight == 0){
+        let body = 'catigory=' + lose_weight
+    }else if (need_weight == 1){
+        let body = 'catigory=' + for_sportsmen
+    }else if (need_weight == 2){
+        let body = 'catigory=' + balanced_eat
+    }
+
+
+
+    var request = new XMLHttpRequest();
+
+    request.open("GET", "http://localhost:8080/menu?"+body);
+    request.onreadystatechange = reqReadyStateChange;
+    request.send();
+    console.log('sended')
+
+
+});
+
+
