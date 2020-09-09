@@ -839,6 +839,10 @@ body {
   padding: 10px;
 }
 
+.menu__slider__small h5 {
+  text-align: center;
+}
+
 .menu__buttons {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1112,6 +1116,22 @@ body {
   color: #323232;
   line-height: 129.7%;
   font-family: 'Museo Sans Cyrl 500';
+}
+
+.buy-now__day {
+  text-align: center;
+}
+
+.buy-now__slider__item.day {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 #slider-6 {
@@ -1650,4 +1670,3 @@ body {
 .hide {
   display: none;
 }
-/*# sourceMappingURL=style.css.map */

@@ -29,7 +29,8 @@ $('.header__slider').each(function(){
         centerMode: true,
         focusOnSelect: true,
         asNavFor: '.menu__slider__big, #slider-6',
-        infinite: false,
+        draggble: true,
+        swipe: true,
     });
  });
 
@@ -40,7 +41,6 @@ $('.header__slider').each(function(){
         dots: false, 
         arrows: true,
         asNavFor: '#slider-6, .menu__slider__small',
-        infinite: false,
 
     });
  });
