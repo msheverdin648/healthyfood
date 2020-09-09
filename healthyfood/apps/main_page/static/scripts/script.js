@@ -1,10 +1,6 @@
 $(document).ready(function(){
 
 
-    function add_active(target){
-        $(target).addClass('active')
-    }
-
     $(".buy-now__block__days__item").on('click', function(){
         $(this).siblings().removeClass("active");
         $(this).addClass('active');
@@ -169,24 +165,6 @@ $(document).ready(function(){
 
     });
 
-
-
-    if (need_weight == 0){
-        let body = 'catigory=' + lose_weight
-    }else if (need_weight == 1){
-        let body = 'catigory=' + for_sportsmen
-    }else if (need_weight == 2){
-        let body = 'catigory=' + balanced_eat
-    }
-
-
-
-    var request = new XMLHttpRequest();
-
-    request.open("GET", "http://localhost:8080/menu?"+body);
-    request.onreadystatechange = reqReadyStateChange;
-    request.send();
-    console.log('sended')
 
 
 });

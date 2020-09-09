@@ -4,7 +4,7 @@ from django.views.generic.base import View
 from django.views.generic import ListView, DetailView
 
 
-from .models import HeaderSlider, PageSlider, PageHeaders, ProgrammsBig, ProgrammsSmall, MenuSlider, Reviews, QuestionsAnswers, MenuGroup, Days
+from main_page.models import HeaderSlider, PageSlider, PageHeaders, ProgrammsBig, ProgrammsSmall, MenuSlider, Reviews, QuestionsAnswers, Days, MenuList
 
 
 
@@ -31,26 +31,36 @@ class Base(View):
         'questions': questions,
         'menu': menu,
         'days': days,
+
+        })
+
+class MenuView(View):
+    def get(self, request, menu_cat):
+        menu = MenuList.objects.all()
+        menu_list = menu.filter(name=menu_cat).get()
+        headers = PageHeaders.objects.all()
+        header_slider = HeaderSlider.objects.all()
+        page_slider = PageSlider.objects.all()
+        programms_big = ProgrammsBig.objects.all()
+        programms_small = ProgrammsSmall.objects.all()
+        reviews = Reviews.objects.all()
+        reviews_count = reviews.count()
+        questions = QuestionsAnswers.objects.all()
+        days  = Days.objects.all()
+        return render(request, 'main_page/menu.html', {
+            "headers": headers,
+            'header_slider': header_slider,
+            'page_slider': page_slider,
+            'programms_big': programms_big,
+            'programms_small': programms_small,
+            'reviews': reviews,
+            "reviews_count" : reviews_count,
+            'questions': questions,
+            'menu_list': menu_list,
+            'days': days,
         })
 
 
-
-
-
-
-
-
-
-class PageSlides(View):
-    model = PageSlider
-    queryset = PageSlider.objects.all()
-    template_name = 'main_page/page.html'
-
-
-
-class MenuGroup:
-    def get_catigories(self):
-        return MenuGroup.objects.all()
 
 
 

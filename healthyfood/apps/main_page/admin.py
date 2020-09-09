@@ -1,9 +1,8 @@
 from django.contrib import admin
-from .models import HeaderSlider, PageSlider, PageHeaders, ProgrammsBig, ProgrammsSmall, MenuSlider, Reviews, QuestionsAnswers, MenuGroup, Days
+from .models import HeaderSlider, PageSlider, PageHeaders, ProgrammsBig, ProgrammsSmall, MenuSlider, Reviews, QuestionsAnswers, Days, MenuList
 
 
-
-admin.site.register(MenuGroup)
+admin.site.register(MenuList)
 admin.site.register(Days)
 admin.site.register(QuestionsAnswers)
 admin.site.register(Reviews)

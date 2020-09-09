@@ -87,22 +87,6 @@ class ProgrammsSmall(models.Model):
 
 
 
-class MenuGroup(models.Model):
-
-    catigory = models.CharField(('Категория меню'), max_length = 100 )
-
-    def __str__(self):
-        return self.catigory   
-
-    class Meta:
-        db_table = ''
-        managed = True
-        verbose_name = 'Категория меню'
-        verbose_name_plural = 'Категории меню'
-
-    
-
-
 class Days(models.Model):
 
     days_name = models.CharField(('День недели'), max_length = 20 )
@@ -140,6 +124,8 @@ class MenuList(models.Model):
         verbose_name = ("Меню")
         verbose_name_plural = ("Меню")
 
+    def __str__(self):
+        return self.name
 
     HEALTHY800 = "HEALTHY800"
     HEALTHY1000 = "HEALTHY1000"
