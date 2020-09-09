@@ -29,6 +29,8 @@ $('.header__slider').each(function(){
         centerMode: true,
         focusOnSelect: true,
         asNavFor: '.menu__slider__big, #slider-6',
+        draggble: true,
+        swipe: true,
     });
  });
 
