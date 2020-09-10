@@ -142,6 +142,9 @@ class MenuList(models.Model):
     ILLFOOD = "ILLFOOD"
     BREASTEAT = "BREASTEAT"
     OFFICEPACK = "OFFICEPACK"
+    INDIVIDUAL = "INDIVIDUAL"
+    VIP = "VIP"
+    PROTEIN = "PROTEIN"
 
     CHOICE_GROUP = {
         (HEALTHY800, 'Здоровое питание 800-1000 ккал'),
@@ -158,10 +161,13 @@ class MenuList(models.Model):
         (VGETERIAN, 'Вегетерианское меню'),
         (ILLFOOD, 'Питание при заболеваниях'),
         (BREASTEAT, 'Грудное вскармиливание'),
-        (OFFICEPACK, 'Офис пакет 650 ккал'),                                       
+        (OFFICEPACK, 'Офис пакет 650 ккал'),   
+        (INDIVIDUAL, 'Индивидуальное меню'),
+        (VIP, 'VIP - меню'),
+        (PROTEIN, 'Белковая диета'),                              
     }
 
-    name = models.CharField(("Название меню"), max_length=200, choices=CHOICE_GROUP, default = HEALTHY800)
+    name = models.CharField(("Название меню"), max_length=250, choices=CHOICE_GROUP, default = HEALTHY800)
     menu_item = models.ManyToManyField(MenuSlider, verbose_name = "Позиции меню", related_name='menu_item')
 
 
@@ -176,9 +182,6 @@ class Reviews(models.Model):
 
     def __str__(self):
         return self.name
-
-    def get_absolute_url(self):
-        return reverse("Отзывы_detail", kwargs={"pk": self.pk})
 
 
     name = models.CharField(("Имя автора"), max_length=50)

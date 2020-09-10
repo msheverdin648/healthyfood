@@ -7,8 +7,36 @@ from main_page.models import HeaderSlider, PageSlider, PageHeaders, ProgrammsBig
 
 
 
+class MenuCat:
+    
+    def get_cat(self):
+        cat_list = MenuList.objects.all()
+        lose_weight = cat_list.get(name='HEALTHY800').name
+        for_sportsmen = cat_list.get(name='PERFECTFITLIGHT').name
+        balanced_eat = cat_list.get(name='BALANCEDMAN').name
+        individual_eat = cat_list.get(name='INDIVIDUAL').name
+        breast_eat = cat_list.get(name='BREASTEAT').name
+        ill_eat = cat_list.get(name='ILLFOOD').name
+        vegan_eat = cat_list.get(name='VGETERIAN').name
+        protein_eat = cat_list.get(name='PROTEIN').name
+        office_pack = cat_list.get(name='OFFICEPACK').name
+        vip_menu = cat_list.get(name='VIP').name
+        programms =[
+                {'index': '1',  'name': lose_weight},
+                {'index': '2',  'name': for_sportsmen},
+                {'index': '3',  'name': balanced_eat},
+                {'index': '4',  'name': individual_eat},
+                {'index': '5',  'name': breast_eat},
+                {'index': '6',  'name': ill_eat},
+                {'index': '7',  'name': vegan_eat},
+                {'index': '8',  'name': protein_eat},
+                {'index': '9',  'name': office_pack},
+                {'index': '10',  'name': vip_menu},
+               ]
+        return programms
 
-class Base(View):
+
+class Base(View, MenuCat):
     def get(self, request):
         menu = MenuSlider.objects.all()
         headers = PageHeaders.objects.all()
@@ -20,6 +48,7 @@ class Base(View):
         reviews_count = reviews.count()
         questions = QuestionsAnswers.objects.all()
         days  = Days.objects.all()
+        cat = self.get_cat()
         return render(request, 'base.html', {"headers": headers,
         'header_slider': header_slider,
         'page_slider': page_slider,
@@ -30,10 +59,10 @@ class Base(View):
         'questions': questions,
         'menu': menu,
         'days': days,
-
+        'cat' : cat,
         })
 
-class MenuView(View):
+class MenuView(MenuCat, View):
     def get(self, request, menu_cat):
         menu = MenuList.objects.all()
         menu_list = menu.filter(name=menu_cat).get()
@@ -46,6 +75,7 @@ class MenuView(View):
         reviews_count = reviews.count()
         questions = QuestionsAnswers.objects.all()
         days  = Days.objects.all()
+        cat = self.get_cat()
         return render(request, 'main_page/menu.html', {
             "headers": headers,
             'header_slider': header_slider,
@@ -57,6 +87,7 @@ class MenuView(View):
             'questions': questions,
             'menu_list': menu_list,
             'days': days,
+            'cat' : cat, 
         })
 
 

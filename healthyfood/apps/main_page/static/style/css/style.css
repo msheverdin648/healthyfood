@@ -14,6 +14,10 @@
   font-style: normal;
 }
 
+a {
+  text-decoration: none;
+}
+
 .main {
   overflow: hidden;
 }
