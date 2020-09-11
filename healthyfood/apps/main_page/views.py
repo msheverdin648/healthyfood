@@ -63,9 +63,10 @@ class Base(View, MenuCat):
         })
 
 class MenuView(MenuCat, View):
-    def get(self, request, menu_cat):
-        menu = MenuList.objects.all()
-        menu_list = menu.filter(name=menu_cat).get()
+    model = MenuList
+    template_name = "main_page/menu.html"
+    
+    def get(self, request,menu_cat):
         headers = PageHeaders.objects.all()
         header_slider = HeaderSlider.objects.all()
         page_slider = PageSlider.objects.all()
@@ -76,6 +77,7 @@ class MenuView(MenuCat, View):
         questions = QuestionsAnswers.objects.all()
         days  = Days.objects.all()
         cat = self.get_cat()
+        menu_list = MenuList.objects.filter(name = menu_cat)
         return render(request, 'main_page/menu.html', {
             "headers": headers,
             'header_slider': header_slider,
@@ -85,12 +87,47 @@ class MenuView(MenuCat, View):
             'reviews': reviews,
             "reviews_count" : reviews_count,
             'questions': questions,
-            'menu_list': menu_list,
             'days': days,
             'cat' : cat, 
+            'menu_list': menu_list,
         })
 
 
+
+
+class MenuFilter(ListView, MenuCat):
+
+
+    model = MenuList
+    template_name = "main_page/menu.html"
+    
+    def get(self, request):
+        headers = PageHeaders.objects.all()
+        header_slider = HeaderSlider.objects.all()
+        page_slider = PageSlider.objects.all()
+        programms_big = ProgrammsBig.objects.all()
+        programms_small = ProgrammsSmall.objects.all()
+        reviews = Reviews.objects.all()
+        reviews_count = reviews.count()
+        questions = QuestionsAnswers.objects.all()
+        days  = Days.objects.all()
+        cat = self.get_cat()
+        menu_list = MenuList.objects.filter(name__in = self.request.GET.getlist('menu_cat'))
+        return render(request, 'main_page/menu.html', {
+            "headers": headers,
+            'header_slider': header_slider,
+            'page_slider': page_slider,
+            'programms_big': programms_big,
+            'programms_small': programms_small,
+            'reviews': reviews,
+            "reviews_count" : reviews_count,
+            'questions': questions,
+            'days': days,
+            'cat' : cat, 
+            'menu_list': menu_list,
+        })
+
+    
 
 
 

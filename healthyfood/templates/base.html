@@ -15,7 +15,7 @@
         <div class="container">
          <nav class="header__navigate">
              <div class="header__navigate__box header__navigate__logo"><img src="{% static '/images/logo.svg' %}" alt="Healthy Food"></div>
-             <div class="header__navigate__box header__navigate__button">Меню и тарифы</div>
+             <div class="header__navigate__box header__navigate__button"><a class="header__navigate__box__name" href="{% url 'headers' %}">Меню и тарифы</a></div>
              <div class="header__navigate__box header__navigate__button">Блог</div>
              <div class="header__navigate__box header__navigate__button">Личный кабинет</div>
              <div class="header__navigate__box header__navigate__phone">
@@ -87,51 +87,54 @@
         <h3 class="calculate__header">{% for a in headers %}
           {{a.calculator_header}}
         {% endfor %}</h3>
-        <div class="calculate__box">
-            <div class="calculate__box__item first">
-                <div class="calculate__box__block calculate__box__block__1">
-                    <label for="" class="discription">Ваш пол:</label>
-                    <select name="gender" id="gender" required class="input">
-                        <option value="mail" selected='selected'>Мужской</option>
-                        <option value="femail">Женский</option>
-                    </select>
+        <form action="{% url 'filter' %}" method="GET" >
+            <div class="calculate__box">
+                <div class="calculate__box__item first">
+                    <div class="calculate__box__block calculate__box__block__1">
+                        <label for="" class="discription">Ваш пол:</label>
+                        <select  id="gender" required class="input">
+                            <option value="mail" selected='selected'>Мужской</option>
+                            <option value="femail">Женский</option>
+                        </select>
+                    </div>
+                    <div class="calculate__box__block calculate__box__block__2">
+                        <label for="" class="discription">Ваша активность:</label>
+                        <select   id="activity" required class="input">
+                            <option value="1.2">Не занимаюсь спортом</option>
+                            <option value="1.4">Часто хожу в зал</option>
+                        </select>
+                    </div>
+                    <div class="calculate__box__block calculate__box__block__3">
+                        <label for="" class="discription">Укажите Ваш рост:</label>
+                        <input type="text" placeholder="175 см" pattern="[0-9]{3} см" required class="input" id="height">
+                    </div>
+                    <div class="calculate__box__block calculate__box__block__4">
+                        <label for="" class="discription">Укажите Ваш возраст:</label>
+                        <input type="text" placeholder="30 лет" pattern="[0-9]{1,3} лет" required class="input" id="age">
+                    </div>
+                    <div class="calculate__box__block calculate__box__block__5">
+                        <label for="" class="discription">Ваш текущий вес:</label>
+                        <input type="text" placeholder="65 кг" pattern="[0-9]{1,4} кг" required class="input" id="weight"> 
+                    </div>
+                    <div class="calculate__box__block calculate__box__block__6">
+                        <label for="" class="discription">Желаемый Результат:</label>
+                        <select  id="need_weight" required class="input">
+                            <option value="lose_weight">Снижение веса</option>
+                            <option value="up_weight">Набор веса</option>
+                            <option value="balanced_eat">Сбалансированное питание</option>
+                        </select> 
+                    </div>
+                    <input id="form_out" type="text" name="menu_cat">
                 </div>
-                <div class="calculate__box__block calculate__box__block__2">
-                    <label for="" class="discription">Ваша активность:</label>
-                    <select name="activity" id="activity" required class="input">
-                        <option value="1.2">Не занимаюсь спортом</option>
-                        <option value="1.4">Часто хожу в зал</option>
-                    </select>
-                </div>
-                <div class="calculate__box__block calculate__box__block__3">
-                    <label for="" class="discription">Укажите Ваш рост:</label>
-                    <input type="text" placeholder="175 см" pattern="[0-9]{3} см" required class="input" id="height">
-                </div>
-                <div class="calculate__box__block calculate__box__block__4">
-                    <label for="" class="discription">Укажите Ваш возраст:</label>
-                    <input type="text" placeholder="30 лет" pattern="[0-9]{1,3} лет" required class="input" id="age">
-                </div>
-                <div class="calculate__box__block calculate__box__block__5">
-                    <label for="" class="discription">Ваш текущий вес:</label>
-                    <input type="text" placeholder="65 кг" pattern="[0-9]{1,4} кг" required class="input" id="weight"> 
-                </div>
-                <div class="calculate__box__block calculate__box__block__6">
-                    <label for="" class="discription">Желаемый Результат:</label>
-                    <select name="need_weight" id="need_weight" required class="input">
-                        <option value="lose_weight">Снижение веса</option>
-                        <option value="up_weight">Набор веса</option>
-                        <option value="balanced_eat">Сбалансированное питание</option>
-                    </select> 
+                <div class="calculate__box__item second">
+                    <div class="calculate__box__block calculate__box__block__7">
+                        <button class="calculate__box__block__button" id="submit__button">
+                            Рассчитать индивидуальный рацион питания
+                        </button>
+                    </div>
                 </div>
             </div>
-            <div class="calculate__box__item second">
-                <div class="calculate__box__block calculate__box__block__7">
-                    <button class="calculate__box__block__button" id="submit__button">
-                        Рассчитать индивидуальный рацион питания
-                    </button>
-                </div>
-            </div>
-        </div>
+        </form>
         <div class="calculate__consultation">
             <p class="calculate__consultation__description">
                 Для тех, кому необходим особенный<br> рацион питания - <b>закажите конусльтацию!</b>

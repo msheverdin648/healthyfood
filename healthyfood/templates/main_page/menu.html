@@ -1,9 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% for a in menu_list %}
+  {% for b in a.menu_item.all %}
+    {{b}}
+  {% endfor %}
+{% endfor %}
 
 {% block menu %}
-  
+
 
 <div class="menu hid" data-menu="{{menu_list.name}}">
     {% for a in headers %}
@@ -23,14 +27,16 @@
                     <div class="menu__slider__small__item">
                         <h5>{{day.days_name}}</h5>
                     </div>
-                        {% for item in menu_list.menu_item.all  %}
-                            {% for b in item.days_list.all %}
-                                {% if b.id == day.id %}
+                    {% for a in menu_list  %}
+                    {% for item in a.menu_item.all %}
+                    {% for b in item.days_list.all %}                            
+                        {% if b.id == day.id %}
                                 <div class="menu__slider__small__item">
                                     <img src=" {{item.small_img.url}} " alt="">
                                 </div>
                                 {% endif %}
                             {% endfor %}
+                        {% endfor %}
                         {% endfor %}
                     {% endfor %}
                 </div>
@@ -43,8 +49,9 @@
                             <h2>{{day.days_name}}</h2>
                         </div>
                     </div>
-                        {% for item in menu_list.menu_item.all  %}
-                            {% for b in item.days_list.all %}
+                        {% for a in menu_list  %}
+                            {% for item in a.menu_item.all %}
+                            {% for b in item.days_list.all %}                            
                                 {% if b.id == day.id %}
                                             <div class="menu__slider__big__block">
                                                 <div class="menu__slider__big__block__item">
@@ -68,6 +75,7 @@
                                             </div>
                                     {% endif %}    
                                 {% endfor %}      
+                            {% endfor %}
                             {% endfor %}
                         {% endfor %}               
                 </div>
@@ -104,7 +112,8 @@
             <div class="buy-now__slider__item day">
                 <h2 class="buy-now__day">{{ day.days_name }}</h2>
             </div>
-                {% for item in menu_list.menu_item.all  %}
+            {% for a in menu_list  %}
+                {% for item in a.menu_item.all %}
                     {% for b in item.days_list.all %}
                         {% if b.id == day.id %}
                                 <div class="buy-now__slider__item">
@@ -126,6 +135,7 @@
                                 </div>
                             {% endif %}
                         {% endfor %}   
+                {% endfor %}
                 {% endfor %}
             {% endfor %}
         </div>
