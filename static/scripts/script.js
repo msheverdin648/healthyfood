@@ -131,7 +131,7 @@ $(document).ready(function(){
         let age = parseInt(document.getElementById("age").value);
         let weight = parseInt(document.getElementById("weight").value);
         let need_weight = document.getElementById("need_weight").options.selectedIndex
-
+        let form_out = document.getElementById("form_out")
 
         if (activity == 0){
             activity_num = +1.2;
@@ -162,6 +162,31 @@ $(document).ready(function(){
             $(big_block2).addClass('active')
             $(big_block2).siblings().removeClass('active')
         }
+
+
+
+        //Ссылки калькулятора
+        if (need_weight == 0){
+            if (kkal >=800 && kkal <= 1000){
+                form_out.value = 'HEALTHY800'
+            }else if(kkal >=1000 && kkal <= 1200){
+                form_out.value = 'HEALTHY1000'
+            }else if(kkal >=1200 && kkal <= 1400){
+                form_out.value = 'HEALTHY1200'
+            }else if(kkal >=1400 && kkal <= 1600){
+                form_out.value = 'HEALTHY1400'
+            }
+        }else if (need_weight == 1){
+            $('#small__block-2').addClass('active');
+            $('#small__block-2').siblings().removeClass('active')
+            make_small_block_active();
+        }else if (need_weight == 2){
+            $('#small__block-3').addClass('active');
+            $('#small__block-3').siblings().removeClass('active')
+            $(big_block2).addClass('active')
+            $(big_block2).siblings().removeClass('active')
+        }
+
 
     });
 
