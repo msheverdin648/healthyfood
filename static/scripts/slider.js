@@ -94,7 +94,7 @@ $('.header__slider').each(function(){
             {
               breakpoint: 500,
               settings: {
-                slidesToShow: 3,
+                slidesToShow: 1,
                   
               }
             }
