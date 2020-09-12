@@ -198,8 +198,10 @@
         {% if reviews %}
             {% for a in reviews %}
             <div class="reviews__slider__item">
-                <img src="{{a.before_img.url}}" alt="" class="reviews__slider__item__images reviews__slider__item__before">
-                <img src="{{a.after_img.url}}" alt="" class="reviews__slider__item__images reviews__slider__item__after">
+                <div class="reviews__slider__item__imagebox">
+                    <img src="{{a.before_img.url}}" alt="" class="reviews__slider__item__images reviews__slider__item__before">
+                    <img src="{{a.after_img.url}}" alt="" class="reviews__slider__item__images reviews__slider__item__after">
+                </div>
                 <div class="reviews__slider__item__info">
                     <h2 class="reviews__slider__item__info__name">{{a.name}}, {{a.age}} лет</h2>
                     <button class="reviews__slider__item__info__button-menu">Меню для срочного снижения веса</button>

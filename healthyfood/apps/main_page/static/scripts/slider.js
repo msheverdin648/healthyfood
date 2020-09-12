@@ -90,6 +90,15 @@ $('.header__slider').each(function(){
         arrows: true,
         centerMode: true,
         slidesToShow: 1,
+        responsive: [
+            {
+              breakpoint: 412,
+              settings: {
+                slidesToShow: 3,
+                  
+              }
+            }
+        ]
     });
  });
 

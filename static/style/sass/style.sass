@@ -819,6 +819,8 @@ body
             justify-content: center
             margin: 0px 15px
             padding: 14px 0px
+            &__imagebox
+                display: flex
             &::before
                     content: "" 
                     display: block
@@ -1322,7 +1324,110 @@ body
 
 
 
+    .buy-now
+        background-position: 50%
+        padding-bottom: 60px
+        &__block
+            margin: 0 20px
+            flex-direction: column
+            &__days
+                display: flex
+                &__first
+                    border-radius: 5px 0px 0px 0px
+                &__second
+                    border-radius: 0px 5px 0px 0px
+                &__item
+                    padding: 17px 31px 11px 31px
+                    &::after
+                            content: " "
+                            position: absolute
+                            border: 95px solid transparent
+                            border-top: 28px solid #fff
+                            transform: translate(-157px, 38px)
+                            z-index: 1
+                    &.active
+                        &::after
+                            content: " "
+                            position: absolute
+                            border: 95px solid transparent
+                            border-top: 28px solid  #4C9162
+                            transform: translate(-157px, 38px)
+                            z-index: 1
+                        &::before
+                            display: none
+                    h2
+                        font-size: 18px
+                    p
+                        font-size: 12px
+                        width: 124px
+            &__discription
+                padding: 30px 25px
+                
+                p,
+                h2
+                    width: 100%
+                &__buttons
+                    flex-direction: column
+                    &__header
+                        font-size: 18px
+                        font-weight: 600
+                        +museo_normal
+                    &__text
+                        font-size: 14px
+            
+        &__bonus
+            margin: 0 20px
+            flex-direction: column
+            transform: translateX(0)
+            &__item
+                width: 100%
+                margin: 0
+                padding: 24px 0
+                margin-top: 15px
 
+
+
+    .reviews
+        &__header
+            margin: 0 20px
+            font-weight: bold
+            margin-bottom: 21px
+        &__slider
+            margin: 0 -31px
+            &__item
+                flex-direction: column
+                padding: 24px 20px
+                &::after
+                    display: none
+                &::before
+                    display: none
+
+                &__imagebox
+                    align-items: center
+                    justify-content: center
+                &__images
+                    width: 121px
+                    height: 192.5px
+                    margin: 0 
+                    margin-right: 10px
+                &__info
+                    padding: 0 30px
+                    &__name
+                        font-size: 18px
+                    &__text
+                        font-size: 12px
+                        width: 240px
+                    &__slides
+                        position: relative
+                        transform: translateX(0)
+                        justify-content: center
+
+
+
+
+
+
+    //Настройка слайдеров на мобильном
     #slider-1
         margin-left: 0
         h3
@@ -1365,4 +1470,7 @@ body
                 top: 102px
                 right: 0
     #slider-5
+        .slick
+            &-track
+                
     #slider-6
