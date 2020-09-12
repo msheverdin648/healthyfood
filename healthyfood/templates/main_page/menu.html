@@ -9,7 +9,7 @@
 {% block menu %}
 
 
-<div class="menu hid" data-menu="{{menu_list.name}}">
+<div class="menu" >
     {% for a in headers %}
             <h2 class="menu__header">
                 {{a.menu_header}}
@@ -54,7 +54,7 @@
                             {% for b in item.days_list.all %}                            
                                 {% if b.id == day.id %}
                                             <div class="menu__slider__big__block">
-                                                <div class="menu__slider__big__block__item">
+                                                <div class="menu__slider__big__block__item images">
                                                     <img src="{{item.big_img.url}}" alt="" class="menu__slider__big__block__item__image">
                                                 </div>
                                                 <div class="menu__slider__big__block__item">
@@ -145,6 +145,16 @@
         <img src="{% static '/images/present.svg' %}" alt="" class="buy-now__bonus__item__image">
         <h3 class="buy-now__bonus__item__header">Приветственный бонус</h3>
         <p class="buy-now__bonus__item__discription"> Закажи у нас любой пакет и получи на свой счёт 25 000 Healthy Bonus</p>
+    </div>
+    <div class="buy-now__bonus__item">
+        <img src="{% static '/images/present-2.svg' %}" alt="" class="buy-now__bonus__item__image">
+        <h3 class="buy-now__bonus__item__header">Семейный бонус</h3>
+        <p class="buy-now__bonus__item__discription">Оформи доставку более 2 пакетов на один адрес и получи 10 000 на свой счёт Healthy Bonus</p>
+    </div>
+    <div class="buy-now__bonus__item">
+        <img src="{% static '/images/present-2.svg' %}" alt="" class="buy-now__bonus__item__image">
+        <h3 class="buy-now__bonus__item__header">Семейный бонус</h3>
+        <p class="buy-now__bonus__item__discription">Оформи доставку более 2 пакетов на один адрес и получи 10 000 на свой счёт Healthy Bonus</p>
     </div>
     <div class="buy-now__bonus__item">
         <img src="{% static '/images/present-2.svg' %}" alt="" class="buy-now__bonus__item__image">

@@ -2,6 +2,16 @@ $('.header__slider').each(function(){
     $(this).slick({
         dots: true, 
         arrows: true,
+
+        responsive: [
+            {
+              breakpoint: 412,
+              settings: {
+                arrows: false,
+                slidesToShow: 1,
+              }
+            }
+        ]
     });
  });
 
@@ -13,6 +23,19 @@ $('.header__slider').each(function(){
         slidesToShow: 5,
         arrows: true,
         slidesToScroll: 4,
+
+
+        responsive: [
+            {
+              breakpoint: 412,
+              settings: {
+                arrows: false,
+                slidesToShow: 1,
+                centerMode: true,
+              }
+            }
+        ]
+
     });
  });
 
@@ -31,6 +54,18 @@ $('.header__slider').each(function(){
         asNavFor: '.menu__slider__big, #slider-6',
         draggble: true,
         swipe: true,
+        responsive: [
+            {
+              breakpoint: 412,
+              settings: {
+                  vertical: false,
+                
+                  
+              }
+            }
+        ]
+
+
     });
  });
 

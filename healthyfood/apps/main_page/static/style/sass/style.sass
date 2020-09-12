@@ -8,6 +8,7 @@ a
     overflow: hidden
 body 
     margin: 0
+
     
     
 .container
@@ -101,8 +102,8 @@ body
             top: 50%
             z-index: 10
             font-size: 0
-            width: 60px
-            height: 60px
+            width: 5%
+            height: 5%
             transform: translateY(-140px)
             &:hover
                 cursor: pointer
@@ -110,14 +111,14 @@ body
         &-next
             background: url("../../images/next-arrow.svg")
             background-position: 0 0 
-            background-size: auto
+            background-size: 100%
             background-repeat: no-repeat
             border: none
             right: 5%
         &-prev     
             background: url("../../images/prev-arrow.svg") 
             background-position: 0 0 
-            background-size: auto
+            background-size: 100%
             background-repeat: no-repeat
             border: none 
             left: 5%
@@ -427,7 +428,7 @@ body
         &__block
             display: flex
             margin: 195px 15px 40px 15px  
-            padding: 20px 0px 0px 23px
+            padding: 20px 19px 0px 23px
             flex: 1 1 25%
             height: 119px
             border: 1px solid #4C9162
@@ -528,7 +529,6 @@ body
     margin-bottom: 30px
     h2,
     p
-        margin: 0
         text-align: center
     &__header
         +museo_bold
@@ -1182,3 +1182,187 @@ body
 
 .hide
     display: none
+
+
+
+//Адаптив под мобильники
+@media screen and ( max-width: 412px  )
+    .container
+        padding: 0 20px
+    .header
+        padding-bottom: 200px
+        background: url('../../images/header-bg-mob.png')
+        background-size: cover
+        &__navigate
+            overflow: hidden
+            visibility: hidden
+        &__slider
+            &__item
+                &__button
+                    margin-left: 50%
+                    transform: translateX(-50%)
+                    width: 275px
+                    height: 76px
+
+    .slider
+        &__header
+            h2
+                font-size:  23px
+                margin: 130px 0 30px 20px
+                width: 280px
+        &__slick
+            &__item
+                margin: 0 20px
+
+
+
+    .calculate
+        margin: 58px 20px 60px 20px
+        &__header
+            font-size: 23px
+    
+        &__box
+            flex-direction: column
+            padding: 25px 20px
+            &__block
+                &__button
+                    width: 100%
+                    height: 83px
+                    padding: 23px
+    
+
+        &__consultation
+            height: 265px
+            width: 100%
+            flex-direction: column
+            background: url('../../images/header-consult-mob.png')
+            background-size: cover
+            background-repeat: no-repeat
+            border-radius: 5px
+            p
+                display: inline-block
+                margin: 0
+                width: 0
+                font-size: 18px
+                width: 100%
+                height: 88px
+                margin-top: 110px
+                text-align: center
+                
+            &__description               
+                
+
+    .programms
+        margin: 0 20px
+        &__big
+            overflow: scroll
+            &__block
+                margin-top: 16px
+                &.active
+                    &::after 
+                        display: none
+        &__purpose
+            font-size: 23px
+            +museo_bold
+
+        &__small
+            &__items
+                flex-direction: column
+                text-align: start
+                align-items: start
+                padding-left: 15px
+                &__ico
+                    display: block
+                    width: 24px
+                    height: 24px
+                    align-self: start
+                &__discription
+                    font-size: 14px
+                    margin: 0
+                    margin-top: 10px
+                    width: 118px
+
+    
+
+    .menu
+        margin: 0 20px
+        h2,
+        p
+            text-align: start
+        &__header
+            font-size: 20px
+            width: 100%
+        &__description
+            width: 100%
+            margin-bottom: 27px
+        &__slider
+            flex-direction: column
+            &__big
+                &__block
+                    flex-direction: column
+                    &__item
+                        flex: 1 1 100%
+                        h2
+                            text-align: center
+                        &.images
+                            text-align: center
+                        &__image
+                            width: 195.99px
+                            height: 131.28px
+                        &__header
+                            font-weight: 600
+                            font-size: 18px
+                            +museo_normal
+        &__buttons
+            flex-direction: column
+            transform: translate(0)
+            &__item
+                margin-bottom: 15px
+
+
+
+
+
+    #slider-1
+        margin-left: 0
+        h3
+            font-size: 27px
+            margin-top: 0
+        .slick
+            &-dots
+                margin-left: 50%
+                transform: translateX(-50%)
+
+   
+    #slider-2
+           
+        .slick
+            &-dots
+                margin: 0 auto
+                margin-top: 47px
+    #slider-3
+        min-width: 0
+        
+        .slick
+            &-track
+               display: flex
+            &-arrow
+                left: 37%
+                z-index: 20
+            &-next
+                transform: rotate(-90deg) translate(68%, 170px)
+            &-prev
+                transform: rotate(-90deg) translate(-68%, -170px)
+                
+    #slider-4
+       
+        .slick
+            &-arrow
+            &-next
+                top: -295px
+                left: 75%
+            &-prev
+                top: 102px
+                right: 0
+    #slider-5
+    #slider-6

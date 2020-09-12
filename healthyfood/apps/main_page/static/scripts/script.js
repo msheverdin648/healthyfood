@@ -177,14 +177,19 @@ $(document).ready(function(){
                 form_out.value = 'HEALTHY1400'
             }
         }else if (need_weight == 1){
-            $('#small__block-2').addClass('active');
-            $('#small__block-2').siblings().removeClass('active')
-            make_small_block_active();
+            if (kkal >=1400 && kkal <= 1600){
+                form_out.value = 'PERFECTFITLIGHT'
+            }else if(kkal >=1600 && kkal <= 1800){
+                form_out.value = 'PERFECTFITMEDIUM'
+            }else if(kkal >=2000 && kkal <= 3000){
+                form_out.value = 'PERFECTFITSTRONGMEN'
+            }
         }else if (need_weight == 2){
-            $('#small__block-3').addClass('active');
-            $('#small__block-3').siblings().removeClass('active')
-            $(big_block2).addClass('active')
-            $(big_block2).siblings().removeClass('active')
+            if (gender == 0){
+                form_out.value = 'BALANCEDMAN'
+            }else if(gender == 1){
+                form_out.value = 'BALANCEDWOMAN'
+            }
         }
 
 

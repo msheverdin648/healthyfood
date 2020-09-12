@@ -124,7 +124,7 @@
                             <option value="balanced_eat">Сбалансированное питание</option>
                         </select> 
                     </div>
-                    <input id="form_out" type="text" name="menu_cat">
+                    <input id="form_out" type="text" name="menu_cat" class="hide">
                 </div>
                 <div class="calculate__box__item second">
                     <div class="calculate__box__block calculate__box__block__7">
@@ -142,12 +142,10 @@
             <a href="" class="calculate__consultation__buy">Заказать консультацию</a>
         </div>
     </div>
-    {% for a in view.get_cat %}
-        <h2>{{a}}</h2>
-    {% endfor %}
     
 
   <div class="programms">
+    <h2 class="programms__purpose">Ваша цель</h2>
     <div class="programms__big">
         {% if programms_big %}
             {% for a in programms_big %}

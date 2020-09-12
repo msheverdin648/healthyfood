@@ -56,6 +56,11 @@ body {
   font-size: 18px;
 }
 
+.header__navigate__box__name:active {
+  text-decoration: none;
+  color: #fff;
+}
+
 .header__navigate__phone {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -141,8 +146,8 @@ body {
   top: 50%;
   z-index: 10;
   font-size: 0;
-  width: 60px;
-  height: 60px;
+  width: 5%;
+  height: 5%;
   -webkit-transform: translateY(-140px);
           transform: translateY(-140px);
 }
@@ -154,7 +159,7 @@ body {
 #slider-1 .slick-next {
   background: url("../../images/next-arrow.svg");
   background-position: 0 0;
-  background-size: auto;
+  background-size: 100%;
   background-repeat: no-repeat;
   border: none;
   right: 5%;
@@ -163,7 +168,7 @@ body {
 #slider-1 .slick-prev {
   background: url("../../images/prev-arrow.svg");
   background-position: 0 0;
-  background-size: auto;
+  background-size: 100%;
   background-repeat: no-repeat;
   border: none;
   left: 5%;
@@ -609,7 +614,7 @@ body {
   display: -ms-flexbox;
   display: flex;
   margin: 195px 15px 40px 15px;
-  padding: 20px 0px 0px 23px;
+  padding: 20px 19px 0px 23px;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 25%;
           flex: 1 1 25%;
@@ -763,7 +768,6 @@ body {
 
 .menu h2,
 .menu p {
-  margin: 0;
   text-align: center;
 }
 
@@ -1673,4 +1677,217 @@ body {
 
 .hide {
   display: none;
+}
+
+@media screen and (max-width: 412px) {
+  .container {
+    padding: 0 20px;
+  }
+  .header {
+    padding-bottom: 200px;
+    background: url("../../images/header-bg-mob.png");
+    background-size: cover;
+  }
+  .header__navigate {
+    overflow: hidden;
+    visibility: hidden;
+  }
+  .header__slider__item__button {
+    margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    width: 275px;
+    height: 76px;
+  }
+  .slider__header h2 {
+    font-size: 23px;
+    margin: 130px 0 30px 20px;
+    width: 280px;
+  }
+  .slider__slick__item {
+    margin: 0 20px;
+  }
+  .calculate {
+    margin: 58px 20px 60px 20px;
+  }
+  .calculate__header {
+    font-size: 23px;
+  }
+  .calculate__box {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 25px 20px;
+  }
+  .calculate__box__block__button {
+    width: 100%;
+    height: 83px;
+    padding: 23px;
+  }
+  .calculate__consultation {
+    height: 265px;
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    background: url("../../images/header-consult-mob.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+  }
+  .calculate__consultation p {
+    display: inline-block;
+    margin: 0;
+    width: 0;
+    font-size: 18px;
+    width: 100%;
+    height: 88px;
+    margin-top: 110px;
+    text-align: center;
+  }
+  .programms {
+    margin: 0 20px;
+  }
+  .programms__big {
+    overflow: scroll;
+  }
+  .programms__big__block {
+    margin-top: 16px;
+  }
+  .programms__big__block.active::after {
+    display: none;
+  }
+  .programms__purpose {
+    font-size: 23px;
+    font-family: 'Museo Sans Cyrl 700';
+  }
+  .programms__small__items {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: start;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
+    padding-left: 15px;
+  }
+  .programms__small__items__ico {
+    display: block;
+    width: 24px;
+    height: 24px;
+    -ms-flex-item-align: start;
+        -ms-grid-row-align: start;
+        align-self: start;
+  }
+  .programms__small__items__discription {
+    font-size: 14px;
+    margin: 0;
+    margin-top: 10px;
+    width: 118px;
+  }
+  .menu {
+    margin: 0 20px;
+  }
+  .menu h2,
+  .menu p {
+    text-align: start;
+  }
+  .menu__header {
+    font-size: 20px;
+    width: 100%;
+  }
+  .menu__description {
+    width: 100%;
+    margin-bottom: 27px;
+  }
+  .menu__slider {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .menu__slider__big__block {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .menu__slider__big__block__item {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+  }
+  .menu__slider__big__block__item h2 {
+    text-align: center;
+  }
+  .menu__slider__big__block__item.images {
+    text-align: center;
+  }
+  .menu__slider__big__block__item__image {
+    width: 195.99px;
+    height: 131.28px;
+  }
+  .menu__slider__big__block__item__header {
+    font-weight: 600;
+    font-size: 18px;
+    font-family: 'Museo Sans Cyrl 500';
+  }
+  .menu__buttons {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+  .menu__buttons__item {
+    margin-bottom: 15px;
+  }
+  #slider-1 {
+    margin-left: 0;
+  }
+  #slider-1 h3 {
+    font-size: 27px;
+    margin-top: 0;
+  }
+  #slider-1 .slick-dots {
+    margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  #slider-2 .slick-dots {
+    margin: 0 auto;
+    margin-top: 47px;
+  }
+  #slider-3 {
+    min-width: 0;
+  }
+  #slider-3 .slick-track {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  #slider-3 .slick-arrow {
+    left: 37%;
+    z-index: 20;
+  }
+  #slider-3 .slick-next {
+    -webkit-transform: rotate(-90deg) translate(68%, 170px);
+            transform: rotate(-90deg) translate(68%, 170px);
+  }
+  #slider-3 .slick-prev {
+    -webkit-transform: rotate(-90deg) translate(-68%, -170px);
+            transform: rotate(-90deg) translate(-68%, -170px);
+  }
+  #slider-4 .slick-next {
+    top: -295px;
+    left: 75%;
+  }
+  #slider-4 .slick-prev {
+    top: 102px;
+    right: 0;
+  }
 }
