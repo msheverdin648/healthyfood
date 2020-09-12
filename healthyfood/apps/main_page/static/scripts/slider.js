@@ -5,7 +5,7 @@ $('.header__slider').each(function(){
 
         responsive: [
             {
-              breakpoint: 412,
+              breakpoint: 500,
               settings: {
                 arrows: false,
                 slidesToShow: 1,
@@ -27,7 +27,7 @@ $('.header__slider').each(function(){
 
         responsive: [
             {
-              breakpoint: 412,
+              breakpoint: 500,
               settings: {
                 arrows: false,
                 slidesToShow: 1,
@@ -56,7 +56,7 @@ $('.header__slider').each(function(){
         swipe: true,
         responsive: [
             {
-              breakpoint: 412,
+              breakpoint: 500,
               settings: {
                   vertical: false,
                 
@@ -92,7 +92,7 @@ $('.header__slider').each(function(){
         slidesToShow: 1,
         responsive: [
             {
-              breakpoint: 412,
+              breakpoint: 500,
               settings: {
                 slidesToShow: 3,
                   
