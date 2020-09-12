@@ -1171,7 +1171,7 @@ body {
   margin: 0 auto;
 }
 
-.reviews__slider__item {
+.reviews__slider__item__item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1948,8 +1948,9 @@ body {
   }
   .reviews__slider {
     margin: 0 -31px;
+    width: 0;
   }
-  .reviews__slider__item {
+  .reviews__slider__item__item {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -2111,5 +2112,8 @@ body {
   #slider-4 .slick-prev {
     top: 102px;
     right: 0;
+  }
+  #slider-5 {
+    width: 280px;
   }
 }
