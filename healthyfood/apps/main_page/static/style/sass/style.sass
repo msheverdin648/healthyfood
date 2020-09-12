@@ -1425,6 +1425,71 @@ body
 
 
 
+    .questions
+        padding: 0
+        margin: 0 20px
+        &__header
+            font-size: 29px
+            text-align: start
+        &__section
+            overflow: scroll
+            align-items: start
+            display: block
+            display: -webkit-box
+            display: -ms-flexbox
+            justify-content: start
+            &__item
+                &::before
+                    display: none
+
+
+
+    .about
+        padding: 70px 20px
+        padding-bottom: 255px
+        
+        &__header
+            font-size: 27px
+            width: 100%
+            line-height: 130%
+        &__description
+            font-weight: 600
+            font-size: 16px
+            line-height: 150%
+            width: 100%
+            line-height: 150%
+
+
+
+
+
+
+    .footer
+        padding: 0 20px
+        text-align: center
+        
+        &__block
+            flex-direction: column
+            align-items: center
+            &:nth-child(1)
+                height: 100%
+            &:nth-child(2)
+                height: 100%
+                
+            &__item
+                &.logo
+                    p
+                        margin-top: 0
+
+                &.nav
+                    margin: 0
+                &.contacts
+                    margin: 0
+                    display: flex
+                    flex-direction: column
+
+
+
 
 
     //Настройка слайдеров на мобильном
