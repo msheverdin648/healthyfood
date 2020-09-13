@@ -25,14 +25,18 @@
                 <div class="menu__slider__small" id="slider-3">
                     {% for day in  days %}
                     <div class="menu__slider__small__item">
-                        <h5>{{day.days_name}}</h5>
+                        <div class="menu__slider__small__item__item">
+                            <h5>{{day.days_name}}</h5>
+                        </div>
                     </div>
                     {% for a in menu_list  %}
                     {% for item in a.menu_item.all %}
                     {% for b in item.days_list.all %}                            
                         {% if b.id == day.id %}
                                 <div class="menu__slider__small__item">
-                                    <img src=" {{item.small_img.url}} " alt="">
+                                    <div class="menu__slider__small__item__item">
+                                        <img src=" {{item.small_img.url}} " alt="">
+                                    </div>
                                 </div>
                                 {% endif %}
                             {% endfor %}
@@ -54,22 +58,24 @@
                             {% for b in item.days_list.all %}                            
                                 {% if b.id == day.id %}
                                             <div class="menu__slider__big__block">
-                                                <div class="menu__slider__big__block__item images">
-                                                    <img src="{{item.big_img.url}}" alt="" class="menu__slider__big__block__item__image">
-                                                </div>
-                                                <div class="menu__slider__big__block__item">
-                                                    <div class="menu__slider__big__block__item__header">
-                                                        <h3>{{item.name}}</h3>
+                                                <div class="menu__slider__big__block__itembig">
+                                                    <div class="menu__slider__big__block__item images">
+                                                        <img src="{{item.big_img.url}}" alt="" class="menu__slider__big__block__item__image">
                                                     </div>
-                                                    <div class="menu__slider__big__block__item__calories">
-                                                        <div class="menu__slider__big__block__item__calories__items">{{item.kkal}} Ккал</div>
-                                                        <div class="menu__slider__big__block__item__calories__items">{{item.gramm}} грамм</div>
-                                                    </div>
-                                                    <div class="menu__slider__big__block__item__description">
-                                                        <b>Описание блюда:</b>
-                                                        <p>
-                                                            {{item.menu_discription}}
-                                                        </p>
+                                                    <div class="menu__slider__big__block__item">
+                                                        <div class="menu__slider__big__block__item__header">
+                                                            <h3>{{item.name}}</h3>
+                                                        </div>
+                                                        <div class="menu__slider__big__block__item__calories">
+                                                            <div class="menu__slider__big__block__item__calories__items">{{item.kkal}} Ккал</div>
+                                                            <div class="menu__slider__big__block__item__calories__items">{{item.gramm}} грамм</div>
+                                                        </div>
+                                                        <div class="menu__slider__big__block__item__description">
+                                                            <b>Описание блюда:</b>
+                                                            <p>
+                                                                {{item.menu_discription}}
+                                                            </p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

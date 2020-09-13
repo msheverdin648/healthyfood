@@ -27,12 +27,22 @@ $('.header__slider').each(function(){
 
         responsive: [
             {
+              breakpoint: 321,
+              settings: {
+                slidesToShow: 1,
+                dots: true,
+                arrows: false,
+                slidesToScroll: 1,
+                
+
+              },
               breakpoint: 500,
               settings: {
                 arrows: false,
                 slidesToShow: 1,
-                centerMode: true,
-              }
+                slidesToScroll: 1,
+                centerMode: false
+              },
             }
         ]
 
@@ -56,6 +66,11 @@ $('.header__slider').each(function(){
         swipe: true,
         responsive: [
             {
+              breakpoint: 321,
+              settings: {
+                  vertical: false,
+                  centerMode: false
+              },
               breakpoint: 500,
               settings: {
                   vertical: false,
@@ -95,7 +110,8 @@ $('.header__slider').each(function(){
               breakpoint: 500,
               settings: {
                 slidesToShow: 1,
-                  
+                arrows: false,
+                
               }
             }
         ]

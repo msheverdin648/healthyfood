@@ -3,11 +3,16 @@
 a
     text-decoration: none
 
+    &:visited,
+    &:active
+        text-decoration: none
+
 
 .main
     overflow: hidden
 body 
     margin: 0
+
 
     
     
@@ -30,7 +35,12 @@ body
         display: flex
         align-items: center
         padding-top: 26px
-        
+        a
+            color: #ffffff
+            &:visited,
+            &:active
+                text-decoration: none
+                color: #ffffff
         
         
         &__box
@@ -102,8 +112,8 @@ body
             top: 50%
             z-index: 10
             font-size: 0
-            width: 5%
-            height: 5%
+            width: 10%
+            height: 10%
             transform: translateY(-140px)
             &:hover
                 cursor: pointer
@@ -114,14 +124,14 @@ body
             background-size: 100%
             background-repeat: no-repeat
             border: none
-            right: 5%
+            right: -77%
         &-prev     
             background: url("../../images/prev-arrow.svg") 
             background-position: 0 0 
             background-size: 100%
             background-repeat: no-repeat
             border: none 
-            left: 5%
+            left: -18%
         &-dots
             display: flex
             li
@@ -354,6 +364,23 @@ body
             margin: 15px 13px
             flex: 1 1 27%
             justify-content: center
+
+            &::after
+                    content: " "
+                    display: block
+                    position: absolute
+                    width: 55px
+                    height: 55px
+                    background: #FBFBFB url('../../images/green-arrow-down.svg')
+                    background-repeat: no-repeat
+                    background-position: 50% 50%
+                    transform: translate(222px, 15px)
+                    border-radius: 55px  
+                    cursor: pointer
+            &:last-child
+                &::after
+                    display: none
+                
             &__button 
                 height: 160px
                 width: 225px
@@ -372,11 +399,14 @@ body
                 height: 100%
             .input
                 height: 56px
-                padding: 0px 30px
+                padding: 0px 23px
                 font-size: 16px
                 background: #FBFBFB
                 border: 1px solid #F7F7F7
                 border-radius: 28px
+                &:hover
+                    cursor: pointer
+                
             .discription
                 font-size: 16px
                 color: #161716
@@ -423,11 +453,12 @@ body
 .programms
     margin: 0px 150px
     margin-bottom: 40px
+    margin-top: 195px
     &__big
         display: flex
         &__block
             display: flex
-            margin: 195px 15px 40px 15px  
+            margin: 0px 15px 40px 15px  
             padding: 20px 19px 0px 23px
             flex: 1 1 25%
             height: 119px
@@ -543,7 +574,8 @@ body
         &__big
             
             &__block
-                display: flex
+                &__itembig
+                    display: flex
                 &__item
                     flex: 1 0 50%
                     &__calories
@@ -832,7 +864,7 @@ body
                     position: absolute
                     z-index: 20  
                     bottom: 0
-                    transform: translate(-498px, -20px)
+                    transform: translate(-1123px, -20px)
 
             &::after
                     content: "" 
@@ -844,7 +876,7 @@ body
                     position: absolute
                     z-index: 20  
                     bottom: 0
-                    transform: translate(-213px, -20px)
+                    transform: translate(-838px, -20px)
             &__before
                 
             &__info
@@ -909,6 +941,8 @@ body
     .slick
         &-track
             display: flex
+        &-list
+            overflow: hidden
         &-arrow
             position: absolute
             z-index: 20
@@ -1195,7 +1229,8 @@ body
     .header
         padding-bottom: 200px
         background: url('../../images/header-bg-mob.png')
-        background-size: cover
+        background-size: contain
+        background-repeat: round
         &__navigate
             overflow: hidden
             visibility: hidden
@@ -1215,8 +1250,7 @@ body
                 width: 280px
         &__slick
             &__item
-                margin: 0 20px
-
+                margin: 0 74px
 
 
     .calculate
@@ -1228,6 +1262,10 @@ body
             flex-direction: column
             padding: 25px 20px
             &__block
+                &::after
+                    content: ""
+                    transform: translate(-52px, 15px) 
+                    right: 0
                 &__button
                     width: 100%
                     height: 83px
@@ -1302,13 +1340,17 @@ body
             flex-direction: column
             &__big
                 &__block
-                    flex-direction: column
+                    
+                    &__itembig
+                        flex-direction: column
                     &__item
                         flex: 1 1 100%
                         h2
                             text-align: center
                         &.images
+                            display: flex
                             text-align: center
+                            justify-content: center
                         &__image
                             width: 195.99px
                             height: 131.28px
@@ -1316,6 +1358,11 @@ body
                             font-weight: 600
                             font-size: 18px
                             +museo_normal
+
+                        &__description
+                            p
+                                width: 100%
+                                font-size: 14px
         &__buttons
             flex-direction: column
             transform: translate(0)
@@ -1401,6 +1448,11 @@ body
                 &__item
                     flex-direction: column
                     padding: 24px 20px
+                    width: 280px
+                    height: 650px
+                    margin: 0 -2px
+                    align-items: center
+                    justify-content: start
                 &::after
                     display: none
                 &::before
@@ -1416,6 +1468,9 @@ body
                     margin-right: 10px
                 &__info
                     padding: 0 30px
+                    justify-content: space-between
+                    display: flex
+                    flex-direction: column
                     &__name
                         font-size: 18px
                     &__text
@@ -1425,7 +1480,7 @@ body
                         position: relative
                         transform: translateX(0)
                         justify-content: center
-
+                        align-items: flex-end
 
 
 
@@ -1496,7 +1551,7 @@ body
 
 
 
-    //Настройка слайдеров на мобильном
+    //Настройка слайдеров на мобильном при разрешении до 411px
     #slider-1
         margin-left: 0
         h3
@@ -1533,18 +1588,154 @@ body
         .slick
             &-arrow
             &-next
-                top: -295px
+                top: -448px
                 left: 75%
             &-prev
                 top: 102px
                 right: 0
     #slider-5
-        width: 280px
+        width: 100%
+        margin: 0 auto
+        overflow: hidden
         .slick
             &-slide
-
             &-track
             &-list
+                width: 380px
+                display: flex
+                align-items: center
+                overflow: hidden
+               
 
                 
-    #slider-6
+@media screen and ( max-width: 321px  )
+
+
+
+
+    .slider
+        &__slick
+            &__item
+                margin: 0 25px
+
+
+
+    .calculate
+        &__box 
+            padding-left: 0
+            &__block
+                flex: 1 0 100%
+                &::after
+                    content: ""
+                    transform: translate(-27px, 15px) 
+                    right: 0
+                .input
+                    font-size: 14px
+                    padding: 0
+                    padding-left: 20px
+                &__button
+                    font-size: 14px
+        &__consultation
+            p
+                width: 251px
+                font-size: 16px
+            &__buy
+                font-size: 16px
+
+    .programms
+        &__small
+                &__items
+                    margin: 5px 7px 5px 0px
+                    padding: 14px 0px 33px 15px
+
+
+
+    .menu
+        margin: 40px 20px 50px 20px
+        &__slider
+            &__small
+                &__item
+                    
+                    &__item
+                        width: 79.4px
+                        text-align: start
+                        font-size: 12px
+
+
+
+    .buy-now
+        &__block
+            &__days
+                &__item
+                    padding: 17px 8px 11px 8px
+                    &::after
+                            content: " "
+                            position: absolute
+                            border: 71px solid transparent
+                            border-top: 28px solid #fff
+                            transform: translate(-133px, 39px)
+                            z-index: 1
+                    &.active
+                        &::after
+                            content: " "
+                            position: absolute
+                            border:  71px solid transparent
+                            border-top: 28px solid  #4C9162
+                            transform: translate(-133px, 39px)
+                            z-index: 1
+                            
+
+
+
+
+    .reviews
+       &__slider
+           &__item
+               &__item             
+                   margin: 0 -47px
+
+
+    #slider-1
+        .slick
+            &-dots
+               margin-left: 45%
+
+    #slider-3
+        width: 100%
+        margin: 0 auto
+        overflow: hidden
+        .slick
+            &-list
+                width: 280px
+                display: flex
+                align-items: center
+                overflow: hidden
+                margin: 0px 13px
+            &-prev
+                transform: rotate(-90deg) translate(-62%, -133px)
+            &-next
+                transform: rotate(-90deg) translate(59%, 108px)
+    #slider-4
+        display: flex
+        .slick
+            &-next
+                top: 33px
+                left: 77%
+                
+            &-prev
+                right:  20px
+                left: -22px
+                top: 32px
+            &-arrow
+                position: absolute
+                
+    #slider-5
+        width: 100%
+        margin: 0 auto
+        overflow: hidden
+        .slick
+            &__list
+                width: 280px
+                display: flex
+                align-items: center
+                overflow: hidden
