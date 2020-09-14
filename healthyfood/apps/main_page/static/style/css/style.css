@@ -32,6 +32,7 @@ body {
 
 .container {
   padding: 0px 50px;
+  padding-bottom: 169px;
 }
 
 .header {
@@ -41,7 +42,6 @@ body {
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: cover;
-  padding-bottom: 300px;
 }
 
 .header__navigate {
@@ -1757,7 +1757,6 @@ body {
     padding: 0 20px;
   }
   .header {
-    padding-bottom: 200px;
     background: url("../../images/header-bg-mob.png");
     background-size: contain;
     background-repeat: round;

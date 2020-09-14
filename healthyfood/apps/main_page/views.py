@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.views.generic.base import View
-from django.views.generic import ListView, DetailView
-
+from django.views.generic import ListView, DetailView, CreateView
+from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
 
 from main_page.models import HeaderSlider, PageSlider, PageHeaders, ProgrammsBig, ProgrammsSmall, MenuSlider, Reviews, QuestionsAnswers, Days, MenuList
 
@@ -49,7 +50,7 @@ class Base(View, MenuCat):
         questions = QuestionsAnswers.objects.all()
         days  = Days.objects.all()
         cat = self.get_cat()
-        return render(request, 'base.html', {"headers": headers,
+        return render(request, 'main_page/page.html', {"headers": headers,
         'header_slider': header_slider,
         'page_slider': page_slider,
         'programms_big': programms_big,
@@ -127,6 +128,19 @@ class MenuFilter(ListView, MenuCat):
             'menu_list': menu_list,
         })
 
+
+
+
+
+class Account(MenuCat, View):
+
+    form_class = UserCreationForm
+
+
+    def get(self, request):
+        return render(request, 'main_page/personal-account.html', {
+            
+        })
     
 
 

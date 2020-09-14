@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+    {% if user.is_authenticated  %}
+        {{ user.username }}
+        <h2><a href="{% url logout %}">exit</a></h2>
+    {% endif %}
+    <h2>Войти в аккаунт/<a href="{% url 'signup' %}">Регистрация</a></h2>
+        <form method="post">
+
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit">Войти</button>
+
+    </form>
+{% endblock content %}
