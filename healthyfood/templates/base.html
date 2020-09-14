@@ -6,7 +6,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Healthy Food</title>
-    
     <link rel="stylesheet" href="{% static '/style/css/style.css' %}">
     <link rel="stylesheet" href="{% static '/style/css/slick.css' %}">
 </head>
@@ -14,15 +13,41 @@
     <header class="header">
         <div class="container">
          <nav class="header__navigate">
-             <div class="header__navigate__box header__navigate__logo"><img src="{% static '/images/logo.svg' %}" alt="Healthy Food"></div>
-             <div class="header__navigate__box header__navigate__button"><a class="header__navigate__box__name" href="{% url 'headers' %}">Меню и тарифы</a></div>
-             <div class="header__navigate__box header__navigate__button">Блог</div>
-             <div class="header__navigate__box header__navigate__button">Личный кабинет</div>
-             <div class="header__navigate__box header__navigate__phone">
-                 <img src="{% static '/images/phone-ico.svg' %}" alt="">
-                 <p>+7 (906) 255 - 32 - 66</p>
+             <div class="header__navigate__block menu-burger">
+                <div class="header__navigate__box header__navigate__logo">
+                    <img src="{% static '/images/logo.svg' %}" alt="Healthy Food">
+                </div>
+                <div class="header__navigate__burger">
+                    <span></span>
+                </div>
+            </div>
+             <div class="header__navigate__menuburger">
+                <div class="header__navigate__block">
+                    <div class="header__navigate__box header__navigate__button">
+                        <a class="header__navigate__box__name" href="{% url 'headers' %}">Меню и тарифы</a>
+                       </div>
+                    <div class="header__navigate__box header__navigate__button">
+                        <a class="header__navigate__box__name" href="">Блог</a>
+                   </div>
+                    <div class="header__navigate__box header__navigate__button">
+                        <a class="header__navigate__box__name" href="">Личный кабинет</a>
+                   </div>
+                 </div>
+                <div class="header__navigate__block">
+                    <div class="header__navigate__box header__navigate__social">
+                        <a href=""><img src="{% static '/images/telegram.svg'%}" alt=""></a>
+                        <a href=""><img src="{% static 'images/instagram.svg' %}" alt=""></a>
+                        <a href=""><img src="{% static 'images/whatsapp.svg' %}" alt=""></a>
+                    </div>
+                    <div class="header__navigate__box header__navigate__phone">
+                        <img src="{% static '/images/phone-ico.svg' %}" alt="">
+                        <p>+7 (906) 255 - 32 - 66</p>
+                    </div>
+                    <div class="header__navigate__box header__navigate__call">
+                        <a href="">Перезвонить мне</a>
+                   </div>
+                </div>
              </div>
-             <div class="header__navigate__box header__navigate__call">Перезвонить мне</div>
          </nav>
          <div class="header__slider" id="slider-1">
             {% if header_slider%}
