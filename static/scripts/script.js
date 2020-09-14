@@ -1,6 +1,12 @@
 $(document).ready(function(){
 
 
+
+    $('.header__navigate__burger').on('click', function(){
+        $('.header__navigate__burger, .header__navigate__menuburger').toggleClass('active');
+        $('body').toggleClass('lock')
+    })
+
     $(".buy-now__block__days__item").on('click', function(){
         $(this).siblings().removeClass("active");
         $(this).addClass('active');
