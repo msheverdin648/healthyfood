@@ -174,27 +174,27 @@ $(document).ready(function(){
         //Ссылки калькулятора
         if (need_weight == 0){
             if (kkal >=800 && kkal <= 1000){
-                form_out.value = 'HEALTHY800'
+                form_out.value = 'healthy800'
             }else if(kkal >=1000 && kkal <= 1200){
-                form_out.value = 'HEALTHY1000'
+                form_out.value = 'healthy1000'
             }else if(kkal >=1200 && kkal <= 1400){
-                form_out.value = 'HEALTHY1200'
+                form_out.value = 'healthy1200'
             }else if(kkal >=1400 && kkal <= 1600){
-                form_out.value = 'HEALTHY1400'
+                form_out.value = 'healthy1400'
             }
         }else if (need_weight == 1){
             if (kkal >=1400 && kkal <= 1600){
-                form_out.value = 'PERFECTFITLIGHT'
+                form_out.value = 'light'
             }else if(kkal >=1600 && kkal <= 1800){
-                form_out.value = 'PERFECTFITMEDIUM'
+                form_out.value = 'medium'
             }else if(kkal >=2000 && kkal <= 3000){
-                form_out.value = 'PERFECTFITSTRONGMEN'
+                form_out.value = 'strongman'
             }
         }else if (need_weight == 2){
             if (gender == 0){
-                form_out.value = 'BALANCEDMAN'
+                form_out.value = 'balancedman'
             }else if(gender == 1){
-                form_out.value = 'BALANCEDWOMAN'
+                form_out.value = 'balancedwoman'
             }
         }
 

@@ -94,6 +94,8 @@ class MenuFilter(ListView):
         reviews_count = reviews.count()
         questions = QuestionsAnswers.objects.all()
         days  = Days.objects.all()
+        request_category = MenuCategory.objects.get(slug = request.GET.get('menu_cat'))
+        menu = Menu.objects.filter(category = request_category)
         return render(request, 'main_page/menu.html', {
             "headers": headers,
             'header_slider': header_slider,
@@ -104,7 +106,7 @@ class MenuFilter(ListView):
             "reviews_count" : reviews_count,
             'questions': questions,
             'days': days,
-            'cat' : cat, 
+            'menu' : menu, 
         })
 
 

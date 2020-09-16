@@ -36,7 +36,7 @@ $('.header__slider').each(function(){
                 
 
               },
-              breakpoint: 500,
+              breakpoint: 700,
               settings: {
                 arrows: false,
                 slidesToShow: 1,
