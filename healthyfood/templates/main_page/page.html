@@ -156,14 +156,9 @@
 <p class="programms__choise">Выберите программу</p>
 <div class="programms__small">
     {% for a in programms_small  %}
-          
         <div class="programms__small__items " id = 'small__block-{{a.cat}}'>
             <img src="{{a.small_img.url}}" alt="" class="programms__small__items__ico">
-            {% for program in cat %} 
-                {% if a.cat == program.index %}
-                    <a href="{% url 'menu' program.name %}" class="programms__small__items__discription">{{a.name}} </a>
-                    {% endif %}
-            {% endfor %}    
+                    <a href="{% url 'menu' a.category.slug %}" class="programms__small__items__discription">{{a.name}} </a>
         </div>
        
     {% endfor %}

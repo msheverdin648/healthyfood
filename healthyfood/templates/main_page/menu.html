@@ -1,14 +1,8 @@
 {% extends "main_page/page.html" %}
 {% load static %}
-{% for a in menu_list %}
-  {% for b in a.menu_item.all %}
-    {{b}}
-  {% endfor %}
-{% endfor %}
 
 {% block menu %}
-
-
+{
 <div class="menu" >
     {% for a in headers %}
             <h2 class="menu__header">
@@ -29,8 +23,8 @@
                             <h5>{{day.days_name}}</h5>
                         </div>
                     </div>
-                    {% for a in menu_list  %}
-                    {% for item in a.menu_item.all %}
+                    {% for a in menu  %}
+                    {% for item in a.menu_items.all %}
                     {% for b in item.days_list.all %}                            
                         {% if b.id == day.id %}
                                 <div class="menu__slider__small__item">
@@ -53,8 +47,8 @@
                             <h2>{{day.days_name}}</h2>
                         </div>
                     </div>
-                        {% for a in menu_list  %}
-                            {% for item in a.menu_item.all %}
+                        {% for a in menu  %}
+                            {% for item in a.menu_items.all %}
                             {% for b in item.days_list.all %}                            
                                 {% if b.id == day.id %}
                                             <div class="menu__slider__big__block">
@@ -118,8 +112,8 @@
             <div class="buy-now__slider__item day">
                 <h2 class="buy-now__day">{{ day.days_name }}</h2>
             </div>
-            {% for a in menu_list  %}
-                {% for item in a.menu_item.all %}
+            {% for a in menu  %}
+                {% for item in a.menu_items.all %}
                     {% for b in item.days_list.all %}
                         {% if b.id == day.id %}
                                 <div class="buy-now__slider__item">
