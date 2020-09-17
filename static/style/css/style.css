@@ -32,6 +32,7 @@ body {
 
 .container {
   padding: 0px 50px;
+  padding-bottom: 169px;
 }
 
 .header {
@@ -41,7 +42,6 @@ body {
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: cover;
-  padding-bottom: 300px;
 }
 
 .header__navigate {
@@ -918,8 +918,6 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-transform: translate(657px, -34px);
-          transform: translate(657px, -34px);
 }
 
 .menu__buttons__item {
@@ -1757,7 +1755,6 @@ body {
     padding: 0 20px;
   }
   .header {
-    padding-bottom: 200px;
     background: url("../../images/header-bg-mob.png");
     background-size: contain;
     background-repeat: round;
