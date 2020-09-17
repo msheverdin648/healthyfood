@@ -4,6 +4,7 @@ from django.views.generic import ListView, DetailView, CreateView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
+from django.http import HttpResponseRedirect 
 
 from .models import (
     HeaderSlider, 
@@ -18,8 +19,61 @@ from .models import (
     Menu,
     Customer, 
     Food,
-    Cart)
+    Cart,
+    Order)
 
+
+
+
+class AddToCartView(View):
+
+    def get(self, request, *args, **kwargs):
+        food_name = kwargs.get('food_name')
+        customer = Customer.objects.get(user=request.user)
+        cart = Cart.objects.get(owner=customer, in_order=False)
+        food = Food.objects.get(name=food_name)
+        order, created = Order.objects.get_or_create(
+            customer=cart.owner, cart=cart, product=food
+        )
+        if created:
+            cart.products.add(order)
+        cart.save()
+        return HttpResponseRedirect('/personal-account/')
+
+
+class DeleteFromCartView(View):
+
+    def get(self, request, *args, **kwargs):
+
+        food_name = kwargs.get('food_name')
+        customer = Customer.objects.get(user=request.user)
+        cart = Cart.objects.get(owner=customer, in_order=False)
+        food = Food.objects.get(name=food_name)
+        order = Order.objects.get(
+            customer=cart.owner, cart=cart, product=food
+        )
+        cart.products.remove(order)
+        order.delete()
+        cart.save()
+        return HttpResponseRedirect('/personal-account/')
+
+
+
+class ChangeCountView(View):
+
+    def post(self, request, *args, **kwargs): 
+        food_name = kwargs.get('food_name')
+        customer = Customer.objects.get(user=request.user)
+        cart = Cart.objects.get(owner=customer, in_order=False)
+        food = Food.objects.get(name=food_name)
+        order = Order.objects.get(
+            customer=cart.owner, cart=cart, product=food
+        )
+        count = int(request.POST.get('count'))
+        order.count = int(count)
+        order.save()
+        cart.save()
+        return HttpResponseRedirect('/personal-account/') 
 
 
 
@@ -120,12 +174,15 @@ class CategoryDetailView(DetailView):
 
 class Account(View):
 
-    form_class = UserCreationForm
+    def get(self, request, *args, **kwargs):
 
-
-    def get(self, request):
+        customer = Customer.objects.get(user=request.user)
+        cart = Cart.objects.get(owner=customer)
+        
         return render(request, 'main_page/personal-account.html', {
-            
+            'customer': customer,
+            'cart' : cart,
+
         })
     
 

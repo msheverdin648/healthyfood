@@ -69,6 +69,10 @@
                                                             <p>
                                                                 {{item.menu_discription}}
                                                             </p>
+                                                            <div class="menu__buttons">
+                                                                <a href="{% url 'add-to-cart' food_name=item.name %}"><button class="menu__buttons__item">Заказать прямо сейчас</button></a>
+                                                                <button class="menu__buttons__item">Бесплатная консультация</button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -81,10 +85,7 @@
                 </div>
                 
             </div>
-            <div class="menu__buttons">
-                <button class="menu__buttons__item">Заказать прямо сейчас</button>
-                <button class="menu__buttons__item">Бесплатная консультация</button>
-            </div>
+            
 </div>       
 
 {% endblock menu %}
@@ -129,7 +130,7 @@
                                         <b class="new-price">{{item.price}}р.</b>
                                     {% endif %}
                                     <div class="buy-now__block__discription__buttons">
-                                        <button class="buy-now__block__discription__buttons__item">Заказать сейчас</button>
+                                        <a href="{% url 'add-to-cart' food_name=item.name %}"><button class="buy-now__block__discription__buttons__item">Заказать сейчас</button></a>
                                         <button class="buy-now__block__discription__buttons__item">Бесплатная консультация</button>
                                     </div>
                                 </div>

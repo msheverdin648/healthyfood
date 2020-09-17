@@ -1,10 +1,59 @@
 {% extends "main_page/page.html" %}
 
 
+{% block bootstrap %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+{% endblock bootstrap %}
+
 {% block content %}
     {% if user.is_authenticated %}
         <h2>{{user.username}}//<a href="{% url 'logout' %}">Выйти</a></h2>
-        
+    {% else %}
+    <h2>
+        <a href="{% url 'login' %} ">Войти</a>/
+        <a href="{% url 'signup' %} ">Зарегестрироваться</a>
+    </h2>
+    {% endif %}
+    <h3 class="text-center mt-5 mb-5">Ваша корзина {% if not cart.products.count %}пуста{% endif %}</h3>
+    {% if cart.products.count %}
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Наименование Блюда</th>
+            <th scope="col">Изображение</th>
+            <th scope="col">Цена</th>
+            <th scope="col">Кол-во: </th>
+            <th scope="col">Цена со скидкой: </th>
+            <th scope="col">Действие: </th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for item in cart.products.all  %}
+            <tr>
+                <th scope="row">{{item.product.name}}</th>
+                <td class="w-25"><img src="{{item.product.big_img.url}}" class="img-fluid" alt=""></td>
+                    <td>{{ item.product.price }} руб.</td>
+                <td> 
+                    <form action="{% url 'change_count' food_name=item.product.name %}" method="POST">
+                        {% csrf_token %}
+
+                        <input type="number" class="form-control" name='count' value="{{item.count}}" style='width: 70px;' min='1'>
+                        <br>
+                        <input type="submit" class="btn btn-primary" value="Изменить колличество">
+                    </form>    
+                </td>
+                <td> {{item.final_price}} </td>
+                <td> <a href=" {% url 'delete-from-cart' food_name=item.product.name %} "><button class="btn btn-danger">Удалить из корзины </button></a> </td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="2"></td>
+                <td>Итого:</td>
+                <td>{{ cart.total_products }}</td>
+                <td><strong>{{ cart.final_price }}</strong></td>
+            </tr>
+        </tbody>
+      </table>
     {% endif %}
 
 {% endblock content %}

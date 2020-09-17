@@ -44,11 +44,11 @@ class Customer(models.Model):
     class Meta:
         db_table = ''
         managed = True
-        verbose_name = 'Пользователь '
-        verbose_name_plural = 'Пользователи'
+        verbose_name = 'Покупатель '
+        verbose_name_plural = 'Покупатели'
     
 
-    user = models.ForeignKey(User, verbose_name=("Пользователь"), on_delete=models.CASCADE)
+    user = models.ForeignKey(User, verbose_name=("Имя покупателя"), on_delete=models.CASCADE)
     phone = models.CharField(("Номер телефона"), max_length=20)
     adress = models.CharField(("Адрес"), max_length=255)
 
@@ -167,8 +167,8 @@ class Food(models.Model):
     small_img = models.ImageField(("Картинка маленького слайда"), upload_to='img', height_field=None, width_field=None, max_length=None)
     kkal = models.CharField(("Колличество калорий"), max_length=20)
     gramm = models.CharField(("Колличество грамм"), max_length=20)
-    price = models.CharField(("Цена блюда"), max_length=10)
-    discount = models.CharField(("Цена со скидкой, если есть"), max_length=10, null=True, blank = True)
+    price = models.DecimalField(("Цена блюда"), max_digits=9, decimal_places=2)
+    discount = models.DecimalField(("Цена со скидкой, если есть"),  max_digits=9, decimal_places=2, null=0, blank = True)
     days_list = models.ManyToManyField(Days, verbose_name = "Дни недели", related_name='days')
 
 
@@ -250,17 +250,26 @@ class Order(models.Model):
         verbose_name_plural = ("Заказы")
 
     def __str__(self):
-        return 'Продукт для общего заказа {}'.format(self.product.name)
+        return 'Заказанный продукт ({}) {}'.format(self.customer ,self.product.name)
+
+    def save(self, *args, **kwargs):
+        if self.product.discount:
+            self.final_price = self.count * self.product.discount
+        else:
+            self.final_price = self.count * self.product.price
+        super().save(*args, **kwargs)
+
+
 
 
 class Cart(models.Model):
 
     owner = models.ForeignKey(Customer, verbose_name=("Заказчик"), on_delete=models.CASCADE)
-    products = models.ManyToManyField(Order , verbose_name=("Заказанные блюда"))
+    products = models.ManyToManyField(Order , verbose_name=("Заказанные блюда"), blank = True)
     total_products = models.PositiveIntegerField(("Кол-личество продукта"), default=0)
-    final_price = models.DecimalField(("Общая цена заказа"), max_digits=5, decimal_places=2)
-    
-
+    final_price = models.DecimalField(("Общая цена заказа"), max_digits=9, decimal_places=2, default=0)
+    in_order = models.BooleanField(default = False)
+    for_anonymous_user = models.BooleanField(default = False)
     class Meta:
         verbose_name = ("Корзина")
         verbose_name_plural = ("Корзины покупателей")
@@ -268,6 +277,15 @@ class Cart(models.Model):
     def __str__(self):
         return str(self.id)
 
+
+    def save(self, *args, **kwargs):
+        cart_data = self.products.aggregate(models.Sum('final_price'), models.Count('id'))
+        if cart_data.get('final_price__sum'):
+            self.final_price = cart_data['final_price__sum']
+        else:
+            self.final_price = 0
+        self.total_products = cart_data['id__count']
+        super().save(*args, **kwargs)
 
 
 

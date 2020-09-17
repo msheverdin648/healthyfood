@@ -7,15 +7,14 @@ from .models import (
     ProgrammsSmall, 
     Reviews, 
     QuestionsAnswers, 
-    Days,
     MenuCategory,
     Menu,
     Customer, 
     Food,
-    Cart)
+    Cart,
+    Order)
 
 
-admin.site.register(Days)
 admin.site.register(QuestionsAnswers)
 admin.site.register(Reviews)
 admin.site.register(ProgrammsSmall)
@@ -28,3 +27,4 @@ admin.site.register(Menu)
 admin.site.register(Customer)
 admin.site.register(Cart)
 admin.site.register(Food)
+admin.site.register(Order)

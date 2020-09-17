@@ -5,8 +5,9 @@
 
 {% block headerslider %}
 <div class="container">
-<div class="header__slider" id="slider-1">
     {% if header_slider%}
+<div class="header__slider" id="slider-1">
+    
      {% for a in header_slider%}
 
      <div class="header__slider__item">
@@ -19,13 +20,11 @@
         {% endif %}
         
     </div>
-
      {%endfor%}
-    {%else%}
-        Слайдов нет
-    {% endif %}
+   
     
 </div>
+ {% endif %}
 </div>
 </div>
 {% endblock headerslider %}
@@ -44,10 +43,8 @@
 
             
         </div>
+        {% if page_slider %}
         <div class="slider__slick" id="slider-2">
-
-            {% if page_slider %}
-
             {% for a in page_slider %}
             <div class="slider__slick__item">
                 <div class="image__box" style="background: {{a.anons_slider_bgcolor}};">
@@ -59,11 +56,8 @@
                     <a href="{{a.anons_slider_link}}" class="detailed">Подробнее</a>
                 </div>
             {% endfor %}
-
-              {% else %}
-              Слайдов не найдено
-            {% endif %}
         </div>
+        {% endif %}
     </div>
     </div> 
 
@@ -148,8 +142,6 @@
         </div>
 
         {% endfor %}
-        {% else %}
-        Блоков не найдено
     {% endif %}
     
 </div>
@@ -198,8 +190,6 @@
             </div>
         </div>
         {% endfor %}
-        {% else %}
-        Отзывов не найдено
     {% endif %}
 </div>
 </div>
