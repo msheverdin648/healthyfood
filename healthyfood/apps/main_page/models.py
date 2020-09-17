@@ -243,7 +243,7 @@ class Order(models.Model):
     customer = models.ForeignKey(Customer, verbose_name=("Заказчик"), on_delete=models.CASCADE)
     product = models.ForeignKey(Food, verbose_name=("Имя продукта"), on_delete=models.CASCADE)
     count = models.PositiveIntegerField(default=1)
-    final_price = models.DecimalField(("Общая цена"), max_digits=9, decimal_places=2)
+    final_price = models.DecimalField(("Итоговая цена товара"), max_digits=9, decimal_places=2)
 
     class Meta:
         verbose_name = ("Заказ")
@@ -266,7 +266,7 @@ class Cart(models.Model):
 
     owner = models.ForeignKey(Customer, verbose_name=("Заказчик"), on_delete=models.CASCADE)
     products = models.ManyToManyField(Order , verbose_name=("Заказанные блюда"), blank = True)
-    total_products = models.PositiveIntegerField(("Кол-личество продукта"), default=0)
+    total_products = models.PositiveIntegerField(("Колличество блюд"), default=0)
     final_price = models.DecimalField(("Общая цена заказа"), max_digits=9, decimal_places=2, default=0)
     in_order = models.BooleanField(default = False)
     for_anonymous_user = models.BooleanField(default = False)

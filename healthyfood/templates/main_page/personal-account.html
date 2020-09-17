@@ -14,7 +14,7 @@
         <a href="{% url 'signup' %} ">Зарегестрироваться</a>
     </h2>
     {% endif %}
-    <h3 class="text-center mt-5 mb-5">Ваша корзина {% if not cart.products.count %}пуста{% endif %}</h3>
+    <h3 class="text-center mt-5 mb-5">Ваш заказ {% if not cart.products.count %}пуст{% endif %}</h3>
     {% if cart.products.count %}
     <table class="table">
         <thead>
