@@ -12,7 +12,10 @@ from .models import (
     Customer, 
     Food,
     Cart,
-    Order)
+    Order,
+    Buy
+    
+    )
 
 
 admin.site.register(QuestionsAnswers)
@@ -28,3 +31,4 @@ admin.site.register(Customer)
 admin.site.register(Cart)
 admin.site.register(Food)
 admin.site.register(Order)
+admin.site.register(Buy)

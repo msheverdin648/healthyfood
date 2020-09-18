@@ -1,21 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
-
-
-'''
-Категория меню
-Блюдо
-Дни недели
-Меню
-
-
-Заказанные блюда
-Заказ
-
-Покупатель
-
-'''
+from django.utils import timezone
 
 
 
@@ -37,23 +22,6 @@ class MenuCategory(models.Model):
     def get_absolute_url(self):
         return reverse("menu", kwargs={"slug": self.slug})
     
-    
-
-class Customer(models.Model):
-
-    class Meta:
-        db_table = ''
-        managed = True
-        verbose_name = 'Покупатель '
-        verbose_name_plural = 'Покупатели'
-    
-
-    user = models.ForeignKey(User, verbose_name=("Имя покупателя"), on_delete=models.CASCADE)
-    phone = models.CharField(("Номер телефона"), max_length=20)
-    adress = models.CharField(("Адрес"), max_length=255)
-
-    def __str__(self):
-        return "Покупатель: {} {}".format(self.user.first_name, self.user.last_name)
     
 
 class HeaderSlider(models.Model):
@@ -174,8 +142,6 @@ class Food(models.Model):
 
 
 
-
-
 class Menu(models.Model):
     class Meta:
         verbose_name = ("Меню")
@@ -238,6 +204,75 @@ class QuestionsAnswers(models.Model):
 
 
     
+
+
+
+
+
+
+
+
+#Настройки личного кабинета
+
+class Customer(models.Model):
+
+    class Meta:
+        db_table = ''
+        managed = True
+        verbose_name = 'Покупатель '
+        verbose_name_plural = 'Покупатели'
+    
+
+    user = models.ForeignKey(User, verbose_name=("Имя покупателя"), on_delete=models.CASCADE)
+    phone = models.CharField(("Номер телефона"), max_length=20, null=True, blank=True)
+    adress = models.CharField(("Адрес"), max_length=255, null=True, blank=True)
+    orders = models.ManyToManyField('Buy', verbose_name=("Заказы покупателя"), related_name='related_customer')
+
+
+    def __str__(self):
+        return "Покупатель: {} {}".format(self.user.first_name, self.user.last_name)
+    
+
+
+
+class Buy(models.Model):
+
+
+    STATUS_NEW = 'new'
+    STATUS_IN_PROGRESS = 'in_progress'
+    STATUS_READY = 'ready'
+    STATUS_COMPLETED = 'completed'
+
+
+    BUYING_TYPE_SELF = 'self'
+    BUYING_TYPE_DELIVERY = 'delivery'
+
+    BUYING_TYPE_CHOICES = (
+        (BUYING_TYPE_SELF, 'Самовывоз'),
+        (BUYING_TYPE_DELIVERY, 'Доставка')
+    )
+
+    STATUS_CHOICES = (
+        (STATUS_NEW, 'Новый заказ'),
+        (STATUS_IN_PROGRESS, 'Заказ в обработке'),
+        (STATUS_READY, 'Заказ готов'),
+        (STATUS_COMPLETED, 'Заказ выполнен'),
+    )
+
+    customer = models.ForeignKey(Customer, verbose_name=("Заказчик"), related_name='related_orders', on_delete=models.CASCADE)
+    firs_name = models.CharField(("Имя"), max_length=255)
+    last_name = models.CharField(("Фамилия"), max_length=255)
+    phone = models.CharField(("Номер телефона"), max_length=20)
+    adress = models.CharField(("Адрес"), max_length=1024)
+    status = models.CharField(("Статус заказа"), max_length=100, choices=STATUS_CHOICES, default=STATUS_NEW)
+    buying_type = models.CharField(("Тип заказа"), max_length=100, choices=BUYING_TYPE_CHOICES, default=BUYING_TYPE_SELF)
+    comment = models.TextField(("Комментарий к заказу"), blank=True, null=True)
+    ceated_at = models.DateTimeField(("Дата создания заказа"), auto_now=True)
+
+    def __str__(self):
+        return str(self.id) 
+
+
 class Order(models.Model):
 
     customer = models.ForeignKey(Customer, verbose_name=("Заказчик"), on_delete=models.CASCADE)
@@ -260,11 +295,9 @@ class Order(models.Model):
         super().save(*args, **kwargs)
 
 
-
-
 class Cart(models.Model):
 
-    owner = models.ForeignKey(Customer, verbose_name=("Заказчик"), on_delete=models.CASCADE)
+    owner = models.ForeignKey(Customer, verbose_name=("Заказчик"), on_delete=models.CASCADE, null=True, blank=True)
     products = models.ManyToManyField(Order , verbose_name=("Заказанные блюда"), blank = True)
     total_products = models.PositiveIntegerField(("Колличество блюд"), default=0)
     final_price = models.DecimalField(("Общая цена заказа"), max_digits=9, decimal_places=2, default=0)
@@ -275,18 +308,4 @@ class Cart(models.Model):
         verbose_name_plural = ("Корзины покупателей")
 
     def __str__(self):
-        return str(self.id)
-
-
-    def save(self, *args, **kwargs):
-        cart_data = self.products.aggregate(models.Sum('final_price'), models.Count('id'))
-        if cart_data.get('final_price__sum'):
-            self.final_price = cart_data['final_price__sum']
-        else:
-            self.final_price = 0
-        self.total_products = cart_data['id__count']
-        super().save(*args, **kwargs)
-
-
-
-
+        return "Корзина пользователя: {}".format(self.owner.user)

@@ -6,6 +6,9 @@ from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect 
 
+
+from .mixins import CartMixin
+
 from .models import (
     HeaderSlider, 
     PageSlider, 
@@ -25,19 +28,17 @@ from .models import (
 
 
 
-class AddToCartView(View):
+class AddToCartView(CartMixin, View):
 
     def get(self, request, *args, **kwargs):
         food_name = kwargs.get('food_name')
-        customer = Customer.objects.get(user=request.user)
-        cart = Cart.objects.get(owner=customer, in_order=False)
         food = Food.objects.get(name=food_name)
         order, created = Order.objects.get_or_create(
-            customer=cart.owner, cart=cart, product=food
+            customer=self.cart.owner, cart = self.cart, product=food
         )
         if created:
-            cart.products.add(order)
-        cart.save()
+            self.cart.products.add(order)
+        self.cart.save()
         return HttpResponseRedirect('/personal-account/')
 
 
@@ -77,7 +78,7 @@ class ChangeCountView(View):
 
 
 
-class Base(View):
+class Base(CartMixin, View):
     def get(self, request):
         headers = PageHeaders.objects.all()
         header_slider = HeaderSlider.objects.all()
@@ -99,10 +100,11 @@ class Base(View):
         "reviews_count" : reviews_count,
         'questions': questions,
         'days': days,
-        'categories' :categories
+        'categories' :categories,
+        'cart': self.cart
         })
 
-class MenuView(View):
+class MenuView(CartMixin, View):
     template_name = "main_page/menu.html"
     queryset = Menu.objects.all()
     def get(self, request, menu_cat):
@@ -128,12 +130,13 @@ class MenuView(View):
             'questions': questions,
             'days': days,
             'menu': menu,
+            'cart': self.cart,
         })
 
 
 
 
-class MenuFilter(ListView):
+class MenuFilter(CartMixin, ListView):
 
 
     template_name = "main_page/menu.html"
@@ -161,6 +164,7 @@ class MenuFilter(ListView):
             'questions': questions,
             'days': days,
             'menu' : menu, 
+            'cart': self.cart
         })
 
 
@@ -172,16 +176,14 @@ class CategoryDetailView(DetailView):
     template_name = 'main_page/menu.html'
     slug_url_kwarg = 'slug'
 
-class Account(View):
+class Account(CartMixin, View):
 
     def get(self, request, *args, **kwargs):
 
-        customer = Customer.objects.get(user=request.user)
-        cart = Cart.objects.get(owner=customer)
-        
+        customer = Customer.objects.filter(user = request.user)
         return render(request, 'main_page/personal-account.html', {
             'customer': customer,
-            'cart' : cart,
+            'cart' : self.cart,
 
         })
     
