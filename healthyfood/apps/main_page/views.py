@@ -38,7 +38,7 @@ class AddToCartView(CartMixin, View):
         )
         if created:
             self.cart.products.add(order)
-        self.cart.save()
+        self.cart.cart_save()
         return HttpResponseRedirect('/personal-account/')
 
 
@@ -55,7 +55,6 @@ class DeleteFromCartView(View):
         )
         cart.products.remove(order)
         order.delete()
-        cart.save()
         return HttpResponseRedirect('/personal-account/')
 
 
@@ -73,7 +72,7 @@ class ChangeCountView(View):
         count = int(request.POST.get('count'))
         order.count = int(count)
         order.save()
-        cart.save()
+        cart.cart_save()
         return HttpResponseRedirect('/personal-account/') 
 
 
