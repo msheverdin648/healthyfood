@@ -309,3 +309,12 @@ class Cart(models.Model):
 
     def __str__(self):
         return "Корзина пользователя: {}".format(self.owner.user)
+
+    def save(self, *args, **kwargs):
+        cart_data = self.products.aggregate(models.Sum('final_price'), models.Sum('count'))
+        if cart_data.get('final_price__sum'):
+            self.final_price = cart_data['final_price__sum']
+        else:
+            self.final_price = 0
+        self.total_products = cart_data['count__sum']
+        super().save(*args, **kwargs)
