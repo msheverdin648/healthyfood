@@ -1743,6 +1743,18 @@ body {
   color: #FFC702;
 }
 
+.form {
+  margin: 20px 200px;
+}
+
+.form__header {
+  text-align: center;
+}
+
+.form__submit {
+  margin-top: 20px;
+}
+
 .hide {
   display: none;
 }

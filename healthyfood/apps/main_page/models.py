@@ -100,7 +100,7 @@ class ProgrammsSmall(models.Model):
 
     name = models.CharField(("Название маленького блока"), max_length=50)
     small_img = models.FileField(("Картинка блока"), upload_to='img')
-    cat = models.IntegerField(("Номер блока"), max_length=2)
+    cat = models.IntegerField(("Номер блока"))
     category = models.ForeignKey(MenuCategory, verbose_name=("Категория меню привязываемая к этому блоку"), on_delete=models.CASCADE)
     
 
@@ -260,17 +260,18 @@ class Buy(models.Model):
     )
 
     customer = models.ForeignKey(Customer, verbose_name=("Заказчик"), related_name='related_orders', on_delete=models.CASCADE)
-    firs_name = models.CharField(("Имя"), max_length=255)
+    first_name = models.CharField(("Имя"), max_length=255)
     last_name = models.CharField(("Фамилия"), max_length=255)
     phone = models.CharField(("Номер телефона"), max_length=20)
-    adress = models.CharField(("Адрес"), max_length=1024)
+    address = models.CharField(("Адрес"), max_length=1024)
     status = models.CharField(("Статус заказа"), max_length=100, choices=STATUS_CHOICES, default=STATUS_NEW)
     buying_type = models.CharField(("Тип заказа"), max_length=100, choices=BUYING_TYPE_CHOICES, default=BUYING_TYPE_SELF)
     comment = models.TextField(("Комментарий к заказу"), blank=True, null=True)
-    ceated_at = models.DateTimeField(("Дата создания заказа"), auto_now=True)
+    created_at = models.DateTimeField(("Дата создания заказа"), auto_now=True)
+    cart = models.ForeignKey("main_page.Cart", verbose_name=("Корзина пользователя"), on_delete=models.CASCADE, null=True)
 
     def __str__(self):
-        return str(self.id) 
+        return "Заказ №{}, дата заказа: {}, статус заказа: {}".format(self.id, self.created_at, self.status)
 
 
 class Order(models.Model):

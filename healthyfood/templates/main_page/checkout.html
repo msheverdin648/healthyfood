@@ -7,19 +7,14 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-        <h2>{{user.username}}/
-            <a href="{% url 'logout' %}">Выйти</a>/
-            <a href=" {% url 'my_orders' %} ">Мои Заказы</a>
-        </h2>
+        <h2>{{user.username}}/<a href="{% url 'logout' %}">Выйти</a>/ <a href="{% url 'account' %} ">Вернуться в корзину</a></h2>
     {% else %}
     <h2>
         <a href="{% url 'login' %} ">Войти</a>/
-        <a href="{% url 'signup' %} ">Зарегестрироваться</a>/
-        
+        <a href="{% url 'signup' %} ">Зарегестрироваться</a>
     </h2>
     {% endif %}
-    <h3 class="text-center mt-5 mb-5">Ваша корзина {% if not cart.products.count %}пуста{% endif %}</h3>
-    {% if cart.products.count %}
+    <h3 class="text-center mt-5 mb-5">Оформление заказа {% if not cart.products.count %}пуст{% endif %}</h3>
     <table class="table">
         <thead>
           <tr>
@@ -28,7 +23,6 @@
             <th scope="col">Цена</th>
             <th scope="col">Кол-во: </th>
             <th scope="col">Цена со скидкой: </th>
-            <th scope="col">Действие: </th>
           </tr>
         </thead>
         <tbody>
@@ -40,14 +34,10 @@
                 <td> 
                     <form action="{% url 'change_count' food_name=item.product.name %}" method="POST">
                         {% csrf_token %}
-
-                        <input type="number" class="form-control" name='count' value="{{item.count}}" style='width: 70px;' min='1'>
-                        <br>
-                        <input type="submit" class="btn btn-primary" value="Изменить колличество">
                     </form>    
                 </td>
                 <td> {{item.final_price}} </td>
-                <td> <a href=" {% url 'delete-from-cart' food_name=item.product.name %} "><button class="btn btn-danger">Удалить из корзины </button></a> </td>
+
             </tr>
             {% endfor %}
             <tr>
@@ -55,10 +45,17 @@
                 <td>Итого:</td>
                 <td>{{ cart.total_products }} шт.</td>
                 <td><strong>{{ cart.final_price }} руб.</strong></td>
-                <td><a href="{% url 'checkout' %} "><button class="btn btn-primary">Перейти к оформлению</button></a></td>
             </tr>
         </tbody>
       </table>
-    {% endif %}
+      <hr>
+      <h3 class="form__header">Форма заказа</h3>
+      <form action=" {% url 'make_order' %} " class="form" method="POST">
+
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" value="Оформить заказ" class="btn btn-primary w-100 form__submit">
+      </form>
+
 
 {% endblock content %}

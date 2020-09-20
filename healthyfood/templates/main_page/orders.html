@@ -1,0 +1,52 @@
+{% extends "main_page/page.html" %}
+
+
+{% block bootstrap %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+{% endblock bootstrap %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <h2>{{user.username}}/<a href="{% url 'logout' %}">Выйти</a>/ <a href="{% url 'account' %} ">Вернуться в корзину</a></h2>
+    {% else %}
+    <h2>
+        <a href="{% url 'login' %} ">Войти</a>/
+        <a href="{% url 'signup' %} ">Зарегестрироваться</a>
+    </h2>
+    {% endif %}
+    <h3 class="text-center mt-5 mb-5">Ваши заказы {% if not orders_list %}отсутствуют{% endif %}</h3>
+    {% if orders_list %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Заказ:</th>
+                <th scope="col">Сумма:</th>
+                <th scope="col">Адрес:</th>
+                <th scope="col">Статус заказа</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for item in orders_list.all  %}
+                <tr>
+                    <th scope="row">{% for a in item.cart.products.all %}
+                      {{a.product}} {{a.count}}шт. <br>
+                    {% endfor %}</th>
+                    <td class="w-25">{{item.cart.final_price}}</td>
+                    <td>{{ customer.adress }} руб.</td>
+                    <td>{% if item.status == 'new' %}
+                      Новый заказ
+                      {% elif item.status == 'in_progress' %}
+                      Заказ в обработке
+                      {% elif item.status == 'ready' %}
+                      Заказ готов
+                      {% elif item.status == 'completed' %}
+                      Заказ прибыл
+                    {% endif %}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+
+{% endblock content %}
