@@ -32,7 +32,7 @@
                       {{a.product}} {{a.count}}шт. <br>
                     {% endfor %}</th>
                     <td class="w-25">{{item.cart.final_price}}</td>
-                    <td>{{ customer.adress }} руб.</td>
+                    <td>{{ customer.adress }}</td>
                     <td>{% if item.status == 'new' %}
                       Новый заказ
                       {% elif item.status == 'in_progress' %}
