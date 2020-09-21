@@ -17,7 +17,7 @@
          <nav class="header__navigate">
              <div class="header__navigate__block menu-burger">
                 <div class="header__navigate__box header__navigate__logo">
-                    <img src="{% static '/images/logo.svg' %}" alt="Healthy Food">
+                    <img id='header_logo' src="{% static '/images/logo.svg' %}" alt="Healthy Food">
                 </div>
                 <div class="header__navigate__burger">
                     <span></span>
@@ -29,7 +29,7 @@
                         <a class="header__navigate__box__name" href="{% url 'headers' %}">Меню и тарифы</a>
                        </div>
                     <div class="header__navigate__box header__navigate__button">
-                        <a class="header__navigate__box__name" href="">Блог</a>
+                        <a class="header__navigate__box__name" href="{% url 'blog' %}">Блог</a>
                    </div>
                     <div class="header__navigate__box header__navigate__button">
                         <a class="header__navigate__box__name" href=" {% if user.is_authenticated %}
@@ -49,9 +49,10 @@
                         <img src="{% static '/images/phone-ico.svg' %}" alt="">
                         <p>+7 (906) 255 - 32 - 66</p>
                     </div>
-                    <div class="header__navigate__box header__navigate__call">
-                        <a href=""></a><button>Перезвонить мне</button></a>
-                   </div>
+                        <a href="" class="">
+                            <button class="header__navigate__box header__navigate__call">Перезвонить мне</button>
+                        </a>
+
                 </div>
              
             </nav>
@@ -74,13 +75,13 @@
                 <img src="{% static '/images/logo.svg' %}" alt="" class="logo">
                 <p class="direct">Все права защищены. 2020. </p>
             </div>
-            <div class="footer__block__item nav">
+            <div class="footer__block__item nav" id='#footer'>
                 <p class="nav__header">Навигация</p>
-                <a href="" class="nav__item">Меню и тарифы</a>
-                <a href="" class="nav__item">Блог</a>
-                <a href="" class="nav__item">Личный кабинет</a>
-                <a href="" class="nav__item">Калькулятор питания</a>
-                <a href="" class="nav__item">Карта сайта</a>
+                <a href="{% url 'headers' %}" class="nav__item">Меню и тарифы</a>
+                <a href="{% url 'blog' %}" class="nav__item">Блог</a>
+                <a href="{% url 'account' %}" class="nav__item">Личный кабинет</a>
+                <a href="#calculator" class="nav__item">Калькулятор питания</a>
+                <a href="#header_logo" class="nav__item">Карта сайта</a>
             </div>
             <div class="footer__block__item menu">
                 <p class="menu__header">Выбор меню</p>

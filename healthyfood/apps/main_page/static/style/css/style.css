@@ -35,6 +35,11 @@ body {
   padding-bottom: 169px;
 }
 
+#header_logo {
+  -webkit-transform: translateX(125px);
+          transform: translateX(125px);
+}
+
 .header {
   position: relative;
   z-index: 10;
@@ -119,6 +124,11 @@ body {
   border: 2px solid #FFC702;
   border-radius: 53px;
   padding: 21px 39px;
+  background: transparent;
+}
+
+.header__navigate__call:hover {
+  cursor: pointer;
 }
 
 .header__navigate__social {
