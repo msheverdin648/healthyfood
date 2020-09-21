@@ -8,120 +8,153 @@
     <title>Healthy Food</title>
     {% block bootstrap %}
     {% endblock bootstrap %}
+    <script src="https://kit.fontawesome.com/dea8ebbfdb.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static '/style/css/style.css' %}">
     <link rel="stylesheet" href="{% static '/style/css/slick.css' %}">
+    
 </head>
 <body>
-    <header class="header">
-        
-         <nav class="header__navigate">
-             <div class="header__navigate__block menu-burger">
-                <div class="header__navigate__box header__navigate__logo">
-                    <img id='header_logo' src="{% static '/images/logo.svg' %}" alt="Healthy Food">
-                </div>
-                <div class="header__navigate__burger">
-                    <span></span>
+    <div class="wrapper">
+        <form action="{% if user.is_authenticated %}
+        {% url 'make_message' %}
+        {% else %}
+        {% url 'login' %}
+        {% endif %}" method="POST">
+
+            {% csrf_token %}
+
+        <div class="popup" id="popup">
+            <div class="popup__body">
+                <div class="popup__content">
+                    <a href="" class="popup__close close-popup"><i class="far fa-times-circle"></i></a>
+                    <div class="popup__title"><h2>Напишите свой вопрос и наш менеджер с вами свяжется</h2></div>
+                    <div class="popup__input__block">
+                        <textarea name="communication" id="" cols="30" rows="10" placeholder="Введите ваше сообщение" class="popup__input"></textarea>
+                    </div>
+                    <div class="popup__input__block">
+                       <input type="submit" value="Отправить сообщение" class="popup__button">
+                    </div>
                 </div>
             </div>
-             <div class="header__navigate__menuburger">
-                <div class="header__navigate__block">
-                    <div class="header__navigate__box header__navigate__button">
-                        <a class="header__navigate__box__name" href="{% url 'headers' %}">Меню и тарифы</a>
+        </div>
+    </form>
+    
+    
+    
+    
+        <header class="header">
+            
+             <nav class="header__navigate">
+                 <div class="header__navigate__block menu-burger">
+                    <div class="header__navigate__box header__navigate__logo">
+                        <img id='header_logo' src="{% static '/images/logo.svg' %}" alt="Healthy Food">
+                    </div>
+                    <div class="header__navigate__burger">
+                        <span></span>
+                    </div>
+                </div>
+                 <div class="header__navigate__menuburger">
+                    <div class="header__navigate__block">
+                        <div class="header__navigate__box header__navigate__button">
+                            <a class="header__navigate__box__name" href="{% url 'headers' %}">Меню и тарифы</a>
+                           </div>
+                        <div class="header__navigate__box header__navigate__button">
+                            <a class="header__navigate__box__name" href="{% url 'blog' %}">Блог</a>
                        </div>
-                    <div class="header__navigate__box header__navigate__button">
-                        <a class="header__navigate__box__name" href="{% url 'blog' %}">Блог</a>
-                   </div>
-                    <div class="header__navigate__box header__navigate__button">
-                        <a class="header__navigate__box__name" href=" {% if user.is_authenticated %}
-                        {% url 'account' %}
-                        {% else %}
-                            {% url 'login' %}
-                        {% endif %} ">Личный кабинет</a>
-                   </div>
-                 </div>
-                <div class="header__navigate__block">
-                    <div class="header__navigate__box header__navigate__social">
+                        <div class="header__navigate__box header__navigate__button">
+                            <a class="header__navigate__box__name" href=" {% if user.is_authenticated %}
+                            {% url 'account' %}
+                            {% else %}
+                                {% url 'login' %}
+                            {% endif %} ">Личный кабинет</a>
+                       </div>
+                     </div>
+                    <div class="header__navigate__block">
+                        <div class="header__navigate__box header__navigate__social">
+                            <a href=""><img src="{% static '/images/telegram.svg'%}" alt=""></a>
+                            <a href=""><img src="{% static 'images/instagram.svg' %}" alt=""></a>
+                            <a href=""><img src="{% static 'images/whatsapp.svg' %}" alt=""></a>
+                        </div>
+                        <div class="header__navigate__box header__navigate__phone">
+                            <img src="{% static '/images/phone-ico.svg' %}" alt="">
+                            <p>+7 (906) 255 - 32 - 66</p>
+                        </div>
+                            <a href="" class="">
+                                <button class="header__navigate__box header__navigate__call">Перезвонить мне</button>
+                            </a>
+    
+                    </div>
+                 
+                </nav>
+                
+             {% block headerslider %}
+               
+             {% endblock headerslider %}
+            
+         </header>
+    
+    
+         {% block content %}
+           
+         {% endblock content %}
+    
+    
+        <footer class="footer">
+            <div class="footer__block">
+                <div class="footer__block__item logo">
+                    <img src="{% static '/images/logo.svg' %}" alt="" class="logo">
+                    <p class="direct">Все права защищены. 2020. </p>
+                </div>
+                <div class="footer__block__item nav" id='#footer'>
+                    <p class="nav__header">Навигация</p>
+                    <a href="{% url 'headers' %}" class="nav__item">Меню и тарифы</a>
+                    <a href="{% url 'blog' %}" class="nav__item">Блог</a>
+                    <a href="{% url 'account' %}" class="nav__item">Личный кабинет</a>
+                    <a href="#calculator" class="nav__item">Калькулятор питания</a>
+                    <a href="#header_logo" class="nav__item">Карта сайта</a>
+                </div>
+                <div class="footer__block__item menu">
+                    <p class="menu__header">Выбор меню</p>
+                    <a href="{% url 'menu' 'HEALTHY800' %}" class="menu__item">Снижение веса </a>
+                    <a href="{% url 'menu' 'PERFECTFITMEDIUM' %}" class="menu__item">Для спортсменов</a>
+                    <a href="{% url 'menu' 'BALANCEDWOMAN' %}" class="menu__item">Сбалансированное питание</a>
+                    <a href="{% url 'menu' 'BALANCEDMAN' %}" class="menu__item">Индивидуальное питание</a>
+                    <a href="{% url 'menu' 'BREASTEAT' %}" class="menu__item">Грудное вскармливание</a>
+                    <a href="{% url 'menu' 'ILLFOOD' %}" class="menu__item">Питание при заболеваниях</a>
+                    <a href="{% url 'menu' 'VGETERIAN' %}" class="menu__item">Вегетарианское меню</a>
+                    <a href="{% url 'menu' 'PERFECTFITSTRONGMEN' %}" class="menu__item">Белковая диета</a>
+                    <a href="{% url 'menu' 'OFFICEPACK' %}" class="menu__item">ОФИС ПАКЕТ</a>
+                    <a href="#" class="menu__item">VIP-меню</a>
+                    
+                </div>
+                <div class="footer__block__item contacts">
+                    <p class="contacts__header">Наши контакты</p>
+                    <a href="" class="contacts__phone">+7 (906) 255 - 32 - 66</a>
+                    <a href="" class="contacts__mail">healthyfood@info.ru</a>
+                    <div class="contacts__social">
                         <a href=""><img src="{% static '/images/telegram.svg'%}" alt=""></a>
                         <a href=""><img src="{% static 'images/instagram.svg' %}" alt=""></a>
                         <a href=""><img src="{% static 'images/whatsapp.svg' %}" alt=""></a>
                     </div>
-                    <div class="header__navigate__box header__navigate__phone">
-                        <img src="{% static '/images/phone-ico.svg' %}" alt="">
-                        <p>+7 (906) 255 - 32 - 66</p>
-                    </div>
-                        <a href="" class="">
-                            <button class="header__navigate__box header__navigate__call">Перезвонить мне</button>
-                        </a>
-
+                    <a href="" class="contacts__politic">Политика конфиденциальности</a>
                 </div>
-             
-            </nav>
-            
-         {% block headerslider %}
-           
-         {% endblock headerslider %}
-        
-     </header>
-
-
-     {% block content %}
-       
-     {% endblock content %}
-
-
-    <footer class="footer">
-        <div class="footer__block">
-            <div class="footer__block__item logo">
-                <img src="{% static '/images/logo.svg' %}" alt="" class="logo">
-                <p class="direct">Все права защищены. 2020. </p>
             </div>
-            <div class="footer__block__item nav" id='#footer'>
-                <p class="nav__header">Навигация</p>
-                <a href="{% url 'headers' %}" class="nav__item">Меню и тарифы</a>
-                <a href="{% url 'blog' %}" class="nav__item">Блог</a>
-                <a href="{% url 'account' %}" class="nav__item">Личный кабинет</a>
-                <a href="#calculator" class="nav__item">Калькулятор питания</a>
-                <a href="#header_logo" class="nav__item">Карта сайта</a>
-            </div>
-            <div class="footer__block__item menu">
-                <p class="menu__header">Выбор меню</p>
-                <a href="{% url 'menu' 'HEALTHY800' %}" class="menu__item">Снижение веса </a>
-                <a href="{% url 'menu' 'PERFECTFITMEDIUM' %}" class="menu__item">Для спортсменов</a>
-                <a href="{% url 'menu' 'BALANCEDWOMAN' %}" class="menu__item">Сбалансированное питание</a>
-                <a href="{% url 'menu' 'BALANCEDMAN' %}" class="menu__item">Индивидуальное питание</a>
-                <a href="{% url 'menu' 'BREASTEAT' %}" class="menu__item">Грудное вскармливание</a>
-                <a href="{% url 'menu' 'ILLFOOD' %}" class="menu__item">Питание при заболеваниях</a>
-                <a href="{% url 'menu' 'VGETERIAN' %}" class="menu__item">Вегетарианское меню</a>
-                <a href="{% url 'menu' 'PERFECTFITSTRONGMEN' %}" class="menu__item">Белковая диета</a>
-                <a href="{% url 'menu' 'OFFICEPACK' %}" class="menu__item">ОФИС ПАКЕТ</a>
-                <a href="#" class="menu__item">VIP-меню</a>
-                
-            </div>
-            <div class="footer__block__item contacts">
-                <p class="contacts__header">Наши контакты</p>
-                <a href="" class="contacts__phone">+7 (906) 255 - 32 - 66</a>
-                <a href="" class="contacts__mail">healthyfood@info.ru</a>
-                <div class="contacts__social">
-                    <a href=""><img src="{% static '/images/telegram.svg'%}" alt=""></a>
-                    <a href=""><img src="{% static 'images/instagram.svg' %}" alt=""></a>
-                    <a href=""><img src="{% static 'images/whatsapp.svg' %}" alt=""></a>
+            <div class="footer__block">
+                <div class="footer__block__item mission">
+                    <p class="mission__header">Мисия компании:</p>
+                    <p class="mission__text">С другой стороны укрепление и развитие структуры позволяет оценить значение позиций, занимаемых участниками в отношении поставленных задач. Не следует, однако забывать, что начало повседневной работы по формированию позиции в значительной степени обуславливает создание соответствующий условий активизации.</p>
                 </div>
-                <a href="" class="contacts__politic">Политика конфиденциальности</a>
             </div>
-        </div>
-        <div class="footer__block">
-            <div class="footer__block__item mission">
-                <p class="mission__header">Мисия компании:</p>
-                <p class="mission__text">С другой стороны укрепление и развитие структуры позволяет оценить значение позиций, занимаемых участниками в отношении поставленных задач. Не следует, однако забывать, что начало повседневной работы по формированию позиции в значительной степени обуславливает создание соответствующий условий активизации.</p>
-            </div>
-        </div>
-    </footer>
-
-
-    <script type="text/javascript" src="{%static '/scripts/jquery.js' %}"></script>
-    <script type="text/javascript" src="{%static '/scripts/slick.min.js' %}"></script>
-    <script type="text/javascript" src="{%static '/scripts/slider.js' %}"></script>
-    <script type="text/javascript" src="{%static '/scripts/script.js' %}"></script>
+        </footer>
     
+    
+    
+        <script type="text/javascript" src="{%static '/scripts/jquery.js' %}"></script>
+        <script type="text/javascript" src="{%static '/scripts/slick.min.js' %}"></script>
+        <script type="text/javascript" src="{%static '/scripts/slider.js' %}"></script>
+        <script type="text/javascript" src="{%static '/scripts/script.js' %}"></script>
+        <script type="text/javascript" src="{%static '/scripts/popup.js' %}"></script>
+        
+    </div>
 </body>
 </html>

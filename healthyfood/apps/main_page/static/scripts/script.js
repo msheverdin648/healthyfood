@@ -1,7 +1,15 @@
+
+
+
 $(document).ready(function(){
 
 
 
+
+
+
+
+    //Настройки активных элементов
     $('.header__navigate__burger').on('click', function(){
         $('.header__navigate__burger, .header__navigate__menuburger').toggleClass('active');
         $('body').toggleClass('lock')
@@ -201,6 +209,14 @@ $(document).ready(function(){
 
     });
 
+
+
+
+
+
+
+
+        
 
 
 });

@@ -16,7 +16,9 @@
             <p>{{a.small_text}}</p>
         {% endif %}
         {% if a.button %}
-            <button class="header__slider__item__button"> {{a.button}} </button>
+            <a href="#popup" class="popup-link">
+                <button class="header__slider__item__button"> {{a.button}} </button>
+            </a>
         {% endif %}
         
     </div>
@@ -124,7 +126,7 @@
 </div>
 
 
-<div class="programms">
+<div class="programms" id="programms">
 <h2 class="programms__purpose">Ваша цель</h2>
 <div class="programms__big">
     {% if programms_big %}
@@ -148,10 +150,10 @@
 <p class="programms__choise">Выберите программу</p>
 <div class="programms__small">
     {% for a in programms_small  %}
-        <div class="programms__small__items " id = 'small__block-{{a.cat}}'>
+        <a href="{% url 'menu' a.category.slug %}" class="programms__small__items " id = 'small__block-{{a.cat}}'>
             <img src="{{a.small_img.url}}" alt="" class="programms__small__items__ico">
-                    <a href="{% url 'menu' a.category.slug %}" class="programms__small__items__discription">{{a.name}} </a>
-        </div>
+            <span class="programms__small__items__discription">{{a.name}} </span>
+        </a>
        
     {% endfor %}
 </div>
@@ -262,7 +264,7 @@
 <div class="about">
     <h1 class="about__header">Хотите быстро и вкусно похудеть? Мы решим эту проблему за Вас!</h1>
     <p class="about__description">Задача организации, в особенности же постоянный количественный рост и сфера нашей активности способствует подготовки и реализации дальнейших направлений развития.</p>
-    <button class="about__button">Заказать рацион питания</button>
+    <a href="#programms"><button class="about__button">Заказать рацион питания</button></a>
 </div>
 
 {% endblock content %}

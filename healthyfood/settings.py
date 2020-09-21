@@ -27,7 +27,7 @@ sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps'))
 SECRET_KEY = '$%6j(+%n^_c7oc0&&uuygzj^py0l)el(m3e!hni^ovfu1n=5i%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['.pythonanywhere.com', '127.0.0.1']
 
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'main_page',
     'accounts.apps.AccountsConfig',
     'blog',
+    'consultation',
 
 
     
@@ -131,9 +132,9 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-STATIC_ROOT =  os.path.join(PROJECT_ROOT, 'static')
+STATIC_ROOT =  os.path.join(BASE_DIR, 'static')
 STATICFIELS_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(PROJECT_ROOT, 'static'),
      )
 
 MEDIA_URL = '/media/'

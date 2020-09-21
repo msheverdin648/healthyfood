@@ -238,6 +238,10 @@ class Customer(models.Model):
 class Buy(models.Model):
 
 
+    class Meta:
+        verbose_name = ("Заказ")
+        verbose_name_plural = ("Заказы")
+
     STATUS_NEW = 'new'
     STATUS_IN_PROGRESS = 'in_progress'
     STATUS_READY = 'ready'
@@ -282,8 +286,8 @@ class Order(models.Model):
     final_price = models.DecimalField(("Итоговая цена товара"), max_digits=9, decimal_places=2)
 
     class Meta:
-        verbose_name = ("Заказ")
-        verbose_name_plural = ("Заказы")
+        verbose_name = ("Товар в корзине")
+        verbose_name_plural = ("Товары в корзине")
 
     def __str__(self):
         return 'Заказанный продукт ({}) {}'.format(self.customer ,self.product.name)
