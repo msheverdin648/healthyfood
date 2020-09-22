@@ -7,9 +7,9 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-        <h2>{{user.username}}/<a href="{% url 'logout' %}">Выйти</a>/ <a href="{% url 'account' %} ">Вернуться в корзину</a></h2>
+        <h2 class="personal__navigate">{{user.username}}/<a href="{% url 'logout' %}">Выйти</a>/ <a href="{% url 'account' %} ">Вернуться в корзину</a></h2>
     {% else %}
-    <h2>
+    <h2 class="personal__navigate">
         <a href="{% url 'login' %} ">Войти</a>/
         <a href="{% url 'signup' %} ">Зарегестрироваться</a>
     </h2>
@@ -50,7 +50,7 @@
       </table>
       <hr>
       <h3 class="form__header">Форма заказа</h3>
-      <form action=" {% url 'make_order' %} " class="form" method="POST">
+      <form action=" {% url 'make_order' %} " class="checkout form w-50" method="POST">
 
         {% csrf_token %}
         {{form}}

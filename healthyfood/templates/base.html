@@ -79,7 +79,7 @@
                             <img src="{% static '/images/phone-ico.svg' %}" alt="">
                             <p>+7 (906) 255 - 32 - 66</p>
                         </div>
-                            <a href="" class="">
+                            <a id="popup" href="#popup" class="popup-link">
                                 <button class="header__navigate__box header__navigate__call">Перезвонить мне</button>
                             </a>
     
@@ -115,17 +115,9 @@
                 </div>
                 <div class="footer__block__item menu">
                     <p class="menu__header">Выбор меню</p>
-                    <a href="{% url 'menu' 'HEALTHY800' %}" class="menu__item">Снижение веса </a>
-                    <a href="{% url 'menu' 'PERFECTFITMEDIUM' %}" class="menu__item">Для спортсменов</a>
-                    <a href="{% url 'menu' 'BALANCEDWOMAN' %}" class="menu__item">Сбалансированное питание</a>
-                    <a href="{% url 'menu' 'BALANCEDMAN' %}" class="menu__item">Индивидуальное питание</a>
-                    <a href="{% url 'menu' 'BREASTEAT' %}" class="menu__item">Грудное вскармливание</a>
-                    <a href="{% url 'menu' 'ILLFOOD' %}" class="menu__item">Питание при заболеваниях</a>
-                    <a href="{% url 'menu' 'VGETERIAN' %}" class="menu__item">Вегетарианское меню</a>
-                    <a href="{% url 'menu' 'PERFECTFITSTRONGMEN' %}" class="menu__item">Белковая диета</a>
-                    <a href="{% url 'menu' 'OFFICEPACK' %}" class="menu__item">ОФИС ПАКЕТ</a>
-                    <a href="#" class="menu__item">VIP-меню</a>
-                    
+                    {% for item in programms_small  %}
+                        <a class="menu__item" href="{% url 'menu' item.category.slug %}#menu">{{item.name}} </a> 
+                    {% endfor %}
                 </div>
                 <div class="footer__block__item contacts">
                     <p class="contacts__header">Наши контакты</p>

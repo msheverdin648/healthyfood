@@ -3,9 +3,7 @@
 
 $(document).ready(function(){
 
-
-
-
+    
 
 
 
@@ -39,6 +37,18 @@ $(document).ready(function(){
     });
 
     
+
+    $(".programms__big__block").on('click', function(){
+
+
+            $(this).siblings().removeClass('active')
+            $(this).addClass('active')
+            
+        
+    })
+
+
+
 
     //Сортировка блока с вопросами и ответами по категориям
     let filter = $("[data-filter]");
@@ -109,13 +119,13 @@ $(document).ready(function(){
             $(big_block4).removeClass('active');
             $(big_block1).addClass('active');
             
-        }else if ($(small_block2).hasClass('active')){
+        }else if ($(small_block2).hasClass('active') || $(small_block8).hasClass('active')){
             $(big_block1).removeClass('active');
             $(big_block3).removeClass('active');
             $(big_block4).removeClass('active');
             $(big_block2).addClass('active');
 
-        }else if ($(small_block3).hasClass('active') || $(small_block7).hasClass('active')) {
+        }else if ($(small_block3).hasClass('active') || $(small_block7).hasClass('active') || $(small_block4).hasClass('active')) {
             $(big_block1).removeClass('active');
             $(big_block2).removeClass('active');
             $(big_block4).removeClass('active');
@@ -210,6 +220,42 @@ $(document).ready(function(){
     });
 
 
+    const path=document.location.href
+    console.log("Это блоак" + small_block1.href)
+    console.log("Это ссылка" + path)
+
+
+    if (path == small_block1.href){
+        $('#small__block-1').addClass('active')
+        make_small_block_active()
+    }else if(path == small_block2.href){
+        $('#small__block-2').addClass('active')
+        make_small_block_active()
+    }else if(path == small_block3.href){
+        $('#small__block-3').addClass('active')
+        make_small_block_active()
+    }else if(path == small_block4.href){
+        $('#small__block-4').addClass('active')
+        make_small_block_active()
+    }else if(path == small_block5.href){
+        $('#small__block-5').addClass('active')
+        make_small_block_active()
+    }else if(path == small_block6.href){
+        $('#small__block-6').addClass('active')
+        make_small_block_active()
+    }else if(path == small_block7.href){
+        $('#small__block-7').addClass('active')
+        make_small_block_active()
+    }else if(path == small_block8.href){
+        $('#small__block-8').addClass('active')
+        make_small_block_active()
+    }else if(path == small_block9.href){
+        $('#small__block-9').addClass('active')
+        make_small_block_active()
+    }else if(path == small_block10.href){
+        $('#small__block-10').addClass('active')
+        make_small_block_active()
+    }
 
 
 

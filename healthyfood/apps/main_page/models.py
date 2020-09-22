@@ -86,7 +86,7 @@ class ProgrammsBig(models.Model):
 
     big_text = models.CharField(("Название блока"), max_length=50)
     big_img = models.FileField(("Картинка блока"), upload_to='img')
-
+    category = models.ForeignKey(MenuCategory, verbose_name=("Категория привязываемая к блоку"), on_delete=models.CASCADE)
     def __str__(self):
         return self.big_text
 

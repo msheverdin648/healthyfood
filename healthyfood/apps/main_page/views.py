@@ -92,6 +92,7 @@ class Base(CartMixin, View):
         questions = QuestionsAnswers.objects.all()
         days  = Days.objects.all()
         categories = MenuCategory.objects.all()
+        menu = Menu.objects.all()
         return render(request, 'main_page/page.html',{
         "headers": headers,
         'header_slider': header_slider,
@@ -103,7 +104,8 @@ class Base(CartMixin, View):
         'questions': questions,
         'days': days,
         'categories' :categories,
-        'cart': self.cart
+        'cart': self.cart,
+        'menu': menu,
         })
 
 class MenuView(CartMixin, View):

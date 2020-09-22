@@ -2,8 +2,11 @@
 {% load static %}
 
 {% block menu %}
-{
-<div class="menu" >
+
+
+
+    <div class="menu" id="menu">
+
     {% for a in headers %}
             <h2 class="menu__header">
                 {{a.menu_header}}
@@ -74,8 +77,8 @@
                                                                 {% url 'add-to-cart' food_name=item.name %}
                                                                 {% else %}
                                                                 {% url 'login' %}
-                                                                {% endif %}"><button class="menu__buttons__item">Заказать прямо сейчас</button></a>
-                                                                <a href="#popup" class="popup-link"><button class="menu__buttons__item">Бесплатная консультация</button></a>
+                                                                {% endif %}"><button class="menu__buttons__item item-1">Заказать прямо сейчас</button></a>
+                                                                <a href="#popup" class="popup-link"><button class="menu__buttons__item item-2">Бесплатная консультация</button></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -138,8 +141,8 @@
                                         {% url 'add-to-cart' food_name=item.name %}
                                         {% else %}
                                         {% url 'login' %}
-                                        {% endif %}"><button class="buy-now__block__discription__buttons__item">Заказать сейчас</button></a>
-                                        <a href="#popup" class="popup-link"> <button class="buy-now__block__discription__buttons__item">Бесплатная консультация</button></a>
+                                        {% endif %}"><button class="buy-now__block__discription__buttons__item item-1" >Заказать сейчас</button></a>
+                                        <a href="#popup" class="popup-link"> <button class="buy-now__block__discription__buttons__item  item-2">Бесплатная консультация</button></a>
                                     </div>
                                 </div>
                             {% endif %}

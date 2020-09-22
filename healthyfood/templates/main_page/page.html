@@ -69,7 +69,12 @@
     <h3 class="calculate__header">{% for a in headers %}
       {{a.calculator_header}}
     {% endfor %}</h3>
-    <form action="{% url 'filter' %}" method="GET" >
+    <form action="{% if user.is_authenticated %}
+    {% url 'filter' %}
+    {% else %}
+    {% url 'login' %}
+      
+    {% endif %}" method="GET" >
         <div class="calculate__box">
             <div class="calculate__box__item first">
                 <div class="calculate__box__block calculate__box__block__1">
@@ -88,15 +93,15 @@
                 </div>
                 <div class="calculate__box__block calculate__box__block__3">
                     <label for="" class="discription">Укажите Ваш рост:</label>
-                    <input type="text" placeholder="175 см" pattern="[0-9]{3} см" required class="input" id="height">
+                    <input type="text" placeholder="175 см" pattern="[0-9]{3}" required class="input" id="height">
                 </div>
                 <div class="calculate__box__block calculate__box__block__4">
                     <label for="" class="discription">Укажите Ваш возраст:</label>
-                    <input type="text" placeholder="30 лет" pattern="[0-9]{1,3} лет" required class="input" id="age">
+                    <input type="text" placeholder="30 лет" pattern="[0-9]{1,3}" required class="input" id="age">
                 </div>
                 <div class="calculate__box__block calculate__box__block__5">
                     <label for="" class="discription">Ваш текущий вес:</label>
-                    <input type="text" placeholder="65 кг" pattern="[0-9]{1,4} кг" required class="input" id="weight"> 
+                    <input type="text" placeholder="65 кг" pattern="[0-9]{1,4}" required class="input" id="weight"> 
                 </div>
                 <div class="calculate__box__block calculate__box__block__6">
                     <label for="" class="discription">Желаемый Результат:</label>
@@ -121,7 +126,7 @@
         <p class="calculate__consultation__description">
             Для тех, кому необходим особенный<br> рацион питания - <b>закажите конусльтацию!</b>
         </p>
-        <a href="" class="calculate__consultation__buy">Заказать консультацию</a>
+        <a id="popup" href="#popup" class="calculate__consultation__buy popup-link">Заказать консультацию</a>
     </div>
 </div>
 
@@ -132,16 +137,16 @@
     {% if programms_big %}
         {% for a in programms_big %}
 
-        <div class="programms__big__block" id = 'big__block-{{a.id}}'>
+        <a href="{% url 'menu' a.category.slug %}#menu " class="programms__big__block" id = 'big__block-{{a.id}}'>
             <div class="programms__big__block__item">
-                <label for="" class="programms__big__block__item__purpose">Моя цель</label>
-                    <a  href="" class="programms__big__block__item__discription">{{a.big_text}} </a>
+                <span class="programms__big__block__item__purpose">Моя цель</span>
+                    <p class="programms__big__block__item__discription">{{a.big_text}} </p>
                 <p class="programms__big__block__item__choose">Выбрать</p>
             </div>
             <div class="programms__big__block__item image">
                 <img src="{{a.big_img.url}}" alt="" class="programms__big__block__item__img">
             </div>
-        </div>
+        </a>
 
         {% endfor %}
     {% endif %}
@@ -150,7 +155,7 @@
 <p class="programms__choise">Выберите программу</p>
 <div class="programms__small">
     {% for a in programms_small  %}
-        <a href="{% url 'menu' a.category.slug %}" class="programms__small__items " id = 'small__block-{{a.cat}}'>
+        <a href="{% url 'menu' menu_cat=a.category.slug %}#menu" class="programms__small__items " id = 'small__block-{{a.cat}}'>
             <img src="{{a.small_img.url}}" alt="" class="programms__small__items__ico">
             <span class="programms__small__items__discription">{{a.name}} </span>
         </a>
