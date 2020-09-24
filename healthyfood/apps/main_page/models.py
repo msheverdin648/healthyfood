@@ -53,7 +53,7 @@ class PageSlider(models.Model):
     anons_slider_text = models.CharField(("Текст слайда"), max_length=50)
     anons_slider_image = models.ImageField(("Картинка слайда"), upload_to='img', height_field=None, width_field=None, max_length=100)
     anons_slider_bgcolor = models.CharField (("Цвет фона слайда"), default= '#F0F0F0',  max_length=7)
-    anons_slider_link = models.CharField(("Сылка слайда"), max_length=200)
+    anons_slider_link = models.CharField(("Сылка слайда"), max_length=200, default="#")
 
     def __str__(self):
         return self.anons_slider_name   
@@ -169,11 +169,15 @@ class Reviews(models.Model):
 
     name = models.CharField(("Имя автора"), max_length=50)
     age = models.CharField(("Возраст"), max_length=10)
-    text = models.CharField(("Текст отзыва"), max_length=500)
+    text = models.TextField(("Текст отзыва"))
     before_img = models.ImageField(('Фото "до"'), upload_to='img', height_field=None, width_field=None, max_length=None)
     after_img = models.ImageField(('Фото "после"'), upload_to='img', height_field=None, width_field=None, max_length=None)
+    category = models.ForeignKey(MenuCategory, verbose_name=("Меню(к которому сделан отзыв)"), on_delete=models.CASCADE)
+    num = models.PositiveIntegerField(("Номер отзыва"), default=1)
 
-
+    def save_num(self, rev_num, *args, **kwargs):
+        self.num = rev_num+1
+        super().save(*args, **kwargs)
 
 class QuestionsAnswers(models.Model):
 
@@ -322,4 +326,4 @@ class Cart(models.Model):
         else:
             self.final_price = 0
         self.total_products = cart_data['count__sum']
-        super().save(kwargs)
+        super().save(*args, **kwargs)

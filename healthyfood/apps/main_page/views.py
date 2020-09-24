@@ -117,11 +117,13 @@ class MenuView(CartMixin, View):
         page_slider = PageSlider.objects.all()
         programms_big = ProgrammsBig.objects.all()
         programms_small = ProgrammsSmall.objects.all()
-        reviews = Reviews.objects.all()
-        reviews_count = reviews.count()
         questions = QuestionsAnswers.objects.all()
         days  = Days.objects.all()
         request_category = MenuCategory.objects.get(slug = menu_cat)
+        reviews = Reviews.objects.filter(category = request_category)
+        reviews_count = reviews.count()
+        for a in range(reviews_count):
+            reviews[a].save_num(a)
         menu = Menu.objects.filter(category = request_category)
         return render(request, 'main_page/menu.html', {
             "headers": headers,
