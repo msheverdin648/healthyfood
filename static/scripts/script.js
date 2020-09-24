@@ -257,14 +257,6 @@ $(document).ready(function(){
         make_small_block_active()
     }
 
-
-
-
-
-
-        
-
-
 });
 
 
