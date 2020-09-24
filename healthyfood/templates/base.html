@@ -9,6 +9,7 @@
     {% block bootstrap %}
     {% endblock bootstrap %}
     <script src="https://kit.fontawesome.com/dea8ebbfdb.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static '/style/css/normalize.css' %}">
     <link rel="stylesheet" href="{% static '/style/css/style.css' %}">
     <link rel="stylesheet" href="{% static '/style/css/slick.css' %}">
     
@@ -37,9 +38,7 @@
                 </div>
             </div>
         </div>
-    </form>
-    
-    
+     </form>
     
     
         <header class="header">
@@ -94,11 +93,7 @@
          </header>
     
     
-         {% block content %}
-           
-         {% endblock content %}
-    
-    
+         {% block content %}{% endblock content %}
         <footer class="footer">
             <div class="footer__block">
                 <div class="footer__block__item logo">
@@ -139,14 +134,12 @@
             </div>
         </footer>
     
-    
-    
+
+    </div>
         <script type="text/javascript" src="{%static '/scripts/jquery.js' %}"></script>
         <script type="text/javascript" src="{%static '/scripts/slick.min.js' %}"></script>
         <script type="text/javascript" src="{%static '/scripts/slider.js' %}"></script>
         <script type="text/javascript" src="{%static '/scripts/script.js' %}"></script>
         <script type="text/javascript" src="{%static '/scripts/popup.js' %}"></script>
-        
-    </div>
 </body>
 </html>

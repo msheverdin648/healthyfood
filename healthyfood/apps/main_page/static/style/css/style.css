@@ -687,7 +687,7 @@ html {
   content: " ";
   display: block;
   position: absolute;
-  top: 31px;
+  top: 27px;
   right: 0;
   width: 55px;
   height: 55px;
@@ -1941,6 +1941,11 @@ html {
 
 .personal__navigate {
   margin: 10px 30px;
+  font-size: 30px;
+}
+
+.cart {
+  overflow-x: auto;
 }
 
 .hide {
@@ -1964,7 +1969,6 @@ html {
   }
   .header__navigate {
     overflow: hidden;
-    max-width: 411px;
     margin: 0 -20px;
     position: relative;
     -webkit-box-orient: vertical;
@@ -2182,7 +2186,7 @@ html {
     text-align: start;
   }
   .menu__header {
-    font-size: 20px;
+    font-size: 27px;
     width: 100%;
   }
   .menu__description {
@@ -2518,8 +2522,8 @@ html {
             transform: rotate(-90deg) translate(-68%, -170px);
   }
   #slider-4 .slick-next {
-    top: -448px;
-    left: 75%;
+    top: -519px;
+    left: 80%;
   }
   #slider-4 .slick-prev {
     top: 102px;

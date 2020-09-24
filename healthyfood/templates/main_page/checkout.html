@@ -15,39 +15,41 @@
     </h2>
     {% endif %}
     <h3 class="text-center mt-5 mb-5">Оформление заказа {% if not cart.products.count %}пуст{% endif %}</h3>
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Наименование Блюда</th>
-            <th scope="col">Изображение</th>
-            <th scope="col">Цена</th>
-            <th scope="col">Кол-во: </th>
-            <th scope="col">Цена со скидкой: </th>
-          </tr>
-        </thead>
-        <tbody>
-            {% for item in cart.products.all  %}
-            <tr>
-                <th scope="row">{{item.product.name}}</th>
-                <td class="w-25"><img src="{{item.product.big_img.url}}" class="img-fluid" alt=""></td>
-                    <td>{{ item.product.price }} руб.</td>
-                <td> 
-                    <form action="{% url 'change_count' food_name=item.product.name %}" method="POST">
-                        {% csrf_token %}
-                    </form>    
-                </td>
-                <td> {{item.final_price}} </td>
-
-            </tr>
-            {% endfor %}
-            <tr>
-                <td colspan="2"></td>
-                <td>Итого:</td>
-                <td>{{ cart.total_products }} шт.</td>
-                <td><strong>{{ cart.final_price }} руб.</strong></td>
-            </tr>
-        </tbody>
-      </table>
+        <div class="cart">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Наименование Блюда</th>
+                    <th scope="col">Изображение</th>
+                    <th scope="col">Цена</th>
+                    <th scope="col">Кол-во: </th>
+                    <th scope="col">Цена со скидкой: </th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for item in cart.products.all  %}
+                    <tr>
+                        <th scope="row">{{item.product.name}}</th>
+                        <td class="w-25"><img src="{{item.product.big_img.url}}" class="img-fluid" alt=""></td>
+                            <td>{{ item.product.price }} руб.</td>
+                        <td> 
+                            <form action="{% url 'change_count' food_name=item.product.name %}" method="POST">
+                                {% csrf_token %}
+                            </form>    
+                        </td>
+                        <td> {{item.final_price}} </td>
+        
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td colspan="2"></td>
+                        <td>Итого:</td>
+                        <td>{{ cart.total_products }} шт.</td>
+                        <td><strong>{{ cart.final_price }} руб.</strong></td>
+                    </tr>
+                </tbody>
+              </table>
+        </div>
       <hr>
       <h3 class="form__header">Форма заказа</h3>
       <form action=" {% url 'make_order' %} " class="checkout form w-50" method="POST">
