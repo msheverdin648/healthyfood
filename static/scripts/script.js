@@ -221,8 +221,7 @@ $(document).ready(function(){
 
 
     const path=document.location.href
-    console.log("Это блоак" + small_block1.href)
-    console.log("Это ссылка" + path)
+
 
 
     if (path == small_block1.href){
