@@ -6,10 +6,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Healthy Food</title>
-    {% block bootstrap %}
-    {% endblock bootstrap %}
+    
+    <!--FAVICON-->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static '/favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static '/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static '/favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static '/favicon/site.webmanifest' %}">
+    <meta name="apple-mobile-web-app-title" content="Healthy Food">
+    <meta name="application-name" content="Healthy Food">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#4c9162">
+
+
     <script src="https://kit.fontawesome.com/dea8ebbfdb.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static '/style/css/normalize.css' %}">
+    {% block bootstrap %}{% endblock bootstrap %}
     <link rel="stylesheet" href="{% static '/style/css/style.css' %}">
     <link rel="stylesheet" href="{% static '/style/css/slick.css' %}">
     
