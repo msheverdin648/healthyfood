@@ -114,7 +114,7 @@ html
     
 .container
     padding: 0px 50px
-    padding-bottom: 169px
+    padding-bottom: 280px
     
     
 #header_logo
@@ -1782,12 +1782,16 @@ html
                 height: 100%
                 
             &__item
+                .menu
+                    &__header
+                        transform: translateX(-40px)
                 &.logo
                     p
                         margin-top: 0
 
                 &.nav
                     margin: 0
+                    margin-bottom: 20px
                 &.contacts
                     margin: 0
                     display: flex
@@ -1877,12 +1881,12 @@ html
        
         .slick
             &-arrow
+                position: absolute
+                top: 5%
             &-next
-                top: -519px
                 left: 80%
             &-prev
-                top: 102px
-                right: 0
+                left: 0
     #slider-5
         width: 100%
         margin: 0 auto
