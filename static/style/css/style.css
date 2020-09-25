@@ -1156,17 +1156,17 @@ html {
   position: absolute;
   border: 10px solid transparent;
   border-right: 7px solid #4C9162;
-  -webkit-transform: translate(-132px, 149px);
-          transform: translate(-132px, 149px);
+  -webkit-transform: translate(-132px, 136px);
+          transform: translate(-132px, 136px);
 }
 
 .buy-now__block__days__item.active::after {
   content: " ";
   position: absolute;
-  border: 103px  solid transparent;
+  border: 96px  solid transparent;
   border-left: 24px solid #4C9162;
-  -webkit-transform: translate(26px, -118px);
-          transform: translate(26px, -118px);
+  -webkit-transform: translate(26px, -110px);
+          transform: translate(26px, -110px);
 }
 
 .buy-now__block__days__first {
