@@ -2269,25 +2269,21 @@ html {
     border-radius: 0px 5px 0px 0px;
   }
   .buy-now__block__days__item {
-    padding: 17px 31px 11px 31px;
+    width: 50%;
+    padding: 17px 0px 11px 0px;
+    -webkit-transform: translateY(15px);
+            transform: translateY(15px);
+    z-index: 50;
   }
   .buy-now__block__days__item::after {
-    content: " ";
-    position: absolute;
-    border: 95px solid transparent;
-    border-top: 28px solid #fff;
-    -webkit-transform: translate(-157px, 38px);
-            transform: translate(-157px, 38px);
-    z-index: 1;
+    display: none;
+  }
+  .buy-now__block__days__item.active {
+    -webkit-transform: translateY(15px);
+            transform: translateY(15px);
   }
   .buy-now__block__days__item.active::after {
-    content: " ";
-    position: absolute;
-    border: 95px solid transparent;
-    border-top: 28px solid  #4C9162;
-    -webkit-transform: translate(-157px, 38px);
-            transform: translate(-157px, 38px);
-    z-index: 1;
+    display: none;
   }
   .buy-now__block__days__item.active::before {
     display: none;
@@ -2503,6 +2499,7 @@ html {
   }
   #slider-3 {
     min-width: 0;
+    position: relative;
   }
   #slider-3 .slick-track {
     display: -webkit-box;
@@ -2512,14 +2509,28 @@ html {
   #slider-3 .slick-arrow {
     left: 37%;
     z-index: 20;
+    position: relative;
   }
   #slider-3 .slick-next {
-    -webkit-transform: rotate(-90deg) translate(68%, 170px);
-            transform: rotate(-90deg) translate(68%, 170px);
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+    position: absolute;
+    transform: rotate(-90deg);
+    left: 85%;
+    top: 31%;
+    z-index: 50;
   }
   #slider-3 .slick-prev {
-    -webkit-transform: rotate(-90deg) translate(-68%, -170px);
-            transform: rotate(-90deg) translate(-68%, -170px);
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+    position: absolute;
+    transform: rotate(-90deg);
+    left: -11%;
+    top: 31%;
+    z-index: 50;
+  }
+  #slider-3 .slick-center {
+    border: none;
   }
   #slider-4 .slick-next {
     top: -519px;
@@ -2708,24 +2719,25 @@ html {
     font-size: 12px;
   }
   .buy-now__block__days__item {
-    padding: 17px 8px 11px 8px;
+    width: 50%;
+    padding: 17px 0px 11px 0px;
   }
   .buy-now__block__days__item::after {
     content: " ";
     position: absolute;
-    border: 71px solid transparent;
+    border: 70px solid transparent;
     border-top: 28px solid #fff;
-    -webkit-transform: translate(-133px, 39px);
-            transform: translate(-133px, 39px);
+    -webkit-transform: translate(-132px, 35px);
+            transform: translate(-132px, 35px);
     z-index: 1;
   }
   .buy-now__block__days__item.active::after {
     content: " ";
     position: absolute;
-    border: 71px solid transparent;
+    border: 70px solid transparent;
     border-top: 28px solid  #4C9162;
-    -webkit-transform: translate(-133px, 39px);
-            transform: translate(-133px, 39px);
+    -webkit-transform: translate(-132px, 35px);
+            transform: translate(-132px, 35px);
     z-index: 1;
   }
   .reviews__slider__item__item {
@@ -2735,6 +2747,7 @@ html {
     margin-left: 45%;
   }
   #slider-3 {
+    position: relative;
     width: 100%;
     margin: 0 auto;
     overflow: hidden;
@@ -2750,13 +2763,25 @@ html {
     overflow: hidden;
     margin: 0px 13px;
   }
+  #slider-3 .slick-arrows {
+    position: absolute;
+    top: 50%;
+  }
   #slider-3 .slick-prev {
-    -webkit-transform: rotate(-90deg) translate(-62%, -133px);
-            transform: rotate(-90deg) translate(-62%, -133px);
+    position: absolute;
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+    left: -20px;
+    top: 31%;
+    z-index: 50;
   }
   #slider-3 .slick-next {
-    -webkit-transform: rotate(-90deg) translate(59%, 108px);
-            transform: rotate(-90deg) translate(59%, 108px);
+    position: absolute;
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+    left: 76%;
+    top: 31%;
+    z-index: 50;
   }
   #slider-4 {
     display: -webkit-box;

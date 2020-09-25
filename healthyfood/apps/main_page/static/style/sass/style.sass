@@ -25,6 +25,8 @@ body
     
 html 
     scroll-behavior: smooth
+    
+
 
 .fa-times-circle
     font-size: 35px
@@ -1635,22 +1637,16 @@ html
                 &__second
                     border-radius: 0px 5px 0px 0px
                 &__item
-                    padding: 17px 31px 11px 31px
+                    width: 50%
+                    padding: 17px 0px 11px 0px
+                    transform: translateY(15px)
+                    z-index: 50
                     &::after
-                            content: " "
-                            position: absolute
-                            border: 95px solid transparent
-                            border-top: 28px solid #fff
-                            transform: translate(-157px, 38px)
-                            z-index: 1
+                            display: none
                     &.active
+                        transform: translateY(15px)
                         &::after
-                            content: " "
-                            position: absolute
-                            border: 95px solid transparent
-                            border-top: 28px solid  #4C9162
-                            transform: translate(-157px, 38px)
-                            z-index: 1
+                             display: none
                         &::before
                             display: none
                     h2
@@ -1852,17 +1848,30 @@ html
                 margin-top: 47px
     #slider-3
         min-width: 0
-        
+        position: relative
         .slick
             &-track
                display: flex
             &-arrow
                 left: 37%
                 z-index: 20
+                position: relative
             &-next
-                transform: rotate(-90deg) translate(68%, 170px)
+                transform: rotate(-90deg) 
+                position: absolute
+                transform: rotate(-90deg) 
+                left: 85%
+                top: 31%
+                z-index: 50
             &-prev
-                transform: rotate(-90deg) translate(-68%, -170px)
+                transform: rotate(-90deg) 
+                position: absolute
+                transform: rotate(-90deg) 
+                left: -11%
+                top: 31%
+                z-index: 50
+            &-center
+                border: none
                 
     #slider-4
        
@@ -2041,21 +2050,22 @@ html
         &__block
             &__days
                 &__item
-                    padding: 17px 8px 11px 8px
+                    width: 50%
+                    padding: 17px 0px 11px 0px
                     &::after
                             content: " "
                             position: absolute
-                            border: 71px solid transparent
+                            border: 70px solid transparent
                             border-top: 28px solid #fff
-                            transform: translate(-133px, 39px)
+                            transform: translate(-132px, 35px)
                             z-index: 1
                     &.active
                         &::after
                             content: " "
                             position: absolute
-                            border:  71px solid transparent
+                            border:  70px solid transparent
                             border-top: 28px solid  #4C9162
-                            transform: translate(-133px, 39px)
+                            transform: translate(-132px, 35px)
                             z-index: 1
                             
 
@@ -2075,6 +2085,7 @@ html
                margin-left: 45%
 
     #slider-3
+        position: relative
         width: 100%
         margin: 0 auto
         overflow: hidden
@@ -2085,10 +2096,25 @@ html
                 align-items: center
                 overflow: hidden
                 margin: 0px 13px
+            &-arrows
+                position: absolute
+                
+                top: 50%
             &-prev
-                transform: rotate(-90deg) translate(-62%, -133px)
+                position: absolute
+                transform: rotate(-90deg) 
+                left: -20px
+                top: 31%
+                z-index: 50
+                
             &-next
-                transform: rotate(-90deg) translate(59%, 108px)
+                position: absolute
+                transform: rotate(-90deg) 
+                left: 76%
+                top: 31%
+                z-index: 50
+                
+
     #slider-4
         display: flex
         .slick
