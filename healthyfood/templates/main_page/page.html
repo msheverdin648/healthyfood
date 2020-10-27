@@ -132,36 +132,48 @@
 
 
 <div class="programms" id="programms">
-<h2 class="programms__purpose">Ваша цель</h2>
-<div class="programms__big">
-    {% if programms_big %}
-        {% for a in programms_big %}
+    <h2 class="programms__purpose">Ваша цель</h2>
+    <div class="programms__big">
+        {% if programms_big %}
+            {% for a in programms_big %}
 
-        <a href="{% url 'menu' a.category.slug %}#menu " class="programms__big__block" id = 'big__block-{{a.id}}'>
-            <div class="programms__big__block__item">
-                <span class="programms__big__block__item__purpose">Моя цель</span>
-                    <p class="programms__big__block__item__discription">{{a.big_text}} </p>
-                <p class="programms__big__block__item__choose">Выбрать</p>
+            <div class="programms__big__block" id = 'big__block-{{a.id}}'>
+                <div class="programms__big__block__item">
+                    <span class="programms__big__block__item__purpose">Моя цель</span>
+                        <p class="programms__big__block__item__discription">{{a.big_text}} </p>
+                    <p class="programms__big__block__item__choose">Выбрать</p>
+                </div>
+                <div class="programms__big__block__item image">
+                    <img src="{{a.big_img.url}}" alt="" class="programms__big__block__item__img">
+                </div>
             </div>
-            <div class="programms__big__block__item image">
-                <img src="{{a.big_img.url}}" alt="" class="programms__big__block__item__img">
-            </div>
-        </a>
 
+            {% endfor %}
+        {% endif %}
+        
+    </div>
+    <p class="programms__choise">Выберите программу</p>
+    <div class="programms__small">
+        {% for a in programms_small  %}
+            <div class="programms__small__items " id = 'small__block-{{a.cat}}' data-slug="{{a.slug}}">
+                <img src="{{a.small_img.url}}" alt="" class="programms__small__items__ico">
+                <span class="programms__small__items__discription">{{a.name}} </span>
+            </div>
+        
         {% endfor %}
-    {% endif %}
-    
-</div>
-<p class="programms__choise">Выберите программу</p>
-<div class="programms__small">
-    {% for a in programms_small  %}
-        <a href="{% url 'menu' menu_cat=a.category.slug %}#menu" class="programms__small__items " id = 'small__block-{{a.cat}}'>
-            <img src="{{a.small_img.url}}" alt="" class="programms__small__items__ico">
-            <span class="programms__small__items__discription">{{a.name}} </span>
-        </a>
-       
+    </div>
+    {% for slug in slugs %}
+        <div class="programms__kkals hide" data-slugs="{{slug.short_slug}}">
+            {% for a in short_slugs %}
+                {% if a.short_slug == slug.short_slug %}
+                    <a href="{% url 'menu' a.full_slug %}#menu" class="programms__kkals__item">
+                        <span class="programms__kkals__item__choose">Выбрать</span>
+                        <span class="programms__kkals__item__text">{{a.gramm}} ккал</span>
+                    </a>
+                {% endif %}
+            {% endfor %}          
+        </div>
     {% endfor %}
-</div>
 </div>
 
 {% block menu %}

@@ -10,7 +10,7 @@ from django.http import HttpResponseRedirect
 
 from .mixins import CartMixin
 from .forms import OrderForm
-from .models import (
+from main_page.models import (
     HeaderSlider, 
     PageSlider, 
     PageHeaders, 
@@ -93,6 +93,12 @@ class Base(CartMixin, View):
         days  = Days.objects.all()
         categories = MenuCategory.objects.all()
         menu = Menu.objects.all()
+        short_slugs = categories.distinct().values('short_slug', 'full_slug', 'gramm')
+        slugs = short_slugs.values('short_slug')
+        healthy = short_slugs.filter(short_slug='healthy')
+
+        print(slugs)
+
         return render(request, 'main_page/page.html',{
         "headers": headers,
         'header_slider': header_slider,
@@ -106,11 +112,14 @@ class Base(CartMixin, View):
         'categories' :categories,
         'cart': self.cart,
         'menu': menu,
+        'short_slugs':short_slugs,
+        'healthy': healthy,
+        'slugs':slugs,
+
+
         })
 
 class MenuView(CartMixin, View):
-    template_name = "main_page/menu.html"
-    queryset = Menu.objects.all()
     def get(self, request, menu_cat):
         headers = PageHeaders.objects.all()
         header_slider = HeaderSlider.objects.all()
@@ -119,12 +128,16 @@ class MenuView(CartMixin, View):
         programms_small = ProgrammsSmall.objects.all()
         questions = QuestionsAnswers.objects.all()
         days  = Days.objects.all()
-        request_category = MenuCategory.objects.get(slug = menu_cat)
+        request_category = MenuCategory.objects.get(full_slug = menu_cat)
         reviews = Reviews.objects.filter(category = request_category)
         reviews_count = reviews.count()
+        categories = MenuCategory.objects.all()
         for a in range(reviews_count):
             reviews[a].save_num(a)
         menu = Menu.objects.filter(category = request_category)
+        short_slugs = categories.distinct().values('short_slug', 'full_slug', 'gramm')
+        slugs = short_slugs.values('short_slug')
+        healthy = short_slugs.filter(short_slug='healthy')
         return render(request, 'main_page/menu.html', {
             "headers": headers,
             'header_slider': header_slider,
@@ -137,6 +150,9 @@ class MenuView(CartMixin, View):
             'days': days,
             'menu': menu,
             'cart': self.cart,
+            'short_slugs': short_slugs,
+            'slugs': slugs,
+            'healthy': healthy,            
         })
 
 

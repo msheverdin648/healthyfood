@@ -961,6 +961,89 @@ html {
   font-family: 'Museo Sans Cyrl 500';
 }
 
+.programms__kkals {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 12px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-top: 70px;
+}
+
+.programms__kkals__item {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 23%;
+          flex: 0 1 23%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #F8F8F8;
+  border-radius: 3px;
+  padding: 12px 32px 12px 17px;
+  margin-bottom: 28px;
+}
+
+.programms__kkals__item:hover {
+  cursor: pointer;
+}
+
+.programms__kkals__item span {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.programms__kkals__item.active {
+  background: #4C9162;
+}
+
+.programms__kkals__item.active span {
+  color: #ffffff;
+}
+
+.programms__kkals__item.active .programms__kkals__item__choose::before {
+  background: url("../../images/tick-white.svg") no-repeat;
+}
+
+.programms__kkals__item__text {
+  font-family: 'Museo Sans Cyrl 500';
+  font-size: 18px;
+  margin-left: 20px;
+  color: #000;
+}
+
+.programms__kkals__item__choose {
+  position: relative;
+  font-family: 'Museo Sans Cyrl 500';
+  font-size: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 34px;
+  color: #4C9162;
+}
+
+.programms__kkals__item__choose::before {
+  position: absolute;
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: url("../../images/tick-green.svg") no-repeat;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
 .menu {
   margin: 0px 150px;
   margin-bottom: 30px;

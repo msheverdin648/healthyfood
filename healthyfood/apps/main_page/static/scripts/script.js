@@ -5,6 +5,22 @@ $(document).ready(function(){
 
     
 
+    function showKkal(element){
+        let category = $(element).data('slug')
+        console.log(category)
+        $("[data-slugs]").each(function(){
+
+            let slugs = $(this).data('slugs')
+
+            if (category != slugs){
+                
+                $(this).addClass('hide')
+
+            }else{
+                $(this).removeClass('hide')
+            }
+        })
+    }
 
 
     //Настройки активных элементов
@@ -19,6 +35,11 @@ $(document).ready(function(){
     });
 
     $(".questions__section__item").on('click', function(){
+        $(this).siblings().removeClass("active");
+        $(this).addClass('active');
+    });
+
+    $(".programms__kkals__item").on('click', function(){
         $(this).siblings().removeClass("active");
         $(this).addClass('active');
     });
@@ -146,6 +167,7 @@ $(document).ready(function(){
         $(this).addClass('active');
         $(this).siblings().removeClass('active');
         make_small_block_active();
+        showKkal(this);
     });
 
     aceept_button.on('click', function(){

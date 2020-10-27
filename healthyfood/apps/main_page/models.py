@@ -9,7 +9,8 @@ class MenuCategory(models.Model):
 
     name = models.CharField(("Имя категории"), max_length=100)
     gramm = models.CharField(("Диапазон ккал"), max_length=20)
-    slug = models.SlugField(("Ссылка категории"))
+    full_slug = models.SlugField(("Ссылка на меню"))   
+    short_slug = models.SlugField(("Ссылка на категорию"))
 
 
     class Meta:
@@ -18,10 +19,6 @@ class MenuCategory(models.Model):
 
     def __str__(self):
         return " {}: {} ккал".format(self.name, self.gramm)
-
-    def get_absolute_url(self):
-        return reverse("menu", kwargs={"slug": self.slug})
-    
     
 
 class HeaderSlider(models.Model):
@@ -86,7 +83,6 @@ class ProgrammsBig(models.Model):
 
     big_text = models.CharField(("Название блока"), max_length=50)
     big_img = models.FileField(("Картинка блока"), upload_to='img')
-    category = models.ForeignKey(MenuCategory, verbose_name=("Категория привязываемая к блоку"), on_delete=models.CASCADE)
     def __str__(self):
         return self.big_text
 
@@ -101,8 +97,7 @@ class ProgrammsSmall(models.Model):
     name = models.CharField(("Название маленького блока"), max_length=50)
     small_img = models.FileField(("Картинка блока"), upload_to='img')
     cat = models.IntegerField(("Номер блока"))
-    category = models.ForeignKey(MenuCategory, verbose_name=("Категория меню привязываемая к этому блоку"), on_delete=models.CASCADE)
-    
+    slug = models.SlugField(("Короткая ссылка категории меню"))
 
     def __str__(self):
         return self.name
@@ -118,7 +113,18 @@ class Days(models.Model):
         db_table = ''
         managed = True
         verbose_name = 'День недели'
-        verbose_name_plural = 'Дни недели'  
+        verbose_name_plural = 'Дни недели'
+
+
+#class Kkal(models.Model):
+   
+  # class Meta:
+    #   db_table = ''
+    #   managed = True
+    #   verbose_name = 'Кило калории'
+     #  verbose_name_plural = 'Кило калории'
+
+    #   models.CharField(("Диапазон калорий"), max_length=50)
 
 
 class Food(models.Model):
@@ -136,7 +142,7 @@ class Food(models.Model):
     kkal = models.CharField(("Колличество калорий"), max_length=20)
     gramm = models.CharField(("Колличество грамм"), max_length=20)
     price = models.DecimalField(("Цена блюда"), max_digits=9, decimal_places=2)
-    discount = models.DecimalField(("Цена со скидкой, если есть"),  max_digits=9, decimal_places=2, null=0, blank = True)
+    discount = models.DecimalField(("Цена со скидкой, если есть"),  max_digits=9, decimal_places=2, null=True, blank = True)
     days_list = models.ManyToManyField(Days, verbose_name = "Дни недели", related_name='days')
 
 
@@ -153,6 +159,7 @@ class Menu(models.Model):
 
     category = models.ForeignKey(MenuCategory, verbose_name=("Категория меню"), on_delete=models.CASCADE)
     menu_items = models.ManyToManyField(Food, verbose_name= ("Позиции меню"))
+    #kkal = models.ForeignKey("app.Model", verbose_name=_(""), on_delete=models.CASCADE)
 
     def get_slug(self):
         return category.slug
