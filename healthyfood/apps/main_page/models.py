@@ -9,8 +9,8 @@ class MenuCategory(models.Model):
 
     name = models.CharField(("Имя категории"), max_length=100)
     gramm = models.CharField(("Диапазон ккал"), max_length=20)
-    full_slug = models.SlugField(("Ссылка на меню"))   
-    short_slug = models.SlugField(("Ссылка на категорию"))
+    full_slug = models.SlugField(("Ссылка на меню"), null=True, blank=True)   
+    short_slug = models.SlugField(("Ссылка на категорию"), null=True, blank=True)
 
 
     class Meta:
@@ -116,15 +116,6 @@ class Days(models.Model):
         verbose_name_plural = 'Дни недели'
 
 
-#class Kkal(models.Model):
-   
-  # class Meta:
-    #   db_table = ''
-    #   managed = True
-    #   verbose_name = 'Кило калории'
-     #  verbose_name_plural = 'Кило калории'
-
-    #   models.CharField(("Диапазон калорий"), max_length=50)
 
 
 class Food(models.Model):
@@ -141,6 +132,9 @@ class Food(models.Model):
     small_img = models.ImageField(("Картинка маленького слайда"), upload_to='img', height_field=None, width_field=None, max_length=None)
     kkal = models.CharField(("Колличество калорий"), max_length=20)
     gramm = models.CharField(("Колличество грамм"), max_length=20)
+    protein = models.CharField(("Колличество белков"), max_length=20, default='0')
+    fats = models.CharField(("Колличество жиров"), max_length=20, default='0')
+    carbohydrates = models.CharField(("Колличество углеводов"), max_length=20, default='0')
     price = models.DecimalField(("Цена блюда"), max_digits=9, decimal_places=2)
     discount = models.DecimalField(("Цена со скидкой, если есть"),  max_digits=9, decimal_places=2, null=True, blank = True)
     days_list = models.ManyToManyField(Days, verbose_name = "Дни недели", related_name='days')
