@@ -124,7 +124,7 @@ class Food(models.Model):
         verbose_name_plural = ("Блюда")
 
     def __str__(self):
-        return self.name
+        return f'{self.name} {self.kkal} Ккал {self.gramm} грамм {self.protein} белков {self.fats} жиров {self.carbohydrates} углев.'
 
     name = models.CharField(("Название блюда"), max_length=100)
     menu_discription = models.CharField(("Описание блюда"), max_length=500)
@@ -135,8 +135,6 @@ class Food(models.Model):
     protein = models.CharField(("Колличество белков"), max_length=20, default='0')
     fats = models.CharField(("Колличество жиров"), max_length=20, default='0')
     carbohydrates = models.CharField(("Колличество углеводов"), max_length=20, default='0')
-    price = models.DecimalField(("Цена блюда"), max_digits=9, decimal_places=2)
-    discount = models.DecimalField(("Цена со скидкой, если есть"),  max_digits=9, decimal_places=2, null=True, blank = True)
     days_list = models.ManyToManyField(Days, verbose_name = "Дни недели", related_name='days')
 
 
@@ -153,7 +151,8 @@ class Menu(models.Model):
 
     category = models.ForeignKey(MenuCategory, verbose_name=("Категория меню"), on_delete=models.CASCADE)
     menu_items = models.ManyToManyField(Food, verbose_name= ("Позиции меню"))
-    #kkal = models.ForeignKey("app.Model", verbose_name=_(""), on_delete=models.CASCADE)
+    price = models.DecimalField(("Цена меню"), max_digits=9, decimal_places=2, default=0)
+    discount = models.DecimalField(("Цена со скидкой, если есть"),  max_digits=9, decimal_places=2, null=True, blank = True)
 
     def get_slug(self):
         return category.slug
@@ -286,7 +285,7 @@ class Buy(models.Model):
 class Order(models.Model):
 
     customer = models.ForeignKey(Customer, verbose_name=("Заказчик"), on_delete=models.CASCADE)
-    product = models.ForeignKey(Food, verbose_name=("Имя продукта"), on_delete=models.CASCADE)
+    product = models.ForeignKey(Menu, verbose_name=("Название меню"), on_delete=models.CASCADE)
     count = models.PositiveIntegerField(default=1)
     final_price = models.DecimalField(("Итоговая цена товара"), max_digits=9, decimal_places=2)
 
@@ -295,7 +294,7 @@ class Order(models.Model):
         verbose_name_plural = ("Товары в корзине")
 
     def __str__(self):
-        return 'Заказанный продукт ({}) {}'.format(self.customer ,self.product.name)
+        return 'Заказанное меню ({}) {} {} Ккал'.format(self.customer, self.product.category.name, self.product.category.gramm)
 
     def save(self, *args, **kwargs):
         if self.product.discount:
@@ -308,7 +307,7 @@ class Order(models.Model):
 class Cart(models.Model):
 
     owner = models.ForeignKey(Customer, verbose_name=("Заказчик"), on_delete=models.CASCADE, null=True, blank=True)
-    products = models.ManyToManyField(Order , verbose_name=("Заказанные блюда"), blank = True)
+    products = models.ManyToManyField(Order , verbose_name=("Заказанные меню"), blank = True)
     total_products = models.PositiveIntegerField(("Колличество блюд"), default=0)
     final_price = models.DecimalField(("Общая цена заказа"), max_digits=9, decimal_places=2, default=0)
     in_order = models.BooleanField(default = False)

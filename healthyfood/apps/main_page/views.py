@@ -34,10 +34,13 @@ from main_page.models import (
 class AddToCartView(CartMixin, View):
 
     def get(self, request, *args, **kwargs):
-        food_name = kwargs.get('food_name')
-        food = Food.objects.get(name=food_name)
+        menu_name = kwargs.get('menu_name')
+        kkals = kwargs.get('kkals')
+        menu_cat = MenuCategory.objects.get(name = menu_name, gramm=kkals)
+        
+        menu = Menu.objects.get(category=menu_cat)
         order, created = Order.objects.get_or_create(
-            customer=self.cart.owner, cart = self.cart, product=food
+            customer=self.cart.owner, cart = self.cart, product=menu
         )
         if created:
             self.cart.products.add(order)
@@ -48,13 +51,15 @@ class AddToCartView(CartMixin, View):
 class DeleteFromCartView(View):
 
     def get(self, request, *args, **kwargs):
+        menu_name = kwargs.get('menu_name')
+        kkals = kwargs.get('kkals')
+        menu_cat = MenuCategory.objects.get(name = menu_name, gramm=kkals)
 
-        food_name = kwargs.get('food_name')
         customer = Customer.objects.get(user=request.user)
         cart = Cart.objects.get(owner=customer, in_order=False)
-        food = Food.objects.get(name=food_name)
+        menu = Menu.objects.get(category=menu_cat)
         order = Order.objects.get(
-            customer=cart.owner, cart=cart, product=food
+            customer=cart.owner, cart=cart, product=menu
         )
         cart.products.remove(order)
         order.delete()
@@ -65,12 +70,15 @@ class DeleteFromCartView(View):
 class ChangeCountView(View):
 
     def post(self, request, *args, **kwargs): 
-        food_name = kwargs.get('food_name')
+        menu_name = kwargs.get('menu_name')
+        kkals = kwargs.get('kkals')
+        menu_cat = MenuCategory.objects.get(name = menu_name, gramm=kkals)
+
         customer = Customer.objects.get(user=request.user)
         cart = Cart.objects.get(owner=customer, in_order=False)
-        food = Food.objects.get(name=food_name)
+        menu = Menu.objects.get(category=menu_cat)
         order = Order.objects.get(
-            customer=cart.owner, cart=cart, product=food
+            customer=cart.owner, cart=cart, product=menu
         )
         count = int(request.POST.get('count'))
         order.count = int(count)

@@ -668,6 +668,53 @@ html
                 +museo_normal
 
 
+    &__kkals 
+        display: flex
+        padding: 0 12px
+        flex-wrap: wrap
+        justify-content: space-around
+        margin-top: 70px
+        &__item 
+            flex: 0 1 23%
+            display: flex
+            align-items: center
+            background: #F8F8F8
+            border-radius: 3px
+            padding: 12px 32px 12px 17px
+            margin-bottom: 28px
+            &:hover
+                cursor: pointer
+            &.active
+                background: #4C9162
+                span
+                    color: #ffffff
+                .programms__kkals__item__choose
+                    &::before
+                        background: url("../../images/tick-white.svg") no-repeat
+            &__choose 
+                position: relative
+                font-size: 16px
+                display: flex
+                align-items: center
+                padding-left: 34px
+                color: #4C9162
+                +museo_normal
+                &::before
+                    position: absolute
+                    content: ""
+                    display: inline-block
+                    width: 24px
+                    height: 24px
+                    background: url("../../images/tick-green.svg") no-repeat
+                    left: 0
+                    top: 50%
+                    transform: translateY(-50%)
+            &__text 
+                +museo_normal
+                font-size: 18px
+                margin-left: 20px
+                color: #000
+
 
 .menu
     margin: 0px 150px
@@ -860,7 +907,7 @@ html
                         border: 2px solid #FFC702
                 
             b
-                margin: 6px 10px 20px
+                margin: 10px 10px 20px 0px
                 &.new-price
                     color: #4C9162
                     font-size: 31px
@@ -883,7 +930,7 @@ html
 
             &__header
                 +museo_normal
-                font-size: 25px
+                font-size: 14px
                 line-height: 114.7%
                 color: #161716
 

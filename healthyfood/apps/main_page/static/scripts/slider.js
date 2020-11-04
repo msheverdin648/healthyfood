@@ -118,18 +118,5 @@ $('.header__slider').each(function(){
     });
  });
 
- $(document).ready(function(){
-    $('#slider-6').slick({
 
-        dots: false, 
-        arrows: false,
-        centerMode: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        asNavFor: '.menu__slider__big, .menu__slider__small',
-        draggble: false,
-        swipe: false,
-    });
-
- });
 

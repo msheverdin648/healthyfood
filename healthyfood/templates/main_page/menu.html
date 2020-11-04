@@ -6,7 +6,7 @@
 
 
     <div class="menu" id="menu">
-
+        
     {% for a in headers %}
             <h2 class="menu__header">
                 {{a.menu_header}}
@@ -77,7 +77,7 @@
                                                             </p>
                                                             <div class="menu__buttons">
                                                                 <a href="{% if user.is_authenticated %}
-                                                                {% url 'add-to-cart' food_name=item.name %}
+                                                                {% url 'add-to-cart' menu_name=a.category.name kkals=a.category.gramm %}
                                                                 {% else %}
                                                                 {% url 'login' %}
                                                                 {% endif %}"><button class="menu__buttons__item item-1">Заказать прямо сейчас</button></a>
@@ -118,42 +118,35 @@
         </div>
     </div>
 
-        <div class="buy-now__block__discription" id="slider-6">
-            {% for day in days %}
-            <div class="buy-now__slider__item day">
-                <h2 class="buy-now__day">{{ day.days_name }}</h2>
+       {% for a in menu %}
+       <div class="buy-now__block__discription">
+        <div class="buy-now__slider__item">
+            <p class="buy-now__block__discription__small-text">Ваш заказ</p>
+            <h2 class="buy-now__block__discription__header">
+                {% for food in a.menu_items.all  %}
+                    {{food.name}}<br>
+                {% endfor %}
+            </h2>
+            <p class="buy-now__block__discription__text">Сбалансированное питание, в короткие сроки помогает избавится  от лишнего веса</p>
+            {% if a.discount %}
+                <p class="buy-now__block__discription__price">Новая цена:</p>
+                <b class="new-price">{{a.discount}}р.</b>
+                <b class="old-price">{{a.price}}р.</b>
+            {% else %}
+                <p class="buy-now__block__discription__price">Цена:</p>
+                <b class="new-price">{{a.price}}р.</b>
+            {% endif %}
+            <div class="buy-now__block__discription__buttons">
+                <a href="{% if user.is_authenticated %}
+                {% url 'add-to-cart' a.category.name a.category.gramm %}
+                {% else %}
+                {% url 'login' %}
+                {% endif %}"><button class="buy-now__block__discription__buttons__item item-1" >Заказать сейчас</button></a>
+                <a href="#popup" class="popup-link"> <button class="buy-now__block__discription__buttons__item  item-2">Бесплатная консультация</button></a>
             </div>
-            {% for a in menu  %}
-                {% for item in a.menu_items.all %}
-                    {% for b in item.days_list.all %}
-                        {% if b.id == day.id %}
-                                <div class="buy-now__slider__item">
-                                    <p class="buy-now__block__discription__small-text">Ваш заказ</p>
-                                    <h2 class="buy-now__block__discription__header">{{item.name}}</h2>
-                                    <p class="buy-now__block__discription__text">Сбалансированное питание, в короткие сроки помогает избавится  от лишнего веса</p>
-                                    {% if item.discount %}
-                                        <p class="buy-now__block__discription__price">Новая цена:</p>
-                                        <b class="new-price">{{item.discount}}р.</b>
-                                        <b class="old-price">{{item.price}}р.</b>
-                                    {% else %}
-                                        <p class="buy-now__block__discription__price">Цена:</p>
-                                        <b class="new-price">{{item.price}}р.</b>
-                                    {% endif %}
-                                    <div class="buy-now__block__discription__buttons">
-                                        <a href="{% if user.is_authenticated %}
-                                        {% url 'add-to-cart' food_name=item.name %}
-                                        {% else %}
-                                        {% url 'login' %}
-                                        {% endif %}"><button class="buy-now__block__discription__buttons__item item-1" >Заказать сейчас</button></a>
-                                        <a href="#popup" class="popup-link"> <button class="buy-now__block__discription__buttons__item  item-2">Бесплатная консультация</button></a>
-                                    </div>
-                                </div>
-                            {% endif %}
-                        {% endfor %}   
-                {% endfor %}
-                {% endfor %}
-            {% endfor %}
         </div>
+    </div>
+       {% endfor %}
 </div>
 <div class="buy-now__bonus">
     <div class="buy-now__bonus__item">

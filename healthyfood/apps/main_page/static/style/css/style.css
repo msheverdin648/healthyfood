@@ -993,11 +993,6 @@ html {
   cursor: pointer;
 }
 
-.programms__kkals__item span {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
 .programms__kkals__item.active {
   background: #4C9162;
 }
@@ -1010,16 +1005,8 @@ html {
   background: url("../../images/tick-white.svg") no-repeat;
 }
 
-.programms__kkals__item__text {
-  font-family: 'Museo Sans Cyrl 500';
-  font-size: 18px;
-  margin-left: 20px;
-  color: #000;
-}
-
 .programms__kkals__item__choose {
   position: relative;
-  font-family: 'Museo Sans Cyrl 500';
   font-size: 16px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1029,6 +1016,7 @@ html {
           align-items: center;
   padding-left: 34px;
   color: #4C9162;
+  font-family: 'Museo Sans Cyrl 500';
 }
 
 .programms__kkals__item__choose::before {
@@ -1042,6 +1030,13 @@ html {
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
+}
+
+.programms__kkals__item__text {
+  font-family: 'Museo Sans Cyrl 500';
+  font-size: 18px;
+  margin-left: 20px;
+  color: #000;
 }
 
 .menu {
@@ -1319,7 +1314,7 @@ html {
 }
 
 .buy-now__block__discription b {
-  margin: 6px 10px 20px;
+  margin: 10px 10px 20px 0px;
 }
 
 .buy-now__block__discription b.new-price {
@@ -1345,7 +1340,7 @@ html {
 
 .buy-now__block__discription__header {
   font-family: 'Museo Sans Cyrl 500';
-  font-size: 25px;
+  font-size: 14px;
   line-height: 114.7%;
   color: #161716;
 }
