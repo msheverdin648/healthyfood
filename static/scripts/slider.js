@@ -56,7 +56,7 @@ $('.header__slider').each(function(){
 
         dots: false, 
         slidesToShow: 3,
-        arrows: true,
+        arrows: false,
         vertical: true,
         slidesToScroll: 1,
         centerMode: true,
@@ -118,18 +118,5 @@ $('.header__slider').each(function(){
     });
  });
 
- $(document).ready(function(){
-    $('#slider-6').slick({
 
-        dots: false, 
-        arrows: false,
-        centerMode: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        asNavFor: '.menu__slider__big, .menu__slider__small',
-        draggble: false,
-        swipe: false,
-    });
-
- });
 

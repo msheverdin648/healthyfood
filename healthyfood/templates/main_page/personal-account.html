@@ -35,7 +35,7 @@
                     {% for item in cart.products.all  %}
                     <tr>
                         <th scope="row">{{item.product}}</th>
-                            <td>{{ item.product.price }} руб.</td>
+                        <td>{{ item.product.price }} руб.</td>
                         <td> 
                             <form action="{% url 'change_count' item.product.category.name item.product.category.gramm %}" method="POST">
                                 {% csrf_token %}

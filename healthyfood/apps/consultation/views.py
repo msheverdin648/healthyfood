@@ -12,8 +12,10 @@ class TakeMessageView(View):
 
     def post(self, request, *args, **kwargs):
         message_text = request.POST.get('communication')
+        user_phone = request.POST.get('phone')
+        author = request.POST.get('name')
         message = UserMessage.objects.create(
-            author=request.user, message_text=message_text
+            author=author, message_text=message_text, phone=user_phone
         )
         message.save()
         return HttpResponseRedirect('/')

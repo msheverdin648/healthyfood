@@ -19,21 +19,21 @@
             <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col">Наименование Блюда</th>
-                    <th scope="col">Изображение</th>
+                    <th scope="col">Наименование меню</th>
                     <th scope="col">Цена</th>
                     <th scope="col">Кол-во: </th>
                     <th scope="col">Цена со скидкой: </th>
+                    <th scope="col">Действие: </th>
                   </tr>
                 </thead>
                 <tbody>
                     {% for item in cart.products.all  %}
                     <tr>
-                        <th scope="row">{{item.product.name}}</th>
-                        <td class="w-25"><img src="{{item.product.big_img.url}}" class="img-fluid" alt=""></td>
+                        <th scope="row">{{item.product}}</th>
+
                             <td>{{ item.product.price }} руб.</td>
                         <td> 
-                            <form action="{% url 'change_count' food_name=item.product.name %}" method="POST">
+                            <form action="{% url 'change_count' item.product.category.name item.product.category.gramm %}" method="POST">
                                 {% csrf_token %}
                             </form>    
                         </td>

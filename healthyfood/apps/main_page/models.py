@@ -151,7 +151,7 @@ class Menu(models.Model):
 
     category = models.ForeignKey(MenuCategory, verbose_name=("Категория меню"), on_delete=models.CASCADE)
     menu_items = models.ManyToManyField(Food, verbose_name= ("Позиции меню"))
-    price = models.DecimalField(("Цена меню"), max_digits=9, decimal_places=2, default=0)
+    price = models.DecimalField(("Цена меню"), max_digits=9, decimal_places=2, null=True, blank = True)
     discount = models.DecimalField(("Цена со скидкой, если есть"),  max_digits=9, decimal_places=2, null=True, blank = True)
 
     def get_slug(self):
@@ -168,11 +168,11 @@ class Reviews(models.Model):
 
 
     name = models.CharField(("Имя автора"), max_length=50)
-    age = models.CharField(("Возраст"), max_length=10)
+    age = models.CharField(("Возраст"), max_length=10, null=True, blank=True)
     text = models.TextField(("Текст отзыва"))
-    before_img = models.ImageField(('Фото "до"'), upload_to='img', height_field=None, width_field=None, max_length=None)
-    after_img = models.ImageField(('Фото "после"'), upload_to='img', height_field=None, width_field=None, max_length=None)
-    category = models.ForeignKey(MenuCategory, verbose_name=("Меню(к которому сделан отзыв)"), on_delete=models.CASCADE)
+    before_img = models.ImageField(('Фото "до"'), upload_to='img', height_field=None, width_field=None, max_length=None, null=True, blank=True)
+    after_img = models.ImageField(('Фото "после"'), upload_to='img', height_field=None, width_field=None, max_length=None, null=True, blank=True)
+    category = models.ManyToManyField("MenuCategory", verbose_name=("Меню(к которому сделан отзыв)"))
     num = models.PositiveIntegerField(("Номер отзыва"), default=1)
 
     def save_num(self, rev_num, *args, **kwargs):
@@ -281,6 +281,15 @@ class Buy(models.Model):
     def __str__(self):
         return "Заказ №{}, дата заказа: {}, статус заказа: {}".format(self.id, self.created_at, self.status)
 
+    def display_products(self):
+        products_list = []
+        products = self.cart.products.all()
+        for item in products:
+            products_list.append(item.product)
+        
+        return products_list
+    display_products.short_description = 'Заказанные меню'
+
 
 class Order(models.Model):
 
@@ -288,6 +297,7 @@ class Order(models.Model):
     product = models.ForeignKey(Menu, verbose_name=("Название меню"), on_delete=models.CASCADE)
     count = models.PositiveIntegerField(default=1)
     final_price = models.DecimalField(("Итоговая цена товара"), max_digits=9, decimal_places=2)
+
 
     class Meta:
         verbose_name = ("Товар в корзине")

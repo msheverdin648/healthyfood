@@ -32,8 +32,9 @@
     <script src="https://kit.fontawesome.com/dea8ebbfdb.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static '/style/css/normalize.css' %}">
     {% block bootstrap %}{% endblock bootstrap %}
-    <link rel="stylesheet" href="{% static '/style/css/style.css' %}">
     <link rel="stylesheet" href="{% static '/style/css/slick.css' %}">
+    <link rel="stylesheet" href="{% static '/style/css/style.css' %}">
+    
     
 </head>
 <body>
@@ -52,7 +53,15 @@
                     <a href="" class="popup__close close-popup"><i class="far fa-times-circle"></i></a>
                     <div class="popup__title"><h2>Напишите свой вопрос и наш менеджер с вами свяжется</h2></div>
                     <div class="popup__input__block">
-                        <textarea name="communication" id="" cols="30" rows="10" placeholder="Введите ваше сообщение" class="popup__input"></textarea>
+                        <label for="phone" class="popup__lable">Введите ваше Ф.И.О.</label>
+                        <input name="name" id="name"  placeholder="Иванов Иван Иванович" class="popup__input" required>
+                    </div>
+                    <div class="popup__input__block">
+                        <label for="phone" class="popup__lable">Оставьте ваш номер телефона, чтобы мы могли связаться с вами</label>
+                        <input name="phone" id="phone"  placeholder="+998(___)-__-__" class="popup__input" required> 
+                    </div>
+                    <div class="popup__input__block">
+                        <textarea name="communication" id="" cols="30" rows="10" placeholder="Введите ваше сообщение" class="popup__textarea" required></textarea>
                     </div>
                     <div class="popup__input__block">
                        <input type="submit" value="Отправить сообщение" class="popup__button">
@@ -92,13 +101,13 @@
                      </div>
                     <div class="header__navigate__block">
                         <div class="header__navigate__box header__navigate__social">
-                            <a href=""><img src="{% static '/images/telegram.svg'%}" alt=""></a>
-                            <a href=""><img src="{% static 'images/instagram.svg' %}" alt=""></a>
-                            <a href=""><img src="{% static 'images/whatsapp.svg' %}" alt=""></a>
+                            <a href="https://t.me/Healthyfoodtashkent"><img src="{% static '/images/telegram.svg'%}" alt=""></a>
+                            <a href="https://www.facebook.com/healthyfooduz"><img src="{% static 'images/instagram.svg' %}" alt=""></a>
+                            <a href="https://www.instagram.com/healthyfood.uz/"><img src="{% static 'images/whatsapp.svg' %}" alt=""></a>
                         </div>
                         <div class="header__navigate__box header__navigate__phone">
                             <img src="{% static '/images/phone-ico.svg' %}" alt="">
-                            <p>+7 (906) 255 - 32 - 66</p>
+                            <a  href="tel:+998998550003" >+998998550003</a >
                         </div>
                             <a id="popup" href="#popup" class="popup-link">
                                 <button class="header__navigate__box header__navigate__call">Перезвонить мне</button>
@@ -130,20 +139,29 @@
                     <a href="#calculator" class="nav__item">Калькулятор питания</a>
                     <a href="#header_logo" class="nav__item">Карта сайта</a>
                 </div>
-                <!-- <div class="footer__block__item menu">
+                <div class="footer__block__item menu">
                     <p class="menu__header">Выбор меню</p>
-                    {% for item in programms_small  %}
-                        <a class="menu__item" href="">{{item.name}} </a> 
-                    {% endfor %}
-                </div> -->
+                        <a class="menu__item" href=" {% url 'menu' 'healthy800' %}#menu ">Снижение веса</a> 
+                        <a class="menu__item" href="{% url 'menu' 'sports1000' %}#menu">Для спортсменов</a> 
+                        <a class="menu__item" href="{% url 'menu' 'balanced1600' %}#menu">Сбалансированное питание </a> 
+                        <a class="menu__item" href="{% url 'menu' 'individual' %}#menu">Индивидуальное питание </a> 
+                        <a class="menu__item" href="{% url 'menu' 'diabet1400' %}#menu">Сахарный диабет </a> 
+                        <a class="menu__item" href="{% url 'menu' 'illfood1400' %}#menu">Питание при заболеваниях </a> 
+                        <a class="menu__item" href="{% url 'menu' 'vegeterian1400' %}#menu">Вегетарианское меню </a> 
+                        <a class="menu__item" href="{% url 'menu' 'sports2000' %}#menu">Белковая диета </a> 
+                        <a class="menu__item" href="{% url 'menu' 'office800' %}#menu">ОФИС ПАКЕТ </a> 
+                        <a class="menu__item" href="{% url 'menu' 'vipmenu600' %}#menu">VIP-меню </a> 
+                </div>
                 <div class="footer__block__item contacts">
                     <p class="contacts__header">Наши контакты</p>
-                    <a href="" class="contacts__phone">+7 (906) 255 - 32 - 66</a>
-                    <a href="" class="contacts__mail">healthyfood@info.ru</a>
+                    <div class="contacts__contacts">
+                        <a href="tel:+998998550003" class="contacts__phone">+998998550003</a>
+                        <a href="mailto:healthyfood@info.ru" class="contacts__mail">healthyfood@info.ru</a>
+                    </div>
                     <div class="contacts__social">
-                        <a href=""><img src="{% static '/images/telegram.svg'%}" alt=""></a>
-                        <a href=""><img src="{% static 'images/instagram.svg' %}" alt=""></a>
-                        <a href=""><img src="{% static 'images/whatsapp.svg' %}" alt=""></a>
+                        <a href="https://t.me/Healthyfoodtashkent"><img src="{% static '/images/telegram.svg'%}" alt=""></a>
+                        <a href="https://www.facebook.com/healthyfooduz"><img src="{% static 'images/instagram.svg' %}" alt=""></a>
+                        <a href="https://www.instagram.com/healthyfood.uz/"><img src="{% static 'images/whatsapp.svg' %}" alt=""></a>
                     </div>
                     <a href="" class="contacts__politic">Политика конфиденциальности</a>
                 </div>

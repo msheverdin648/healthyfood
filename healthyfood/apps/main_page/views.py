@@ -159,17 +159,14 @@ class MenuView(CartMixin, View):
             'menu': menu,
             'cart': self.cart,
             'short_slugs': short_slugs,
-            'slugs': slugs,
-            'healthy': healthy,            
+            'slugs': slugs,          
         })
 
 
 
 
-class MenuFilter(CartMixin, ListView):
+class MenuFilter(CartMixin, View):
 
-
-    template_name = "main_page/menu.html"
     
     def get(self, request):
         headers = PageHeaders.objects.all()
@@ -181,8 +178,10 @@ class MenuFilter(CartMixin, ListView):
         reviews_count = reviews.count()
         questions = QuestionsAnswers.objects.all()
         days  = Days.objects.all()
-        request_category = MenuCategory.objects.get(slug = request.GET.get('menu_cat'))
+        request_category = MenuCategory.objects.get(full_slug = request.GET.get('menu_cat'))
+        print(request_category)
         menu = Menu.objects.filter(category = request_category)
+        print(menu)
         return render(request, 'main_page/menu.html', {
             "headers": headers,
             'header_slider': header_slider,

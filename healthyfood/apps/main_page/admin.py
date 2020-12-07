@@ -31,6 +31,16 @@ admin.site.register(Menu)
 admin.site.register(Customer)
 admin.site.register(Cart)
 admin.site.register(Food)
-admin.site.register(Buy)
 admin.site.register(Days)
+
+
+
+
+@admin.register(Buy)
+class BuyAdmin(admin.ModelAdmin):
+     list_display = ('customer', 'phone', 'first_name', 'last_name', 'status', 'created_at', 'display_products')
+
+     
+
+
 

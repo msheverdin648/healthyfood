@@ -13,9 +13,6 @@ textarea
     font-family: inherit
 
 
-
-
-
 .main
     overflow: hidden
 body 
@@ -31,6 +28,8 @@ html
 .fa-times-circle
     font-size: 35px
 
+#phone
+    font-size: 18px
 
 .popup
     position: fixed
@@ -45,6 +44,21 @@ html
     overflow-y: auto
     overflow-x: hidden
     transition: all 0.8s ease 0s
+    &__lable
+        display: block
+        font-size: 16px
+        margin-bottom: 15px
+        text-align: start
+    &__input
+        padding: 26px 0px 26px 30px
+        margin: 0 -15px
+        margin-bottom: 15px
+        border-radius: 23px
+        border: none
+        resize: none
+        width: 100%
+        &__block
+            width: 77%
     &__body
         min-height: 100%
         display: flex
@@ -86,7 +100,7 @@ html
             transform: perspective(600px)  translate(0px, 0px)  rotateX(0deg)
             opacity: 1
 
-    &__input 
+    &__textarea
         padding: 26px 0px 0px 34px
         margin: 0 -15px
         margin-bottom: 15px
@@ -94,8 +108,7 @@ html
         border: none
         resize: none
         width: 100%
-        &__block
-            width: 77%
+
     &__button
         display: block
         width: 100%
@@ -905,7 +918,9 @@ html
                     &.item-2
                         padding: 22px 29px
                         border: 2px solid #FFC702
-                
+            &__food
+                font-size: 16px
+                font-weight: normal
             b
                 margin: 10px 10px 20px 0px
                 &.new-price
@@ -999,44 +1014,23 @@ html
     padding-top: 100px
     margin-bottom: 100px
     &__header
-        margin-left: 215px       
+        margin-left: 215px    
+    &__item
+        box-shadow: 0px 10px 33px rgba(0, 0, 0, 0.06);
+        padding: 15px 0px
     &__slider
-        width: 1250px
-        margin: 0 auto
+
         &__item
             &__item
                 display: flex
                 background: #ffffff
-                box-shadow: 0px 10px 33px rgba(0, 0, 0, 0.06)
                 border-radius: 5px
                 justify-content: center
-                margin: 0px 15px
                 padding: 14px 0px
             &__imagebox
+                max-height: 640px
                 display: flex
-            &::before
-                    content: "" 
-                    display: block
-                    background: url(../../images/before.svg)
-                    border-radius: 5px
-                    width: 99px
-                    height: 46px
-                    position: absolute
-                    z-index: 20  
-                    bottom: 0
-                    transform: translate(-1123px, -20px)
 
-            &::after
-                    content: "" 
-                    display: block
-                    background: url(../../images/after.svg)
-                    border-radius: 5px
-                    width: 99px
-                    height: 46px
-                    position: absolute
-                    z-index: 20  
-                    bottom: 0
-                    transform: translate(-838px, -20px)
             &__before
                 
             &__info
@@ -1091,7 +1085,7 @@ html
 
             &__images
                 margin-left: 20px
-                
+                min-height: 100%
                 
         
 
@@ -1101,8 +1095,11 @@ html
     .slick
         &-track
             display: flex
+            justify-content: space-between
         &-list
             overflow: hidden
+        &-slide
+            margin: 0 90px
         &-arrow
             position: absolute
             z-index: 20
@@ -1118,7 +1115,7 @@ html
             background-size: auto
             background-repeat: no-repeat
             border: none
-            right: 5%
+            right: 11%
 
 
         &-prev     
@@ -1127,7 +1124,7 @@ html
             background-size: auto
             background-repeat: no-repeat
             border: none 
-            right: 11%
+            right: 17%
 
             
 
@@ -1247,7 +1244,8 @@ html
 
 .about
     padding: 63px 186px 150px
-    background:  #112417 url('../../images/about-bg.png')
+    background:  #112417 url('../../images/about-bg.png') center
+    background-size: cover
     display: flex
     flex-direction: column
     &__header
@@ -1352,6 +1350,9 @@ html
             &.contacts 
                 margin-left: 80px
                 .contacts
+                    &__contacts
+                        display: flex
+                        flex-direction: column
                     &__phone
                         display: inline-block
                         color: #ffffff
@@ -1368,6 +1369,9 @@ html
                     &__social 
                         margin-top: 30px
                         margin-bottom: 30px
+                        a
+                            display: inline-block
+                            margin-right: 10px
                     &__politic
                         font-size: 12px
                         line-height: 14px
@@ -1445,6 +1449,8 @@ html
             overflow: hidden
     .container
         padding: 0 20px
+
+ 
 
     .header
         background: url('../../images/header-bg-mob.png')
@@ -1662,6 +1668,10 @@ html
                             p
                                 width: 100%
                                 font-size: 14px
+                        &__calories
+                            flex-wrap: wrap
+                            &__items
+                                margin: 5px 5px
         &__buttons
             flex-direction: column
             transform: translate(0)

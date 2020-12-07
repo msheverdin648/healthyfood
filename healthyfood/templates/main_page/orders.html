@@ -22,6 +22,7 @@
                 <th scope="col">Заказ:</th>
                 <th scope="col">Сумма:</th>
                 <th scope="col">Адрес:</th>
+                <th scope="col">Дата заказа:</th>
                 <th scope="col">Статус заказа</th>
             </tr>
             </thead>
@@ -33,6 +34,7 @@
                     {% endfor %}</th>
                     <td class="w-25">{{item.cart.final_price}} руб.</td>
                     <td>{{ customer.adress }}</td>
+                    <td>{{ item.created_at }}</td>
                     <td>{% if item.status == 'new' %}
                       Новый заказ
                       {% elif item.status == 'in_progress' %}

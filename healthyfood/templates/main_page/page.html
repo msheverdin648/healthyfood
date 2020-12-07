@@ -69,12 +69,7 @@
     <h3 class="calculate__header">{% for a in headers %}
       {{a.calculator_header}}
     {% endfor %}</h3>
-    <form action="{% if user.is_authenticated %}
-    {% url 'filter' %}
-    {% else %}
-    {% url 'login' %}
-      
-    {% endif %}" method="GET" >
+    <form action="{% url 'filter' %}" method="GET" >
         <div class="calculate__box">
             <div class="calculate__box__item first">
                 <div class="calculate__box__block calculate__box__block__1">

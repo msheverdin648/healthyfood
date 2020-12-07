@@ -56,7 +56,7 @@ $('.header__slider').each(function(){
 
         dots: false, 
         slidesToShow: 3,
-        arrows: true,
+        arrows: false,
         vertical: true,
         slidesToScroll: 1,
         centerMode: true,
@@ -103,7 +103,7 @@ $('.header__slider').each(function(){
 
         dots: false, 
         arrows: true,
-        centerMode: true,
+        centerMode: false,
         slidesToShow: 1,
         responsive: [
             {

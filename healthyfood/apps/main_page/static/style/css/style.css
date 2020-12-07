@@ -48,6 +48,10 @@ html {
   font-size: 35px;
 }
 
+#phone {
+  font-size: 18px;
+}
+
 .popup {
   position: fixed;
   width: 100%;
@@ -62,6 +66,27 @@ html {
   overflow-x: hidden;
   -webkit-transition: all 0.8s ease 0s;
   transition: all 0.8s ease 0s;
+}
+
+.popup__lable {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 15px;
+  text-align: start;
+}
+
+.popup__input {
+  padding: 26px 0px 26px 30px;
+  margin: 0 -15px;
+  margin-bottom: 15px;
+  border-radius: 23px;
+  border: none;
+  resize: none;
+  width: 100%;
+}
+
+.popup__input__block {
+  width: 77%;
 }
 
 .popup__body {
@@ -128,7 +153,7 @@ html {
   opacity: 1;
 }
 
-.popup__input {
+.popup__textarea {
   padding: 26px 0px 0px 34px;
   margin: 0 -15px;
   margin-bottom: 15px;
@@ -136,10 +161,6 @@ html {
   border: none;
   resize: none;
   width: 100%;
-}
-
-.popup__input__block {
-  width: 77%;
 }
 
 .popup__button {
@@ -1313,6 +1334,11 @@ html {
   border: 2px solid #FFC702;
 }
 
+.buy-now__block__discription__food {
+  font-size: 16px;
+  font-weight: normal;
+}
+
 .buy-now__block__discription b {
   margin: 10px 10px 20px 0px;
 }
@@ -1442,9 +1468,10 @@ html {
   margin-left: 215px;
 }
 
-.reviews__slider {
-  width: 1250px;
-  margin: 0 auto;
+.reviews__item {
+  -webkit-box-shadow: 0px 10px 33px rgba(0, 0, 0, 0.06);
+          box-shadow: 0px 10px 33px rgba(0, 0, 0, 0.06);
+  padding: 15px 0px;
 }
 
 .reviews__slider__item__item {
@@ -1452,48 +1479,18 @@ html {
   display: -ms-flexbox;
   display: flex;
   background: #ffffff;
-  -webkit-box-shadow: 0px 10px 33px rgba(0, 0, 0, 0.06);
-          box-shadow: 0px 10px 33px rgba(0, 0, 0, 0.06);
   border-radius: 5px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: 0px 15px;
   padding: 14px 0px;
 }
 
 .reviews__slider__item__imagebox {
+  max-height: 640px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-.reviews__slider__item::before {
-  content: "";
-  display: block;
-  background: url(../../images/before.svg);
-  border-radius: 5px;
-  width: 99px;
-  height: 46px;
-  position: absolute;
-  z-index: 20;
-  bottom: 0;
-  -webkit-transform: translate(-1123px, -20px);
-          transform: translate(-1123px, -20px);
-}
-
-.reviews__slider__item::after {
-  content: "";
-  display: block;
-  background: url(../../images/after.svg);
-  border-radius: 5px;
-  width: 99px;
-  height: 46px;
-  position: absolute;
-  z-index: 20;
-  bottom: 0;
-  -webkit-transform: translate(-838px, -20px);
-          transform: translate(-838px, -20px);
 }
 
 .reviews__slider__item__info {
@@ -1572,6 +1569,7 @@ html {
 
 .reviews__slider__item__images {
   margin-left: 20px;
+  min-height: 100%;
 }
 
 #slider-5 {
@@ -1582,10 +1580,17 @@ html {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 #slider-5 .slick-list {
   overflow: hidden;
+}
+
+#slider-5 .slick-slide {
+  margin: 0 90px;
 }
 
 #slider-5 .slick-arrow {
@@ -1607,7 +1612,7 @@ html {
   background-size: auto;
   background-repeat: no-repeat;
   border: none;
-  right: 5%;
+  right: 11%;
 }
 
 #slider-5 .slick-prev {
@@ -1616,7 +1621,7 @@ html {
   background-size: auto;
   background-repeat: no-repeat;
   border: none;
-  right: 11%;
+  right: 17%;
 }
 
 .questions {
@@ -1776,7 +1781,8 @@ html {
 
 .about {
   padding: 63px 186px 150px;
-  background: #112417 url("../../images/about-bg.png");
+  background: #112417 url("../../images/about-bg.png") center;
+  background-size: cover;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1933,6 +1939,16 @@ html {
   margin-left: 80px;
 }
 
+.footer__block__item.contacts .contacts__contacts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 .footer__block__item.contacts .contacts__phone {
   display: inline-block;
   color: #ffffff;
@@ -1953,6 +1969,11 @@ html {
 .footer__block__item.contacts .contacts__social {
   margin-top: 30px;
   margin-bottom: 30px;
+}
+
+.footer__block__item.contacts .contacts__social a {
+  display: inline-block;
+  margin-right: 10px;
 }
 
 .footer__block__item.contacts .contacts__politic {
@@ -2312,6 +2333,13 @@ html {
   .menu__slider__big__block__item__description p {
     width: 100%;
     font-size: 14px;
+  }
+  .menu__slider__big__block__item__calories {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .menu__slider__big__block__item__calories__items {
+    margin: 5px 5px;
   }
   .menu__buttons {
     -webkit-box-orient: vertical;

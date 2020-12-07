@@ -223,18 +223,20 @@ $(document).ready(function(){
                 form_out.value = 'healthy1400'
             }
         }else if (need_weight == 1){
-            if (kkal >=1400 && kkal <= 1600){
-                form_out.value = 'light'
-            }else if(kkal >=1600 && kkal <= 1800){
-                form_out.value = 'medium'
+            if (kkal >=1000 && kkal <= 1200){
+                form_out.value = 'sports1000'
+            }else if(kkal >=1400 && kkal <= 1600){
+                form_out.value = 'sports1400'
+            }else if(kkal >=1800 && kkal <= 2000){
+                form_out.value = 'sports1800'
             }else if(kkal >=2000 && kkal <= 3000){
-                form_out.value = 'strongman'
+                form_out.value = 'sports2000'
             }
         }else if (need_weight == 2){
             if (gender == 0){
-                form_out.value = 'balancedman'
+                form_out.value = 'balanced1800'
             }else if(gender == 1){
-                form_out.value = 'balancedwoman'
+                form_out.value = 'balanced1600'
             }
         }
 
