@@ -213,23 +213,23 @@ $(document).ready(function(){
 
         //Ссылки калькулятора
         if (need_weight == 0){
-            if (kkal >=800 && kkal <= 1000){
+            if (kkal <= 1000){
                 form_out.value = 'healthy800'
             }else if(kkal >=1000 && kkal <= 1200){
                 form_out.value = 'healthy1000'
             }else if(kkal >=1200 && kkal <= 1400){
                 form_out.value = 'healthy1200'
-            }else if(kkal >=1400 && kkal <= 1600){
+            }else if(kkal > 1400){
                 form_out.value = 'healthy1400'
             }
         }else if (need_weight == 1){
-            if (kkal >=1000 && kkal <= 1200){
+            if (kkal <= 1200){
                 form_out.value = 'sports1000'
             }else if(kkal >=1400 && kkal <= 1600){
                 form_out.value = 'sports1400'
             }else if(kkal >=1800 && kkal <= 2000){
                 form_out.value = 'sports1800'
-            }else if(kkal >=2000 && kkal <= 3000){
+            }else if(kkal > 2000){
                 form_out.value = 'sports2000'
             }
         }else if (need_weight == 2){

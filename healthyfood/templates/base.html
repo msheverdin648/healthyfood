@@ -77,7 +77,7 @@
              <nav class="header__navigate">
                  <div class="header__navigate__block menu-burger">
                     <div class="header__navigate__box header__navigate__logo">
-                        <img id='header_logo' src="{% static '/images/logo.svg' %}" alt="Healthy Food">
+                        <a href="/"><img id='header_logo' src="{% static '/images/logo.svg' %}" alt="Healthy Food"></a>
                     </div>
                     <div class="header__navigate__burger">
                         <span></span>
@@ -128,7 +128,7 @@
         <footer class="footer">
             <div class="footer__block">
                 <div class="footer__block__item logo">
-                    <img src="{% static '/images/logo.svg' %}" alt="" class="logo">
+                    <a href="/"><img src="{% static '/images/logo.svg' %}" alt="" class="logo"></a>
                     <p class="direct">Все права защищены. 2020. </p>
                 </div>
                 <div class="footer__block__item nav" id='#footer'>
@@ -141,16 +141,16 @@
                 </div>
                 <div class="footer__block__item menu">
                     <p class="menu__header">Выбор меню</p>
-                        <a class="menu__item" href=" {% url 'menu' 'healthy800' %}#menu ">Снижение веса</a> 
-                        <a class="menu__item" href="{% url 'menu' 'sports1000' %}#menu">Для спортсменов</a> 
-                        <a class="menu__item" href="{% url 'menu' 'balanced1600' %}#menu">Сбалансированное питание </a> 
-                        <a class="menu__item" href="{% url 'menu' 'individual' %}#menu">Индивидуальное питание </a> 
-                        <a class="menu__item" href="{% url 'menu' 'diabet1400' %}#menu">Сахарный диабет </a> 
-                        <a class="menu__item" href="{% url 'menu' 'illfood1400' %}#menu">Питание при заболеваниях </a> 
-                        <a class="menu__item" href="{% url 'menu' 'vegeterian1400' %}#menu">Вегетарианское меню </a> 
-                        <a class="menu__item" href="{% url 'menu' 'sports2000' %}#menu">Белковая диета </a> 
-                        <a class="menu__item" href="{% url 'menu' 'office800' %}#menu">ОФИС ПАКЕТ </a> 
-                        <a class="menu__item" href="{% url 'menu' 'vipmenu600' %}#menu">VIP-меню </a> 
+                        <a class="menu__item" href=" #programms ">Снижение веса</a> 
+                        <a class="menu__item" href="#programms">Для спортсменов</a> 
+                        <a class="menu__item" href="#programms">Сбалансированное питание </a> 
+                        <a class="menu__item" href="#programms">Индивидуальное питание </a> 
+                        <a class="menu__item" href="#programms">Сахарный диабет </a> 
+                        <a class="menu__item" href="#programms">Питание при заболеваниях </a> 
+                        <a class="menu__item" href="#programms">Вегетарианское меню </a> 
+                        <a class="menu__item" href="#programms">Белковая диета </a> 
+                        <a class="menu__item" href="#programms">ОФИС ПАКЕТ </a> 
+                        <a class="menu__item" href="#programms">VIP-меню </a> 
                 </div>
                 <div class="footer__block__item contacts">
                     <p class="contacts__header">Наши контакты</p>

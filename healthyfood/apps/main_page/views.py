@@ -105,8 +105,6 @@ class Base(CartMixin, View):
         slugs = short_slugs.values('short_slug')
         healthy = short_slugs.filter(short_slug='healthy')
 
-        print(slugs)
-
         return render(request, 'main_page/page.html',{
         "headers": headers,
         'header_slider': header_slider,
@@ -179,9 +177,7 @@ class MenuFilter(CartMixin, View):
         questions = QuestionsAnswers.objects.all()
         days  = Days.objects.all()
         request_category = MenuCategory.objects.get(full_slug = request.GET.get('menu_cat'))
-        print(request_category)
         menu = Menu.objects.filter(category = request_category)
-        print(menu)
         return render(request, 'main_page/menu.html', {
             "headers": headers,
             'header_slider': header_slider,
