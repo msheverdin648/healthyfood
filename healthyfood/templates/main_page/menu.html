@@ -223,7 +223,6 @@
 <div class="reviews">
     <h1 class="reviews__header">Они похудели вместе с нами</h1>
     <div class="reviews__slider" id="slider-5">
-        
             {% for a in reviews %}
             <div class="reviews__item">
                 <div class="reviews__slider__item">
@@ -251,6 +250,7 @@
             {% endfor %}
     </div>
     </div>
+    <script src="{% static 'scripts/scroll-to-menu.js' %}"></script>
     {% endif %}
 
 {% endblock reviews %}
