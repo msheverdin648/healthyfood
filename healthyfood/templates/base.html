@@ -1,5 +1,5 @@
 {% load static %}
-
+{% load i18n  %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,20 +52,20 @@
             <div class="popup__body">
                 <div class="popup__content">
                     <a href="" class="popup__close close-popup"><i class="far fa-times-circle"></i></a>
-                    <div class="popup__title"><h2>Напишите свой вопрос и наш менеджер с вами свяжется</h2></div>
+                    <div class="popup__title"><h2>{% trans 'Напишите свой вопрос и наш менеджер с вами свяжется' %}</h2></div>
                     <div class="popup__input__block">
-                        <label for="phone" class="popup__lable">Введите ваше Ф.И.О.</label>
-                        <input name="name" id="name"  placeholder="Иванов Иван Иванович" class="popup__input" required>
+                        <label for="phone" class="popup__lable">{% trans 'Введите ваше Ф.И.О.' %} </label>
+                        <input name="name" id="name"  placeholder="{% trans Иванов Иван Иванович %}" class="popup__input" required>
                     </div>
                     <div class="popup__input__block">
-                        <label for="phone" class="popup__lable">Оставьте ваш номер телефона, чтобы мы могли связаться с вами</label>
+                        <label for="phone" class="popup__lable">{% trans 'Оставьте ваш номер телефона, чтобы мы могли связаться с вами' %}</label>
                         <input name="phone" id="phone"  placeholder="+998(___)-__-__" class="popup__input" required> 
                     </div>
                     <div class="popup__input__block">
-                        <textarea name="communication" id="" cols="30" rows="10" placeholder="Введите ваше сообщение" class="popup__textarea" required></textarea>
+                        <textarea name="communication" id="" cols="30" rows="10" placeholder="{% trans Введите ваше сообщение %}" class="popup__textarea" required></textarea>
                     </div>
                     <div class="popup__input__block">
-                       <input type="submit" value="Отправить сообщение" class="popup__button">
+                       <input type="submit" value="{% trans Отправить сообщение %}" class="popup__button">
                     </div>
                 </div>
             </div>
@@ -86,18 +86,19 @@
                 </div>
                  <div class="header__navigate__menuburger">
                     <div class="header__navigate__block">
+                       
                         <div class="header__navigate__box header__navigate__button">
-                            <a class="header__navigate__box__name" href="{% url 'headers' %}">Меню и тарифы</a>
-                           </div>
+                            <a class="header__navigate__box__name" href="{% url 'headers' %}">{% trans 'Меню и тарифы' %}</a>
+                        </div>
                         <div class="header__navigate__box header__navigate__button">
-                            <a class="header__navigate__box__name" href="{% url 'blog' %}">Блог</a>
+                            <a class="header__navigate__box__name" href="{% url 'blog' %}">{% trans 'Блог' %}</a>
                        </div>
                         <div class="header__navigate__box header__navigate__button">
                             <a class="header__navigate__box__name" href=" {% if user.is_authenticated %}
                             {% url 'account' %}
                             {% else %}
                                 {% url 'login' %}
-                            {% endif %} ">Личный кабинет</a>
+                            {% endif %} ">{% trans 'Личный кабинет' %}</a>
                        </div>
                      </div>
                     <div class="header__navigate__block">
@@ -111,15 +112,34 @@
                             <a  href="tel:+998998550003" >+998998550003</a >
                         </div>
                             <a id="popup" href="#popup" class="popup-link">
-                                <button class="header__navigate__box header__navigate__call">Перезвонить мне</button>
+                                <button class="header__navigate__box header__navigate__call">{% trans 'Перезвонить мне' %}</button>
                             </a>
     
                     </div>
                  
                 </nav>
-                
+                <div class="container2">
+                    <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                        <input type="text" type="hidden" class="hide" value="{{ redirect_to }}">
+                        <select name="language">
+                            {%  get_current_language as LANGUAGE_CODE %}
+                            {%  get_available_languages as LANGUAGES %}
+                            {%  get_language_info_list for LANGUAGES as languages %}
+                            {% for language in languages %}
+                                <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}
+                                            selected{% endif %}>
+                                        {{ language.name_local }} ({{ language.code}})
+
+                                </option>
+                            {% endfor %}
+                            
+                        </select>
+                        <input type="submit" value="Go">
+
+                    </form>
+                </div>
              {% block headerslider %}
-               
+                
              {% endblock headerslider %}
             
          </header>
@@ -130,31 +150,31 @@
             <div class="footer__block">
                 <div class="footer__block__item logo">
                     <a href="/"><img src="{% static '/images/logo.svg' %}" alt="" class="logo"></a>
-                    <p class="direct">Все права защищены. 2020. </p>
+                    <p class="direct">{% trans 'Все права защищены. 2020.' %}</p>
                 </div>
                 <div class="footer__block__item nav" id='#footer'>
-                    <p class="nav__header">Навигация</p>
-                    <a href="{% url 'headers' %}" class="nav__item">Меню и тарифы</a>
-                    <a href="{% url 'blog' %}" class="nav__item">Блог</a>
-                    <a href="{% url 'account' %}" class="nav__item">Личный кабинет</a>
-                    <a href="#calculator" class="nav__item">Калькулятор питания</a>
-                    <a href="#header_logo" class="nav__item">Карта сайта</a>
+                    <p class="nav__header">{% trans 'Навигация' %}</p>
+                    <a href="{% url 'headers' %}" class="nav__item">{% trans 'Меню и тарифы' %}</a>
+                    <a href="{% url 'blog' %}" class="nav__item">{% trans 'Блог' %}</a>
+                    <a href="{% url 'account' %}" class="nav__item">{% trans 'Личный кабинет' %}</a>
+                    <a href="#calculator" class="nav__item">{% trans 'Калькулятор питания' %}</a>
+                    <a href="#header_logo" class="nav__item">{% trans 'Карта сайта' %}</a>
                 </div>
                 <div class="footer__block__item menu">
                     <p class="menu__header">Выбор меню</p>
-                        <a class="menu__item" href=" #programms ">Снижение веса</a> 
-                        <a class="menu__item" href="#programms">Для спортсменов</a> 
-                        <a class="menu__item" href="#programms">Сбалансированное питание </a> 
-                        <a class="menu__item" href="#programms">Индивидуальное питание </a> 
-                        <a class="menu__item" href="#programms">Сахарный диабет </a> 
-                        <a class="menu__item" href="#programms">Питание при заболеваниях </a> 
-                        <a class="menu__item" href="#programms">Вегетарианское меню </a> 
-                        <a class="menu__item" href="#programms">Белковая диета </a> 
-                        <a class="menu__item" href="#programms">ОФИС ПАКЕТ </a> 
-                        <a class="menu__item" href="#programms">VIP-меню </a> 
+                        <a class="menu__item" href=" #programms ">{% trans 'Снижение веса' %} </a> 
+                        <a class="menu__item" href="#programms">{% trans 'Для спортсменов' %}</a> 
+                        <a class="menu__item" href="#programms">{% trans 'Сбалансированное питание' %}</a> 
+                        <a class="menu__item" href="#programms">{% trans 'Индивидуальное питание' %} </a> 
+                        <a class="menu__item" href="#programms">{% trans 'Сахарный диабет' %} </a> 
+                        <a class="menu__item" href="#programms">{% trans 'Питание при заболеваниях' %} </a> 
+                        <a class="menu__item" href="#programms">{% trans 'Вегетарианское меню' %} </a> 
+                        <a class="menu__item" href="#programms">{% trans 'Белковая диета' %} </a> 
+                        <a class="menu__item" href="#programms">{% trans 'ОФИС ПАКЕТ' %} </a> 
+                        <a class="menu__item" href="#programms">{% trans 'VIP-меню' %} </a> 
                 </div>
                 <div class="footer__block__item contacts">
-                    <p class="contacts__header">Наши контакты</p>
+                    <p class="contacts__header">{% trans 'Наши контакты' %}</p>
                     <div class="contacts__contacts">
                         <a href="tel:+998998550003" class="contacts__phone">+998998550003</a>
                         <a href="mailto:healthyfood@info.ru" class="contacts__mail">healthyfood@info.ru</a>
@@ -164,13 +184,13 @@
                         <a href="https://www.facebook.com/healthyfooduz"><img src="{% static 'images/instagram.svg' %}" alt=""></a>
                         <a href="https://www.instagram.com/healthyfood.uz/"><img src="{% static 'images/whatsapp.svg' %}" alt=""></a>
                     </div>
-                    <a href="" class="contacts__politic">Политика конфиденциальности</a>
+                    <a href="" class="contacts__politic">{% trans 'Политика конфиденциальности' %}</a>
                 </div>
             </div>
             <div class="footer__block">
                 <div class="footer__block__item mission">
-                    <p class="mission__header">Мисия компании:</p>
-                    <p class="mission__text">С другой стороны укрепление и развитие структуры позволяет оценить значение позиций, занимаемых участниками в отношении поставленных задач. Не следует, однако забывать, что начало повседневной работы по формированию позиции в значительной степени обуславливает создание соответствующий условий активизации.</p>
+                    <p class="mission__header">{% trans 'Мисия компании:' %}</p>
+                    <p class="mission__text">{% trans 'С другой стороны укрепление и развитие структуры позволяет оценить значение позиций, занимаемых участниками в отношении поставленных задач. Не следует, однако забывать, что начало повседневной работы по формированию позиции в значительной степени обуславливает создание соответствующий условий активизации.' %}</p>
                 </div>
             </div>
         </footer>

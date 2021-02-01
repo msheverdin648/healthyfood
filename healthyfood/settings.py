@@ -14,16 +14,21 @@ sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps'))
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.flatpages',
+
+
     'main_page',
     'accounts.apps.AccountsConfig',
     'blog',
-    'consultation',
+    'consultation', 
 
 
     
@@ -32,11 +37,13 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 ]
 
 ROOT_URLCONF = 'healthyfood.urls'
@@ -96,6 +103,18 @@ USE_L10N = True
 USE_TZ = True
 
 
+gettext = lambda s: s
+LANGUAGES = (
+    ('ru', gettext('Russia')),
+    ('uz', gettext('Uzbekistan')),
+)
+
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
+
+SITE_ID = 1
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
@@ -111,6 +130,8 @@ LOGIN_REDIRECT_URL = 'account'
 LOGOUT_REDIRECT_URL = 'login'
 
 
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
 
 try:
     from .local_settings import *

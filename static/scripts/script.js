@@ -182,12 +182,12 @@ $(document).ready(function(){
         if (activity == 0){
             activity_num = +1.2;
         }
-        else{
+        else if (activity == 1){
             activity_num = +1.4;
         }
         if(gender == 0){
            oow  = (9.99 * weight)+(6.25 * height) - (4.92 * age) + 5; 
-        }else{
+        }else if (gender == 1){
             oow  = (9.99 * weight)+(6.25 * height) - (4.92 * age) - 161; 
         };
         kkal = oow * activity_num * 0.8;
@@ -225,9 +225,9 @@ $(document).ready(function(){
         }else if (need_weight == 1){
             if (kkal <= 1200){
                 form_out.value = 'sports1000'
-            }else if(kkal >=1400 && kkal <= 1600){
+            }else if(kkal >=1200 && kkal <= 1600){
                 form_out.value = 'sports1400'
-            }else if(kkal >=1800 && kkal <= 2000){
+            }else if(kkal >=1600 && kkal <= 2000){
                 form_out.value = 'sports1800'
             }else if(kkal > 2000){
                 form_out.value = 'sports2000'
@@ -239,8 +239,6 @@ $(document).ready(function(){
                 form_out.value = 'balanced1600'
             }
         }
-
-
     });
 
 

@@ -10,39 +10,39 @@
         <h2 class="personal__navigate">{{user.username}}/<a href="{% url 'logout' %}">Выйти</a>/ <a href="{% url 'account' %} ">Вернуться в корзину</a></h2>
     {% else %}
     <h2 class="personal__navigate">
-        <a href="{% url 'login' %} ">Войти</a>/
-        <a href="{% url 'signup' %} ">Зарегестрироваться</a>
+        <a href="{% url 'login' %} ">{% trans 'Войти' %}</a>/
+        <a href="{% url 'signup' %} ">{% trans 'Зарегестрироваться' %}</a>
     </h2>
     {% endif %}
-    <h3 class="text-center mt-5 mb-5">Ваши заказы {% if not orders_list %}отсутствуют{% endif %}</h3>
+    <h3 class="text-center mt-5 mb-5">{% trans  'Ваши заказы' %} {% if not orders_list %}{% trans  'отсутствуют' %}{% endif %}</h3>
     {% if orders_list %}
         <table class="table">
             <thead>
             <tr>
-                <th scope="col">Заказ:</th>
-                <th scope="col">Сумма:</th>
-                <th scope="col">Адрес:</th>
-                <th scope="col">Дата заказа:</th>
-                <th scope="col">Статус заказа</th>
+                <th scope="col">{% trans 'Заказ' %}:</th>
+                <th scope="col">{% trans 'Сумма' %}:</th>
+                <th scope="col">{% trans 'Адрес' %}:</th>
+                <th scope="col">{% trans 'Дата заказа' %}:</th>
+                <th scope="col">{% trans 'Статус заказа' %}</th>
             </tr>
             </thead>
             <tbody>
                 {% for item in orders_list.all  %}
                 <tr>
                     <th scope="row">{% for a in item.cart.products.all %}
-                      {{a.product}} {{a.count}}шт. <br>
+                      {{a.product}} {{a.count}}{% trans  'шт.' %} <br>
                     {% endfor %}</th>
-                    <td class="w-25">{{item.cart.final_price}} руб.</td>
+                    <td class="w-25">{{item.cart.final_price}} сум.</td>
                     <td>{{ customer.adress }}</td>
                     <td>{{ item.created_at }}</td>
                     <td>{% if item.status == 'new' %}
-                      Новый заказ
+                      {% trans 'Новый заказ' %}
                       {% elif item.status == 'in_progress' %}
-                      Заказ в обработке
+                      {% trans 'Заказ в обработке' %}
                       {% elif item.status == 'ready' %}
-                      Заказ готов
+                      {% trans 'Заказ готов' %}
                       {% elif item.status == 'completed' %}
-                      Заказ прибыл
+                      {% trans 'Заказ прибыл' %}
                     {% endif %}</td>
                 </tr>
                 {% endfor %}

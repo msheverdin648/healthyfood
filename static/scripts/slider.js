@@ -103,7 +103,7 @@ $('.header__slider').each(function(){
 
         dots: false, 
         arrows: true,
-        centerMode: true,
+        centerMode: false,
         slidesToShow: 1,
         responsive: [
             {

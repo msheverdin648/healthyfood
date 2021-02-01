@@ -2,7 +2,7 @@
 
 {% block content %}
   
-<a href="{% url 'blog' %}">Назад к постам</a>
+<a href="{% url 'blog' %}">{% trans 'Назад к постам' %}</a>
 
         <h2>{{post.post_name}}</h2>
         {% if post.author %}

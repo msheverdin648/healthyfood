@@ -1,15 +1,29 @@
 @font-face {
-  font-family: 'Museo Sans Cyrl 500';
-  src: url("../../fonts/MuseoSansCyrl-500.eot");
-  src: local("MuseoSansCyrl-500") url("../../fonts/MuseoSansCyrl-500.eot?#iefix") format("embedded-opentype"), url("../../fonts/MuseoSansCyrl-500.woff") format("woff"), url("../../fonts/MuseoSansCyrl-500.ttf") format("truetype");
+  font-family: '2MASS J1808-Normal';
+  src: url("../../fonts/2MASSJ1808-Normal.eot");
+  src: local("2MASSJ1808-Normal") url("../../fonts/2MASSJ1808-Normal.eot?#iefix") format("embedded-opentype"), url("../../fonts/2MASSJ1808-Normal.woff") format("woff"), url("../../fonts/2MASSJ1808-Normal.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Museo Sans Cyrl 700';
-  src: url("../../fonts/MuseoSansCyrl-700.eot");
-  src: local("MuseoSansCyrl-700"), url("../../fonts/MuseoSansCyrl-700.eot?#iefix") format("embedded-opentype"), url("../../fonts/MuseoSansCyrl-700.woff") format("woff"), url("../../fonts/MuseoSansCyrl-700.ttf") format("truetype");
+  font-family: '2MASS J1808-Heavy';
+  src: url("../../fonts/2MASSJ1808-Heavy.eot");
+  src: local("2MASSJ1808-Heavy"), url("../../fonts/2MASSJ1808-Heavy.eot?#iefix") format("embedded-opentype"), url("../../fonts/2MASSJ1808-Heavy.woff") format("woff"), url("../../fonts/2MASSJ1808-Heavy.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SourceSansPro-Bold';
+  src: url("../fonts/SourceSansPro-Bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SourceSansPro-Regular';
+  src: url("../fonts/SourceSansPro-Regular.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
@@ -26,6 +40,17 @@ input,
 button,
 textarea {
   font-family: inherit;
+}
+
+.container2 {
+  max-width: 66%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .main {
@@ -170,7 +195,7 @@ html {
   background: #FFC702;
   border-radius: 53px;
   font-size: 16px;
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: '2MASS J1808-Normal';
   padding: 22px 30px;
   margin: 0 auto;
 }
@@ -200,7 +225,7 @@ html {
 }
 
 .header__navigate {
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: 'SourceSansPro-Regular';
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -256,7 +281,7 @@ html {
       -ms-flex-align: center;
           align-items: center;
   margin-right: 37px;
-  font-family: 'Museo Sans Cyrl 700';
+  font-family: 'SourceSansPro-Bold';
   font-size: 20px;
 }
 
@@ -295,17 +320,17 @@ html {
   font-size: 55px;
   margin-bottom: 30px;
   margin-top: 160px;
-  font-family: 'Museo Sans Cyrl 700';
+  font-family: 'SourceSansPro-Bold';
   text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.12);
 }
 
 .header__slider b {
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: 'SourceSansPro-Regular';
 }
 
 .header__slider p {
   margin-top: 0;
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: 'SourceSansPro-Regular';
 }
 
 .header__slider__item__button {
@@ -314,7 +339,7 @@ html {
   border-radius: 53px;
   padding: 29px 37px;
   border: none;
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: '2MASS J1808-Normal';
   font-size: 16px;
   margin-top: 33px;
 }
@@ -412,7 +437,7 @@ html {
   display: block;
   width: 583px;
   font-size: 35px;
-  font-family: 'Museo Sans Cyrl 700';
+  font-family: 'SourceSansPro-Bold';
 }
 
 .slider__header h2 b {
@@ -445,7 +470,7 @@ html {
 
 .slider__slick__item .discription {
   font-size: 20px;
-  font-family: 'Museo Sans Cyrl 700';
+  font-family: 'SourceSansPro-Bold';
   color: black;
   line-height: 23px;
 }
@@ -453,7 +478,7 @@ html {
 .slider__slick__item .detailed {
   color: #4C9162;
   text-decoration: none;
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: 'SourceSansPro-Regular';
 }
 
 .slider__slick__item .detailed:after {
@@ -665,7 +690,7 @@ html {
 
 .calculate__header {
   font-size: 35px;
-  font-family: 'Museo Sans Cyrl 700';
+  font-family: 'SourceSansPro-Bold';
 }
 
 .calculate__box {
@@ -732,7 +757,7 @@ html {
   width: 225px;
   font-size: 18px;
   text-align: center;
-  font-family: 'Museo Sans Cyrl 700';
+  font-family: '2MASS J1808-Heavy';
   background: #FFC702;
   border-radius: 5px;
   border: none;
@@ -766,7 +791,7 @@ html {
 .calculate__box__block .discription {
   font-size: 16px;
   color: #161716;
-  font-family: 'Museo Sans Cyrl 700';
+  font-family: 'SourceSansPro-Bold';
   margin-bottom: 10px;
 }
 
@@ -794,7 +819,7 @@ html {
   color: #ffffff;
   display: block;
   width: 497px;
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: 'SourceSansPro-Regular';
   text-align: start;
 }
 
@@ -805,7 +830,7 @@ html {
 .calculate__consultation a {
   color: #ffffff;
   text-decoration: none;
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: 'SourceSansPro-Regular';
   font-size: 20px;
   line-height: 23px;
 }
@@ -900,14 +925,14 @@ html {
 .programms__big__block__item__purpose {
   font-size: 16px;
   color: #000000;
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: 'SourceSansPro-Regular';
 }
 
 .programms__big__block__item__discription {
   font-size: 14px;
   color: #000000;
   text-transform: uppercase;
-  font-family: 'Museo Sans Cyrl 700';
+  font-family: 'SourceSansPro-Bold';
   font-weight: bold;
   -webkit-box-flex: 1;
       -ms-flex: 1 0 30%;
@@ -918,7 +943,7 @@ html {
   display: inline-block;
   width: 117px;
   color: #4C9162;
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: 'SourceSansPro-Regular';
   font-size: 16px;
   text-align: center;
   -webkit-transform: translateY(-20px);
@@ -983,7 +1008,7 @@ html {
   font-size: 16px;
   margin-left: 20px;
   color: #323232;
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: 'SourceSansPro-Regular';
 }
 
 .programms__kkals {
@@ -1041,7 +1066,7 @@ html {
           align-items: center;
   padding-left: 34px;
   color: #4C9162;
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: 'SourceSansPro-Regular';
 }
 
 .programms__kkals__item__choose::before {
@@ -1058,7 +1083,7 @@ html {
 }
 
 .programms__kkals__item__text {
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: 'SourceSansPro-Regular';
   font-size: 18px;
   margin-left: 20px;
   color: #000;
@@ -1075,13 +1100,13 @@ html {
 }
 
 .menu__header {
-  font-family: 'Museo Sans Cyrl 700';
+  font-family: 'SourceSansPro-Bold';
   margin: 0 auto;
   font-size: 32px;
 }
 
 .menu__description {
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: 'SourceSansPro-Regular';
   margin-bottom: 20px;
 }
 
@@ -1116,11 +1141,11 @@ html {
   border-radius: 3px;
   color: #ffffff;
   font-size: 14px;
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: 'SourceSansPro-Regular';
 }
 
 .menu__slider__big__block__item__header {
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: 'SourceSansPro-Regular';
   font-size: 25px;
 }
 
@@ -1131,7 +1156,7 @@ html {
 .menu__slider__big__block__item__description b {
   font-size: 16px;
   color: #161716;
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: 'SourceSansPro-Regular';
   margin-bottom: 7px;
   text-align: start;
 }
@@ -1142,7 +1167,7 @@ html {
   font-size: 16px;
   line-height: 150%;
   color: #323232;
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: 'SourceSansPro-Regular';
   text-align: start;
 }
 
@@ -1167,7 +1192,7 @@ html {
   padding: 20px 30px;
   border-radius: 53px;
   margin: 0 5px;
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: '2MASS J1808-Normal';
   font-size: 16px;
   outline: none;
 }
@@ -1197,7 +1222,7 @@ html {
   font-size: 35px;
   line-height: 115%;
   color: #161716;
-  font-family: 'Museo Sans Cyrl 700';
+  font-family: 'SourceSansPro-Bold';
   text-align: center;
   font-weight: bold;
   min-width: 0;
@@ -1230,13 +1255,13 @@ html {
 
 .buy-now__block__days__item h2 {
   font-size: 30px;
-  font-family: 'Museo Sans Cyrl 700';
+  font-family: 'SourceSansPro-Bold';
   margin-bottom: 10px;
 }
 
 .buy-now__block__days__item p {
   font-size: 18px;
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: 'SourceSansPro-Regular';
   display: inline-block;
   width: 191px;
   margin: 0;
@@ -1339,8 +1364,9 @@ html {
 }
 
 .buy-now__block__discription__food {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: normal;
+  margin-bottom: 4px;
 }
 
 .buy-now__block__discription b {
@@ -1350,13 +1376,13 @@ html {
 .buy-now__block__discription b.new-price {
   color: #4C9162;
   font-size: 31px;
-  font-family: 'Museo Sans Cyrl 700';
+  font-family: 'SourceSansPro-Bold';
 }
 
 .buy-now__block__discription b.old-price {
   color: #AEAEAE;
   text-decoration: line-through;
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: 'SourceSansPro-Regular';
   font-weight: 300 !important;
   font-size: 27px;
 }
@@ -1364,26 +1390,28 @@ html {
 .buy-now__block__discription__price {
   color: #7C7C7C;
   font-size: 14px;
-  font-family: 'Museo Sans Cyrl 500';
-  margin: 0;
+  font-family: 'SourceSansPro-Regular';
 }
 
-.buy-now__block__discription__header {
-  font-family: 'Museo Sans Cyrl 500';
-  font-size: 14px;
+.buy-now__block__discription__day {
+  display: inline-block;
+  font-family: 'SourceSansPro-Regular';
+  font-size: 20px;
   line-height: 114.7%;
   color: #161716;
+  margin-bottom: 3px;
+  margin-top: 10px;
 }
 
 .buy-now__block__discription__text {
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: 'SourceSansPro-Regular';
   color: #323232;
   font-size: 16px;
   line-height: 130%;
 }
 
 .buy-now__block__discription__small-text {
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: 'SourceSansPro-Regular';
   font-size: 15px;
   line-height: 18px;
   color: #5B5B5B;
@@ -1393,11 +1421,11 @@ html {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-transform: translateX(-117px);
-          transform: translateX(-117px);
   margin-bottom: 89px;
   min-width: 0;
-  margin: 0 457px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .buy-now__bonus__item {
@@ -1410,26 +1438,28 @@ html {
           flex-direction: column;
   padding: 30px 29px 8px 29px;
   text-align: center;
-  width: 189px;
+  width: 179px;
   background-color: #fff;
   margin: 15px;
   -webkit-box-shadow: 0px 9px 34px rgba(0, 0, 0, 0.17);
           box-shadow: 0px 9px 34px rgba(0, 0, 0, 0.17);
   border-radius: 5px;
+  -webkit-transform: translateX(38%);
+          transform: translateX(38%);
 }
 
 .buy-now__bonus__item__header {
   font-size: 16px;
   line-height: 114.7%;
   color: #161716;
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: 'SourceSansPro-Regular';
 }
 
 .buy-now__bonus__item__discription {
   font-size: 14px;
   color: #323232;
   line-height: 129.7%;
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: 'SourceSansPro-Regular';
 }
 
 .buy-now__day {
@@ -1511,7 +1541,7 @@ html {
 .reviews__slider__item__info__name {
   font-size: 25px;
   color: #161716;
-  font-family: 'Museo Sans Cyrl 700';
+  font-family: 'SourceSansPro-Bold';
 }
 
 .reviews__slider__item__info__button-menu {
@@ -1530,14 +1560,14 @@ html {
 .reviews__slider__item__info__text {
   font-size: 16px;
   color: #323232;
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: 'SourceSansPro-Regular';
 }
 
 .reviews__slider__item__info__button {
   background: #FFC702;
   border-radius: 53px;
   padding: 22px 32px;
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: '2MASS J1808-Normal';
   color: #141414;
   line-height: 0;
   border: none;
@@ -1556,7 +1586,7 @@ html {
       -ms-flex-pack: end;
           justify-content: flex-end;
   font-size: 31px;
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: 'SourceSansPro-Regular';
   position: absolute;
   bottom: 0;
   -webkit-transform: translateX(415px);
@@ -1639,7 +1669,7 @@ html {
   line-height: 115%;
   text-align: center;
   color: #161716;
-  font-family: 'Museo Sans Cyrl 700';
+  font-family: 'SourceSansPro-Bold';
 }
 
 .questions__section {
@@ -1732,14 +1762,14 @@ html {
   font-size: 14px;
   line-height: 114.7%;
   color: #161716;
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: 'SourceSansPro-Regular';
 }
 
 .questions__section__item__block__name {
   font-size: 20px;
   line-height: 114.7%;
   color: #161716;
-  font-family: 'Museo Sans Cyrl 700';
+  font-family: 'SourceSansPro-Bold';
 }
 
 .questions__answers__item {
@@ -1795,14 +1825,14 @@ html {
   font-size: 16px;
   line-height: 150%;
   color: #FFFFFF;
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: 'SourceSansPro-Regular';
 }
 
 .questions__answers__item .question {
   font-size: 18px;
   line-height: 114.7%;
   color: #161716;
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: 'SourceSansPro-Regular';
 }
 
 .about {
@@ -1821,12 +1851,12 @@ html {
 .about__header {
   display: inline-block;
   width: 708px;
-  font-family: 'Museo Sans Cyrl 700';
+  font-family: 'SourceSansPro-Bold';
   font-size: 58px;
   line-height: 62px;
   color: #FFFFFF;
   text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.12);
-  font-family: 'Museo Sans Cyrl 700';
+  font-family: 'SourceSansPro-Bold';
   font-weight: bold;
 }
 
@@ -1836,7 +1866,7 @@ html {
   font-size: 18px;
   line-height: 150%;
   color: #FFFFFF;
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: 'SourceSansPro-Regular';
   font-weight: 600;
   margin-bottom: 37px;
 }
@@ -1848,6 +1878,7 @@ html {
   background: #FFC702;
   border-radius: 53px;
   width: 290px;
+  font-family: '2MASS J1808-Normal';
 }
 
 .footer {
@@ -1879,7 +1910,7 @@ html {
   color: #4A5B4F;
   font-size: 14px;
   line-height: 17px;
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: 'SourceSansPro-Regular';
   font-weight: 600;
 }
 
@@ -1901,7 +1932,7 @@ html {
   color: #4A5B4F;
   font-size: 12px;
   line-height: 14px;
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: 'SourceSansPro-Regular';
   margin-top: 99px;
 }
 
@@ -1936,7 +1967,7 @@ html {
   margin-top: 20px;
   font-size: 14px;
   line-height: 17px;
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: 'SourceSansPro-Regular';
   margin-right: 80px;
 }
 
@@ -1983,7 +2014,7 @@ html {
   color: #ffffff;
   font-size: 18px;
   line-height: 22px;
-  font-family: 'Museo Sans Cyrl 700';
+  font-family: 'SourceSansPro-Bold';
   margin-bottom: 8px;
 }
 
@@ -1991,7 +2022,7 @@ html {
   font-size: 16px;
   line-height: 19px;
   color: #FFC702;
-  font-family: 'Museo Sans Cyrl 500';
+  font-family: 'SourceSansPro-Regular';
   font-weight: 600;
 }
 
@@ -2279,7 +2310,7 @@ html {
   }
   .programms__purpose {
     font-size: 23px;
-    font-family: 'Museo Sans Cyrl 700';
+    font-family: 'SourceSansPro-Bold';
   }
   .programms__small__items {
     -webkit-box-orient: vertical;
@@ -2357,7 +2388,7 @@ html {
   .menu__slider__big__block__item__header {
     font-weight: 600;
     font-size: 18px;
-    font-family: 'Museo Sans Cyrl 500';
+    font-family: 'SourceSansPro-Regular';
   }
   .menu__slider__big__block__item__description p {
     width: 100%;
@@ -2446,7 +2477,7 @@ html {
   .buy-now__block__discription__buttons__header {
     font-size: 18px;
     font-weight: 600;
-    font-family: 'Museo Sans Cyrl 500';
+    font-family: 'SourceSansPro-Regular';
   }
   .buy-now__block__discription__buttons__text {
     font-size: 14px;
@@ -2465,6 +2496,8 @@ html {
     margin: 0;
     padding: 24px 0;
     margin-top: 15px;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
   }
   .reviews__header {
     margin: 0 20px;

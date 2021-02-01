@@ -5,16 +5,16 @@
 
     {% if user.is_authenticated  %}
         {{ user.username }}
-        <h2 class="personal__navigate"><a href="{% url logout %}">exit</a></h2>
+        <h2 class="personal__navigate"><a href="{% url logout %}">{% trans 'Выход' %}</a></h2>
     {% endif %}
-    <h2 class="personal__navigate">Войти в аккаунт/<a href="{% url 'signup' %}">Регистрация</a></h2>
+    <h2 class="personal__navigate">{% trans 'Войти в аккаунт' %}/<a href="{% url 'signup' %}">{% trans 'Регистрация' %}</a></h2>
         <form method="post" class="form">
             
         {% csrf_token %}
 
         {{ form.as_p }}
 
-        <button type="submit">Войти</button>
+        <button type="submit"> {% trans 'Войти' %}</button>
 
     </form>
 {% endblock content %}

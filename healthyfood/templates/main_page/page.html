@@ -55,7 +55,7 @@
                     <p class="discription">
                         {{a.anons_slider_text}}
                     </p>
-                    <a href="{{a.anons_slider_link}}" class="detailed">Подробнее</a>
+                    <a href="{{a.anons_slider_link}}" class="detailed">{% trans 'Подробнее' %}</a>
                 </div>
             {% endfor %}
         </div>
@@ -73,37 +73,37 @@
         <div class="calculate__box">
             <div class="calculate__box__item first">
                 <div class="calculate__box__block calculate__box__block__1">
-                    <label for="" class="discription">Ваш пол:</label>
+                    <label for="" class="discription">{% trans 'Ваш пол' %}:</label>
                     <select  id="gender" required class="input">
-                        <option value="mail" selected='selected'>Мужской</option>
-                        <option value="femail">Женский</option>
+                        <option value="mail" selected='selected'>{% trans 'Мужской' %}</option>
+                        <option value="femail">{% trans 'Женский' %}</option>
                     </select>
                 </div>
                 <div class="calculate__box__block calculate__box__block__2">
-                    <label for="" class="discription">Ваша активность:</label>
+                    <label for="" class="discription">{% trans 'Ваша активность' %}:</label>
                     <select   id="activity" required class="input">
-                        <option value="1.2">Не занимаюсь спортом</option>
-                        <option value="1.4">Часто хожу в зал</option>
+                        <option value="1.2">{% trans 'Не занимаюсь спортом' %}</option>
+                        <option value="1.4">{% trans 'Часто хожу в зал' %}</option>
                     </select>
                 </div>
                 <div class="calculate__box__block calculate__box__block__3">
-                    <label for="" class="discription">Укажите Ваш рост:</label>
+                    <label for="" class="discription">{% trans 'Укажите Ваш рост' %}:</label>
                     <input type="text" placeholder="175 см" pattern="[0-9]{3}" required class="input" id="height">
                 </div>
                 <div class="calculate__box__block calculate__box__block__4">
-                    <label for="" class="discription">Укажите Ваш возраст:</label>
+                    <label for="" class="discription">{% trans 'Укажите Ваш возраст' %}:</label>
                     <input type="text" placeholder="30 лет" pattern="[0-9]{1,3}" required class="input" id="age">
                 </div>
                 <div class="calculate__box__block calculate__box__block__5">
-                    <label for="" class="discription">Ваш текущий вес:</label>
+                    <label for="" class="discription">{% trans 'Ваш текущий вес' %}:</label>
                     <input type="text" placeholder="65 кг" pattern="[0-9]{1,4}" required class="input" id="weight"> 
                 </div>
                 <div class="calculate__box__block calculate__box__block__6">
-                    <label for="" class="discription">Желаемый Результат:</label>
+                    <label for="" class="discription">{% trans 'Желаемый Результат' %}:</label>
                     <select  id="need_weight" required class="input">
-                        <option value="lose_weight">Снижение веса</option>
-                        <option value="up_weight">Набор веса</option>
-                        <option value="balanced_eat">Сбалансированное питание</option>
+                        <option value="lose_weight">{% trans 'Снижение веса' %}</option>
+                        <option value="up_weight">{% trans 'Набор веса' %}</option>
+                        <option value="balanced_eat">{% trans 'Сбалансированное питание' %}</option>
                     </select> 
                 </div>
                 <input id="form_out" type="text" name="menu_cat" class="hide">
@@ -111,7 +111,7 @@
             <div class="calculate__box__item second">
                 <div class="calculate__box__block calculate__box__block__7">
                     <button class="calculate__box__block__button" id="submit__button">
-                        Рассчитать индивидуальный рацион питания
+                        {% trans  'Рассчитать индивидуальный рацион питания' %}
                     </button>
                 </div>
             </div>
@@ -119,24 +119,24 @@
     </form>
     <div class="calculate__consultation">
         <p class="calculate__consultation__description">
-            Для тех, кому необходим особенный<br> рацион питания - <b>закажите конусльтацию!</b>
+            {% trans 'Для тех, кому необходим особенный<br> рацион питания - <b>закажите конусльтацию!</b>' %}
         </p>
-        <a id="popup" href="#popup" class="calculate__consultation__buy popup-link">Заказать консультацию</a>
+        <a id="popup" href="#popup" class="calculate__consultation__buy popup-link">{% trans 'Заказать консультацию' %}</a>
     </div>
 </div>
 
 
 <div class="programms" id="programms">
-    <h2 class="programms__purpose">Ваша цель</h2>
+    <h2 class="programms__purpose">{% trans 'Ваша цель' %}</h2>
     <div class="programms__big">
         {% if programms_big %}
             {% for a in programms_big %}
 
             <div class="programms__big__block" id = 'big__block-{{a.id}}'>
                 <div class="programms__big__block__item">
-                    <span class="programms__big__block__item__purpose">Моя цель</span>
+                    <span class="programms__big__block__item__purpose">{% trans 'Моя цель' %}</span>
                         <p class="programms__big__block__item__discription">{{a.big_text}} </p>
-                    <p class="programms__big__block__item__choose">Выбрать</p>
+                    <p class="programms__big__block__item__choose">{% trans  'Выбрать' %}</p>
                 </div>
                 <div class="programms__big__block__item image">
                     <img src="{{a.big_img.url}}" alt="" class="programms__big__block__item__img">
@@ -147,7 +147,7 @@
         {% endif %}
         
     </div>
-    <p class="programms__choise">Выберите программу</p>
+    <p class="programms__choise">{% trans 'Выберите программу' %}</p>
     <div class="programms__small">
         {% for a in programms_small  %}
             <div class="programms__small__items " id = 'small__block-{{a.cat}}' data-slug="{{a.slug}}">
@@ -162,8 +162,8 @@
             {% for a in short_slugs %}
                 {% if a.short_slug == slug.short_slug %}
                     <a href="{% url 'menu' a.full_slug %}#menu" class="programms__kkals__item">
-                        <span class="programms__kkals__item__choose">Выбрать</span>
-                        <span class="programms__kkals__item__text">{{a.gramm}} ккал</span>
+                        <span class="programms__kkals__item__choose">{% trans 'Выбрать' %}</span>
+                        <span class="programms__kkals__item__text">{{a.gramm}}{% trans  'ккал' %}</span>
                     </a>
                 {% endif %}
             {% endfor %}          
@@ -186,12 +186,12 @@
 
 
 <div class="questions">
-<h1 class="questions__header">Часто-задаваемые вопросы</h1>
+<h1 class="questions__header">{% trans 'Часто-задаваемые вопросы' %}</h1>
 <div class="questions__section">
     <div class="questions__section__item " data-filter="weight">
         <div class="questions__section__item__block">
-            <p class="questions__section__item__block__about">Вопросы о</p>
-            <h3 class="questions__section__item__block__name">Коррекции веса</h3>
+            <p class="questions__section__item__block__about">{% trans 'Вопросы о' %}</p>
+            <h3 class="questions__section__item__block__name">{% trans 'Коррекции веса' %}</h3>
         </div>
         
         <div class="questions__section__item__block">
@@ -200,8 +200,8 @@
     </div>
     <div class="questions__section__item active" data-filter="products">
         <div class="questions__section__item__block" >
-            <p class="questions__section__item__block__about">Вопросы о</p>
-            <h3 class="questions__section__item__block__name">Продуктах</h3>
+            <p class="questions__section__item__block__about">{% trans 'Вопросы о' %}</p>
+            <h3 class="questions__section__item__block__name">{% trans 'Продуктах' %}</h3>
         </div>
         
         <div class="questions__answers__item__block">
@@ -210,8 +210,8 @@
     </div>
     <div class="questions__section__item " data-filter="tarifs">
         <div class="questions__section__item__block">
-            <p class="questions__section__item__block__about">Вопросы о</p>
-            <h3 class="questions__section__item__block__name">Тарифах</h3>
+            <p class="questions__section__item__block__about">{% trans 'Вопросы о' %}</p>
+            <h3 class="questions__section__item__block__name">{% trans 'Тарифах' %}</h3>
         </div>
         <div class="questions__answers__item__block">
             <img src="{% static '/images/Calculator.png' %}" alt="">
@@ -249,9 +249,9 @@
 </div>
 
 <div class="about">
-    <h1 class="about__header">Хотите быстро и вкусно похудеть? Мы решим эту проблему за Вас!</h1>
-    <p class="about__description">Задача организации, в особенности же постоянный количественный рост и сфера нашей активности способствует подготовки и реализации дальнейших направлений развития.</p>
-    <a href="#programms"><button class="about__button">Заказать рацион питания</button></a>
+    <h1 class="about__header">{% trans 'Хотите быстро и вкусно похудеть? Мы решим эту проблему за Вас!' %}</h1>
+    <p class="about__description">{% trans 'Задача организации, в особенности же постоянный количественный рост и сфера нашей активности способствует подготовки и реализации дальнейших направлений развития.' %}</p>
+    <a href="#programms"><button class="about__button">{% trans 'Заказать рацион питания' %}</button></a>
 </div>
 
 {% endblock content %}

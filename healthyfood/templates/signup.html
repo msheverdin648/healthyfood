@@ -4,11 +4,11 @@
 
 {% block content %}
 
-        <h2 class="personal__navigate"><a href="{% url 'login' %}">Войти</a>/Регистрация</h2>
+        <h2 class="personal__navigate"><a href="{% url 'login' %}">{% trans 'Войти' %} </a>/{% trans 'Регистрация' %}</h2>
         <form method="post" class="form form-control">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit">Зарегестрироваться</button>
+            <button type="submit">{% trans 'Зарегестрироваться' %}</button>
         </form>
 
 {% endblock content %}

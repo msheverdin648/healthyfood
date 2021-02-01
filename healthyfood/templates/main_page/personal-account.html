@@ -8,34 +8,34 @@
 {% block content %}
     {% if user.is_authenticated %}
         <h2 class="personal__navigate">{{user.username}}/
-            <a href="{% url 'logout' %}">Выйти</a>/
-            <a href=" {% url 'my_orders' %} ">Мои Заказы</a>
+            <a href="{% url 'logout' %}">{% trans 'Выйти' %}</a>/
+            <a href=" {% url 'my_orders' %} ">{% trans 'Мои Заказы' %}</a>
         </h2>
     {% else %}
     <h2 class="personal__navigate">
-        <a href="{% url 'login' %} ">Войти</a>/
-        <a href="{% url 'signup' %} ">Зарегестрироваться</a>/
+        <a href="{% url 'login' %} ">{% trans 'Войти' %}</a>/
+        <a href="{% url 'signup' %} ">{% trans 'Зарегестрироваться' %}</a>/
         
     </h2>
     {% endif %}
-    <h3 class="text-center mt-5 mb-5">Ваша корзина {% if not cart.products.count %}пуста{% endif %}</h3>
+    <h3 class="text-center mt-5 mb-5">{% trans 'Ваша корзина' %} {% if not cart.products.count %}{% trans 'пуста'%}{% endif %}</h3>
     {% if cart.products.count %}
         <div class="cart">
             <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col">Наименование меню</th>
-                    <th scope="col">Цена</th>
-                    <th scope="col">Кол-во: </th>
-                    <th scope="col">Цена со скидкой: </th>
-                    <th scope="col">Действие: </th>
+                    <th scope="col">{% trans 'Наименование меню' %}</th>
+                    <th scope="col">{% trans 'Цена' %}</th>
+                    <th scope="col">{% trans 'Кол-во:' %} </th>
+                    <th scope="col">{% trans 'Цена со скидкой:' %}</th>
+                    <th scope="col">{% trans 'Действие': %}</th>
                   </tr>
                 </thead>
                 <tbody>
                     {% for item in cart.products.all  %}
                     <tr>
                         <th scope="row">{{item.product}}</th>
-                        <td>{{ item.product.price }} руб.</td>
+                        <td>{{ item.product.price }} сум.</td>
                         <td> 
                             <form action="{% url 'change_count' item.product.category.name item.product.category.gramm %}" method="POST">
                                 {% csrf_token %}
@@ -46,15 +46,15 @@
                             </form>    
                         </td>
                         <td> {{item.final_price}} </td>
-                        <td> <a href=" {% url 'delete-from-cart' item.product.category.name item.product.category.gramm %} "><button class="btn btn-danger">Удалить из корзины </button></a> </td>
+                        <td> <a href=" {% url 'delete-from-cart' item.product.category.name item.product.category.gramm %} "><button class="btn btn-danger">{% trans 'Удалить из корзины' %} </button></a> </td>
                     </tr>
                     {% endfor %}
                     <tr>
                         <td colspan="1"></td>
-                        <td>Итого:</td>
-                        <td>{{ cart.total_products }} шт.</td>
-                        <td><strong>{{ cart.final_price }} руб.</strong></td>
-                        <td><a href="{% url 'checkout' %} "><button class="btn btn-primary">Перейти к оформлению</button></a></td>
+                        <td>{% trans 'Итого' %}:</td>
+                        <td>{{ cart.total_products }} {% trans 'шт' %}.</td>
+                        <td><strong>{{ cart.final_price }} сум.</strong></td>
+                        <td><a href="{% url 'checkout' %} "><button class="btn btn-primary">{% trans 'Перейти к оформлению' %}</button></a></td>
                     </tr>
                 </tbody>
               </table>

@@ -1,9 +1,8 @@
 
-
 @font-face 
-	font-family: 'Museo Sans Cyrl 500';
-	src: url('../../fonts/MuseoSansCyrl-500.eot');
-	src: local('MuseoSansCyrl-500') url('../../fonts/MuseoSansCyrl-500.eot?#iefix') format('embedded-opentype'), url('../../fonts/MuseoSansCyrl-500.woff') format('woff'), url('../../fonts/MuseoSansCyrl-500.ttf') format('truetype');
+	font-family: '2MASS J1808-Normal';
+	src: url('../../fonts/2MASSJ1808-Normal.eot');
+	src: local('2MASSJ1808-Normal') url('../../fonts/2MASSJ1808-Normal.eot?#iefix') format('embedded-opentype'), url('../../fonts/2MASSJ1808-Normal.woff') format('woff'), url('../../fonts/2MASSJ1808-Normal.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 
@@ -12,18 +11,42 @@
 
 
 @font-face 
-	font-family: 'Museo Sans Cyrl 700';
-	src: url('../../fonts/MuseoSansCyrl-700.eot');
-	src: local('MuseoSansCyrl-700'), url('../../fonts/MuseoSansCyrl-700.eot?#iefix') format('embedded-opentype'), url('../../fonts/MuseoSansCyrl-700.woff') format('woff'), url('../../fonts/MuseoSansCyrl-700.ttf') format('truetype');
-	font-weight: normal;
+	font-family: '2MASS J1808-Heavy';
+	src: url('../../fonts/2MASSJ1808-Heavy.eot');
+	src: local('2MASSJ1808-Heavy'), url('../../fonts/2MASSJ1808-Heavy.eot?#iefix') format('embedded-opentype'), url('../../fonts/2MASSJ1808-Heavy.woff') format('woff'), url('../../fonts/2MASSJ1808-Heavy.ttf') format('truetype');
+	font-weight: 900;
 	font-style: normal;
 
 
-@mixin museo_normal
-    font-family: 'Museo Sans Cyrl 500';
+@font-face 
+	font-family: 'SourceSansPro-Bold'
+	src: url("../fonts/SourceSansPro-Bold.otf") format("opentype")
+	font-weight: bold
+	font-style: normal
+
+@font-face 
+	font-family: 'SourceSansPro-Regular'
+	src: url("../fonts/SourceSansPro-Regular.otf") format("opentype");
+	font-weight: normal
+	font-style: normal
+	
+
+	
+@mixin but_font_n
+	font-family: '2MASS J1808-Normal';
+
+@mixin but_font_b
+	font-family: '2MASS J1808-Heavy';
+	
+
+
+@mixin ss_normal
+    font-family: 'SourceSansPro-Regular'
     
-@mixin museo_bold
-    font-family: 'Museo Sans Cyrl 700';
+@mixin ss_bold
+    font-family: 'SourceSansPro-Bold'
+
+
     
     
 

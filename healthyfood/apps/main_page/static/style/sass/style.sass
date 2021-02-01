@@ -1,5 +1,6 @@
 @import "fonts"
-  
+
+      
 a
     text-decoration: none
 
@@ -12,6 +13,11 @@ button,
 textarea
     font-family: inherit
 
+.container2
+    max-width: 66%
+    margin: 0 auto
+    display: flex
+    justify-content: flex-end
 
 .main
     overflow: hidden
@@ -116,7 +122,7 @@ html
         background: #FFC702
         border-radius: 53px
         font-size: 16px
-        +museo_normal
+        +but_font_n
         padding: 22px 30px
         margin: 0 auto
         &:hover
@@ -148,7 +154,7 @@ html
             align-items: center
         &__block
             display: flex
-        +museo_normal
+        +ss_normal
         display: flex
         align-items: center
         padding-top: 26px
@@ -172,7 +178,7 @@ html
             display: flex
             align-items: center
             margin-right: 37px
-            +museo_bold
+            +ss_bold
             font-size: 20px
             
         &__logo
@@ -200,23 +206,23 @@ html
             font-size: 55px
             margin-bottom: 30px
             margin-top: 160px
-            +museo_bold
+            +ss_bold
             text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.12)
         b
             20px
-            +museo_normal
+            +ss_normal
             
         p
             20px
             margin-top: 0
-            +museo_normal
+            +ss_normal
         &__item__button
             color: #000000       
             background: #FFC702
             border-radius: 53px
             padding: 29px 37px
             border: none
-            +museo_normal
+            +but_font_n
             font-size: 16px
             margin-top: 33px
             &:hover
@@ -289,7 +295,7 @@ html
             display: block
             width: 583px
             font-size: 35px
-            +museo_bold
+            +ss_bold
             
             b
                 color: #4C9162
@@ -311,13 +317,13 @@ html
                 justify-content: center
             .discription
                 font-size: 20px
-                +museo_bold
+                +ss_bold
                 color: black
                 line-height: 23px
             .detailed
                 color: #4C9162
                 text-decoration: none
-                +museo_normal
+                +ss_normal
                 &:after
                     content: ""
                     display: inline-block
@@ -471,7 +477,7 @@ html
     margin: 80px 150px 17px 150px
     &__header
         font-size: 35px
-        +museo_bold
+        +ss_bold
         
     &__box
         display: flex
@@ -515,7 +521,7 @@ html
                 width: 225px
                 font-size: 18px
                 text-align: center
-                +museo_bold
+                +but_font_b
                 background: #FFC702
                 border-radius: 5px
                 border: none
@@ -539,7 +545,7 @@ html
             .discription
                 font-size: 16px
                 color: #161716
-                +museo_bold
+                +ss_bold
                 margin-bottom: 10px
     &__consultation
         display: flex
@@ -557,14 +563,14 @@ html
             color: #ffffff
             display: block
             width: 497px
-            +museo_normal
+            +ss_normal
             text-align: start
             b
                color: #FFC702
         a
             color: #ffffff
             text-decoration: none
-            +museo_normal
+            +ss_normal
             font-size: 20px
             line-height: 23px
             &:after
@@ -627,19 +633,19 @@ html
                 &__purpose
                     font-size: 16px
                     color: #000000
-                    +museo_normal
+                    +ss_normal
                 &__discription
                     font-size: 14px
                     color: #000000
                     text-transform: uppercase
-                    +museo_bold
+                    +ss_bold
                     font-weight: bold
                     flex: 1 0 30%
                 &__choose
                     display: inline-block
                     width: 117px
                     color: #4C9162
-                    +museo_normal
+                    +ss_normal
                     font-size: 16px
                     text-align: center
                     transform: translateY(-20px)
@@ -680,7 +686,7 @@ html
                 font-size: 16px
                 margin-left: 20px
                 color: #323232
-                +museo_normal
+                +ss_normal
 
 
     &__kkals 
@@ -713,7 +719,7 @@ html
                 align-items: center
                 padding-left: 34px
                 color: #4C9162
-                +museo_normal
+                +ss_normal
                 &::before
                     position: absolute
                     content: ""
@@ -725,7 +731,7 @@ html
                     top: 50%
                     transform: translateY(-50%)
             &__text 
-                +museo_normal
+                +ss_normal
                 font-size: 18px
                 margin-left: 20px
                 color: #000
@@ -738,12 +744,12 @@ html
     p
         text-align: center
     &__header
-        +museo_bold
+        +ss_bold
         margin: 0 auto
         font-size: 32px
 
     &__description
-        +museo_normal
+        +ss_normal
         margin-bottom: 20px
     &__slider
         display: flex
@@ -763,9 +769,9 @@ html
                             border-radius: 3px
                             color: #ffffff
                             font-size: 14px
-                            +museo_normal
+                            +ss_normal
                     &__header
-                        +museo_normal
+                        +ss_normal
                         font-size: 25px
                         h3
                             margin: 0
@@ -773,7 +779,7 @@ html
                         b
                             font-size: 16px
                             color: #161716
-                            +museo_normal
+                            +ss_normal
                             margin-bottom: 7px
                             text-align: start
                         p
@@ -782,7 +788,7 @@ html
                             font-size: 16px
                             line-height: 150%
                             color: #323232
-                            +museo_normal
+                            +ss_normal
                             text-align: start
 
         &__small
@@ -798,7 +804,7 @@ html
             padding: 20px 30px
             border-radius: 53px
             margin: 0 5px
-            +museo_normal
+            +but_font_n
             font-size: 16px
             
             &.item-1
@@ -824,7 +830,7 @@ html
         font-size: 35px
         line-height: 115%
         color: #161716
-        +museo_bold
+        +ss_bold
         text-align: center
         font-weight: bold
         min-width: 0
@@ -847,11 +853,11 @@ html
                     cursor: pointer
                 h2
                     font-size: 30px
-                    +museo_bold
+                    +ss_bold
                     margin-bottom: 10px
                 p
                     font-size: 18px
-                    +museo_normal
+                    +ss_normal
                     display: inline-block
                     width: 191px
                     margin: 0
@@ -921,43 +927,47 @@ html
                         padding: 22px 29px
                         border: 2px solid #FFC702
             &__food
-                font-size: 16px
+                font-size: 18px
                 font-weight: normal
+                margin-bottom:  4px 
             b
                 margin: 10px 10px 20px 0px
                 &.new-price
                     color: #4C9162
                     font-size: 31px
-                    +museo_bold
+                    +ss_bold
                        
                 &.old-price
                     color: #AEAEAE
                     text-decoration: line-through
-                    +museo_normal
+                    +ss_normal
                     font-weight: 300 !important
                     font-size: 27px
             &__price
                 color: #7C7C7C
                 font-size: 14px
-                +museo_normal
-                margin: 0
+                +ss_normal
+
                 
 
 
 
-            &__header
-                +museo_normal
-                font-size: 14px
+            &__day
+                display: inline-block
+                +ss_normal
+                font-size: 20px
                 line-height: 114.7%
                 color: #161716
+                margin-bottom: 3px
+                margin-top: 10px
 
             &__text
-                +museo_normal
+                +ss_normal
                 color: #323232
                 font-size: 16px
                 line-height: 130%
             &__small-text
-                +museo_normal
+                +ss_normal
                 font-size: 15px
                 line-height: 18px
                 color: #5B5B5B
@@ -966,30 +976,30 @@ html
                     
     &__bonus
         display: flex
-        transform: translateX(-117px)
         margin-bottom: 89px
         min-width: 0
-        margin: 0 457px
+        justify-content: center
         &__item
             display: flex
             flex-direction: column
             padding: 30px 29px 8px 29px
             text-align: center
-            width: 189px
+            width: 179px
             background-color: #fff
             margin: 15px
             box-shadow: 0px 9px 34px rgba(0, 0, 0, 0.17)
             border-radius: 5px
+            transform: translateX(38%)
             &__header
                 font-size: 16px
                 line-height: 114.7%
                 color: #161716
-                +museo_normal
+                +ss_normal
             &__discription
                 font-size: 14px
                 color: #323232
                 line-height: 129.7%
-                +museo_normal
+                +ss_normal
 
 
     &__day
@@ -1045,7 +1055,7 @@ html
                 &__name 
                     font-size: 25px
                     color: #161716
-                    +museo_bold
+                    +ss_bold
                 &__button-menu
                     background: #4C9162
                     padding: 10px 16px 8px 16px
@@ -1058,13 +1068,13 @@ html
                 &__text
                     font-size: 16px
                     color: #323232
-                    +museo_normal
+                    +ss_normal
                     
                 &__button
                     background: #FFC702
                     border-radius: 53px
                     padding: 22px 32px
-                    +museo_normal
+                    +but_font_n
                     color: #141414
                     line-height: 0
                     border: none
@@ -1075,7 +1085,7 @@ html
                     display: flex
                     justify-content: flex-end
                     font-size: 31px
-                    +museo_normal
+                    +ss_normal
                     position: absolute
                     bottom: 0
                     transform: translateX(415px)
@@ -1139,7 +1149,7 @@ html
         line-height: 115%
         text-align: center
         color: #161716
-        +museo_bold
+        +ss_bold
 
     &__section
         display: flex
@@ -1196,12 +1206,12 @@ html
                     font-size: 14px
                     line-height: 114.7%
                     color: #161716
-                    +museo_normal
+                    +ss_normal
                 &__name
                     font-size: 20px
                     line-height: 114.7%
                     color: #161716
-                    +museo_bold
+                    +ss_bold
             
     &__answers
 
@@ -1249,14 +1259,14 @@ html
                 font-size: 16px
                 line-height: 150%
                 color: #FFFFFF
-                +museo_normal
+                +ss_normal
 
  
             .question
                 font-size: 18px
                 line-height: 114.7%
                 color: #161716
-                +museo_normal
+                +ss_normal
 
                 
 
@@ -1269,12 +1279,12 @@ html
     &__header
         display: inline-block
         width: 708px
-        +museo_bold
+        +ss_bold
         font-size: 58px
         line-height: 62px
         color: #FFFFFF
         text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.12)
-        +museo_bold
+        +ss_bold
         font-weight: bold
     &__description
         display: inline-block
@@ -1282,7 +1292,7 @@ html
         font-size: 18px
         line-height: 150%
         color: #FFFFFF
-        +museo_normal
+        +ss_normal
         font-weight: 600
         margin-bottom: 37px
     &__button
@@ -1292,6 +1302,7 @@ html
         background: #FFC702
         border-radius: 53px
         width: 290px
+        +but_font_n
                 
 
 .footer
@@ -1315,7 +1326,7 @@ html
                     color: #4A5B4F
                     font-size: 14px
                     line-height: 17px
-                    +museo_normal
+                    +ss_normal
                     font-weight: 600
                     
                 &__item
@@ -1331,7 +1342,7 @@ html
                     color: #4A5B4F
                     font-size: 12px
                     line-height: 14px
-                    +museo_normal
+                    +ss_normal
                     margin-top: 99px
                 
             &.mission
@@ -1351,7 +1362,7 @@ html
                         margin-top: 20px
                         font-size: 14px
                         line-height: 17px
-                        +museo_normal
+                        +ss_normal
                         margin-right: 80px
             &.nav
                 margin-left: 80px
@@ -1376,13 +1387,13 @@ html
                         color: #ffffff
                         font-size: 18px
                         line-height: 22px
-                        +museo_bold
+                        +ss_bold
                         margin-bottom: 8px
                     &__mail
                         font-size: 16px
                         line-height: 19px
                         color: #FFC702
-                        +museo_normal
+                        +ss_normal
                         font-weight: 600
                     &__social 
                         margin-top: 30px
@@ -1627,7 +1638,7 @@ html
                         display: none
         &__purpose
             font-size: 23px
-            +museo_bold
+            +ss_bold
 
         &__small
             &__items
@@ -1680,7 +1691,7 @@ html
                         &__header
                             font-weight: 600
                             font-size: 18px
-                            +museo_normal
+                            +ss_normal
 
                         &__description
                             p
@@ -1740,7 +1751,7 @@ html
                     &__header
                         font-size: 18px
                         font-weight: 600
-                        +museo_normal
+                        +ss_normal
                     &__text
                         font-size: 14px
             
@@ -1753,6 +1764,7 @@ html
                 margin: 0
                 padding: 24px 0
                 margin-top: 15px
+                transform: translateX(0)
 
 
 

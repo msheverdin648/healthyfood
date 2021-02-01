@@ -7,14 +7,13 @@
 
     <div class="menu" id="menu">
         
-    {% for a in headers %}
+
             <h2 class="menu__header">
-                {{a.menu_header}}
+                {% for a in menu  %}
+                    {{a.category.name}} {{a.category.gramm}} {% trans 'ккал' %}
+                {% endfor %}
             </h2>
-            <p class="menu__description">
-                {{ a.menu_smalltext }}
-            </p>
-        {% endfor %}
+
 
             
            
@@ -45,14 +44,14 @@
                                                     <h3>{{item.name}}</h3>
                                                 </div>
                                                 <div class="menu__slider__big__block__item__calories">
-                                                    <div class="menu__slider__big__block__item__calories__items">{{item.kkal}} Ккал</div>
-                                                    <div class="menu__slider__big__block__item__calories__items">{{item.gramm}} грамм</div>
-                                                    <div class="menu__slider__big__block__item__calories__items">{{item.protein}} белков</div>
-                                                    <div class="menu__slider__big__block__item__calories__items">{{item.fats}} жиров</div>
-                                                    <div class="menu__slider__big__block__item__calories__items">{{item.carbohydrates}} углев.</div>
+                                                    <div class="menu__slider__big__block__item__calories__items">{{item.kkal}}  {% trans 'Ккал'%}</div>
+                                                    <div class="menu__slider__big__block__item__calories__items">{{item.gramm}} {% trans 'грамм'%}</div>
+                                                    <div class="menu__slider__big__block__item__calories__items">{{item.protein}} {% trans 'белков'%}</div>
+                                                    <div class="menu__slider__big__block__item__calories__items">{{item.fats}} {% trans 'жиров'%}</div>
+                                                    <div class="menu__slider__big__block__item__calories__items">{{item.carbohydrates}} {% trans 'углев.'%}</div>
                                                 </div>
                                                 <div class="menu__slider__big__block__item__description">
-                                                    <b>Описание блюда:</b>
+                                                    <b>{% trans 'Описание блюда:' %}</b>
                                                     <p>
                                                         {{item.menu_discription}}
                                                     </p>
@@ -61,8 +60,8 @@
                                                         {% url 'add-to-cart' menu_name=a.category.name kkals=a.category.gramm %}
                                                         {% else %}
                                                         {% url 'login' %}
-                                                        {% endif %}"><button class="menu__buttons__item item-1">Заказать прямо сейчас</button></a>
-                                                        <a href="#popup" class="popup-link"><button class="menu__buttons__item item-2">Бесплатная консультация</button></a>
+                                                        {% endif %}"><button class="menu__buttons__item item-1">{% trans 'Заказать прямо сейчас' %}</button></a>
+                                                        <a href="#popup" class="popup-link"><button class="menu__buttons__item item-2">{% trans  'Бесплатная консультация' %}</button></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -102,7 +101,9 @@
             <p class="buy-now__block__discription__small-text">Ваш заказ</p>
             <h2 class="buy-now__block__discription__header">
 
-                            Понедельник<br>
+                            <span class="buy-now__block__discription__day">
+                                Понедельник
+                            </span><br>
                             {% for b in a.menu_items.all %}
                                 {% for  c in b.days_list.all  %}
                                     {% if c.days_name == 'Понедельник' %}
@@ -112,8 +113,10 @@
                                     {% endif %}
                                 {% endfor %}
                             {% endfor %}
-
-                            Вторник<br>
+                            <span class="buy-now__block__discription__day">
+                                Вторник
+                            </span>
+                            <br>
                             {% for b in a.menu_items.all %}
                                 {% for  c in b.days_list.all  %}
                                     {% if c.days_name == 'Вторник' %}
@@ -123,8 +126,10 @@
                                     {% endif %}
                                 {% endfor %}
                             {% endfor %}   
-
-                            Среда<br>
+                            <span class="buy-now__block__discription__day">
+                                Среда
+                            </span>            
+                            <br>
                             {% for b in a.menu_items.all %}
                                 {% for  c in b.days_list.all  %}
                                     {% if c.days_name == 'Среда' %}
@@ -134,8 +139,10 @@
                                     {% endif %}
                                 {% endfor %}
                             {% endfor %}
-
-                            Четверг<br>
+                            <span class="buy-now__block__discription__day">
+                                Четверг
+                            </span>        
+                            <br>
                             {% for b in a.menu_items.all %}
                                 {% for  c in b.days_list.all  %}
                                     {% if c.days_name == 'Четверг' %}
@@ -145,8 +152,10 @@
                                     {% endif %}
                                 {% endfor %}
                             {% endfor %}  
-
-                            Пятница<br>
+                            <span class="buy-now__block__discription__day">
+                                Пятница
+                            </span>        
+                            <br>
                             {% for b in a.menu_items.all %}
                                 {% for  c in b.days_list.all  %}
                                     {% if c.days_name == 'Пятница' %}
@@ -156,8 +165,10 @@
                                     {% endif %}
                                 {% endfor %}
                             {% endfor %}   
-
-                            Суббота<br>
+                            <span class="buy-now__block__discription__day">
+                                Суббота
+                            </span>        
+                            <br>
                             {% for b in a.menu_items.all %}
                                 {% for  c in b.days_list.all  %}
                                     {% if c.days_name == 'Суббота' %}
@@ -167,8 +178,10 @@
                                     {% endif %}
                                 {% endfor %}
                             {% endfor %}   
-
-                            Воскресенье<br>
+                            <span class="buy-now__block__discription__day">
+                                Воскресенье
+                            </span>        
+                            <br>
                             {% for b in a.menu_items.all %}
                                 {% for  c in b.days_list.all  %}
                                     {% if c.days_name == 'Воскресенье' %}
