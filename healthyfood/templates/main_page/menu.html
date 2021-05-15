@@ -1,5 +1,6 @@
 {% extends "main_page/page.html" %}
 {% load static %}
+{% load i18n  %}
 
 {% block menu %}
 
@@ -86,27 +87,27 @@
 <div class="buy-now__block">
     <div class="buy-now__block__days">
         <div class="buy-now__block__days__item buy-now__block__days__first active ">
-            <h2>На 10 дней</h2>
-            <p>Получите счёт 25 000 Healthy Bonus</p>
+            <h2>{% trans 'На 10 дней' %}</h2>
+            <p>{% trans 'Получите счёт' %} 25 000 Healthy Bonus</p>
         </div>
         <div class="buy-now__block__days__item buy-now__block__days__second  ">
-            <h2>На 15 дней</h2>
-            <p>Получите счёт 25 000 Healthy Bonus</p>
+            <h2>{% trans 'На 15 дней' %}</h2>
+            <p>{% trans 'Получите счёт' %} 25 000 Healthy Bonus</p>
         </div>
     </div>
 
        {% for a in menu %}
        <div class="buy-now__block__discription">
         <div class="buy-now__slider__item">
-            <p class="buy-now__block__discription__small-text">Ваш заказ</p>
+            <p class="buy-now__block__discription__small-text">{% trans 'Ваш заказ' %}</p>
             <h2 class="buy-now__block__discription__header">
 
                             <span class="buy-now__block__discription__day">
-                                Понедельник
+                                {% trans 'Понедельник' %}
                             </span><br>
                             {% for b in a.menu_items.all %}
                                 {% for  c in b.days_list.all  %}
-                                    {% if c.days_name == 'Понедельник' %}
+                                    {% if c.days_name == 'Понедельник' or c.days_name == 'Dushanba'%}
                                     <span class="buy-now__block__discription__food">
                                         {{b.name}}<br>  
                                     </span>
@@ -114,12 +115,12 @@
                                 {% endfor %}
                             {% endfor %}
                             <span class="buy-now__block__discription__day">
-                                Вторник
+                                {% trans 'Вторник' %}
                             </span>
                             <br>
                             {% for b in a.menu_items.all %}
                                 {% for  c in b.days_list.all  %}
-                                    {% if c.days_name == 'Вторник' %}
+                                    {% if c.days_name == 'Вторник' or c.days_name == 'Seshanba' %}
                                     <span class="buy-now__block__discription__food">
                                         {{b.name}}<br>  
                                     </span>
@@ -127,12 +128,12 @@
                                 {% endfor %}
                             {% endfor %}   
                             <span class="buy-now__block__discription__day">
-                                Среда
+                                {% trans 'Среда' %}
                             </span>            
                             <br>
                             {% for b in a.menu_items.all %}
                                 {% for  c in b.days_list.all  %}
-                                    {% if c.days_name == 'Среда' %}
+                                    {% if c.days_name == 'Среда' or c.days_name == 'Chorshanba' %}
                                     <span class="buy-now__block__discription__food">
                                         {{b.name}}<br> 
                                     </span> 
@@ -140,12 +141,12 @@
                                 {% endfor %}
                             {% endfor %}
                             <span class="buy-now__block__discription__day">
-                                Четверг
+                                {% trans 'Четверг' %}
                             </span>        
                             <br>
                             {% for b in a.menu_items.all %}
                                 {% for  c in b.days_list.all  %}
-                                    {% if c.days_name == 'Четверг' %}
+                                    {% if c.days_name == 'Четверг' or c.days_name == 'Payshanba' %}
                                     <span class="buy-now__block__discription__food">
                                         {{b.name}}<br> 
                                     </span> 
@@ -153,12 +154,12 @@
                                 {% endfor %}
                             {% endfor %}  
                             <span class="buy-now__block__discription__day">
-                                Пятница
+                                {% trans 'Пятница' %}
                             </span>        
                             <br>
                             {% for b in a.menu_items.all %}
                                 {% for  c in b.days_list.all  %}
-                                    {% if c.days_name == 'Пятница' %}
+                                    {% if c.days_name == 'Пятница' or c.days_name == 'Juma' %}
                                     <span class="buy-now__block__discription__food">
                                         {{b.name}}<br> 
                                     </span> 
@@ -166,12 +167,12 @@
                                 {% endfor %}
                             {% endfor %}   
                             <span class="buy-now__block__discription__day">
-                                Суббота
+                                {% trans 'Суббота' %}
                             </span>        
                             <br>
                             {% for b in a.menu_items.all %}
                                 {% for  c in b.days_list.all  %}
-                                    {% if c.days_name == 'Суббота' %}
+                                    {% if c.days_name == 'Суббота' or c.days_name == 'Shanba' %}
                                     <span class="buy-now__block__discription__food">
                                         {{b.name}}<br> 
                                     </span> 
@@ -179,12 +180,12 @@
                                 {% endfor %}
                             {% endfor %}   
                             <span class="buy-now__block__discription__day">
-                                Воскресенье
+                                {% trans 'Воскресенье' %}
                             </span>        
                             <br>
                             {% for b in a.menu_items.all %}
                                 {% for  c in b.days_list.all  %}
-                                    {% if c.days_name == 'Воскресенье' %}
+                                    {% if c.days_name == 'Воскресенье' or c.days_name == 'Yakshanba' %}
                                     <span class="buy-now__block__discription__food">
                                         {{b.name}}<br> 
                                     </span> 
@@ -193,22 +194,22 @@
                             {% endfor %}       
       
             </h2>
-            <p class="buy-now__block__discription__text">Сбалансированное питание, в короткие сроки помогает избавится  от лишнего веса</p>
+            <p class="buy-now__block__discription__text">{% trans 'Сбалансированное питание, в короткие сроки помогает избавится  от лишнего веса' %}</p>
             {% if a.discount %}
-                <p class="buy-now__block__discription__price">Новая цена:</p>
-                <b class="new-price">{{a.discount}}сумм</b>
-                <b class="old-price">{{a.price}}сумм</b>
+                <p class="buy-now__block__discription__price">{% trans 'Новая цена' %}:</p>
+                <b class="new-price">{{a.discount}}{% trans 'сумм' %}</b>
+                <b class="old-price">{{a.price}}{% trans 'сумм' %}</b>
             {% else %}
-                <p class="buy-now__block__discription__price">Цена:</p>
-                <b class="new-price">{{a.price}}сумм</b>
+                <p class="buy-now__block__discription__price">{% trans 'Цена' %}:</p>
+                <b class="new-price">{{a.price}}{% trans 'сумм' %}</b>
             {% endif %}
             <div class="buy-now__block__discription__buttons">
                 <a href="{% if user.is_authenticated %}
                 {% url 'add-to-cart' a.category.name a.category.gramm %}
                 {% else %}
                 {% url 'login' %}
-                {% endif %}"><button class="buy-now__block__discription__buttons__item item-1" >Заказать сейчас</button></a>
-                <a href="#popup" class="popup-link"> <button class="buy-now__block__discription__buttons__item  item-2">Бесплатная консультация</button></a>
+                {% endif %}"><button class="buy-now__block__discription__buttons__item item-1" >{% trans 'Заказать сейчас' %}</button></a>
+                <a href="#popup" class="popup-link"> <button class="buy-now__block__discription__buttons__item  item-2">{% trans 'Бесплатная консультация' %}</button></a>
             </div>
         </div>
     </div>
@@ -218,13 +219,13 @@
 <div class="buy-now__bonus">
     <div class="buy-now__bonus__item">
         <img src="{% static '/images/present.svg' %}" alt="" class="buy-now__bonus__item__image">
-        <h3 class="buy-now__bonus__item__header">Приветственный бонус</h3>
-        <p class="buy-now__bonus__item__discription"> Закажи у нас любой пакет и получи на свой счёт 25 000 Healthy Bonus</p>
+        <h3 class="buy-now__bonus__item__header"> {% trans 'Приветственный бонус' %}</h3>
+        <p class="buy-now__bonus__item__discription"> {% trans 'Закажи у нас любой пакет и получи на свой счёт 25 000 Healthy Bonus' %}</p>
     </div>
     <div class="buy-now__bonus__item">
         <img src="{% static '/images/present-2.svg' %}" alt="" class="buy-now__bonus__item__image">
-        <h3 class="buy-now__bonus__item__header">Семейный бонус</h3>
-        <p class="buy-now__bonus__item__discription">Оформи доставку более 2 пакетов на один адрес и получи 10 000 на свой счёт Healthy Bonus</p>
+        <h3 class="buy-now__bonus__item__header">{% trans 'Семейный бонус' %}</h3>
+        <p class="buy-now__bonus__item__discription">{% trans 'Оформи доставку более 2 пакетов на один адрес и получи 10 000 на свой счёт Healthy Bonus' %}</p>
     </div>
 </div>
 </div> 
@@ -234,7 +235,7 @@
 {% block reviews %}
 {% if reviews %}
 <div class="reviews">
-    <h1 class="reviews__header">Они похудели вместе с нами</h1>
+    <h1 class="reviews__header">  {% trans 'Они похудели вместе с нами' %}</h1>
     <div class="reviews__slider" id="slider-5">
             {% for a in reviews %}
             <div class="reviews__item">
@@ -253,9 +254,14 @@
                             <h2 class="reviews__slider__item__info__name">{{a.name}}{% if a.age %},
                                 {{a.age}} лет
                             {% endif %} </h2>
-                            <a href="#menu"><button class="reviews__slider__item__info__button-menu">Меню для срочного снижения веса</button></a>
+                            <a href="#menu"><button class="reviews__slider__item__info__button-menu">  
+                                {% trans 'Меню' %} 
+                                {% for a in menu  %}
+                                    {{a.category.name}} {{a.category.gramm}} {% trans 'ккал' %}
+                                {% endfor %}
+                            </button></a>
                             <div class="reviews__slider__item__info__text">“{{a.text}}”</div>
-                            <a href="#popup" class="popup-link"><button class="reviews__slider__item__info__button">Я тоже хочу похудеть</button></a>
+                            <a href="#popup" class="popup-link"><button class="reviews__slider__item__info__button"> {% trans 'Я тоже хочу похудеть' %}</button></a>
                         </div>
                     </div>
                 </div>

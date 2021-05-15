@@ -1,5 +1,5 @@
 {% extends "main_page/page.html" %}
-
+{% load i18n  %}
 
 {% block bootstrap %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -7,14 +7,14 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-        <h2 class="personal__navigate">{{user.username}}/<a href="{% url 'logout' %}">Выйти</a>/ <a href="{% url 'account' %} ">Вернуться в корзину</a></h2>
+        <h2 class="personal__navigate">{{user.username}}/<a href="{% url 'logout' %}">{% trans 'Выйти' %}</a>/ <a href="{% url 'account' %} ">{% trans 'Вернуться в корзину' }</a></h2>
     {% else %}
     <h2 class="personal__navigate">
         <a href="{% url 'login' %} ">{% trans 'Войти' %}</a>/
         <a href="{% url 'signup' %} ">{% trans 'Зарегестрироваться' %}</a>
     </h2>
     {% endif %}
-    <h3 class="text-center mt-5 mb-5">Оформление заказа {% if not cart.products.count %}пуст{% endif %}</h3>
+    <h3 class="text-center mt-5 mb-5">{% trans 'Оформление заказа' %} {% if not cart.products.count %} {% trans 'пуст' %} {% endif %}</h3>
         <div class="cart">
             <table class="table">
                 <thead>
@@ -31,7 +31,7 @@
                     <tr>
                         <th scope="row">{{item.product}}</th>
 
-                            <td>{{ item.product.price }} сум.</td>
+                            <td>{{ item.product.price }} {% trans 'сум.' %}</td>
                         <td> 
                             <form action="{% url 'change_count' item.product.category.name item.product.category.gramm %}" method="POST">
                                 {% csrf_token %}
@@ -45,7 +45,7 @@
                         <td colspan="2"></td>
                         <td>Итого:</td>
                         <td>{{ cart.total_products }} {% trans 'шт.' %}</td>
-                        <td><strong>{{ cart.final_price }} сум.</strong></td>
+                        <td><strong>{{ cart.final_price }} {% trans 'сум.' %}</strong></td>
                     </tr>
                 </tbody>
               </table>

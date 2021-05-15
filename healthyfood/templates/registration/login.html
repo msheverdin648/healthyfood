@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load i18n  %}
 {% block content %}
 
 
@@ -11,8 +11,18 @@
         <form method="post" class="form">
             
         {% csrf_token %}
-
-        {{ form.as_p }}
+        {{ form.non_field_errors }}
+        <p class="fieldWrapper">
+            {{ form.username.errors }}
+            <label for="{{ form.subject.id_for_label }}">{% trans 'Логин:' %}</label>
+            {{ form.username }}
+        </p>
+        <p class="fieldWrapper">
+            {{ form.password.errors }}
+            <label for="{{ form.password1.id_for_label }}">{% trans 'Пароль:' %}</label>
+            {{ form.password }}
+        </p>
+        
 
         <button type="submit"> {% trans 'Войти' %}</button>
 

@@ -204,12 +204,12 @@ class CategoryDetailView(DetailView):
 class Account(CartMixin, View):
 
     def get(self, request, *args, **kwargs):
-
+        header_slider = HeaderSlider.objects.all()
         customer = Customer.objects.filter(user = request.user)
         return render(request, 'main_page/personal-account.html', {
             'customer': customer,
             'cart' : self.cart,
-
+            'header_slider': header_slider,
         })
     
 
@@ -217,13 +217,14 @@ class CheckOutView(CartMixin, View):
 
     def get(self, request, *args, **kwargs):
 
-
+        header_slider = HeaderSlider.objects.all()
         form = OrderForm(request.POST or None)
         customer = Customer.objects.filter(user = request.user)
         return render(request, 'main_page/checkout.html', {
             'customer': customer,
             'cart' : self.cart,
-            'form': form
+            'form': form,
+            'header_slider': header_slider,
         })
     
 

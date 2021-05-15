@@ -77,6 +77,61 @@ html {
   font-size: 18px;
 }
 
+.language {
+  border-radius: 13px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #FBFBFB;
+  border: none;
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.language::before {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  background: #FBFBFB url("../../images/green-arrow-down.svg") center no-repeat;
+  border-radius: 100%;
+}
+
+.language:hover {
+  cursor: pointer;
+}
+
+.language select {
+  border: none;
+  padding-right: 20px;
+}
+
+.language select:hover {
+  cursor: pointer;
+}
+
+.language__button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 10px;
+  background: #FFC702;
+  border: none;
+}
+
+.language__button:hover {
+  cursor: pointer;
+}
+
+.language option {
+  border-radius: 53px;
+}
+
 .popup {
   position: fixed;
   width: 100%;
@@ -864,7 +919,7 @@ html {
   display: -ms-flexbox;
   display: flex;
   margin: 0px 15px 40px 15px;
-  padding: 20px 19px 0px 23px;
+  padding: 20px 19px 15px 23px;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 25%;
           flex: 1 1 25%;
@@ -1698,9 +1753,8 @@ html {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 33.33%;
-          flex: 1 1 33.33%;
+  width: 240px;
+  min-height: 120px;
 }
 
 .questions__section__item:hover {
@@ -2121,6 +2175,16 @@ html {
   }
   .container {
     padding: 0 20px;
+  }
+  .container2 {
+    max-width: 98%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-bottom: 20px;
   }
   .header {
     background: url("../../images/header-bg-mob.png");

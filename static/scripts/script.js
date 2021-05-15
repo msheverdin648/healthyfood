@@ -156,6 +156,11 @@ $(document).ready(function(){
             $(big_block2).removeClass('active');
             $(big_block3).removeClass('active');
             $(big_block4).addClass('active');
+        }else if ($(small_block9).hasClass('active') || $(small_block10).hasClass('active')){
+            $(big_block1).removeClass('active');
+            $(big_block2).removeClass('active');
+            $(big_block3).removeClass('active');
+            $(big_block4).removeClass('active');
         }
     };
 

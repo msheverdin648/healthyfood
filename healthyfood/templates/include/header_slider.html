@@ -1,0 +1,28 @@
+{% load static %}
+{% load i18n %}
+
+<div class="container">
+    {% if header_slider%}
+<div class="header__slider" id="slider-1">
+    
+     {% for a in header_slider%}
+
+     <div class="header__slider__item">
+        <h3>{{a.main_text}}</h3>
+        {% if a.small_text %}
+            <p>{{a.small_text}}</p>
+        {% endif %}
+        {% if a.button %}
+            <a href="#popup" class="popup-link">
+                <button class="header__slider__item__button"> {{a.button}} </button>
+            </a>
+        {% endif %}
+        
+    </div>
+     {%endfor%}
+   
+    
+</div>
+ {% endif %}
+</div>
+</div>

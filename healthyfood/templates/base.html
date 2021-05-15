@@ -55,17 +55,17 @@
                     <div class="popup__title"><h2>{% trans 'Напишите свой вопрос и наш менеджер с вами свяжется' %}</h2></div>
                     <div class="popup__input__block">
                         <label for="phone" class="popup__lable">{% trans 'Введите ваше Ф.И.О.' %} </label>
-                        <input name="name" id="name"  placeholder="{% trans Иванов Иван Иванович %}" class="popup__input" required>
+                        <input name="name" id="name"  placeholder="Иванов Иван Иванович" class="popup__input" required>
                     </div>
                     <div class="popup__input__block">
                         <label for="phone" class="popup__lable">{% trans 'Оставьте ваш номер телефона, чтобы мы могли связаться с вами' %}</label>
                         <input name="phone" id="phone"  placeholder="+998(___)-__-__" class="popup__input" required> 
                     </div>
                     <div class="popup__input__block">
-                        <textarea name="communication" id="" cols="30" rows="10" placeholder="{% trans Введите ваше сообщение %}" class="popup__textarea" required></textarea>
+                        <textarea name="communication" id="" cols="30" rows="10" placeholder="Введите ваше сообщение" class="popup__textarea" required></textarea>
                     </div>
                     <div class="popup__input__block">
-                       <input type="submit" value="{% trans Отправить сообщение %}" class="popup__button">
+                       <input type="submit" value="Отправить сообщение" class="popup__button">
                     </div>
                 </div>
             </div>
@@ -121,31 +121,34 @@
                 <div class="container2">
                     <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
                         <input type="text" type="hidden" class="hide" value="{{ redirect_to }}">
-                        <select name="language">
-                            {%  get_current_language as LANGUAGE_CODE %}
-                            {%  get_available_languages as LANGUAGES %}
-                            {%  get_language_info_list for LANGUAGES as languages %}
-                            {% for language in languages %}
-                                <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}
-                                            selected{% endif %}>
-                                        {{ language.name_local }} ({{ language.code}})
-
-                                </option>
-                            {% endfor %}
-                            
-                        </select>
-                        <input type="submit" value="Go">
+                        <div class="language">
+                            <select name="language">
+                                {%  get_current_language as LANGUAGE_CODE %}
+                                {%  get_available_languages as LANGUAGES %}
+                                {%  get_language_info_list for LANGUAGES as languages %}
+                                {% for language in languages %}
+                                    <option  class="language__item" value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}
+                                                selected{% endif %}>
+                                            {{ language.name_local }} ({{ language.code}})
+                                            
+                                    </option>
+                                {% endfor %}
+                                
+                            </select>
+                        </div>
+                        <input type="submit" value="Go" class="language__button">
 
                     </form>
                 </div>
-             {% block headerslider %}
-                
-             {% endblock headerslider %}
-            
+             
+                {% include "include/header_slider.html" %}
          </header>
     
-    
-         {% block content %}{% endblock content %}
+         <div class="page">
+            
+            {% block content %}{% endblock content %}   
+         </div>
+         
         <footer class="footer">
             <div class="footer__block">
                 <div class="footer__block__item logo">
@@ -156,8 +159,12 @@
                     <p class="nav__header">{% trans 'Навигация' %}</p>
                     <a href="{% url 'headers' %}" class="nav__item">{% trans 'Меню и тарифы' %}</a>
                     <a href="{% url 'blog' %}" class="nav__item">{% trans 'Блог' %}</a>
-                    <a href="{% url 'account' %}" class="nav__item">{% trans 'Личный кабинет' %}</a>
-                    <a href="#calculator" class="nav__item">{% trans 'Калькулятор питания' %}</a>
+                    <a href="{% if user.is_authenticated %}
+                    {% url 'account' %}
+                    {% else %}
+                    {% url 'login' %}
+                    {% endif %}" class="nav__item">{% trans 'Личный кабинет' %}</a>
+                    <a href="{% url 'headers' %}#calculator" class="nav__item">{% trans 'Калькулятор питания' %}</a>
                     <a href="#header_logo" class="nav__item">{% trans 'Карта сайта' %}</a>
                 </div>
                 <div class="footer__block__item menu">

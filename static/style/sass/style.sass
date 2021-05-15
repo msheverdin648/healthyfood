@@ -13,6 +13,11 @@ button,
 textarea
     font-family: inherit
 
+.container2
+    max-width: 66%
+    margin: 0 auto
+    display: flex
+    justify-content: flex-end
 
 .main
     overflow: hidden
@@ -32,6 +37,47 @@ html
 #phone
     font-size: 18px
 
+.language
+    border-radius: 13px
+    padding: 10px 20px
+    font-size: 16px
+    background: #FBFBFB
+    border: none
+    position: relative
+    display: inline-block
+    margin-right: 10px
+    &::before
+        content: ""
+        display: block
+        width: 30px
+        height: 30px
+        position: absolute
+        top: 50%
+        right: 15px
+        transform: translateY(-50%)
+        background: #FBFBFB url("../../images/green-arrow-down.svg") center no-repeat
+        border-radius: 100%
+    &:hover
+        cursor: pointer
+    select
+        border: none
+        padding-right: 20px
+        &:hover
+            cursor: pointer
+        
+    
+    &__button
+        display: inline-block
+        padding: 10px 20px
+        font-size: 16px
+        border-radius: 10px
+        background: #FFC702
+        border: none
+        &:hover
+            cursor: pointer
+
+    option
+        border-radius: 53px
 .popup
     position: fixed
     width: 100%
@@ -589,7 +635,7 @@ html
         &__block
             display: flex
             margin: 0px 15px 40px 15px  
-            padding: 20px 19px 0px 23px
+            padding: 20px 19px 15px 23px
             flex: 1 1 25%
             height: 119px
             border: 1px solid #4C9162
@@ -1158,7 +1204,8 @@ html
             padding: 0 0 0 27px
             align-items: center
             justify-content: space-between
-            flex: 1 1 33.33%
+            width: 240px
+            min-height: 120px
             &:hover
                 cursor: pointer
             &:nth-child(1)
@@ -1474,7 +1521,11 @@ html
     .container
         padding: 0 20px
 
- 
+    .container2
+        max-width: 98%
+        display: flex
+        justify-content: center
+        margin-bottom: 20px
 
     .header
         background: url('../../images/header-bg-mob.png')

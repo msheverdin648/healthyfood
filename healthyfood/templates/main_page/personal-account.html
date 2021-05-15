@@ -1,5 +1,6 @@
-{% extends "main_page/page.html" %}
 
+{% extends "main_page/page.html" %}
+{% load i18n  %}
 
 {% block bootstrap %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -28,21 +29,21 @@
                     <th scope="col">{% trans 'Цена' %}</th>
                     <th scope="col">{% trans 'Кол-во:' %} </th>
                     <th scope="col">{% trans 'Цена со скидкой:' %}</th>
-                    <th scope="col">{% trans 'Действие': %}</th>
+                    <th scope="col">{% trans 'Действие' %}:</th>
                   </tr>
                 </thead>
                 <tbody>
                     {% for item in cart.products.all  %}
                     <tr>
                         <th scope="row">{{item.product}}</th>
-                        <td>{{ item.product.price }} сум.</td>
+                        <td>{{ item.product.price }}  {% trans "сум." %} </td>
                         <td> 
                             <form action="{% url 'change_count' item.product.category.name item.product.category.gramm %}" method="POST">
                                 {% csrf_token %}
         
                                 <input type="number" class="form-control" name='count' value="{{item.count}}" style='width: 70px;' min='1'>
                                 <br>
-                                <input type="submit" class="btn btn-primary" value="Изменить колличество">
+                                <input type="submit" class="btn btn-primary" value= '{% trans "Изменить колличество" %}' >
                             </form>    
                         </td>
                         <td> {{item.final_price}} </td>

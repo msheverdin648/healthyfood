@@ -1,0 +1,601 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-28 22:21+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: healthyfood/templates/base.html:55
+msgid "Напишите свой вопрос и наш менеджер с вами свяжется"
+msgstr "Savolingizni yozing va menejeringiz siz bilan bog'lanadi"
+
+#: healthyfood/templates/base.html:57
+msgid "Введите ваше Ф.И.О."
+msgstr "Ismingizni kiriting"
+
+#: healthyfood/templates/base.html:61
+msgid "Оставьте ваш номер телефона, чтобы мы могли связаться с вами"
+msgstr "Sizga murojaat qilishimiz uchun telefon raqamingizni qoldiring"
+
+#: healthyfood/templates/base.html:91 healthyfood/templates/base.html:160
+msgid "Меню и тарифы"
+msgstr "Menyu va tariflar"
+
+#: healthyfood/templates/base.html:94 healthyfood/templates/base.html:161
+msgid "Блог"
+msgstr "Blog"
+
+#: healthyfood/templates/base.html:101 healthyfood/templates/base.html:166
+msgid "Личный кабинет"
+msgstr "Shaxsiy kabinet"
+
+#: healthyfood/templates/base.html:115
+msgid "Перезвонить мне"
+msgstr "Menga qo'ng'iroq qiling"
+
+#: healthyfood/templates/base.html:156
+msgid "Все права защищены. 2020."
+msgstr "Barcha huquqlar himoyalangan. 2020."
+
+#: healthyfood/templates/base.html:159
+msgid "Навигация"
+msgstr "Navigasiya"
+
+#: healthyfood/templates/base.html:167
+msgid "Калькулятор питания"
+msgstr "Oziq-ovqat miqdorini hosblash"
+
+#: healthyfood/templates/base.html:168
+msgid "Карта сайта"
+msgstr "Sayt xaritasi"
+
+#: healthyfood/templates/base.html:172
+#: healthyfood/templates/main_page/page.html:81
+msgid "Снижение веса"
+msgstr "Baznni kamaytiruvchi"
+
+#: healthyfood/templates/base.html:173
+msgid "Для спортсменов"
+msgstr "Sportsmenlar uchun"
+
+#: healthyfood/templates/base.html:174
+#: healthyfood/templates/main_page/page.html:83
+msgid "Сбалансированное питание"
+msgstr "Meyoridagi oziqa"
+
+#: healthyfood/templates/base.html:175
+msgid "Индивидуальное питание"
+msgstr "Shaxsan siz uchun oziqa"
+
+#: healthyfood/templates/base.html:176
+msgid "Сахарный диабет"
+msgstr "Saxarniy diabet"
+
+#: healthyfood/templates/base.html:177
+msgid "Питание при заболеваниях"
+msgstr "Kasalliklar uchun oziqa"
+
+#: healthyfood/templates/base.html:178
+msgid "Вегетарианское меню"
+msgstr "Vegetariyancha menyu"
+
+#: healthyfood/templates/base.html:179
+msgid "Белковая диета"
+msgstr "Oqsilli parhez"
+
+#: healthyfood/templates/base.html:180
+msgid "ОФИС ПАКЕТ"
+msgstr "Ofis-to'plam"
+
+#: healthyfood/templates/base.html:181
+msgid "VIP-меню"
+msgstr "VIP menyu"
+
+#: healthyfood/templates/base.html:184
+msgid "Наши контакты"
+msgstr "Biz bilan bog'lanish uchun"
+
+#: healthyfood/templates/base.html:194
+msgid "Политика конфиденциальности"
+msgstr "Maxfiylik siyosati"
+
+#: healthyfood/templates/base.html:199
+msgid "Мисия компании:"
+msgstr "Kompaniya vazifalari"
+
+#: healthyfood/templates/base.html:200
+msgid ""
+"С другой стороны укрепление и развитие структуры позволяет оценить значение "
+"позиций, занимаемых участниками в отношении поставленных задач. Не следует, "
+"однако забывать, что начало повседневной работы по формированию позиции в "
+"значительной степени обуславливает создание соответствующий условий "
+"активизации."
+msgstr ""
+"Boshqa tomondan, strukturaning mustaxkamlanishi va rivojlanishi uchun "
+"ishtirokchilar tomonidan quyilgan yo'nalishlarining belgilangan vazifalariga "
+"nisbatan ahamiyatini baholashga imkon beradi. Shuni esdan chiqarmaslik "
+"kerak, yo'nalishini shakillantirish bo'yicha kundalik ishlarining "
+"boshlanishi asosan tegishli shartlarni yaratishni belgilaydi."
+
+#: healthyfood/templates/blog/blog_detail.html:7
+msgid "Назад к постам"
+msgstr "Postlarga qaytib"
+
+#: healthyfood/templates/main_page/checkout.html:10
+#: healthyfood/templates/main_page/orders.html:11
+#: healthyfood/templates/main_page/personal-account.html:12
+msgid "Выйти"
+msgstr "Chiqish"
+
+#: healthyfood/templates/main_page/checkout.html:13
+#: healthyfood/templates/main_page/orders.html:14
+#: healthyfood/templates/main_page/personal-account.html:17
+#: healthyfood/templates/registration/login.html:27
+#: healthyfood/templates/signup.html:7
+msgid "Войти"
+msgstr "Kirish"
+
+#: healthyfood/templates/main_page/checkout.html:14
+#: healthyfood/templates/main_page/orders.html:15
+#: healthyfood/templates/main_page/personal-account.html:18
+#: healthyfood/templates/signup.html:45
+msgid "Зарегестрироваться"
+msgstr "Ro'yxatdan o'tish"
+
+#: healthyfood/templates/main_page/checkout.html:17
+#, fuzzy
+#| msgid "Оформить заказ"
+msgid "Оформление заказа"
+msgstr "Buyurtma berish"
+
+#: healthyfood/templates/main_page/checkout.html:17
+#, fuzzy
+#| msgid "пуста"
+msgid "пуст"
+msgstr "bo'sh"
+
+#: healthyfood/templates/main_page/checkout.html:22
+#: healthyfood/templates/main_page/personal-account.html:28
+msgid "Наименование меню"
+msgstr "Menyu nomi"
+
+#: healthyfood/templates/main_page/checkout.html:23
+#: healthyfood/templates/main_page/menu.html:203
+#: healthyfood/templates/main_page/personal-account.html:29
+msgid "Цена"
+msgstr "Narx"
+
+#: healthyfood/templates/main_page/checkout.html:24
+#: healthyfood/templates/main_page/personal-account.html:30
+msgid "Кол-во:"
+msgstr "Miqdori"
+
+#: healthyfood/templates/main_page/checkout.html:25
+#: healthyfood/templates/main_page/personal-account.html:31
+msgid "Цена со скидкой:"
+msgstr "Chegirma bilan narx:"
+
+#: healthyfood/templates/main_page/checkout.html:26
+msgid "Действие:"
+msgstr "Harakat"
+
+#: healthyfood/templates/main_page/checkout.html:34
+#: healthyfood/templates/main_page/checkout.html:48
+#: healthyfood/templates/main_page/orders.html:36
+#: healthyfood/templates/main_page/personal-account.html:39
+msgid "сум."
+msgstr "so'm"
+
+#: healthyfood/templates/main_page/checkout.html:47
+#: healthyfood/templates/main_page/orders.html:34
+msgid "шт."
+msgstr "qismlari"
+
+#: healthyfood/templates/main_page/checkout.html:54
+msgid "Форма заказа"
+msgstr "Buyurtma shakli"
+
+#: healthyfood/templates/main_page/checkout.html:59
+msgid "Оформить заказ"
+msgstr "Buyurtma berish"
+
+#: healthyfood/templates/main_page/menu.html:14
+#: healthyfood/templates/main_page/menu.html:259
+#: healthyfood/templates/main_page/page.html:143
+msgid "ккал"
+msgstr "kkal"
+
+#: healthyfood/templates/main_page/menu.html:48
+msgid "Ккал"
+msgstr "Kkal"
+
+#: healthyfood/templates/main_page/menu.html:49
+msgid "грамм"
+msgstr "gramm"
+
+#: healthyfood/templates/main_page/menu.html:50
+msgid "белков"
+msgstr "oqsillar"
+
+#: healthyfood/templates/main_page/menu.html:51
+msgid "жиров"
+msgstr "yog'lar"
+
+#: healthyfood/templates/main_page/menu.html:52
+msgid "углев."
+msgstr "uglevodlar"
+
+#: healthyfood/templates/main_page/menu.html:55
+msgid "Описание блюда:"
+msgstr "Idishning ta'rifi"
+
+#: healthyfood/templates/main_page/menu.html:64
+msgid "Заказать прямо сейчас"
+msgstr "Hozir buyurtma berish"
+
+#: healthyfood/templates/main_page/menu.html:65
+#: healthyfood/templates/main_page/menu.html:212
+msgid "Бесплатная консультация"
+msgstr "Bepul maslahat"
+
+#: healthyfood/templates/main_page/menu.html:90
+msgid "На 10 дней"
+msgstr "10 kun davomida"
+
+#: healthyfood/templates/main_page/menu.html:91
+#: healthyfood/templates/main_page/menu.html:95
+msgid "Получите счёт"
+msgstr "Hisobni oling"
+
+#: healthyfood/templates/main_page/menu.html:94
+msgid "На 15 дней"
+msgstr "15 kun davomida"
+
+#: healthyfood/templates/main_page/menu.html:102
+#, fuzzy
+#| msgid "Ваши заказы"
+msgid "Ваш заказ"
+msgstr "Sizning buyurtmalaringiz"
+
+#: healthyfood/templates/main_page/menu.html:106
+msgid "Понедельник"
+msgstr "Dushanba"
+
+#: healthyfood/templates/main_page/menu.html:118
+msgid "Вторник"
+msgstr "Seshanba"
+
+#: healthyfood/templates/main_page/menu.html:131
+msgid "Среда"
+msgstr "Chorshanba"
+
+#: healthyfood/templates/main_page/menu.html:144
+msgid "Четверг"
+msgstr "Payshanba"
+
+#: healthyfood/templates/main_page/menu.html:157
+msgid "Пятница"
+msgstr "Juma"
+
+#: healthyfood/templates/main_page/menu.html:170
+msgid "Суббота"
+msgstr "Shanba"
+
+#: healthyfood/templates/main_page/menu.html:183
+msgid "Воскресенье"
+msgstr "Yakshanba"
+
+#: healthyfood/templates/main_page/menu.html:197
+msgid ""
+"Сбалансированное питание, в короткие сроки помогает избавится  от лишнего веса"
+msgstr "Balansli ovqatlanish, qisqa vaqt ichida ortiqcha vazndan xalos bo'lishga yordam beradi"
+
+#: healthyfood/templates/main_page/menu.html:199
+#, fuzzy
+#| msgid "Моя цель"
+msgid "Новая цена"
+msgstr "Mening maqsadim ozish"
+
+#: healthyfood/templates/main_page/menu.html:200
+#: healthyfood/templates/main_page/menu.html:201
+#: healthyfood/templates/main_page/menu.html:204
+msgid "сумм"
+msgstr "so'm"
+
+#: healthyfood/templates/main_page/menu.html:211
+#, fuzzy
+#| msgid "Заказать прямо сейчас"
+msgid "Заказать сейчас"
+msgstr "Hozir buyurtma berish"
+
+#: healthyfood/templates/main_page/menu.html:222
+msgid "Приветственный бонус"
+msgstr "Xush kelibsiz bonus"
+
+#: healthyfood/templates/main_page/menu.html:223
+msgid "Закажи у нас любой пакет и получи на свой счёт 25 000 Healthy Bonus"
+msgstr ""
+"Bizdan har qanday paketni buyurtma qiling va hisobingizga 25 000 Healthy "
+"Bonus "
+
+#: healthyfood/templates/main_page/menu.html:227
+msgid "Семейный бонус"
+msgstr "Oilaviy bonus"
+
+#: healthyfood/templates/main_page/menu.html:228
+msgid ""
+"Оформи доставку более 2 пакетов на один адрес и получи 10 000 на свой счёт "
+"Healthy Bonus"
+msgstr ""
+"Formi bir manzilga 2 dan ortiq paketlarni etkazib beradi va hisobingizga 10 "
+"000ni oladi Healthy Bonus"
+
+#: healthyfood/templates/main_page/menu.html:238
+msgid "Они похудели вместе с нами"
+msgstr "Ular biz bilan birga vazn yo'qotishdi"
+
+#: healthyfood/templates/main_page/menu.html:257
+msgid "Меню"
+msgstr "Menyu"
+
+#: healthyfood/templates/main_page/menu.html:263
+msgid "Я тоже хочу похудеть"
+msgstr "Men ham kilogramm berishni xohlayman"
+
+#: healthyfood/templates/main_page/orders.html:11
+#, fuzzy
+#| msgid "Удалить из корзины"
+msgid "Вернуться в корзину"
+msgstr "Savatdan olib tashlang"
+
+#: healthyfood/templates/main_page/orders.html:18
+msgid "Ваши заказы"
+msgstr "Sizning buyurtmalaringiz"
+
+#: healthyfood/templates/main_page/orders.html:18
+msgid "отсутствуют"
+msgstr "yo'q"
+
+#: healthyfood/templates/main_page/orders.html:23
+msgid "Заказ"
+msgstr "Buyurtma"
+
+#: healthyfood/templates/main_page/orders.html:24
+msgid "Сумма"
+msgstr "so'm"
+
+#: healthyfood/templates/main_page/orders.html:25
+msgid "Адрес"
+msgstr "Manzil"
+
+#: healthyfood/templates/main_page/orders.html:26
+msgid "Дата заказа"
+msgstr "Buyurtma sanasi"
+
+#: healthyfood/templates/main_page/orders.html:27
+msgid "Статус заказа"
+msgstr "Buyurtma holati"
+
+#: healthyfood/templates/main_page/orders.html:40
+msgid "Новый заказ"
+msgstr "Yangi buyurtma"
+
+#: healthyfood/templates/main_page/orders.html:42
+msgid "Заказ в обработке"
+msgstr "Qayta ishlash tartibi"
+
+#: healthyfood/templates/main_page/orders.html:44
+msgid "Заказ готов"
+msgstr "Buyurtma tayyor"
+
+#: healthyfood/templates/main_page/orders.html:46
+msgid "Заказ прибыл"
+msgstr "Buyurtma keldi"
+
+#: healthyfood/templates/main_page/page.html:35
+msgid "Подробнее"
+msgstr "Batafsil"
+
+#: healthyfood/templates/main_page/page.html:53
+msgid "Ваш пол"
+msgstr "Jinsingiz:"
+
+#: healthyfood/templates/main_page/page.html:55
+msgid "Мужской"
+msgstr "Erkak"
+
+#: healthyfood/templates/main_page/page.html:56
+msgid "Женский"
+msgstr "Ayollar"
+
+#: healthyfood/templates/main_page/page.html:60
+msgid "Ваша активность"
+msgstr "Sizning mashg'ulotingiz:"
+
+#: healthyfood/templates/main_page/page.html:62
+msgid "Не занимаюсь спортом"
+msgstr "Sport bilan shug'ullanmayman"
+
+#: healthyfood/templates/main_page/page.html:63
+msgid "Часто хожу в зал"
+msgstr "Tez-tez zalga boraman"
+
+#: healthyfood/templates/main_page/page.html:67
+msgid "Укажите Ваш рост"
+msgstr "Bo'yingizni ko'rsating:"
+
+#: healthyfood/templates/main_page/page.html:71
+msgid "Укажите Ваш возраст"
+msgstr "Yoshingizni ko'rsating:"
+
+#: healthyfood/templates/main_page/page.html:75
+msgid "Ваш текущий вес"
+msgstr "Sizning hozirgi og'irligingiz"
+
+#: healthyfood/templates/main_page/page.html:79
+msgid "Желаемый Результат"
+msgstr "Siz hohlagan natija:"
+
+#: healthyfood/templates/main_page/page.html:82
+msgid "Набор веса"
+msgstr "Kilogramm olish"
+
+#: healthyfood/templates/main_page/page.html:91
+msgid "Рассчитать индивидуальный рацион питания"
+msgstr "Shaxsan siz uchun rejali ovqatlanishni hisoblash"
+
+#: healthyfood/templates/main_page/page.html:99
+msgid ""
+"Для тех, кому необходим особенный<br> рацион питания - <b>закажите "
+"конусльтацию!</b>"
+msgstr "Ratsionga muhtoj bo'lganlar uchun - konusni buyurtma qiling!"
+
+#: healthyfood/templates/main_page/page.html:101
+msgid "Заказать консультацию"
+msgstr "Maslahat olish uchun buyutma berish"
+
+#: healthyfood/templates/main_page/page.html:107
+msgid "Ваша цель"
+msgstr "Maqsadingiz"
+
+#: healthyfood/templates/main_page/page.html:114
+msgid "Моя цель"
+msgstr "Mening maqsadim ozish"
+
+#: healthyfood/templates/main_page/page.html:116
+#: healthyfood/templates/main_page/page.html:142
+msgid "Выбрать"
+msgstr "Tanlash"
+
+#: healthyfood/templates/main_page/page.html:127
+msgid "Выберите программу"
+msgstr "Yo'nalishni tanlash"
+
+#: healthyfood/templates/main_page/page.html:166
+msgid "Часто-задаваемые вопросы"
+msgstr "Ko'p so'raladigan savollar"
+
+#: healthyfood/templates/main_page/page.html:170
+#: healthyfood/templates/main_page/page.html:180
+#: healthyfood/templates/main_page/page.html:190
+msgid "Вопросы о"
+msgstr "Haqida savollar"
+
+#: healthyfood/templates/main_page/page.html:171
+msgid "Коррекции веса"
+msgstr "Vazn"
+
+#: healthyfood/templates/main_page/page.html:181
+msgid "Продуктах"
+msgstr "Mahsulot"
+
+#: healthyfood/templates/main_page/page.html:191
+msgid "Тарифах"
+msgstr "Tariflar"
+
+#: healthyfood/templates/main_page/page.html:229
+msgid "Хотите быстро и вкусно похудеть? Мы решим эту проблему за Вас!"
+msgstr ""
+"Tez va mazzali ozishni xohlaysizmi? Biz siz uchun bu muammoni hal qilamiz!"
+
+#: healthyfood/templates/main_page/page.html:230
+msgid ""
+"Задача организации, в особенности же постоянный количественный рост и сфера "
+"нашей активности способствует подготовки и реализации дальнейших направлений "
+"развития."
+msgstr ""
+"Tashkilotimizning vazifasi, doimiy o'sish va bizning faoliyat doiramizni "
+"rivojlanishining keyingi yo'nalishlarini tayyohlash va amalga oshirishga "
+"yordam beradi."
+
+#: healthyfood/templates/main_page/page.html:231
+msgid "Заказать рацион питания"
+msgstr "Rejali ovqatlanishni buyurtma qilish"
+
+#: healthyfood/templates/main_page/personal-account.html:13
+msgid "Мои Заказы"
+msgstr "Mening Buyurtmalarim"
+
+#: healthyfood/templates/main_page/personal-account.html:22
+msgid "Ваша корзина"
+msgstr "Sizning savatingiz"
+
+#: healthyfood/templates/main_page/personal-account.html:22
+msgid "пуста"
+msgstr "bo'sh"
+
+#: healthyfood/templates/main_page/personal-account.html:32
+msgid "Действие"
+msgstr "Harakat"
+
+#: healthyfood/templates/main_page/personal-account.html:46
+msgid "Изменить колличество"
+msgstr "Miqdor o'zgarishi"
+
+#: healthyfood/templates/main_page/personal-account.html:50
+msgid "Удалить из корзины"
+msgstr "Savatdan olib tashlang"
+
+#: healthyfood/templates/main_page/personal-account.html:55
+msgid "Итого"
+msgstr "Jami"
+
+#: healthyfood/templates/main_page/personal-account.html:56
+msgid "шт"
+msgstr "qismlari"
+
+#: healthyfood/templates/main_page/personal-account.html:58
+msgid "Перейти к оформлению"
+msgstr "Ro'yxatga o'tish"
+
+#: healthyfood/templates/registration/login.html:8
+msgid "Выход"
+msgstr "Chiqish"
+
+#: healthyfood/templates/registration/login.html:10
+msgid "Войти в аккаунт"
+msgstr "Hisobga kirish"
+
+#: healthyfood/templates/registration/login.html:10
+#: healthyfood/templates/signup.html:7
+msgid "Регистрация"
+msgstr "Ro'yxatdan o'tish"
+
+#: healthyfood/templates/registration/login.html:17
+#: healthyfood/templates/signup.html:16
+msgid "Логин:"
+msgstr "Login:"
+
+#: healthyfood/templates/registration/login.html:22
+#: healthyfood/templates/signup.html:36
+msgid "Пароль:"
+msgstr "Parol:"
+
+#: healthyfood/templates/signup.html:21
+msgid "Имя:"
+msgstr "Ismi:"
+
+#: healthyfood/templates/signup.html:26
+msgid "Фамилия:"
+msgstr "Eng ko'p ishlatiladigan"
+
+#: healthyfood/templates/signup.html:31
+msgid "Email:"
+msgstr "Email:"
+
+#: healthyfood/templates/signup.html:41
+msgid "Повторение пароля:"
+msgstr "Parolni takrorlash:"

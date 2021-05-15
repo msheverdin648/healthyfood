@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
- 
+{% load i18n  %}
 
 
 {% block content %}
@@ -7,7 +7,41 @@
         <h2 class="personal__navigate"><a href="{% url 'login' %}">{% trans 'Войти' %} </a>/{% trans 'Регистрация' %}</h2>
         <form method="post" class="form form-control">
             {% csrf_token %}
-            {{ form.as_p }}
+
+
+            <!-- {{ form.as_p }} -->
+            {{ form.non_field_errors }}
+            <p class="fieldWrapper">
+                {{ form.name.errors }}
+                <label for="{{ form.subject.id_for_label }}">{% trans 'Логин:' %}</label>
+                {{ form.username }}
+            </p>
+            <p class="fieldWrapper">
+                {{ form.sename.errors }}
+                <label for="{{ form.message.id_for_label }}">{% trans 'Имя:' %}</label>
+                {{ form.name }}
+            </p>
+            <p class="fieldWrapper">
+                {{ form.sename.errors }}
+                <label for="{{ form.message.id_for_label }}">{% trans 'Фамилия:' %}</label>
+                {{ form.sename }}
+            </p>
+            <p class="fieldWrapper">
+                {{ form.email.errors }}
+                <label for="{{ form.sender.id_for_label }}">{% trans 'Email:' %}</label>
+                {{ form.email }}
+            </p>
+            <p class="fieldWrapper">
+                {{ form.email.errors }}
+                <label for="{{ form.sender.id_for_label }}">{% trans 'Пароль:' %}</label>
+                {{ form.password1 }}
+            </p>
+            <p class="fieldWrapper">
+                {{ form.email.errors }}
+                <label for="{{ form.sender.id_for_label }}">{% trans 'Повторение пароля:' %}</label>
+                {{ form.password2 }}
+            </p>
+
             <button type="submit">{% trans 'Зарегестрироваться' %}</button>
         </form>
 

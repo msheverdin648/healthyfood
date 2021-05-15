@@ -1,5 +1,6 @@
-{% extends "main_page/page.html" %}
 
+{% extends "main_page/page.html" %}
+{% load i18n  %}
 
 {% block bootstrap %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -7,7 +8,7 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-        <h2 class="personal__navigate">{{user.username}}/<a href="{% url 'logout' %}">Выйти</a>/ <a href="{% url 'account' %} ">Вернуться в корзину</a></h2>
+        <h2 class="personal__navigate">{{user.username}}/<a href="{% url 'logout' %}">{% trans 'Выйти' %}</a>/ <a href="{% url 'account' %} ">{% trans 'Вернуться в корзину' %}</a></h2>
     {% else %}
     <h2 class="personal__navigate">
         <a href="{% url 'login' %} ">{% trans 'Войти' %}</a>/
@@ -32,7 +33,7 @@
                     <th scope="row">{% for a in item.cart.products.all %}
                       {{a.product}} {{a.count}}{% trans  'шт.' %} <br>
                     {% endfor %}</th>
-                    <td class="w-25">{{item.cart.final_price}} сум.</td>
+                    <td class="w-25">{{item.cart.final_price}} {% trans 'сум.' %}</td>
                     <td>{{ customer.adress }}</td>
                     <td>{{ item.created_at }}</td>
                     <td>{% if item.status == 'new' %}

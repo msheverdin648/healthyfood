@@ -167,7 +167,7 @@ class Reviews(models.Model):
         return self.name
 
 
-    name = models.CharField(("Имя автора"), max_length=50)
+    name = models.CharField(("Имя автора"), max_length=50, null=True, blank=True)
     age = models.CharField(("Возраст"), max_length=10, null=True, blank=True)
     text = models.TextField(("Текст отзыва"))
     before_img = models.ImageField(('Фото "до"'), upload_to='img', height_field=None, width_field=None, max_length=None, null=True, blank=True)
